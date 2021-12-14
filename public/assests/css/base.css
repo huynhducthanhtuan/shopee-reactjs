@@ -1,0 +1,91 @@
+/* CSS on all html elements */
+* {
+    box-sizing: inherit;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    /* default font-size: 16px -> 1rem = 10px */
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: auto;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Navigation button */
+.navigation-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 12px 0 rgb(0 0 0 / 12%);
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(calc(-50%));
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-btn__previous {
+    left: 0;
+    margin-left: calc(-1.25rem);
+}
+
+.navigation-btn__next {
+    right: 0;
+    margin-right: calc(-1.25rem);
+}
+
+.navigation-btn__icon {
+    margin: auto 0;
+    color: rgba(0,0,0,.54);
+    font-size: 1rem;
+}
+
+
+/* Input placeholder */
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.8);
+    opacity: 0.5;
+}
