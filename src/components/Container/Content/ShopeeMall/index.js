@@ -1,4 +1,35 @@
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
+
 function ShopeeMall() {
+  const shopeeMallHeadingTextRef = useRef();
+
+  // updateInDOMShopeeMallHeadingText
+  useEffect(() => {
+    fetch("/db/db.json")
+      .then((response) => response.json())
+
+      .then((datas) => {
+        const divTags = datas.shopeeMallHeadingTextInfo.map((data) => {
+          return React.createElement("div", {
+            key: data.id,
+            children: [
+              React.createElement("img", {
+                className: "shopee-mall__heading__text__icon",
+                src: data.image,
+              }),
+              React.createElement("span", {
+                className: "shopee-mall__heading__text__title",
+                children: data.title,
+              }),
+            ],
+          });
+        });
+
+        ReactDOM.render(divTags, shopeeMallHeadingTextRef.current);
+      });
+  }, []);
+
   return (
     <div className="shopee-mall">
       <div className="shopee-mall__heading">
@@ -14,7 +45,10 @@ function ShopeeMall() {
             />
           </a>
         </div>
-        <div className="shopee-mall__heading__text"></div>
+        <div
+          ref={shopeeMallHeadingTextRef}
+          className="shopee-mall__heading__text"
+        ></div>
         <a
           href="https://shopee.vn/mall"
           className="shopee-mall__heading__view-all-btn"

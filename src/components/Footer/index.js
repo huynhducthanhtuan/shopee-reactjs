@@ -1,4 +1,52 @@
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
+
 function Footer() {
+  const footerLinkAboutTextCSKHRef = useRef();
+  const footerLinkAboutTextVeShopeeRef = useRef();
+
+  // updateInDOMFooterLinkAboutTextCSKH
+  useEffect(() => {
+    fetch("/db/db.json")
+      .then((response) => response.json())
+
+      .then((datas) => {
+        var divTags = datas.footerLinkAboutTextCSKHInfo.map((data) => {
+          return React.createElement("div", {
+            key: data.id,
+            children: React.createElement("a", {
+              className: "footer__link__about-text-CSKH__link",
+              href: data.href,
+              children: data.innerHTML,
+            }),
+          });
+        });
+
+        ReactDOM.render(divTags, footerLinkAboutTextCSKHRef.current);
+      });
+  }, []);
+
+  // updateInDOMFooterLinkAboutTextVeShopee
+  useEffect(() => {
+    fetch("/db/db.json")
+      .then((response) => response.json())
+
+      .then((datas) => {
+        var divTags = datas.footerLinkAboutTextVeShopeeInfo.map((data) => {
+          return React.createElement("div", {
+            key: data.id,
+            children: React.createElement("a", {
+              className: "footer__link__about-text-VeShopee__link",
+              href: data.href,
+              children: data.innerHTML,
+            }),
+          });
+        });
+
+        ReactDOM.render(divTags, footerLinkAboutTextVeShopeeRef.current);
+      });
+  }, []);
+
   return (
     <footer id="footer">
       <div className="footer__text">
@@ -147,13 +195,19 @@ function Footer() {
               <span className="footer__link__about__heading">
                 Chăm sóc khách hàng
               </span>
-              <div className="footer__link__about-text-CSKH"></div>
+              <div
+                ref={footerLinkAboutTextCSKHRef}
+                className="footer__link__about-text-CSKH"
+              ></div>
             </div>
           </div>
           <div className="footer__link__about__part">
             <div className="footer__link__about__item">
               <span className="footer__link__about__heading">Về Shopee</span>
-              <div className="footer__link__about-text-VeShopee"></div>
+              <div
+                ref={footerLinkAboutTextVeShopeeRef}
+                className="footer__link__about-text-VeShopee"
+              ></div>
             </div>
           </div>
           <div className="footer__link__about__part">

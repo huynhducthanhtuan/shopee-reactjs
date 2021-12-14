@@ -1,4 +1,37 @@
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
+
 function Slider() {
+  const sliderFavouriteSelectionsRef = useRef();
+
+  // updateInDOMSliderFavouriteSelections
+  useEffect(() => {
+    fetch("/db/db.json")
+      .then((response) => response.json())
+
+      .then((datas) => {
+        const aTags = datas.sliderFavouriteSelectionsInfo.map((data) => {
+          return React.createElement("a", {
+            key: data.id,
+            className: "slider__favourite-selections__link",
+            href: data.href,
+            children: [
+              React.createElement("img", {
+                className: "slider__favourite-selections__link-img",
+                src: data.image,
+              }),
+              React.createElement("h4", {
+                className: "slider__favourite-selections__link-text",
+                children: data.text,
+              }),
+            ],
+          });
+        });
+
+        ReactDOM.render(aTags, sliderFavouriteSelectionsRef.current);
+      });
+  }, []);
+
   return (
     <div className="slider">
       <div className="slider__part">
@@ -62,7 +95,10 @@ function Slider() {
             </div>
           </div>
         </div>
-        <div className="slider__favourite-selections"></div>
+        <div
+          ref={sliderFavouriteSelectionsRef}
+          className="slider__favourite-selections"
+        ></div>
       </div>
     </div>
   );

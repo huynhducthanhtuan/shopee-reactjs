@@ -1,4 +1,28 @@
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
+
 function Header() {
+  const headerSearchHistoryKeywordsListRef = useRef();
+
+  // updateInDOMHeaderSearchHistoryKeywordsList
+  useEffect(() => {
+    fetch("/db/db.json")
+      .then((response) => response.json())
+
+      .then((datas) => {
+        const aTags = datas.headerSearchHistoryKeywordsListInfo.map((data) => {
+          return React.createElement("a", {
+            key: data.id,
+            className: "header__search-history-keywords-item",
+            href: data.href,
+            children: data.innerHTML,
+          });
+        });
+
+        ReactDOM.render(aTags, headerSearchHistoryKeywordsListRef.current);
+      });
+  }, []);
+
   return (
     <header id="header">
       <div className="header__common-info">
@@ -278,7 +302,10 @@ function Header() {
               </ul>
             </div>
           </div>
-          <div className="header__search-history-keywords-list"></div>
+          <div
+            ref={headerSearchHistoryKeywordsListRef}
+            className="header__search-history-keywords-list"
+          ></div>
         </div>
         <div className="header__cart">
           <a href="https://shopee.vn/cart" className="header__cart__link">
