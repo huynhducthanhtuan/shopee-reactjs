@@ -64,8 +64,9 @@ function FooterPolicyAndTerms() {
   };
   //#endregion
 
-  // Fetch data & update state
+  //#region Handle side effect
   useEffect(() => {
+    // Fetch data & update state
     fetch("/db/db.json")
       .then((response) => response.json())
       .then((datas) => {
@@ -78,6 +79,7 @@ function FooterPolicyAndTerms() {
         );
       });
   }, []);
+  //#endregion
 
   return (
     <div className="footer__policy-terms">

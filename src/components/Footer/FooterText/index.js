@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import $ from "jquery";
 
 function FooterText() {
-  // Update prog href & innerHTML for footerTextATags
+  //#region Handle side effect
   useEffect(() => {
+    // Update progs for footerTextATags elements
     fetch("/db/db.json")
       .then((response) => response.json())
       .then((datas) => {
@@ -17,6 +18,7 @@ function FooterText() {
         });
       });
   }, []);
+  //#endregion
 
   return (
     <div className="footer__text">
