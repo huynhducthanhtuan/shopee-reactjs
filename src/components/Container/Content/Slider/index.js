@@ -1,36 +1,38 @@
-import React, { useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
+import React, { useState, useEffect } from "react";
 
 function Slider() {
-  const sliderFavouriteSelectionsRef = useRef();
+  //#region Hooks
+  const [sliderFavouriteSelectionsInfo, setSliderFavouriteSelectionsInfo] =
+    useState();
+  //#endregion
 
-  // updateInDOMSliderFavouriteSelections
+  //#region Function handlers
+  const updateInDOMSliderFavouriteSelections = (datas) => {
+    return datas.map((data) => (
+      <a
+        key={data.id}
+        className="slider__favourite-selections__link"
+        href={data.href}
+      >
+        <img
+          className="slider__favourite-selections__link-img"
+          src={data.image}
+        />
+        <h4 className="slider__favourite-selections__link-text">{data.text}</h4>
+      </a>
+    ));
+  };
+  //#endregion
+
+  //#region Handle side effect
   useEffect(() => {
     fetch("/db/db.json")
       .then((response) => response.json())
-
       .then((datas) => {
-        const aTags = datas.sliderFavouriteSelectionsInfo.map((data) => {
-          return React.createElement("a", {
-            key: data.id,
-            className: "slider__favourite-selections__link",
-            href: data.href,
-            children: [
-              React.createElement("img", {
-                className: "slider__favourite-selections__link-img",
-                src: data.image,
-              }),
-              React.createElement("h4", {
-                className: "slider__favourite-selections__link-text",
-                children: data.text,
-              }),
-            ],
-          });
-        });
-
-        ReactDOM.render(aTags, sliderFavouriteSelectionsRef.current);
+        setSliderFavouriteSelectionsInfo(datas.sliderFavouriteSelectionsInfo);
       });
   }, []);
+  //#endregion
 
   return (
     <div className="slider">
@@ -95,10 +97,10 @@ function Slider() {
             </div>
           </div>
         </div>
-        <div
-          ref={sliderFavouriteSelectionsRef}
-          className="slider__favourite-selections"
-        ></div>
+        <div className="slider__favourite-selections">
+          {sliderFavouriteSelectionsInfo &&
+            updateInDOMSliderFavouriteSelections(sliderFavouriteSelectionsInfo)}
+        </div>
       </div>
     </div>
   );

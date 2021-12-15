@@ -1,34 +1,30 @@
-import React, { useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
+import React, { useState, useEffect } from "react";
 
 function ShopeeMall() {
-  const shopeeMallHeadingTextRef = useRef();
+  //#region Hooks
+  const [shopeeMallHeadingTextInfo, setShopeeMallHeadingTextInfo] = useState();
+  //#endregion
 
-  // updateInDOMShopeeMallHeadingText
+  //#region Function handlers
+  const updateInDOMShopeeMallHeadingText = (datas) => {
+    return datas.map((data) => (
+      <div key={data.id}>
+        <img src={data.image} className="shopee-mall__heading__text__icon" />
+        <span className="shopee-mall__heading__text__title">{data.title}</span>
+      </div>
+    ));
+  };
+  //#endregion
+
+  //#region Handle side effect
   useEffect(() => {
     fetch("/db/db.json")
       .then((response) => response.json())
-
       .then((datas) => {
-        const divTags = datas.shopeeMallHeadingTextInfo.map((data) => {
-          return React.createElement("div", {
-            key: data.id,
-            children: [
-              React.createElement("img", {
-                className: "shopee-mall__heading__text__icon",
-                src: data.image,
-              }),
-              React.createElement("span", {
-                className: "shopee-mall__heading__text__title",
-                children: data.title,
-              }),
-            ],
-          });
-        });
-
-        ReactDOM.render(divTags, shopeeMallHeadingTextRef.current);
+        setShopeeMallHeadingTextInfo(datas.shopeeMallHeadingTextInfo);
       });
   }, []);
+  //#endregion
 
   return (
     <div className="shopee-mall">
@@ -45,10 +41,10 @@ function ShopeeMall() {
             />
           </a>
         </div>
-        <div
-          ref={shopeeMallHeadingTextRef}
-          className="shopee-mall__heading__text"
-        ></div>
+        <div className="shopee-mall__heading__text">
+          {shopeeMallHeadingTextInfo &&
+            updateInDOMShopeeMallHeadingText(shopeeMallHeadingTextInfo)}
+        </div>
         <a
           href="https://shopee.vn/mall"
           className="shopee-mall__heading__view-all-btn"

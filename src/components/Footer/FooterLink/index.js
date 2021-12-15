@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 function FooterLink() {
   //#region Hooks
@@ -85,6 +85,7 @@ function FooterLink() {
     // Fetch data & update state
     fetch("/db/db.json")
       .then((response) => response.json())
+
       .then((datas) => {
         setFooterLinkAboutTextCSKHInfo(datas.footerLinkAboutTextCSKHInfo);
         setFooterLinkAboutTextVeShopeeInfo(
