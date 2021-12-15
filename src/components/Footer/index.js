@@ -1,49 +1,180 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
+import $ from "jquery";
 
 function Footer() {
-  const footerLinkAboutTextCSKHRef = useRef();
-  const footerLinkAboutTextVeShopeeRef = useRef();
+  //#region Hooks
+  const [footerTextATagsInfo, setFooterTextATagsInfo] = useState([]);
+  const [footerLinkAboutTextCSKHInfo, setFooterLinkAboutTextCSKHInfo] =
+    useState([]);
+  const [footerLinkAboutTextVeShopeeInfo, setFooterLinkAboutTextVeShopeeInfo] =
+    useState([]);
+  const [footerLinkAboutSocialInfo, setFooterLinkAboutSocialInfo] = useState(
+    []
+  );
+  const [
+    footerLinkCopyrightCountryAndAreaListInfo,
+    setFooterLinkCopyrightCountryAndAreaListInfo,
+  ] = useState([]);
+  const [footerPolicyTermsPartTitleInfo, setFooterPolicyTermsPartTitleInfo] =
+    useState([]);
+  const [
+    footerPolicyTermsPartCertificateInfo,
+    setFooterPolicyTermsPartCertificateInfo,
+  ] = useState([]);
+  const [
+    footerPolicyTermsPartCompanyInfoInfo,
+    setFooterPolicyTermsPartCompanyInfoInfo,
+  ] = useState([]);
+  //#endregion
 
-  // updateInDOMFooterLinkAboutTextCSKH
+  //#region Function handlers
+  const updateInDOMFooterLinkAboutTextCSKH = (datas) => {
+    const divTags = datas.map((data) => {
+      return (
+        <div key={data.id}>
+          <a href={data.href} className="footer__link__about-text-CSKH__link">
+            {data.innerHTML}
+          </a>
+        </div>
+      );
+    });
+
+    return divTags;
+  };
+  const updateInDOMFooterLinkAboutTextVeShopee = (datas) => {
+    const divTags = datas.map((data) => {
+      return (
+        <div key={data.id}>
+          <a
+            href={data.href}
+            className="footer__link__about-text-VeShopee__link"
+          >
+            {data.innerHTML}
+          </a>
+        </div>
+      );
+    });
+
+    return divTags;
+  };
+  const updateInDOMFooterLinkAboutSocial = (datas) => {
+    const aTags = datas.map((data) => {
+      return (
+        <a
+          key={data.id}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={data.href}
+          className="footer__link__about-social__link"
+        >
+          <img src={data.image} className="footer__link__about-social__icon" />
+          {data.text}
+        </a>
+      );
+    });
+
+    return aTags;
+  };
+  const updateInDOMFooterLinkCopyrightCountryAndAreaList = (datas) => {
+    const aTags = datas.map((data) => {
+      return (
+        <a
+          key={data.id}
+          href={data.href}
+          className="footer__link__copyright__country-and-area__link"
+        >
+          {data.innerHTML}
+        </a>
+      );
+    });
+
+    return aTags;
+  };
+  const updateInDOMFooterPolicyTermsPartTitle = (datas) => {
+    const divTags = datas.map((data) => {
+      return (
+        <div key={data.id} className="footer__policy-terms__part__title__part">
+          <a
+            href="${data.href}"
+            className="footer__policy-terms__part__title__link"
+          >
+            {data.innerHTML}
+          </a>
+        </div>
+      );
+    });
+
+    return divTags;
+  };
+  const updateInDOMFooterPolicyTermsPartCertificate = (datas) => {
+    const aTags = datas.map((data) => {
+      return (
+        <a
+          key={data.id}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={data.href}
+          className="footer__policy-terms__part__certificate__link"
+        >
+          <img src={data.image} />
+        </a>
+      );
+    });
+
+    return aTags;
+  };
+  const updateInDOMFooterPolicyTermsPartCompanyInfo = (datas) => {
+    const spanTags = datas.map((data) => {
+      return (
+        <span
+          key={data.id}
+          className="footer__policy-terms__part__company-info__text"
+        >
+          {data}
+        </span>
+      );
+    });
+
+    return spanTags;
+  };
+  //#endregion
+
+  // Fetch data & update state
   useEffect(() => {
     fetch("/db/db.json")
       .then((response) => response.json())
-
       .then((datas) => {
-        var divTags = datas.footerLinkAboutTextCSKHInfo.map((data) => {
-          return React.createElement("div", {
-            key: data.id,
-            children: React.createElement("a", {
-              className: "footer__link__about-text-CSKH__link",
-              href: data.href,
-              children: data.innerHTML,
-            }),
-          });
-        });
-
-        ReactDOM.render(divTags, footerLinkAboutTextCSKHRef.current);
+        setFooterLinkAboutTextCSKHInfo(datas.footerLinkAboutTextCSKHInfo);
+        setFooterLinkAboutTextVeShopeeInfo(
+          datas.footerLinkAboutTextVeShopeeInfo
+        );
+        setFooterLinkAboutSocialInfo(datas.footerLinkAboutSocialInfo);
+        setFooterLinkCopyrightCountryAndAreaListInfo(
+          datas.footerLinkCopyrightCountryAndAreaListInfo
+        );
+        setFooterPolicyTermsPartTitleInfo(datas.footerPolicyTermsPartTitleInfo);
+        setFooterPolicyTermsPartCertificateInfo(
+          datas.footerPolicyTermsPartCertificateInfo
+        );
+        setFooterPolicyTermsPartCompanyInfoInfo(
+          datas.footerPolicyTermsPartCompanyInfoInfo
+        );
       });
   }, []);
 
-  // updateInDOMFooterLinkAboutTextVeShopee
+  // Update prog href & innerHTML for footerTextATags
   useEffect(() => {
     fetch("/db/db.json")
       .then((response) => response.json())
-
       .then((datas) => {
-        var divTags = datas.footerLinkAboutTextVeShopeeInfo.map((data) => {
-          return React.createElement("div", {
-            key: data.id,
-            children: React.createElement("a", {
-              className: "footer__link__about-text-VeShopee__link",
-              href: data.href,
-              children: data.innerHTML,
-            }),
-          });
-        });
+        const footerTextATagsInfo = datas.footerTextATagsInfo;
+        const footerTextATags = $(".footer__text a");
 
-        ReactDOM.render(divTags, footerLinkAboutTextVeShopeeRef.current);
+        $.each(footerTextATags, (index, footerTextATag) => {
+          footerTextATag.href = footerTextATagsInfo[index].href;
+          footerTextATag.innerHTML = footerTextATagsInfo[index].innerHTML;
+        });
       });
   }, []);
 
@@ -195,19 +326,23 @@ function Footer() {
               <span className="footer__link__about__heading">
                 Chăm sóc khách hàng
               </span>
-              <div
-                ref={footerLinkAboutTextCSKHRef}
-                className="footer__link__about-text-CSKH"
-              ></div>
+              <div className="footer__link__about-text-CSKH">
+                {footerLinkAboutTextCSKHInfo &&
+                  updateInDOMFooterLinkAboutTextCSKH(
+                    footerLinkAboutTextCSKHInfo
+                  )}
+              </div>
             </div>
           </div>
           <div className="footer__link__about__part">
             <div className="footer__link__about__item">
               <span className="footer__link__about__heading">Về Shopee</span>
-              <div
-                ref={footerLinkAboutTextVeShopeeRef}
-                className="footer__link__about-text-VeShopee"
-              ></div>
+              <div className="footer__link__about-text-VeShopee">
+                {footerLinkAboutTextVeShopeeInfo &&
+                  updateInDOMFooterLinkAboutTextVeShopee(
+                    footerLinkAboutTextVeShopeeInfo
+                  )}
+              </div>
             </div>
           </div>
           <div className="footer__link__about__part">
@@ -216,7 +351,6 @@ function Footer() {
               <div className="footer__link__about-payment">
                 <img
                   src="/assests/img/footer/link/payment.png"
-                  alt=""
                   className="footer__link__about-payment__img"
                 />
               </div>
@@ -228,7 +362,6 @@ function Footer() {
               <div className="footer__link__about-transport">
                 <img
                   src="/assests/img/footer/link/transport.png"
-                  alt=""
                   className="footer__link__about-transport__img"
                 />
               </div>
@@ -239,7 +372,10 @@ function Footer() {
               <span className="footer__link__about__heading">
                 Theo dõi chúng tôi trên
               </span>
-              <div className="footer__link__about-social"></div>
+              <div className="footer__link__about-social">
+                {footerLinkAboutSocialInfo &&
+                  updateInDOMFooterLinkAboutSocial(footerLinkAboutSocialInfo)}
+              </div>
             </div>
           </div>
           <div className="footer__link__about__part">
@@ -256,22 +392,12 @@ function Footer() {
                 >
                   <img
                     src="/assests/img/header/header__links-app-download/qr.png"
-                    alt=""
                     className="footer__link__about-download__qr"
                   />
                   <div className="footer__link__about-download__another-apps">
-                    <img
-                      src="/assests/img/header/header__links-app-download/app_store.png"
-                      alt=""
-                    />
-                    <img
-                      src="/assests/img/header/header__links-app-download/google_play.png"
-                      alt=""
-                    />
-                    <img
-                      src="/assests/img/header/header__links-app-download/app_gallery.png"
-                      alt=""
-                    />
+                    <img src="/assests/img/header/header__links-app-download/app_store.png" />
+                    <img src="/assests/img/header/header__links-app-download/google_play.png" />
+                    <img src="/assests/img/header/header__links-app-download/app_gallery.png" />
                   </div>
                 </a>
               </div>
@@ -287,16 +413,36 @@ function Footer() {
             <span className="footer__link__copyright__country-and-area__text">
               Quốc gia & Khu vực:
             </span>
-            <div className="footer__link__copyright__country-and-area__list"></div>
+            <div className="footer__link__copyright__country-and-area__list">
+              {footerLinkCopyrightCountryAndAreaListInfo &&
+                updateInDOMFooterLinkCopyrightCountryAndAreaList(
+                  footerLinkCopyrightCountryAndAreaListInfo
+                )}
+            </div>
           </div>
         </div>
       </div>
 
       <div className="footer__policy-terms">
         <div className="footer__policy-terms__part">
-          <div className="footer__policy-terms__part__title"></div>
-          <div className="footer__policy-terms__part__certificate"></div>
-          <div className="footer__policy-terms__part__company-info"></div>
+          <div className="footer__policy-terms__part__title">
+            {footerPolicyTermsPartTitleInfo &&
+              updateInDOMFooterPolicyTermsPartTitle(
+                footerPolicyTermsPartTitleInfo
+              )}
+          </div>
+          <div className="footer__policy-terms__part__certificate">
+            {footerPolicyTermsPartCertificateInfo &&
+              updateInDOMFooterPolicyTermsPartCertificate(
+                footerPolicyTermsPartCertificateInfo
+              )}
+          </div>
+          <div className="footer__policy-terms__part__company-info">
+            {footerPolicyTermsPartCompanyInfoInfo &&
+              updateInDOMFooterPolicyTermsPartCompanyInfo(
+                footerPolicyTermsPartCompanyInfoInfo
+              )}
+          </div>
         </div>
       </div>
     </footer>
