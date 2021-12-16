@@ -1,7 +1,6 @@
 "use strict";
 
 //#region VARIABLES, OBJECTS DECLARATION
-
 //#region 1. Best Common
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -234,7 +233,6 @@ var headerSearchHistoryItemIndex = 0;
 //#endregion
 
 //#region 5. Content
-
 // slider
 var sliderMainMotionPart = $(".slider__main__motion-part");
 var sliderMainMotionPartLink = $(".slider__main__motion-part__link");
@@ -393,11 +391,9 @@ var motionPartChatPopupMainSearchAndOptionsPart = $(
   ".motion-part__chat__popup__main__search-and-options__part"
 );
 //#endregion
-
 //#endregion
 
-//#region SETTING CONFIG
-
+//#region SETTING CONFIG (config)
 // get localStorage object
 var systemConfig = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) ?? {};
 
@@ -449,8 +445,7 @@ function handleSettingInitialConfig() {
 }
 //#endregion
 
-//#region HANDLE AT INITIAL PAGE, REGISTER PAGE, LOGIN PAGE
-
+//#region HANDLE AT INITIAL PAGE, REGISTER PAGE, LOGIN PAGE (config)
 //#region (function) loadInitialPageNoModal
 function loadInitialPageNoModal() {
   registerPage.style.display = "none";
@@ -1675,9 +1670,8 @@ loginPageContentFormLoginBtn.addEventListener("mouseleave", (e) => {
 
 //#region HANDLE DATA, UPDATE DATA IN DOM, LISTEN EVENT,...
 
-// header
+//#region header (1) (event)
 //#region handle headerSearchFrameInput, headerSearchHistory
-
 function removeHeaderSearchHistoryItemLinksHover() {
   headerSearchHistoryItemLinks.forEach((headerSearchHistoryItemLink) => {
     if (
@@ -1901,8 +1895,9 @@ headerNotification.addEventListener("mouseleave", () => {
   headerNotificationQuantity.style.display = "none";
 });
 //#endregion
+//#endregion
 
-// slider
+//#region slider (event)
 //#region handleInPartSliderMainMotionPart
 (function handleInPartSliderMainMotionPart() {
   // get data in file db.json and assign to array sliderMainMotionPartLinkInfo
@@ -2062,8 +2057,9 @@ headerNotification.addEventListener("mouseleave", () => {
     });
 })();
 //#endregion
+//#endregion
 
-// outstanding (-->OK)
+//#region outstanding (-->OK)
 //#region updateInDOMOutstandingHotSellingProducts
 function handleUpdateInDOMOutstandingHotSellingProducts(datas) {
   var firstDivTag = `
@@ -2154,8 +2150,9 @@ function handleUpdateInDOMOutstandingHotBrands(datas) {
     });
 })();
 //#endregion
+//#endregion
 
-// directory
+//#region directory (event)
 //#region updateInDOMDirectoryMainList (-->OK)
 (function updateInDOMDirectoryMainList() {
   fetch("db.json")
@@ -2217,8 +2214,9 @@ directoryMainPreviousBtn.addEventListener("click", (e) => {
   }, 0);
 });
 //#endregion
+//#endregion
 
-// flashSale
+//#region flashSale (event)
 //#region updateInDOMFlashSaleMainList (-->OK)
 function handleUpdateInDOMFlashSaleMainList(flashSaleMainListInfo) {
   var aTags = "";
@@ -2329,8 +2327,9 @@ flashSaleMainPreviousBtn.addEventListener("click", (e) => {
     });
 })();
 //#endregion
+//#endregion
 
-// shopeeMall
+//#region shopeeMall (2) (event)
 //#region updateInDOMShopeeMallMainMotionLinkAndQueueItems
 function handleShopeeMallMainMotionLinkAndQueueItems(
   shopeeMallMainMotionLinkInfo
@@ -2535,8 +2534,9 @@ shopeeMallMainProductPreviousBtn.addEventListener("click", () => {
   }
 });
 //#endregion
+//#endregion
 
-// searchTrending
+//#region searchTrending (event)
 //#region updateInDOMSearchTrendingMainList (-->OK)
 function updateInDOMSearchTrendingMainList(listIndex) {
   fetch("db.json")
@@ -2583,8 +2583,9 @@ searchTrendingHeadingViewMoreBtn.addEventListener("click", (e) => {
   }, 100);
 });
 //#endregion
+//#endregion
 
-// topSearch
+//#region topSearch (event)
 //#region updateInDOMTopSearchMainList (-->OK)
 function handleUpdateInDOMTopSearchMainList(topSearchMainListInfo) {
   var aTags = "";
@@ -2694,8 +2695,9 @@ topSearchMainPreviousBtn.addEventListener("click", () => {
   }
 });
 //#endregion
+//#endregion
 
-// todaySuggestion
+//#region todaySuggestion (2)
 //#region updateInDOMTodaySuggestionMainTabMain
 function handleUpdateInDOMTodaySuggestionMainTabMain(
   todaySuggestionMainTabMainInfo
@@ -3117,8 +3119,9 @@ todaySuggestionHeadingTabSuperSale88.addEventListener("click", () => {
   }, 200);
 });
 //#endregion
+//#endregion
 
-// footer
+//#region footer (1)
 //#region updateInDOMFooterTextATags (-->OK)
 (function updateInDOMFooterTextATags() {
   fetch("db.json")
@@ -3305,8 +3308,9 @@ function handleUpdateInDOMFooterDirectoryList(footerDirectoryListInfo) {
     });
 })();
 //#endregion
+//#endregion
 
-// motionPart
+//#region motionPart (event)
 //#region motionPartChatPopupMainSearchAndOptionsPopupNthChilds onclick()
 motionPartChatPopupMainSearchAndOptionsPopup_all.addEventListener(
   "click",
@@ -3399,7 +3403,9 @@ motionPartChatPopupHeader_iconWhenExpanded.addEventListener("click", () => {
 
 //#endregion
 
-//#region START WEBSITE
+//#endregion
+
+//#region START WEBSITE (config)
 handleSettingInitialConfig();
 
 // Check for load initial page or page when logged in
