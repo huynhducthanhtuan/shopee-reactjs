@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function HeaderSearchPart() {
+function HeaderSearchPart({ dataSource }) {
   //#region Hooks
   const [
     headerSearchHistoryKeywordsListInfo,

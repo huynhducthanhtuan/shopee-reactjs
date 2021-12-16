@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import $ from "jquery";
 
-function FooterText() {
+function FooterText({ dataSource }) {
   //#region Handle side effect
   useEffect(() => {
     // Update progs for footerTextATags elements

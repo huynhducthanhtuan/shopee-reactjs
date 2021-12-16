@@ -1,11 +1,11 @@
 import HeaderCommonInfo from "./HeaderCommonInfo";
 import HeaderSearchPart from "./HeaderSearchPart";
 
-function Header() {
+function Header({ dataSource }) {
   return (
     <header id="header">
       <HeaderCommonInfo />
-      <HeaderSearchPart />
+      <HeaderSearchPart dataSource={dataSource} />
     </header>
   );
 }

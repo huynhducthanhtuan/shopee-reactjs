@@ -3,13 +3,13 @@ import FooterDirectory from "./FooterDirectory";
 import FooterLink from "./FooterLink";
 import FooterPolicyAndTerms from "./FooterPolicyAndTerms";
 
-function Footer() {
+function Footer({ dataSource }) {
   return (
     <footer id="footer">
-      <FooterText />
-      <FooterDirectory />
-      <FooterLink />
-      <FooterPolicyAndTerms />
+      <FooterText dataSource={dataSource} />
+      <FooterDirectory dataSource={dataSource} />
+      <FooterLink dataSource={dataSource} />
+      <FooterPolicyAndTerms dataSource={dataSource} />
     </footer>
   );
 }

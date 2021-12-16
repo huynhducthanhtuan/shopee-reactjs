@@ -1,9 +1,9 @@
 import Content from "./Content";
 
-function Container() {
+function Container({ dataSource }) {
   return (
     <div id="container">
-      <Content />
+      <Content dataSource={dataSource} />
     </div>
   );
 }

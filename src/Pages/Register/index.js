@@ -1,11 +1,11 @@
 import RegisterPage from "./RegisterPage";
 import Footer from "../../components/Footer";
 
-function Register() {
+function Register({ dataSource }) {
   return (
     <>
       <RegisterPage />
-      <Footer />
+      <Footer dataSource={dataSource} />
     </>
   );
 }

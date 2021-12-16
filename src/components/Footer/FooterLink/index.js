@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function FooterLink() {
+function FooterLink({ dataSource }) {
   //#region Hooks
   const [footerLinkAboutTextCSKHInfo, setFooterLinkAboutTextCSKHInfo] =
     useState([]);

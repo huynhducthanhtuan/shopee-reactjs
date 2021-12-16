@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Slider from "./Slider";
 import GiftBanner from "./GiftBanner";
 import Outstanding from "./Outstanding";
@@ -10,19 +9,7 @@ import SearchTrending from "./SearchTrending";
 import TopSearch from "./TopSearch";
 import TodaySuggestion from "./TodaySuggestion";
 
-function Content() {
-  // Hooks
-  const [dataSource, setDataSource] = useState([]);
-
-  // Handle side effect
-  useEffect(() => {
-    fetch("/db/db.json")
-      .then((response) => response.json())
-      .then((datas) => {
-        setDataSource(datas);
-      });
-  }, []);
-
+function Content({ dataSource }) {
   return (
     <div className="content">
       <Slider dataSource={dataSource} />

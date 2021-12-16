@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function FooterPolicyAndTerms() {
+function FooterPolicyAndTerms({ dataSource }) {
   //#region Hooks
   const [footerPolicyTermsPartTitleInfo, setFooterPolicyTermsPartTitleInfo] =
     useState([]);
