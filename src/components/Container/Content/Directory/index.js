@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-function Directory() {
-  //#region Hooks
-  const [directoryMainItemListInfo, setDirectoryMainItemListInfo] = useState();
-  //#endregion
+function Directory({ dataSource }) {
+  // Get data from parent component
+  const directoryMainItemListInfo = dataSource.directoryMainItemListInfo;
 
-  //#region Function handlers
+  // Function handlers
   const updateInDOMDirectoryMainList = (datas) => {
     return datas.map((data, index) => (
       <li key={index} className="directory__main__item">
@@ -24,18 +23,6 @@ function Directory() {
       </li>
     ));
   };
-  //#endregion
-
-  //#region Handle side effect
-  useEffect(() => {
-    fetch("/db/db.json")
-      .then((response) => response.json())
-
-      .then((datas) => {
-        setDirectoryMainItemListInfo(datas.directoryMainItemListInfo);
-      });
-  }, []);
-  //#endregion
 
   return (
     <div className="directory">

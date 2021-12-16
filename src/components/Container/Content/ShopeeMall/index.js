@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-function ShopeeMall() {
-  //#region Hooks
-  const [shopeeMallHeadingTextInfo, setShopeeMallHeadingTextInfo] = useState();
-  //#endregion
+function ShopeeMall({ dataSource }) {
+  // Get data from parent component
+  const shopeeMallHeadingTextInfo = dataSource.shopeeMallHeadingTextInfo;
 
-  //#region Function handlers
+  // Function handlers
   const updateInDOMShopeeMallHeadingText = (datas) => {
     return datas.map((data) => (
       <div key={data.id}>
@@ -14,17 +13,6 @@ function ShopeeMall() {
       </div>
     ));
   };
-  //#endregion
-
-  //#region Handle side effect
-  useEffect(() => {
-    fetch("/db/db.json")
-      .then((response) => response.json())
-      .then((datas) => {
-        setShopeeMallHeadingTextInfo(datas.shopeeMallHeadingTextInfo);
-      });
-  }, []);
-  //#endregion
 
   return (
     <div className="shopee-mall">

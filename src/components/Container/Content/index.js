@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Slider from "./Slider";
 import GiftBanner from "./GiftBanner";
 import Outstanding from "./Outstanding";
@@ -10,18 +11,30 @@ import TopSearch from "./TopSearch";
 import TodaySuggestion from "./TodaySuggestion";
 
 function Content() {
+  // Hooks
+  const [dataSource, setDataSource] = useState([]);
+
+  // Handle side effect
+  useEffect(() => {
+    fetch("/db/db.json")
+      .then((response) => response.json())
+      .then((datas) => {
+        setDataSource(datas);
+      });
+  }, []);
+
   return (
     <div className="content">
-      <Slider />
-      <GiftBanner />
-      <Outstanding />
-      <Directory />
-      <FlashSale />
-      <UnderFlashSale />
-      <ShopeeMall />
-      <SearchTrending />
-      <TopSearch />
-      <TodaySuggestion />
+      <Slider dataSource={dataSource} />
+      <GiftBanner dataSource={dataSource} />
+      <Outstanding dataSource={dataSource} />
+      <Directory dataSource={dataSource} />
+      <FlashSale dataSource={dataSource} />
+      <UnderFlashSale dataSource={dataSource} />
+      <ShopeeMall dataSource={dataSource} />
+      <SearchTrending dataSource={dataSource} />
+      <TopSearch dataSource={dataSource} />
+      <TodaySuggestion dataSource={dataSource} />
     </div>
   );
 }

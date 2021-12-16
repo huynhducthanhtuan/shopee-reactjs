@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-function FlashSale() {
-  //#region Hooks
-  const [flashSaleMainListInfo, setFlashSaleMainListInfo] = useState();
-  //#endregion
+function FlashSale({ dataSource }) {
+  // Get data from parent component
+  const flashSaleMainListInfo = dataSource.flashSaleMainListInfo;
 
-  //#region Function handlers
+  // Function handlers
   const updateInDOMDirectoryMainList = (datas) => {
     return datas.map((data) => (
       <a key={data.id} href={data.href} className="flash-sale__main__link">
@@ -36,17 +35,6 @@ function FlashSale() {
       </a>
     ));
   };
-  //#endregion
-
-  //#region Handle side effect
-  useEffect(() => {
-    fetch("/db/db.json")
-      .then((response) => response.json())
-      .then((datas) => {
-        setFlashSaleMainListInfo(datas.flashSaleMainListInfo);
-      });
-  }, []);
-  //#endregion
 
   return (
     <div className="flash-sale">

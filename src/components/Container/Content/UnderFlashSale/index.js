@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-function UnderFlashSale() {
-  //#region Hooks
-  const [underFlashSalePartInfo, setUnderFlashSalePartInfo] = useState();
-  //#endregion
+function UnderFlashSale({ dataSource }) {
+  // Get data from parent component
+  const underFlashSalePartInfo = dataSource.underFlashSalePartInfo;
 
-  //#region Function handlers
+  // Function handlers
   const updateInDOMUnderFlashSalePart = (datas) => {
     return datas.map((data) => (
       <a key={data.id} href={data.href} className="under-flash-sale__link">
@@ -13,17 +12,6 @@ function UnderFlashSale() {
       </a>
     ));
   };
-  //#endregion
-
-  //#region Handle side effect
-  useEffect(() => {
-    fetch("/db/db.json")
-      .then((response) => response.json())
-      .then((datas) => {
-        setUnderFlashSalePartInfo(datas.underFlashSalePartInfo);
-      });
-  }, []);
-  //#endregion
 
   return (
     <div className="under-flash-sale">

@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-function Outstanding() {
-  //#region Hooks
-  const [
-    outstandingHotSellingProductsInfo,
-    setOutstandingHotSellingProductsInfo,
-  ] = useState();
-  const [outstandingHotBrandsInfo, setOutstandingHotBrandsInfo] = useState();
-  //#endregion
+function Outstanding({ dataSource }) {
+  // Get data from parent component
+  const outstandingHotSellingProductsInfo =
+    dataSource.outstandingHotSellingProductsInfo;
+  const outstandingHotBrandsInfo = dataSource.outstandingHotBrandsInfo;
 
-  //#region Function handlers
-  const updateInDOMOutstandingHotSellingProducts = (datas) => {
-    const [
-      outstandingHotSellingProductsInfoInfo,
-      outstandingHotSellingProductsListInfo,
-    ] = datas;
-
+  // Function handlers
+  const updateInDOMOutstandingHotSellingProducts = ([
+    outstandingHotSellingProductsInfoInfo,
+    outstandingHotSellingProductsListInfo,
+  ]) => {
     return (
       <>
         <div className="outstanding__hot-selling-products__info">
@@ -59,10 +54,10 @@ function Outstanding() {
       </>
     );
   };
-
-  const updateInDOMOutstandingHotBrands = (datas) => {
-    const [outstandingHotBrandsInfoInfo, outstandingHotBrandsListInfo] = datas;
-
+  const updateInDOMOutstandingHotBrands = ([
+    outstandingHotBrandsInfoInfo,
+    outstandingHotBrandsListInfo,
+  ]) => {
     return (
       <>
         <div className="outstanding__hot-brands__info">
@@ -104,25 +99,6 @@ function Outstanding() {
       </>
     );
   };
-  //#endregion
-
-  //#region Handle side effect
-  useEffect(() => {
-    fetch("/db/db.json")
-      .then((response) => response.json())
-
-      .then((datas) => {
-        setOutstandingHotSellingProductsInfo([
-          datas.outstandingHotSellingProductsInfo.info,
-          datas.outstandingHotSellingProductsInfo.list,
-        ]);
-        setOutstandingHotBrandsInfo([
-          datas.outstandingHotBrandsInfo.info,
-          datas.outstandingHotBrandsInfo.list,
-        ]);
-      });
-  }, []);
-  //#endregion
 
   return (
     <div className="outstanding">
@@ -136,13 +112,17 @@ function Outstanding() {
         <div>
           <div className="outstanding__hot-selling-products">
             {outstandingHotSellingProductsInfo &&
-              updateInDOMOutstandingHotSellingProducts(
-                outstandingHotSellingProductsInfo
-              )}
+              updateInDOMOutstandingHotSellingProducts([
+                outstandingHotSellingProductsInfo.info,
+                outstandingHotSellingProductsInfo.list,
+              ])}
           </div>
           <div className="outstanding__hot-brands">
             {outstandingHotBrandsInfo &&
-              updateInDOMOutstandingHotBrands(outstandingHotBrandsInfo)}
+              updateInDOMOutstandingHotBrands([
+                outstandingHotBrandsInfo.info,
+                outstandingHotBrandsInfo.list,
+              ])}
           </div>
         </div>
       </div>

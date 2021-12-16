@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-function Slider() {
-  //#region Hooks
-  const [sliderFavouriteSelectionsInfo, setSliderFavouriteSelectionsInfo] =
-    useState();
-  //#endregion
+function Slider({ dataSource }) {
+  // Get data from parent component
+  const sliderFavouriteSelectionsInfo =
+    dataSource.sliderFavouriteSelectionsInfo;
 
-  //#region Function handlers
+  // Function handlers
   const updateInDOMSliderFavouriteSelections = (datas) => {
     return datas.map((data) => (
       <a
@@ -22,17 +21,6 @@ function Slider() {
       </a>
     ));
   };
-  //#endregion
-
-  //#region Handle side effect
-  useEffect(() => {
-    fetch("/db/db.json")
-      .then((response) => response.json())
-      .then((datas) => {
-        setSliderFavouriteSelectionsInfo(datas.sliderFavouriteSelectionsInfo);
-      });
-  }, []);
-  //#endregion
 
   return (
     <div className="slider">
