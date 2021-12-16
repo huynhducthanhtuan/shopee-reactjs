@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import { DataSourceContext } from "../../../../Context/DataSourceContext";
 
 function ShopeeMall() {
-  // // Get data from parent component
-  // const shopeeMallHeadingTextInfo = dataSource.shopeeMallHeadingTextInfo;
+  // Get data from Context
+  const dataSourceContextValue = useContext(DataSourceContext);
+  const shopeeMallHeadingTextInfo = dataSourceContextValue
+    ? dataSourceContextValue.shopeeMallHeadingTextInfo
+    : null;
 
-  // // Function handlers
-  // const updateInDOMShopeeMallHeadingText = (datas) => {
-  //   return datas.map((data) => (
-  //     <div key={data.id}>
-  //       <img src={data.image} className="shopee-mall__heading__text__icon" />
-  //       <span className="shopee-mall__heading__text__title">{data.title}</span>
-  //     </div>
-  //   ));
-  // };
+  // Function handlers
+  const updateInDOMShopeeMallHeadingText = (datas) => {
+    return datas.map((data) => (
+      <div key={data.id}>
+        <img src={data.image} className="shopee-mall__heading__text__icon" />
+        <span className="shopee-mall__heading__text__title">{data.title}</span>
+      </div>
+    ));
+  };
 
   return (
     <div className="shopee-mall">
@@ -30,8 +34,8 @@ function ShopeeMall() {
           </a>
         </div>
         <div className="shopee-mall__heading__text">
-          {/* {shopeeMallHeadingTextInfo &&
-            updateInDOMShopeeMallHeadingText(shopeeMallHeadingTextInfo)} */}
+          {shopeeMallHeadingTextInfo &&
+            updateInDOMShopeeMallHeadingText(shopeeMallHeadingTextInfo)}
         </div>
         <a
           href="https://shopee.vn/mall"

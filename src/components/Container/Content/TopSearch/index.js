@@ -1,4 +1,43 @@
+import { useContext } from "react";
+import { DataSourceContext } from "../../../../Context/DataSourceContext";
+
 function TopSearch() {
+  // Get data from Context
+  const dataSourceContextValue = useContext(DataSourceContext);
+  const topSearchMainListInfo = dataSourceContextValue
+    ? dataSourceContextValue.topSearchMainListInfo
+    : null;
+
+  // Function handlers
+  const handleUpdateInDOMTopSearchMainList = (datas) => {
+    return datas.map((data, index) => (
+      <a key={data.id} href={data.href} className="top-search__main__link">
+        <div className="top-search__main__product">
+          <img
+            src={data.productImage}
+            className="top-search__main__product__img"
+          />
+          <img
+            src="/assests/img/container/top-search/top-label.png"
+            className="top-search__main__product__top-label-img"
+          />
+          {index !== 0 && (
+            <div className="top-search__main__product__statistic">
+              Bán{" "}
+              <span className="top-search__main__product__statistic__price">
+                {data.price}
+              </span>
+              k+ / tháng
+            </div>
+          )}
+        </div>
+        <div className="top-search__main__footer">
+          <span className="top-search__main__footer__text">{data.text}</span>
+        </div>
+      </a>
+    ));
+  };
+
   return (
     <div className="top-search">
       <div className="top-search__heading">
@@ -14,7 +53,10 @@ function TopSearch() {
 
       <div className="top-search__main">
         <div className="top-search__main-part">
-          <div className="top-search__main__list"></div>
+          <div className="top-search__main__list">
+            {topSearchMainListInfo &&
+              handleUpdateInDOMTopSearchMainList(topSearchMainListInfo)}
+          </div>
         </div>
 
         <button className="navigation-btn navigation-btn__previous top-search__main__previous-btn">

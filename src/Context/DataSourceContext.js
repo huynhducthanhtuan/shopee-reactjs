@@ -4,7 +4,7 @@ import { useState, useEffect, createContext } from "react";
 const DataSourceContext = createContext();
 
 // Provider
-async function Provider({ children }) {
+function DataSourceContextProvider({ children }) {
   const [dataSource, setDataSource] = useState();
 
   useEffect(() => {
@@ -20,4 +20,9 @@ async function Provider({ children }) {
   );
 }
 
-export { DataSourceContext, Provider };
+// Consumer
+// function DataSourceContextConsumer({ children }) {
+//   return <DataSourceContext.Consumer>{children}</DataSourceContext.Consumer>;
+// }
+
+export { DataSourceContext, DataSourceContextProvider };

@@ -1,48 +1,28 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { DataSourceContext } from "../../../Context/DataSourceContext";
 
 function HeaderSearchPart() {
-  // Context.Consumer
+  // Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
-  console.log("dataSourceContextValue:", dataSourceContextValue);
+  const headerSearchHistoryKeywordsListInfo = dataSourceContextValue
+    ? dataSourceContextValue.headerSearchHistoryKeywordsListInfo
+    : null;
 
-  //#region Hooks
-  // const [
-  //   headerSearchHistoryKeywordsListInfo,
-  //   setHeaderSearchHistoryKeywordsListInfo,
-  // ] = useState(dataSourceContextValue);
-  //#endregion
-
-  //#region Function handlers
-  // const updateInDOMHeaderSearchHistoryKeywordsList = (datas) => {
-  //   const aTags = datas.map((data) => {
-  //     return (
-  //       <a
-  //         key={data.id}
-  //         className="header__search-history-keywords-item"
-  //         href={data.href}
-  //       >
-  //         {data.innerHTML}
-  //       </a>
-  //     );
-  //   });
-  //   return aTags;
-  // };
-  //#endregion
-
-  //#region Handle side effect
-  useEffect(() => {
-    // updateInDOMHeaderSearchHistoryKeywordsList
-    // fetch("/db/db.json")
-    //   .then((response) => response.json())
-    //   .then((datas) => {
-    //     setHeaderSearchHistoryKeywordsListInfo(
-    //       datas.headerSearchHistoryKeywordsListInfo
-    //     );
-    //   });
-    // setHeaderSearchHistoryKeywordsListInfo(dataSourceContextValue);
-  }, []);
-  //#endregion
+  // Function handlers
+  const updateInDOMHeaderSearchHistoryKeywordsList = (datas) => {
+    const aTags = datas.map((data) => {
+      return (
+        <a
+          key={data.id}
+          className="header__search-history-keywords-item"
+          href={data.href}
+        >
+          {data.innerHTML}
+        </a>
+      );
+    });
+    return aTags;
+  };
 
   return (
     <DataSourceContext.Consumer>
@@ -90,10 +70,10 @@ function HeaderSearchPart() {
               </div>
             </div>
             <div className="header__search-history-keywords-list">
-              {/* {headerSearchHistoryKeywordsListInfo &&
-            updateInDOMHeaderSearchHistoryKeywordsList(
-              headerSearchHistoryKeywordsListInfo
-            )} */}
+              {headerSearchHistoryKeywordsListInfo &&
+                updateInDOMHeaderSearchHistoryKeywordsList(
+                  headerSearchHistoryKeywordsListInfo
+                )}
             </div>
           </div>
           <div className="header__cart">

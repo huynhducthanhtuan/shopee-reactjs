@@ -2537,7 +2537,7 @@ shopeeMallMainProductPreviousBtn.addEventListener("click", () => {
 //#endregion
 
 // searchTrending
-//#region updateInDOMSearchTrendingMainList
+//#region updateInDOMSearchTrendingMainList (-->OK)
 function updateInDOMSearchTrendingMainList(listIndex) {
   fetch("db.json")
     .then((response) => response.json())
@@ -2585,7 +2585,7 @@ searchTrendingHeadingViewMoreBtn.addEventListener("click", (e) => {
 //#endregion
 
 // topSearch
-//#region updateInDOMTopSearchMainList
+//#region updateInDOMTopSearchMainList (-->OK)
 function handleUpdateInDOMTopSearchMainList(topSearchMainListInfo) {
   var aTags = "";
 
