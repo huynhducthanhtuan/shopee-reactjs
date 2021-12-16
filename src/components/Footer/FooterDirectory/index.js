@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-function FooterDirectory({ dataSource }) {
+function FooterDirectory() {
   return (
     <div className="footer__directory">
       <span className="footer__directory__heading">Danh Mục</span>

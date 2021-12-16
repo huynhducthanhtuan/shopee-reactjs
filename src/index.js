@@ -9,9 +9,11 @@ import MotionPartChat from "./components/MotionPartChat";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      {/* <DataSourceContext.Provider value={}> */}
       <App />
       <Modal />
       <MotionPartChat />
+      {/* </DataSourceContext.Provider> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

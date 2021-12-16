@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { DataSourceContext, Provider } from "./Context/DataSourceContext";
 import HomePage from "./Pages/Home";
 import RegisterPage from "./Pages/Register";
 import LoginPage from "./Pages/Login";
@@ -18,16 +19,21 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <Routes>
-        <Route path="/" element={<HomePage dataSource={dataSource} />} />
-        <Route
-          path="/register"
-          element={<RegisterPage dataSource={dataSource} />}
-        />
-        <Route path="/login" element={<LoginPage dataSource={dataSource} />} />
-      </Routes>
-    </div>
+    <Provider>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<HomePage dataSource={dataSource} />} />
+          <Route
+            path="/register"
+            element={<RegisterPage dataSource={dataSource} />}
+          />
+          <Route
+            path="/login"
+            element={<LoginPage dataSource={dataSource} />}
+          />
+        </Routes>
+      </div>
+    </Provider>
   );
 }
 

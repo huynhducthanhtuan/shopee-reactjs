@@ -1,103 +1,103 @@
 import React, { useState, useEffect } from "react";
 
-function FooterLink({ dataSource }) {
-  //#region Hooks
-  const [footerLinkAboutTextCSKHInfo, setFooterLinkAboutTextCSKHInfo] =
-    useState([]);
-  const [footerLinkAboutTextVeShopeeInfo, setFooterLinkAboutTextVeShopeeInfo] =
-    useState([]);
-  const [footerLinkAboutSocialInfo, setFooterLinkAboutSocialInfo] = useState(
-    []
-  );
-  const [
-    footerLinkCopyrightCountryAndAreaListInfo,
-    setFooterLinkCopyrightCountryAndAreaListInfo,
-  ] = useState([]);
-  //#endregion
+function FooterLink() {
+  // //#region Hooks
+  // const [footerLinkAboutTextCSKHInfo, setFooterLinkAboutTextCSKHInfo] =
+  //   useState([]);
+  // const [footerLinkAboutTextVeShopeeInfo, setFooterLinkAboutTextVeShopeeInfo] =
+  //   useState([]);
+  // const [footerLinkAboutSocialInfo, setFooterLinkAboutSocialInfo] = useState(
+  //   []
+  // );
+  // const [
+  //   footerLinkCopyrightCountryAndAreaListInfo,
+  //   setFooterLinkCopyrightCountryAndAreaListInfo,
+  // ] = useState([]);
+  // //#endregion
 
-  //#region Function handlers
-  const updateInDOMFooterLinkAboutTextCSKH = (datas) => {
-    const divTags = datas.map((data) => {
-      return (
-        <div key={data.id}>
-          <a href={data.href} className="footer__link__about-text-CSKH__link">
-            {data.innerHTML}
-          </a>
-        </div>
-      );
-    });
+  // //#region Function handlers
+  // const updateInDOMFooterLinkAboutTextCSKH = (datas) => {
+  //   const divTags = datas.map((data) => {
+  //     return (
+  //       <div key={data.id}>
+  //         <a href={data.href} className="footer__link__about-text-CSKH__link">
+  //           {data.innerHTML}
+  //         </a>
+  //       </div>
+  //     );
+  //   });
 
-    return divTags;
-  };
-  const updateInDOMFooterLinkAboutTextVeShopee = (datas) => {
-    const divTags = datas.map((data) => {
-      return (
-        <div key={data.id}>
-          <a
-            href={data.href}
-            className="footer__link__about-text-VeShopee__link"
-          >
-            {data.innerHTML}
-          </a>
-        </div>
-      );
-    });
+  //   return divTags;
+  // };
+  // const updateInDOMFooterLinkAboutTextVeShopee = (datas) => {
+  //   const divTags = datas.map((data) => {
+  //     return (
+  //       <div key={data.id}>
+  //         <a
+  //           href={data.href}
+  //           className="footer__link__about-text-VeShopee__link"
+  //         >
+  //           {data.innerHTML}
+  //         </a>
+  //       </div>
+  //     );
+  //   });
 
-    return divTags;
-  };
-  const updateInDOMFooterLinkAboutSocial = (datas) => {
-    const aTags = datas.map((data) => {
-      return (
-        <a
-          key={data.id}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={data.href}
-          className="footer__link__about-social__link"
-        >
-          <img src={data.image} className="footer__link__about-social__icon" />
-          {data.text}
-        </a>
-      );
-    });
+  //   return divTags;
+  // };
+  // const updateInDOMFooterLinkAboutSocial = (datas) => {
+  //   const aTags = datas.map((data) => {
+  //     return (
+  //       <a
+  //         key={data.id}
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //         href={data.href}
+  //         className="footer__link__about-social__link"
+  //       >
+  //         <img src={data.image} className="footer__link__about-social__icon" />
+  //         {data.text}
+  //       </a>
+  //     );
+  //   });
 
-    return aTags;
-  };
-  const updateInDOMFooterLinkCopyrightCountryAndAreaList = (datas) => {
-    const aTags = datas.map((data) => {
-      return (
-        <a
-          key={data.id}
-          href={data.href}
-          className="footer__link__copyright__country-and-area__link"
-        >
-          {data.innerHTML}
-        </a>
-      );
-    });
+  //   return aTags;
+  // };
+  // const updateInDOMFooterLinkCopyrightCountryAndAreaList = (datas) => {
+  //   const aTags = datas.map((data) => {
+  //     return (
+  //       <a
+  //         key={data.id}
+  //         href={data.href}
+  //         className="footer__link__copyright__country-and-area__link"
+  //       >
+  //         {data.innerHTML}
+  //       </a>
+  //     );
+  //   });
 
-    return aTags;
-  };
-  //#endregion
+  //   return aTags;
+  // };
+  // //#endregion
 
-  //#region Handle side effect
-  useEffect(() => {
-    // Fetch data & update state
-    fetch("/db/db.json")
-      .then((response) => response.json())
+  // //#region Handle side effect
+  // useEffect(() => {
+  //   // Fetch data & update state
+  //   fetch("/db/db.json")
+  //     .then((response) => response.json())
 
-      .then((datas) => {
-        setFooterLinkAboutTextCSKHInfo(datas.footerLinkAboutTextCSKHInfo);
-        setFooterLinkAboutTextVeShopeeInfo(
-          datas.footerLinkAboutTextVeShopeeInfo
-        );
-        setFooterLinkAboutSocialInfo(datas.footerLinkAboutSocialInfo);
-        setFooterLinkCopyrightCountryAndAreaListInfo(
-          datas.footerLinkCopyrightCountryAndAreaListInfo
-        );
-      });
-  }, []);
-  //#endregion
+  //     .then((datas) => {
+  //       setFooterLinkAboutTextCSKHInfo(datas.footerLinkAboutTextCSKHInfo);
+  //       setFooterLinkAboutTextVeShopeeInfo(
+  //         datas.footerLinkAboutTextVeShopeeInfo
+  //       );
+  //       setFooterLinkAboutSocialInfo(datas.footerLinkAboutSocialInfo);
+  //       setFooterLinkCopyrightCountryAndAreaListInfo(
+  //         datas.footerLinkCopyrightCountryAndAreaListInfo
+  //       );
+  //     });
+  // }, []);
+  // //#endregion
 
   return (
     <div className="footer__link">
@@ -108,8 +108,8 @@ function FooterLink({ dataSource }) {
               Chăm sóc khách hàng
             </span>
             <div className="footer__link__about-text-CSKH">
-              {footerLinkAboutTextCSKHInfo &&
-                updateInDOMFooterLinkAboutTextCSKH(footerLinkAboutTextCSKHInfo)}
+              {/* {footerLinkAboutTextCSKHInfo &&
+                updateInDOMFooterLinkAboutTextCSKH(footerLinkAboutTextCSKHInfo)} */}
             </div>
           </div>
         </div>
@@ -117,10 +117,10 @@ function FooterLink({ dataSource }) {
           <div className="footer__link__about__item">
             <span className="footer__link__about__heading">Về Shopee</span>
             <div className="footer__link__about-text-VeShopee">
-              {footerLinkAboutTextVeShopeeInfo &&
+              {/* {footerLinkAboutTextVeShopeeInfo &&
                 updateInDOMFooterLinkAboutTextVeShopee(
                   footerLinkAboutTextVeShopeeInfo
-                )}
+                )} */}
             </div>
           </div>
         </div>
@@ -152,8 +152,8 @@ function FooterLink({ dataSource }) {
               Theo dõi chúng tôi trên
             </span>
             <div className="footer__link__about-social">
-              {footerLinkAboutSocialInfo &&
-                updateInDOMFooterLinkAboutSocial(footerLinkAboutSocialInfo)}
+              {/* {footerLinkAboutSocialInfo &&
+                updateInDOMFooterLinkAboutSocial(footerLinkAboutSocialInfo)} */}
             </div>
           </div>
         </div>
@@ -193,10 +193,10 @@ function FooterLink({ dataSource }) {
             Quốc gia & Khu vực:
           </span>
           <div className="footer__link__copyright__country-and-area__list">
-            {footerLinkCopyrightCountryAndAreaListInfo &&
+            {/* {footerLinkCopyrightCountryAndAreaListInfo &&
               updateInDOMFooterLinkCopyrightCountryAndAreaList(
                 footerLinkCopyrightCountryAndAreaListInfo
-              )}
+              )} */}
           </div>
         </div>
       </div>

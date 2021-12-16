@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
 
-function Slider({ dataSource }) {
-  // Get data from parent component
-  const sliderFavouriteSelectionsInfo =
-    dataSource.sliderFavouriteSelectionsInfo;
+function Slider() {
+  // // Get data from parent component
+  // const sliderFavouriteSelectionsInfo =
+  //   dataSource.sliderFavouriteSelectionsInfo;
 
-  // Function handlers
-  const updateInDOMSliderFavouriteSelections = (datas) => {
-    return datas.map((data) => (
-      <a
-        key={data.id}
-        className="slider__favourite-selections__link"
-        href={data.href}
-      >
-        <img
-          className="slider__favourite-selections__link-img"
-          src={data.image}
-        />
-        <h4 className="slider__favourite-selections__link-text">{data.text}</h4>
-      </a>
-    ));
-  };
+  // // Function handlers
+  // const updateInDOMSliderFavouriteSelections = (datas) => {
+  //   return datas.map((data) => (
+  //     <a
+  //       key={data.id}
+  //       className="slider__favourite-selections__link"
+  //       href={data.href}
+  //     >
+  //       <img
+  //         className="slider__favourite-selections__link-img"
+  //         src={data.image}
+  //       />
+  //       <h4 className="slider__favourite-selections__link-text">{data.text}</h4>
+  //     </a>
+  //   ));
+  // };
 
   return (
     <div className="slider">
@@ -86,8 +86,8 @@ function Slider({ dataSource }) {
           </div>
         </div>
         <div className="slider__favourite-selections">
-          {sliderFavouriteSelectionsInfo &&
-            updateInDOMSliderFavouriteSelections(sliderFavouriteSelectionsInfo)}
+          {/* {sliderFavouriteSelectionsInfo &&
+            updateInDOMSliderFavouriteSelections(sliderFavouriteSelectionsInfo)} */}
         </div>
       </div>
     </div>

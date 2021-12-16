@@ -1,40 +1,40 @@
 import React, { useState, useEffect } from "react";
 
-function FlashSale({ dataSource }) {
-  // Get data from parent component
-  const flashSaleMainListInfo = dataSource.flashSaleMainListInfo;
+function FlashSale() {
+  // // Get data from parent component
+  // const flashSaleMainListInfo = dataSource.flashSaleMainListInfo;
 
-  // Function handlers
-  const updateInDOMDirectoryMainList = (datas) => {
-    return datas.map((data) => (
-      <a key={data.id} href={data.href} className="flash-sale__main__link">
-        <img src={data.bubbleImage} className="flash-sale__main__bubble-img" />
-        <img src={data.frameImage} className="flash-sale__main__frame-img" />
-        <span className="flash-sale__main__price">{data.price}</span>
-        <div className="flash-sale__main__percent-bar">
-          <div className="flash-sale__main__percent-bar__text">
-            <span className="flash-sale__main__percent-bar__selled-status">
-              {data.selledStatus}
-            </span>
-          </div>
-          <div className="flash-sale__main__percent-bar__total-part"></div>
-          <div
-            className="flash-sale__main__percent-bar__selled-part"
-            style={{ width: `${data.selledPartWidthPercent}%` }}
-          ></div>
-          {data.selledPartWidthPercent >= 70 && (
-            <div className="flash-sale__main__percent-bar--hot"></div>
-          )}
-        </div>
-        <div className="flash-sale__main__sale-off-label">
-          <span className="flash-sale__main__sale-off-label__percent">
-            {data.saleOffPercent}
-          </span>
-          <span className="flash-sale__main__sale-off-label__text">GIẢM</span>
-        </div>
-      </a>
-    ));
-  };
+  // // Function handlers
+  // const updateInDOMDirectoryMainList = (datas) => {
+  //   return datas.map((data) => (
+  //     <a key={data.id} href={data.href} className="flash-sale__main__link">
+  //       <img src={data.bubbleImage} className="flash-sale__main__bubble-img" />
+  //       <img src={data.frameImage} className="flash-sale__main__frame-img" />
+  //       <span className="flash-sale__main__price">{data.price}</span>
+  //       <div className="flash-sale__main__percent-bar">
+  //         <div className="flash-sale__main__percent-bar__text">
+  //           <span className="flash-sale__main__percent-bar__selled-status">
+  //             {data.selledStatus}
+  //           </span>
+  //         </div>
+  //         <div className="flash-sale__main__percent-bar__total-part"></div>
+  //         <div
+  //           className="flash-sale__main__percent-bar__selled-part"
+  //           style={{ width: `${data.selledPartWidthPercent}%` }}
+  //         ></div>
+  //         {data.selledPartWidthPercent >= 70 && (
+  //           <div className="flash-sale__main__percent-bar--hot"></div>
+  //         )}
+  //       </div>
+  //       <div className="flash-sale__main__sale-off-label">
+  //         <span className="flash-sale__main__sale-off-label__percent">
+  //           {data.saleOffPercent}
+  //         </span>
+  //         <span className="flash-sale__main__sale-off-label__text">GIẢM</span>
+  //       </div>
+  //     </a>
+  //   ));
+  // };
 
   return (
     <div className="flash-sale">
@@ -54,8 +54,8 @@ function FlashSale({ dataSource }) {
       <div className="flash-sale__main">
         <div className="flash-sale__main__part">
           <div className="flash-sale__main__list">
-            {flashSaleMainListInfo &&
-              updateInDOMDirectoryMainList(flashSaleMainListInfo)}
+            {/* {flashSaleMainListInfo &&
+              updateInDOMDirectoryMainList(flashSaleMainListInfo)} */}
           </div>
         </div>
 

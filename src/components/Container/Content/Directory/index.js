@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 
-function Directory({ dataSource }) {
-  // Get data from parent component
-  const directoryMainItemListInfo = dataSource.directoryMainItemListInfo;
+function Directory() {
+  // // Get data from parent component
+  // const directoryMainItemListInfo = dataSource.directoryMainItemListInfo;
 
-  // Function handlers
-  const updateInDOMDirectoryMainList = (datas) => {
-    return datas.map((data, index) => (
-      <li key={index} className="directory__main__item">
-        <a href={data[0].href} className="directory__main__item__link">
-          <img src={data[0].itemImage} className="directory__main__item__img" />
-          <span className="directory__main__item__title">
-            {data[0].itemTitle}
-          </span>
-        </a>
-        <a href={data[1].href} className="directory__main__item__link">
-          <img src={data[1].itemImage} className="directory__main__item__img" />
-          <span className="directory__main__item__title">
-            {data[1].itemTitle}
-          </span>
-        </a>
-      </li>
-    ));
-  };
+  // // Function handlers
+  // const updateInDOMDirectoryMainList = (datas) => {
+  //   return datas.map((data, index) => (
+  //     <li key={index} className="directory__main__item">
+  //       <a href={data[0].href} className="directory__main__item__link">
+  //         <img src={data[0].itemImage} className="directory__main__item__img" />
+  //         <span className="directory__main__item__title">
+  //           {data[0].itemTitle}
+  //         </span>
+  //       </a>
+  //       <a href={data[1].href} className="directory__main__item__link">
+  //         <img src={data[1].itemImage} className="directory__main__item__img" />
+  //         <span className="directory__main__item__title">
+  //           {data[1].itemTitle}
+  //         </span>
+  //       </a>
+  //     </li>
+  //   ));
+  // };
 
   return (
     <div className="directory">
@@ -31,8 +31,8 @@ function Directory({ dataSource }) {
       <div className="directory__main">
         <div className="directory__main__part">
           <ul className="directory__main__list">
-            {directoryMainItemListInfo &&
-              updateInDOMDirectoryMainList(directoryMainItemListInfo)}
+            {/* {directoryMainItemListInfo &&
+              updateInDOMDirectoryMainList(directoryMainItemListInfo)} */}
           </ul>
         </div>
 

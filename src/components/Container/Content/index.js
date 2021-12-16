@@ -9,19 +9,19 @@ import SearchTrending from "./SearchTrending";
 import TopSearch from "./TopSearch";
 import TodaySuggestion from "./TodaySuggestion";
 
-function Content({ dataSource }) {
+function Content() {
   return (
     <div className="content">
-      <Slider dataSource={dataSource} />
-      <GiftBanner dataSource={dataSource} />
-      <Outstanding dataSource={dataSource} />
-      <Directory dataSource={dataSource} />
-      <FlashSale dataSource={dataSource} />
-      <UnderFlashSale dataSource={dataSource} />
-      <ShopeeMall dataSource={dataSource} />
-      <SearchTrending dataSource={dataSource} />
-      <TopSearch dataSource={dataSource} />
-      <TodaySuggestion dataSource={dataSource} />
+      <Slider />
+      <GiftBanner />
+      <Outstanding />
+      <Directory />
+      <FlashSale />
+      <UnderFlashSale />
+      <ShopeeMall />
+      <SearchTrending />
+      <TopSearch />
+      <TodaySuggestion />
     </div>
   );
 }

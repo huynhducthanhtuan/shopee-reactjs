@@ -1,24 +1,24 @@
 import React, { useEffect } from "react";
 import $ from "jquery";
 
-function FooterText({ dataSource }) {
-  //#region Handle side effect
-  useEffect(() => {
-    // Update progs for footerTextATags elements
-    fetch("/db/db.json")
-      .then((response) => response.json())
-      .then((datas) => {
-        const footerTextATagsInfo = datas.footerTextATagsInfo;
-        const footerTextATags = $(".footer__text a");
+function FooterText() {
+  // //#region Handle side effect
+  // useEffect(() => {
+  //   // Update progs for footerTextATags elements
+  //   fetch("/db/db.json")
+  //     .then((response) => response.json())
+  //     .then((datas) => {
+  //       const footerTextATagsInfo = datas.footerTextATagsInfo;
+  //       const footerTextATags = $(".footer__text a");
 
-        // Loop through array footerTextATags
-        $.each(footerTextATags, (index, footerTextATag) => {
-          footerTextATag.href = footerTextATagsInfo[index].href;
-          footerTextATag.innerHTML = footerTextATagsInfo[index].innerHTML;
-        });
-      });
-  }, []);
-  //#endregion
+  //       // Loop through array footerTextATags
+  //       $.each(footerTextATags, (index, footerTextATag) => {
+  //         footerTextATag.href = footerTextATagsInfo[index].href;
+  //         footerTextATag.innerHTML = footerTextATagsInfo[index].innerHTML;
+  //       });
+  //     });
+  // }, []);
+  // //#endregion
 
   return (
     <div className="footer__text">

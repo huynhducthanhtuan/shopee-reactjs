@@ -2,12 +2,12 @@ import Header from "../../components/Header";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 
-function Home({ dataSource }) {
+function Home() {
   return (
     <>
-      <Header dataSource={dataSource} />
-      <Container dataSource={dataSource} />
-      <Footer dataSource={dataSource} />
+      <Header />
+      <Container />
+      <Footer />
     </>
   );
 }
