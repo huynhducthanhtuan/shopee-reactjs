@@ -6,10 +6,10 @@ import FooterPolicyAndTerms from "./FooterPolicyAndTerms";
 function Footer() {
   return (
     <footer id="footer">
-      {/* <FooterText dataSource={dataSource} />
-      <FooterDirectory dataSource={dataSource} />
-      <FooterLink dataSource={dataSource} />
-      <FooterPolicyAndTerms dataSource={dataSource} /> */}
+      <FooterText />
+      <FooterDirectory />
+      <FooterLink />
+      <FooterPolicyAndTerms />
     </footer>
   );
 }

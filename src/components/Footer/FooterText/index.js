@@ -1,24 +1,26 @@
-import React, { useEffect } from "react";
 import $ from "jquery";
+import { useState, useEffect, useContext } from "react";
+import { DataSourceContext } from "../../../Context/DataSourceContext";
 
 function FooterText() {
-  // //#region Handle side effect
-  // useEffect(() => {
-  //   // Update progs for footerTextATags elements
-  //   fetch("/db/db.json")
-  //     .then((response) => response.json())
-  //     .then((datas) => {
-  //       const footerTextATagsInfo = datas.footerTextATagsInfo;
-  //       const footerTextATags = $(".footer__text a");
+  // Get data from Context
+  const dataSourceContextValue = useContext(DataSourceContext);
+  const footerTextATagsInfo = dataSourceContextValue
+    ? dataSourceContextValue.footerTextATagsInfo
+    : null;
 
-  //       // Loop through array footerTextATags
-  //       $.each(footerTextATags, (index, footerTextATag) => {
-  //         footerTextATag.href = footerTextATagsInfo[index].href;
-  //         footerTextATag.innerHTML = footerTextATagsInfo[index].innerHTML;
-  //       });
-  //     });
-  // }, []);
-  // //#endregion
+  // Function handlers
+  const updateInDOMFooterTextATags = (datas) => {
+    if (datas) {
+      const footerTextATags = $(".footer__text a");
+
+      // Loop array footerTextATags
+      $.each(footerTextATags, (index, footerTextATag) => {
+        footerTextATag.href = datas[index].href;
+        footerTextATag.innerHTML = datas[index].innerHTML;
+      });
+    }
+  };
 
   return (
     <div className="footer__text">
@@ -134,6 +136,7 @@ function FooterText() {
           dụng Shopee về điện thoại ngay hôm nay!
         </span>
       </div>
+      {updateInDOMFooterTextATags(footerTextATagsInfo)}
     </div>
   );
 }

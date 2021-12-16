@@ -3121,7 +3121,7 @@ todaySuggestionHeadingTabSuperSale88.addEventListener("click", () => {
 //#endregion
 //#endregion
 
-//#region footer (1)
+//#region footer (-->OK)
 //#region updateInDOMFooterTextATags (-->OK)
 (function updateInDOMFooterTextATags() {
   fetch("db.json")
@@ -3136,7 +3136,7 @@ todaySuggestionHeadingTabSuperSale88.addEventListener("click", () => {
 })();
 //#endregion
 
-//#region updateInDOMFooterDirectoryList
+//#region updateInDOMFooterDirectoryList (-->OK)
 function handleUpdateInDOMFooterDirectoryList(footerDirectoryListInfo) {
   var partItemQuantity = [
     21, 11, 6, 18, 11, 15, 21, 10, 8, 8, 8, 11, 10, 8, 13, 6, 15, 6, 10, 10, 9,
