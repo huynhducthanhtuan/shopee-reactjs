@@ -2,13 +2,17 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../../../Context/DataSourceContext";
 
 function ShopeeMall() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const shopeeMallHeadingTextInfo = dataSourceContextValue
     ? dataSourceContextValue.shopeeMallHeadingTextInfo
     : null;
+  const shopeeMallMainProductListInfo = dataSourceContextValue
+    ? dataSourceContextValue.shopeeMallMainProductListInfo
+    : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMShopeeMallHeadingText = (datas) => {
     return datas.map((data) => (
       <div key={data.id}>
@@ -17,6 +21,50 @@ function ShopeeMall() {
       </div>
     ));
   };
+  const updateInDOMShopeeMallMainProductList = (datas) => {
+    const shopeeMallMainProductListLength = datas.length;
+    const shopeeMallMainProductListItemsLength =
+      shopeeMallMainProductListLength * 2;
+
+    return datas.map((data, index) => (
+      <li key={index} className="shopee-mall__main__product-item">
+        {data.map((dataChild, index) => {
+          // check for special case: last li tag
+          return dataChild.id !== shopeeMallMainProductListItemsLength ? (
+            <a
+              key={index}
+              href={dataChild.href}
+              className="shopee-mall__main__product-item__link"
+            >
+              <img
+                src={dataChild.image}
+                className="shopee-mall__main__product-item__link__img"
+              />
+              <span className="shopee-mall__main__product-item__link__text">
+                {dataChild.text}
+              </span>
+            </a>
+          ) : (
+            <div
+              key={index}
+              className="shopee-mall__main__product-item__link__exception"
+            >
+              <a
+                href="https://shopee.vn/mall"
+                className="shopee-mall__heading__view-all-btn"
+              >
+                Xem tất cả
+                <div>
+                  <i className="fas fa-chevron-right"></i>
+                </div>
+              </a>
+            </div>
+          );
+        })}
+      </li>
+    ));
+  };
+  //#endregion
 
   return (
     <div className="shopee-mall">
@@ -28,7 +76,6 @@ function ShopeeMall() {
           >
             <img
               src="/assests/img/container/shopee-mall/heading/icon.png"
-              alt=""
               className="shopee-mall__heading__img"
             />
           </a>
@@ -68,7 +115,12 @@ function ShopeeMall() {
         </div>
         <div className="shopee-mall__main__product">
           <div className="shopee-mall__main__product-part">
-            <ul className="shopee-mall__main__product-list"></ul>
+            <ul className="shopee-mall__main__product-list">
+              {shopeeMallMainProductListInfo &&
+                updateInDOMShopeeMallMainProductList(
+                  shopeeMallMainProductListInfo
+                )}
+            </ul>
           </div>
 
           <button className="navigation-btn navigation-btn__previous shopee-mall__main__product__previous-btn">

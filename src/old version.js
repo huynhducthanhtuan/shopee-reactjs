@@ -2329,8 +2329,8 @@ flashSaleMainPreviousBtn.addEventListener("click", (e) => {
 //#endregion
 //#endregion
 
-//#region shopeeMall (2) (event)
-//#region updateInDOMShopeeMallMainMotionLinkAndQueueItems
+//#region shopeeMall (1) (event)
+//#region updateInDOMShopeeMallMainMotionLinkAndQueueItems (slick-slider)
 function handleShopeeMallMainMotionLinkAndQueueItems(
   shopeeMallMainMotionLinkInfo
 ) {
@@ -2420,7 +2420,7 @@ function handleShopeeMallMainMotionLinkAndQueueItems(
 })();
 //#endregion
 
-//#region updateInDOMShopeeMallMainProductList
+//#region updateInDOMShopeeMallMainProductList (-->OK)
 function handleUpdateInDOMShopeeMallMainProductList(
   shopeeMallMainProductListInfo
 ) {
@@ -2429,46 +2429,46 @@ function handleUpdateInDOMShopeeMallMainProductList(
 
   for (i = 0; i < shopeeMallMainProductListInfo.length - 1; i += 2) {
     liTags += `
-            <li class="shopee-mall__main__product-item">
-                <a href="${
-                  shopeeMallMainProductListInfo[i].href
-                }" class="shopee-mall__main__product-item__link">
-                    <img src="${
-                      shopeeMallMainProductListInfo[i].image
-                    }" alt="" class="shopee-mall__main__product-item__link__img">
-                    <span class="shopee-mall__main__product-item__link__text">${
-                      shopeeMallMainProductListInfo[i].text
-                    }</span>
-                </a>
-                <a href="${
-                  shopeeMallMainProductListInfo[i + 1].href
-                }" class="shopee-mall__main__product-item__link">
-                    <img src="${
-                      shopeeMallMainProductListInfo[i + 1].image
-                    }" alt="" class="shopee-mall__main__product-item__link__img">
-                    <span class="shopee-mall__main__product-item__link__text">${
-                      shopeeMallMainProductListInfo[i + 1].text
-                    }</span>
-                </a>
-            </li>`;
+    <li class="shopee-mall__main__product-item">
+        <a href="${
+          shopeeMallMainProductListInfo[i].href
+        }" class="shopee-mall__main__product-item__link">
+            <img src="${
+              shopeeMallMainProductListInfo[i].image
+            }" alt="" class="shopee-mall__main__product-item__link__img">
+            <span class="shopee-mall__main__product-item__link__text">${
+              shopeeMallMainProductListInfo[i].text
+            }</span>
+        </a>
+        <a href="${
+          shopeeMallMainProductListInfo[i + 1].href
+        }" class="shopee-mall__main__product-item__link">
+            <img src="${
+              shopeeMallMainProductListInfo[i + 1].image
+            }" alt="" class="shopee-mall__main__product-item__link__img">
+            <span class="shopee-mall__main__product-item__link__text">${
+              shopeeMallMainProductListInfo[i + 1].text
+            }</span>
+        </a>
+    </li>`;
   }
 
   // special case: the last li element
   liTags += `
-        <li class="shopee-mall__main__product-item">
-            <a href="${shopeeMallMainProductListInfo[i].href}" class="shopee-mall__main__product-item__link">
-                <img src="${shopeeMallMainProductListInfo[i].image}" alt="" class="shopee-mall__main__product-item__link__img">
-                <span class="shopee-mall__main__product-item__link__text">${shopeeMallMainProductListInfo[i].text}</span>
-            </a>
-            <div class="shopee-mall__main__product-item__link__exception">
-                <a href="https://shopee.vn/mall" class="shopee-mall__heading__view-all-btn">
-                    Xem tất cả
-                    <div>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
-            </div>
-        </li>`;
+  <li class="shopee-mall__main__product-item">
+      <a href="${shopeeMallMainProductListInfo[i].href}" class="shopee-mall__main__product-item__link">
+          <img src="${shopeeMallMainProductListInfo[i].image}" alt="" class="shopee-mall__main__product-item__link__img">
+          <span class="shopee-mall__main__product-item__link__text">${shopeeMallMainProductListInfo[i].text}</span>
+      </a>
+      <div class="shopee-mall__main__product-item__link__exception">
+          <a href="https://shopee.vn/mall" class="shopee-mall__heading__view-all-btn">
+              Xem tất cả
+              <div>
+                  <i class="fas fa-chevron-right"></i>
+              </div>
+          </a>
+      </div>
+  </li>`;
 
   shopeeMallMainProductList.innerHTML = liTags;
 }
