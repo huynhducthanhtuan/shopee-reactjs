@@ -1,11 +1,11 @@
 import LoginPage from "./LoginPage";
 import Footer from "../../components/Footer";
 
-function Login({ dataSource }) {
+function Login() {
   return (
     <>
       <LoginPage />
-      <Footer dataSource={dataSource} />
+      <Footer />
     </>
   );
 }

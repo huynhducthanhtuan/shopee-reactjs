@@ -1,14 +1,18 @@
 import { useContext } from "react";
-import { DataSourceContext } from "../../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../../Context/DataSourceContext";
 
 function FlashSale() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const flashSaleMainListInfo = dataSourceContextValue
     ? dataSourceContextValue.flashSaleMainListInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMDirectoryMainList = (datas) => {
     return datas.map((data) => (
       <a key={data.id} href={data.href} className="flash-sale__main__link">
@@ -39,38 +43,43 @@ function FlashSale() {
       </a>
     ));
   };
+  //#endregion
 
   return (
-    <div className="flash-sale">
-      <div className="flash-sale__heading">
-        <img
-          src="/assests/img/container/flash-sale/header-img.png"
-          className="flash-sale__heading__img"
-        />
-        <a
-          href="https://shopee.vn/flash_sale?promotionId=2020501378"
-          className="flash-sale__heading__btn flash-sale__heading__view-all-btn"
-        >
-          Xem tất cả
-          <i className="fas fa-chevron-right"></i>
-        </a>
-      </div>
-      <div className="flash-sale__main">
-        <div className="flash-sale__main__part">
-          <div className="flash-sale__main__list">
-            {flashSaleMainListInfo &&
-              updateInDOMDirectoryMainList(flashSaleMainListInfo)}
+    <DataSourceContextConsumer>
+      {() => (
+        <div className="flash-sale">
+          <div className="flash-sale__heading">
+            <img
+              src="/assests/img/container/flash-sale/header-img.png"
+              className="flash-sale__heading__img"
+            />
+            <a
+              href="https://shopee.vn/flash_sale?promotionId=2020501378"
+              className="flash-sale__heading__btn flash-sale__heading__view-all-btn"
+            >
+              Xem tất cả
+              <i className="fas fa-chevron-right"></i>
+            </a>
+          </div>
+          <div className="flash-sale__main">
+            <div className="flash-sale__main__part">
+              <div className="flash-sale__main__list">
+                {flashSaleMainListInfo &&
+                  updateInDOMDirectoryMainList(flashSaleMainListInfo)}
+              </div>
+            </div>
+
+            <button className="navigation-btn navigation-btn__previous flash-sale__main__previous-btn">
+              <i className="fas fa-chevron-left navigation-btn__icon"></i>
+            </button>
+            <button className="navigation-btn navigation-btn__next flash-sale__main__next-btn">
+              <i className="fas fa-chevron-right navigation-btn__icon"></i>
+            </button>
           </div>
         </div>
-
-        <button className="navigation-btn navigation-btn__previous flash-sale__main__previous-btn">
-          <i className="fas fa-chevron-left navigation-btn__icon"></i>
-        </button>
-        <button className="navigation-btn navigation-btn__next flash-sale__main__next-btn">
-          <i className="fas fa-chevron-right navigation-btn__icon"></i>
-        </button>
-      </div>
-    </div>
+      )}
+    </DataSourceContextConsumer>
   );
 }
 

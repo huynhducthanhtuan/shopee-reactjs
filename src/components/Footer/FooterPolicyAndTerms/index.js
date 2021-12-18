@@ -1,5 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { DataSourceContext } from "../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../Context/DataSourceContext";
 
 function FooterPolicyAndTerms() {
   //#region Get data from Context
@@ -63,28 +66,32 @@ function FooterPolicyAndTerms() {
   //#endregion
 
   return (
-    <div className="footer__policy-terms">
-      <div className="footer__policy-terms__part">
-        <div className="footer__policy-terms__part__title">
-          {footerPolicyTermsPartTitleInfo &&
-            updateInDOMFooterPolicyTermsPartTitle(
-              footerPolicyTermsPartTitleInfo
-            )}
+    <DataSourceContextConsumer>
+      {() => (
+        <div className="footer__policy-terms">
+          <div className="footer__policy-terms__part">
+            <div className="footer__policy-terms__part__title">
+              {footerPolicyTermsPartTitleInfo &&
+                updateInDOMFooterPolicyTermsPartTitle(
+                  footerPolicyTermsPartTitleInfo
+                )}
+            </div>
+            <div className="footer__policy-terms__part__certificate">
+              {footerPolicyTermsPartCertificateInfo &&
+                updateInDOMFooterPolicyTermsPartCertificate(
+                  footerPolicyTermsPartCertificateInfo
+                )}
+            </div>
+            <div className="footer__policy-terms__part__company-info">
+              {footerPolicyTermsPartCompanyInfoInfo &&
+                updateInDOMFooterPolicyTermsPartCompanyInfo(
+                  footerPolicyTermsPartCompanyInfoInfo
+                )}
+            </div>
+          </div>
         </div>
-        <div className="footer__policy-terms__part__certificate">
-          {footerPolicyTermsPartCertificateInfo &&
-            updateInDOMFooterPolicyTermsPartCertificate(
-              footerPolicyTermsPartCertificateInfo
-            )}
-        </div>
-        <div className="footer__policy-terms__part__company-info">
-          {footerPolicyTermsPartCompanyInfoInfo &&
-            updateInDOMFooterPolicyTermsPartCompanyInfo(
-              footerPolicyTermsPartCompanyInfoInfo
-            )}
-        </div>
-      </div>
-    </div>
+      )}
+    </DataSourceContextConsumer>
   );
 }
 

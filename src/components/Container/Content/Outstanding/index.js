@@ -1,8 +1,11 @@
 import { useContext } from "react";
-import { DataSourceContext } from "../../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../../Context/DataSourceContext";
 
 function Outstanding() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const outstandingHotSellingProductsInfo = dataSourceContextValue
     ? dataSourceContextValue.outstandingHotSellingProductsInfo
@@ -10,8 +13,9 @@ function Outstanding() {
   const outstandingHotBrandsInfo = dataSourceContextValue
     ? dataSourceContextValue.outstandingHotBrandsInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMOutstandingHotSellingProducts = ([
     outstandingHotSellingProductsInfoInfo,
     outstandingHotSellingProductsListInfo,
@@ -104,40 +108,45 @@ function Outstanding() {
       </>
     );
   };
+  //#endregion
 
   return (
-    <div className="outstanding">
-      <div className="outstanding__header">
-        <img
-          src="/assests/img/container/outstanding/picture_header.png"
-          className="outstanding__picture-header"
-        />
-      </div>
-      <div className="outstanding__body">
-        <div>
-          <div className="outstanding__hot-selling-products">
-            {outstandingHotSellingProductsInfo &&
-              updateInDOMOutstandingHotSellingProducts([
-                outstandingHotSellingProductsInfo.info,
-                outstandingHotSellingProductsInfo.list,
-              ])}
+    <DataSourceContextConsumer>
+      {() => (
+        <div className="outstanding">
+          <div className="outstanding__header">
+            <img
+              src="/assests/img/container/outstanding/picture_header.png"
+              className="outstanding__picture-header"
+            />
           </div>
-          <div className="outstanding__hot-brands">
-            {outstandingHotBrandsInfo &&
-              updateInDOMOutstandingHotBrands([
-                outstandingHotBrandsInfo.info,
-                outstandingHotBrandsInfo.list,
-              ])}
+          <div className="outstanding__body">
+            <div>
+              <div className="outstanding__hot-selling-products">
+                {outstandingHotSellingProductsInfo &&
+                  updateInDOMOutstandingHotSellingProducts([
+                    outstandingHotSellingProductsInfo.info,
+                    outstandingHotSellingProductsInfo.list,
+                  ])}
+              </div>
+              <div className="outstanding__hot-brands">
+                {outstandingHotBrandsInfo &&
+                  updateInDOMOutstandingHotBrands([
+                    outstandingHotBrandsInfo.info,
+                    outstandingHotBrandsInfo.list,
+                  ])}
+              </div>
+            </div>
+          </div>
+          <div className="outstanding__footer">
+            <img
+              src="/assests/img/container/outstanding/picture_footer.png"
+              className="outstanding__picture-footer"
+            />
           </div>
         </div>
-      </div>
-      <div className="outstanding__footer">
-        <img
-          src="/assests/img/container/outstanding/picture_footer.png"
-          className="outstanding__picture-footer"
-        />
-      </div>
-    </div>
+      )}
+    </DataSourceContextConsumer>
   );
 }
 

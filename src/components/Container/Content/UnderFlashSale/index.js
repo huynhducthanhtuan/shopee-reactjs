@@ -1,14 +1,18 @@
 import { useContext } from "react";
-import { DataSourceContext } from "../../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../../Context/DataSourceContext";
 
 function UnderFlashSale() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const underFlashSalePartInfo = dataSourceContextValue
     ? dataSourceContextValue.underFlashSalePartInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMUnderFlashSalePart = (datas) => {
     return datas.map((data) => (
       <a key={data.id} href={data.href} className="under-flash-sale__link">
@@ -16,14 +20,19 @@ function UnderFlashSale() {
       </a>
     ));
   };
+  //#endregion
 
   return (
-    <div className="under-flash-sale">
-      <div className="under-flash-sale__part">
-        {underFlashSalePartInfo &&
-          updateInDOMUnderFlashSalePart(underFlashSalePartInfo)}
-      </div>
-    </div>
+    <DataSourceContextConsumer>
+      {() => (
+        <div className="under-flash-sale">
+          <div className="under-flash-sale__part">
+            {underFlashSalePartInfo &&
+              updateInDOMUnderFlashSalePart(underFlashSalePartInfo)}
+          </div>
+        </div>
+      )}
+    </DataSourceContextConsumer>
   );
 }
 

@@ -1,14 +1,18 @@
 import { useContext } from "react";
-import { DataSourceContext } from "../../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../../Context/DataSourceContext";
 
 function Slider() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const sliderFavouriteSelectionsInfo = dataSourceContextValue
     ? dataSourceContextValue.sliderFavouriteSelectionsInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMSliderFavouriteSelections = (datas) => {
     return datas.map((data) => (
       <a
@@ -24,9 +28,10 @@ function Slider() {
       </a>
     ));
   };
+  //#endregion
 
   return (
-    <DataSourceContext.Consumer>
+    <DataSourceContextConsumer>
       {() => (
         <div className="slider">
           <div className="slider__part">
@@ -99,7 +104,7 @@ function Slider() {
           </div>
         </div>
       )}
-    </DataSourceContext.Consumer>
+    </DataSourceContextConsumer>
   );
 }
 

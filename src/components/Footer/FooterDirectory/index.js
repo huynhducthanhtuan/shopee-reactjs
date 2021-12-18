@@ -1,14 +1,18 @@
 import { useState, useEffect, useContext } from "react";
-import { DataSourceContext } from "../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../Context/DataSourceContext";
 
 function FooterDirectory() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const footerDirectoryListInfo = dataSourceContextValue
     ? dataSourceContextValue.footerDirectoryListInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMFooterDirectoryList = (datas) => {
     return datas.map((data, index) => (
       <li key={index} className="footer__directory__item">
@@ -39,15 +43,20 @@ function FooterDirectory() {
       </li>
     ));
   };
+  //#endregion
 
   return (
-    <div className="footer__directory">
-      <span className="footer__directory__heading">Danh Mục</span>
-      <ul className="footer__directory__list">
-        {footerDirectoryListInfo &&
-          updateInDOMFooterDirectoryList(footerDirectoryListInfo)}
-      </ul>
-    </div>
+    <DataSourceContextConsumer>
+      {() => (
+        <div className="footer__directory">
+          <span className="footer__directory__heading">Danh Mục</span>
+          <ul className="footer__directory__list">
+            {footerDirectoryListInfo &&
+              updateInDOMFooterDirectoryList(footerDirectoryListInfo)}
+          </ul>
+        </div>
+      )}
+    </DataSourceContextConsumer>
   );
 }
 

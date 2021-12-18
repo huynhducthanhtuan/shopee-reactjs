@@ -1,14 +1,18 @@
 import { useContext } from "react";
-import { DataSourceContext } from "../../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../../Context/DataSourceContext";
 
 function TopSearch() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const topSearchMainListInfo = dataSourceContextValue
     ? dataSourceContextValue.topSearchMainListInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const handleUpdateInDOMTopSearchMainList = (datas) => {
     return datas.map((data, index) => (
       <a key={data.id} href={data.href} className="top-search__main__link">
@@ -37,36 +41,43 @@ function TopSearch() {
       </a>
     ));
   };
+  //#endregion
 
   return (
-    <div className="top-search">
-      <div className="top-search__heading">
-        <span className="top-search__heading__title">TÌM KIẾM HÀNG ĐẦU</span>
-        <a
-          href="https://shopee.vn/top_products?catId=VN_BITL0_625"
-          className="top-search__heading__view-all-btn"
-        >
-          Xem tất cả
-          <i className="fas fa-chevron-right"></i>
-        </a>
-      </div>
+    <DataSourceContextConsumer>
+      {() => (
+        <div className="top-search">
+          <div className="top-search__heading">
+            <span className="top-search__heading__title">
+              TÌM KIẾM HÀNG ĐẦU
+            </span>
+            <a
+              href="https://shopee.vn/top_products?catId=VN_BITL0_625"
+              className="top-search__heading__view-all-btn"
+            >
+              Xem tất cả
+              <i className="fas fa-chevron-right"></i>
+            </a>
+          </div>
 
-      <div className="top-search__main">
-        <div className="top-search__main-part">
-          <div className="top-search__main__list">
-            {topSearchMainListInfo &&
-              handleUpdateInDOMTopSearchMainList(topSearchMainListInfo)}
+          <div className="top-search__main">
+            <div className="top-search__main-part">
+              <div className="top-search__main__list">
+                {topSearchMainListInfo &&
+                  handleUpdateInDOMTopSearchMainList(topSearchMainListInfo)}
+              </div>
+            </div>
+
+            <button className="navigation-btn navigation-btn__previous top-search__main__previous-btn">
+              <i className="fas fa-chevron-left navigation-btn__icon"></i>
+            </button>
+            <button className="navigation-btn navigation-btn__next top-search__main__next-btn">
+              <i className="fas fa-chevron-right navigation-btn__icon"></i>
+            </button>
           </div>
         </div>
-
-        <button className="navigation-btn navigation-btn__previous top-search__main__previous-btn">
-          <i className="fas fa-chevron-left navigation-btn__icon"></i>
-        </button>
-        <button className="navigation-btn navigation-btn__next top-search__main__next-btn">
-          <i className="fas fa-chevron-right navigation-btn__icon"></i>
-        </button>
-      </div>
-    </div>
+      )}
+    </DataSourceContextConsumer>
   );
 }
 

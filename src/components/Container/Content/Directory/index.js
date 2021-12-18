@@ -1,14 +1,18 @@
 import { useContext } from "react";
-import { DataSourceContext } from "../../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../../Context/DataSourceContext";
 
 function Directory() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const directoryMainItemListInfo = dataSourceContextValue
     ? dataSourceContextValue.directoryMainItemListInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMDirectoryMainList = (datas) => {
     return datas.map((data, index) => (
       <li key={index} className="directory__main__item">
@@ -27,9 +31,10 @@ function Directory() {
       </li>
     ));
   };
+  //#endregion
 
   return (
-    <DataSourceContext.Consumer>
+    <DataSourceContextConsumer>
       {() => (
         <div className="directory">
           <div className="directory__heading">DANH MỤC</div>
@@ -51,7 +56,7 @@ function Directory() {
           </div>
         </div>
       )}
-    </DataSourceContext.Consumer>
+    </DataSourceContextConsumer>
   );
 }
 

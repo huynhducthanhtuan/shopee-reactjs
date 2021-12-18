@@ -1,14 +1,18 @@
 import { useContext } from "react";
-import { DataSourceContext } from "../../../Context/DataSourceContext";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../Context/DataSourceContext";
 
 function HeaderSearchPart() {
-  // Get data from Context
+  //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const headerSearchHistoryKeywordsListInfo = dataSourceContextValue
     ? dataSourceContextValue.headerSearchHistoryKeywordsListInfo
     : null;
+  //#endregion
 
-  // Function handlers
+  //#region Function handlers
   const updateInDOMHeaderSearchHistoryKeywordsList = (datas) => {
     const aTags = datas.map((data) => {
       return (
@@ -23,9 +27,10 @@ function HeaderSearchPart() {
     });
     return aTags;
   };
+  //#endregion
 
   return (
-    <DataSourceContext.Consumer>
+    <DataSourceContextConsumer>
       {() => (
         <div className="header__search-part">
           <a href="" className="header__shopee-logo">
@@ -94,7 +99,7 @@ function HeaderSearchPart() {
           </div>
         </div>
       )}
-    </DataSourceContext.Consumer>
+    </DataSourceContextConsumer>
   );
 }
 

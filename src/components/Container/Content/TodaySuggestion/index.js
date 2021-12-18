@@ -6,10 +6,7 @@ function TodaySuggestion() {
           <span>GỢI Ý HÔM NAY</span>
         </a>
         <a className="today-suggestion__heading-tab-super-sale-8-8">
-          <img
-            src="/assests/img/container/today-suggestion/heading-label.png"
-            alt=""
-          />
+          <img src="/assests/img/container/today-suggestion/heading-label.png" />
         </a>
       </div>
       <div className="today-suggestion__main">
