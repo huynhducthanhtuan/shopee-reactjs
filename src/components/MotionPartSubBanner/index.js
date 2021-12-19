@@ -1,3 +1,5 @@
+import "./MotionPartSubBanner.css";
+
 function MotionPartSubBanner() {
   return (
     <div className="motion-part__sub-banner">

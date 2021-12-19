@@ -1,3 +1,4 @@
+import "./Slider.css";
 import { useContext } from "react";
 import {
   DataSourceContext,

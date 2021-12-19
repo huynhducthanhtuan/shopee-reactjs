@@ -1,3 +1,5 @@
+import "./GiftBanner.css";
+
 function GiftBanner() {
   return (
     <div className="gift-banner">

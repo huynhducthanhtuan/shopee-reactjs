@@ -1,0 +1,194 @@
+.outstanding {
+  height: 44.7rem;
+  background-color: #f03232;
+  width: 120rem;
+  margin: 2rem auto 0;
+}
+
+.outstanding__picture-header {
+  display: block;
+}
+
+.outstanding__body {
+  /* background: url(/assests/img/container/outstanding/picture_body.png)
+    no-repeat center/ cover; */
+  height: 29.7rem;
+  padding: 0 1.5rem;
+}
+
+.outstanding__body > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.outstanding__hot-selling-products__list,
+.outstanding__hot-brands__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 23.7rem;
+}
+
+.outstanding__hot-selling-products__item {
+  display: block;
+  width: 19.2rem;
+  height: 100%;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  background-color: #fff;
+  position: relative;
+}
+
+.outstanding__hot-selling-products__img {
+  display: block;
+  width: 16.2rem;
+  height: 16.2rem;
+}
+
+.outstanding__hot-selling-products__price {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1.8rem;
+  color: rgb(238, 77, 46);
+}
+
+.outstanding__hot-selling-products__sale-off-label {
+  width: 5rem;
+  height: 4.4rem;
+  padding: 0.4rem 0 0.3rem 0;
+  background-color: rgba(255, 212, 36, 0.9);
+  position: absolute;
+  right: 0.1rem;
+  top: 0.1rem;
+}
+
+.outstanding__hot-selling-products__sale-off-label::after {
+  content: "";
+  border-width: 0 2.5rem 0.66rem;
+  border-style: solid;
+  border-color: transparent rgba(255, 212, 36, 0.9) transparent
+    rgba(255, 212, 36, 0.9);
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.outstanding__hot-selling-products__sale-off-label__percent {
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #ee4d2d;
+  margin-bottom: 0.4rem;
+}
+
+.outstanding__hot-selling-products__sale-off-label__text {
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+.outstanding__hot-selling-products,
+.outstanding__hot-brands {
+  height: 100%;
+}
+
+.outstanding__hot-selling-products__info,
+.outstanding__hot-brands__info {
+  padding: 0 1.35rem 0 1.5rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.outstanding__hot-selling-products__info__heading,
+.outstanding__hot-brands__info__heading {
+  margin: 0;
+  font-size: 1.62rem;
+  font-weight: 400;
+  color: rgb(238, 77, 46);
+}
+
+.outstanding__hot-selling-products__info__view-more-btn,
+.outstanding__hot-brands__info__view-more-btn {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ee4d2d;
+  padding: 4px;
+}
+
+.outstanding__hot-selling-products__info__view-more-btn:hover,
+.outstanding__hot-brands__info__view-more-btn:hover {
+  opacity: 0.8;
+}
+
+.outstanding__hot-brands__item {
+  display: block;
+  width: 19.2rem;
+  height: 100%;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  position: relative;
+}
+
+.outstanding__hot-selling-products__item:hover,
+.outstanding__hot-brands__item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0.8125rem 0 rgb(0 0 0 / 5%);
+}
+
+.outstanding__hot-selling-products__item:not(:last-child),
+.outstanding__hot-brands__item:not(:last-child) {
+  margin-right: 1px;
+}
+
+.outstanding__hot-brands__item > div {
+  width: 14rem;
+  height: 5.6rem;
+  border-radius: 3rem;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgb(0 0 0 / 14%);
+  position: absolute;
+  top: 13.2rem;
+  left: 50%;
+  transform: translateX(calc(-50%));
+}
+
+.outstanding__hot-brands__img {
+  display: block;
+  width: 16.2rem;
+  height: 16.2rem;
+  position: relative;
+}
+
+.outstanding__hot-brands__sub-img {
+  width: 4.6rem;
+  height: 4.6rem;
+  margin: 0.5rem 4.7rem 0;
+}
+
+.outstanding__hot-brands__text {
+  display: block;
+  text-align: center;
+  margin-top: 3rem;
+  color: rgb(238, 77, 46);
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  height: 2.6rem;
+  overflow: hidden;
+  /** Limit line number from lines and limit by ... **/
+  /* display: -webkit-box; */
+  /* -webkit-box-orient: vertical; */
+  /* -webkit-line-clamp: 1; */
+
+  /** Limit 1 line from itseft and limit by ... **/
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

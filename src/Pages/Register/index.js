@@ -1,3 +1,4 @@
+import "./Register.css";
 import RegisterPage from "./RegisterPage";
 import Footer from "../../components/Footer";
 

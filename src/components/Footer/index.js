@@ -1,3 +1,4 @@
+import "./Footer.css";
 import FooterText from "./FooterText";
 import FooterDirectory from "./FooterDirectory";
 import FooterLink from "./FooterLink";

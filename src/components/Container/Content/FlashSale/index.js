@@ -1,3 +1,4 @@
+import "./FlashSale.css";
 import { useContext } from "react";
 import {
   DataSourceContext,

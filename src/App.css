@@ -1,0 +1,100 @@
+/* Animation */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes growth {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes growth {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Input placeholder */
+::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.8);
+  opacity: 0.5;
+}
+
+#app {
+  position: absolute;
+  inset: 0px;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding-top: 12rem;
+  background-color: #f5f5f5;
+}
+
+#content {
+  position: relative;
+  width: 100%;
+  background-color: #f5f5f5;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Navigation button */
+.navigation-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 12px 0 rgb(0 0 0 / 12%);
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50%));
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-btn__previous {
+  left: 0;
+  margin-left: calc(-1.25rem);
+}
+
+.navigation-btn__next {
+  right: 0;
+  margin-right: calc(-1.25rem);
+}
+
+.navigation-btn__icon {
+  margin: auto 0;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 1rem;
+}

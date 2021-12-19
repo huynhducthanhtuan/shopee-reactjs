@@ -1,3 +1,4 @@
+import "./Header.css";
 import HeaderCommonInfo from "./HeaderCommonInfo";
 import HeaderSearchPart from "./HeaderSearchPart";
 

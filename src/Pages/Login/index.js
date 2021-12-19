@@ -1,3 +1,4 @@
+import "./Login.css";
 import LoginPage from "./LoginPage";
 import Footer from "../../components/Footer";
 

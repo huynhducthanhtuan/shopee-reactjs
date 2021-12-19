@@ -1,3 +1,4 @@
+import "./SearchTrending.css";
 import { useContext } from "react";
 import {
   DataSourceContext,

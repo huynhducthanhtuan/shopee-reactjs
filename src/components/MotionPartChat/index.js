@@ -1,3 +1,5 @@
+import "./MotionPartChat.css";
+
 function MotionPartChat() {
   return (
     <div className="motion-part__chat">

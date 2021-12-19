@@ -1,3 +1,5 @@
+import "./TodaySuggestion.css";
+
 function TodaySuggestion() {
   return (
     <div className="today-suggestion">
