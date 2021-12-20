@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import fetchData from "../apis/fetchData";
 
 // Context
 const DataSourceContext = createContext();
@@ -7,34 +8,14 @@ const DataSourceContext = createContext();
 function DataSourceContextProvider({ children }) {
   const [dataSource, setDataSource] = useState();
 
-  //#region GET DATA SOURCE FROM APIS
-  useEffect(() => {
-    const promise1 = fetch("https://61bc99f0d8542f001782486b.mockapi.io/api/1")
-      .then((response) => response.json())
-      .then((datas) => datas);
+  // fetchData
+  useEffect(async () => {
+    // fetching...
+    const data = await fetchData();
 
-    const promise2 = fetch("https://61bc99f0d8542f001782486b.mockapi.io/api/2")
-      .then((response) => response.json())
-      .then((datas) => datas);
-
-    const promise3 = fetch("https://61bc99f0d8542f001782486b.mockapi.io/api/3")
-      .then((response) => response.json())
-      .then((datas) => datas);
-
-    Promise.all([promise1, promise2, promise3])
-      .then(([result1, result2, result3]) => {
-        // Using spread & destructuring to get data source in valid format
-        const data1 = [...result1, ...result2, ...result3];
-        const data2 = { ...data1[0], ...data1[1], ...data1[2] };
-
-        // Update state dataSource
-        setDataSource(data2);
-      })
-      .catch((error) => {
-        throw new Error("Failed to fetch");
-      });
+    // setState to pass data source to Consumers (child components)
+    setDataSource(data);
   }, []);
-  //#endregion
 
   return (
     <DataSourceContext.Provider value={dataSource}>
