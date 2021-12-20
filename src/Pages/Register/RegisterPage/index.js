@@ -23,7 +23,14 @@ function RegisterPage() {
       </div>
 
       <div className="register-page__content">
-        <div className="register-page__content-part">
+        <div
+          className="register-page__content-part"
+          style={{
+            background: `url(
+              "/assests/img/register-page/background-content.png"
+            ) no-repeat center`,
+          }}
+        >
           <form className="register-page__content-form">
             <div className="register-page__content-form__heading">Đăng Ký</div>
             <div className="register-page__content-form__part">
@@ -75,13 +82,13 @@ function RegisterPage() {
               </div>
               <div className="register-page__content-form__other-ways">
                 <button className="register-page__content-form__other-ways__facebook">
-                  <img src="/assests/img/register-page/facebook.png" alt="" />
+                  <img src="/assests/img/register-page/facebook.png" />
                 </button>
                 <button className="register-page__content-form__other-ways__google">
-                  <img src="/assests/img/register-page/google.png" alt="" />
+                  <img src="/assests/img/register-page/google.png" />
                 </button>
                 <button className="register-page__content-form__other-ways__apple">
-                  <img src="/assests/img/register-page/apple.png" alt="" />
+                  <img src="/assests/img/register-page/apple.png" />
                 </button>
               </div>
               <div className="register-page__content-form__terms-and-policy">

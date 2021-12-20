@@ -23,7 +23,12 @@ function LoginPage() {
       </div>
 
       <div className="login-page__content">
-        <div className="login-page__content-part">
+        <div
+          className="login-page__content-part"
+          style={{
+            background: `url("/assests/img/register-page/background-content.png") no-repeat center`,
+          }}
+        >
           <form className="login-page__content-form">
             <div className="login-page__content-form__heading">Đăng Nhập</div>
             <div className="login-page__content-form__part">

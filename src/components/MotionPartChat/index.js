@@ -57,7 +57,6 @@ function MotionPartChat() {
           <div className="motion-part__chat__popup__expanded">
             <img
               src="/assests/img/chat-part/greeting-img.png"
-              alt=""
               className="motion-part__chat__popup__expanded__img"
             />
             <span className="motion-part__chat__popup__expanded__text">
@@ -109,7 +108,6 @@ function MotionPartChat() {
               <div className="motion-part__chat__popup__main__content--all">
                 <img
                   src="/assests/img/chat-part/seller-icon.png"
-                  alt=""
                   className="motion-part__chat__popup__main__content--all__img"
                 />
                 <div className="motion-part__chat__popup__main__content--all__content">
@@ -128,11 +126,11 @@ function MotionPartChat() {
                 </div>
               </div>
               <div className="motion-part__chat__popup__main__content--unread">
-                <img src="/assests/img/chat-part/no-result-img.png" alt="" />
+                <img src="/assests/img/chat-part/no-result-img.png" />
                 <span>Không tìm thấy cuộc hội thoại nào.</span>
               </div>
               <div className="motion-part__chat__popup__main__content--pinned">
-                <img src="/assests/img/chat-part/no-result-img.png" alt="" />
+                <img src="/assests/img/chat-part/no-result-img.png" />
                 <span>Không tìm thấy cuộc hội thoại nào.</span>
               </div>
             </div>

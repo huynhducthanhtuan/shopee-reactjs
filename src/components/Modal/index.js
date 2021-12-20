@@ -16,7 +16,6 @@ function Modal() {
           >
             <img
               src="/assests/img/banner.png"
-              alt=""
               className="page-load-banner__img"
             />
           </a>
@@ -25,7 +24,6 @@ function Modal() {
         <div className="gift-banner__popup">
           <img
             src="/assests/img/not-logged-in/gift-banner__popup/label.png"
-            alt=""
             className="gift-banner__popup__label"
           />
           <button className="gift-banner__popup__close-btn">
@@ -48,7 +46,6 @@ function Modal() {
                 >
                   <img
                     src="/assests/img/not-logged-in/gift-banner__popup/app-store-banner.png"
-                    alt=""
                     className="gift-banner__popup__main-left-part__img"
                   />
                 </a>
@@ -60,7 +57,6 @@ function Modal() {
                 >
                   <img
                     src="/assests/img/not-logged-in/gift-banner__popup/google-play-banner.png"
-                    alt=""
                     className="gift-banner__popup__main-left-part__img"
                   />
                 </a>
@@ -69,18 +65,15 @@ function Modal() {
             <div className="gift-banner__popup__main-right-part">
               <img
                 src="/assests/img/header/header__links-app-download/qr.png"
-                alt=""
                 className="gift-banner__popup__main-right-part__qr-img"
               />
               <div className="gift-banner__popup__main-right-part__others-img">
                 <img
                   src="/assests/img/header/header__links-app-download/google_play.png"
-                  alt=""
                   className="gift-banner__popup__main-right-part__google-play-img"
                 />
                 <img
                   src="/assests/img/header/header__links-app-download/app_store.png"
-                  alt=""
                   className="gift-banner__popup__main-right-part__app-store-img"
                 />
               </div>

@@ -121,7 +121,14 @@ function Outstanding() {
               className="outstanding__picture-header"
             />
           </div>
-          <div className="outstanding__body">
+          <div
+            className="outstanding__body"
+            style={{
+              background: `url(
+                "/assests/img/container/outstanding/picture_body.png"
+              ) no-repeat center/ cover`,
+            }}
+          >
             <div>
               <div className="outstanding__hot-selling-products">
                 {outstandingHotSellingProductsInfo &&

@@ -127,8 +127,6 @@
 }
 
 .flash-sale__main__percent-bar--hot {
-  /* background: url(/assests/img/container/flash-sale/hot.png) no-repeat center /
-    contain; */
   width: 1.8rem;
   height: 2.1rem;
   position: absolute;

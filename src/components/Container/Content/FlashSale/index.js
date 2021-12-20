@@ -29,10 +29,18 @@ function FlashSale() {
           <div className="flash-sale__main__percent-bar__total-part"></div>
           <div
             className="flash-sale__main__percent-bar__selled-part"
-            style={{ width: `${data.selledPartWidthPercent}%` }}
+            style={{
+              width: `${data.selledPartWidthPercent}%`,
+              background: `url("/assests/img/container/flash-sale/selled-bar.png") no-repeat center / cover`,
+            }}
           ></div>
           {data.selledPartWidthPercent >= 70 && (
-            <div className="flash-sale__main__percent-bar--hot"></div>
+            <div
+              className="flash-sale__main__percent-bar--hot"
+              style={{
+                background: `url("/assests/img/container/flash-sale/hot.png") no-repeat center / contain`,
+              }}
+            ></div>
           )}
         </div>
         <div className="flash-sale__main__sale-off-label">
