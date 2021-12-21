@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import Container from "../../components/Container";
+import Container from "../../container";
 import Footer from "../../components/Footer";
 
 function Home() {

@@ -9,7 +9,6 @@ function MotionPartSubBanner() {
       >
         <img
           src="/assests/img/sub_banner.png"
-          alt=""
           className="motion-part__sub-banner__img"
         />
       </a>

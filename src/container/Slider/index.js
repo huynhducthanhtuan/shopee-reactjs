@@ -1,9 +1,6 @@
 import "./Slider.css";
 import { useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../../context";
+import { DataSourceContext, DataSourceContextConsumer } from "../../context";
 
 function Slider() {
   //#region Get data from Context

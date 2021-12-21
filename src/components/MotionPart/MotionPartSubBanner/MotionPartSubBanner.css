@@ -1,11 +1,11 @@
-.motion-part__sub-banner {
+/* .motion-part__sub-banner {
   width: 8.2rem;
   height: 8.2rem;
   position: fixed;
   bottom: 7.8rem;
   right: 3rem;
   z-index: 20;
-}
+} */
 .motion-part__sub-banner__link {
   display: block;
   width: 100%;

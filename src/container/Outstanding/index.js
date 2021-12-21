@@ -1,9 +1,6 @@
 import "./Outstanding.css";
 import { useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../../context";
+import { DataSourceContext, DataSourceContextConsumer } from "../../context";
 
 function Outstanding() {
   //#region Get data from Context

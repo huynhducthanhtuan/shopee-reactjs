@@ -1,9 +1,6 @@
 import "./FlashSale.css";
 import { useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../../context";
+import { DataSourceContext, DataSourceContextConsumer } from "../../context";
 
 function FlashSale() {
   //#region Get data from Context
