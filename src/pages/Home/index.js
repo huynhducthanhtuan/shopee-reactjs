@@ -1,6 +1,4 @@
-import Header from "../../components/Header";
-import Container from "../../container";
-import Footer from "../../components/Footer";
+import { Header, Container, Footer } from "../../components";
 
 function Home() {
   return (

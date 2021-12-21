@@ -5,7 +5,7 @@ import MotionPart from "./components/MotionPart";
 
 function App() {
   return (
-    <div className="app">
+    <div id="app">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />

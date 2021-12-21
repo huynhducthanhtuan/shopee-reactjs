@@ -1,6 +1,6 @@
 import "./MotionPart.css";
-import MotionPartChat from "./MotionPartChat";
 import MotionPartSubBanner from "./MotionPartSubBanner";
+import MotionPartChat from "./MotionPartChat";
 
 function MotionPart() {
   return (
