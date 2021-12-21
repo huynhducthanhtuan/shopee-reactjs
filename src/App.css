@@ -117,14 +117,6 @@ a {
   inset: 0px;
 }
 
-#container {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding-top: 12rem;
-  background-color: #f5f5f5;
-}
-
 /* ------ CONFIG CSS: WEBSITE WHEN NOT LOGIN ------ */
 .header__notification__quantity,
 .header__notification__popup--when-logged-in,
