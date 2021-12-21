@@ -1,0 +1,32 @@
+.footer__text {
+  padding: 6rem 0 3rem;
+  margin: 0 3.2rem;
+}
+.footer__text__item {
+  margin-bottom: 1.6rem;
+}
+.footer__text__item__title {
+  margin: 0;
+  display: block;
+  width: 100%;
+  line-height: 3.4rem;
+}
+.footer__text__item__description {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #000;
+  line-height: 1.8rem;
+}
+.footer__text__item__description > a {
+  color: #1155cc;
+}
+.footer__text__item__description__thuongmaidientu {
+  font-weight: 700;
+}
+.footer__text__item__description__shopeemall {
+  font-weight: 700;
+}
+.footer__text a {
+  text-decoration: underline;
+}

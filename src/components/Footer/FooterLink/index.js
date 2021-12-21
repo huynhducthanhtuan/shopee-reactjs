@@ -1,3 +1,4 @@
+import "./FooterLink.css";
 import { useContext } from "react";
 import { DataSourceContext, DataSourceContextConsumer } from "../../../context";
 

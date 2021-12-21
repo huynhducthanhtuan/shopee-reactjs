@@ -1,13 +1,3 @@
-/* I.HEADER */
-#header {
-  width: 100%;
-  background-color: #f94f2f;
-  padding: 0.8rem 3.4rem 1rem 3rem;
-  position: fixed;
-  top: 0;
-  z-index: 15;
-}
-
 /* 1.HEADER-COMMON-INFO */
 .header__common-info {
   display: flex;
@@ -232,6 +222,12 @@
   background-color: #e8e8e8;
 }
 
+.header__notification__popup--when-not-login__btn > span {
+  text-align: center;
+  display: block;
+  transform: translateY(10px);
+}
+
 .header__notification__popup--when-logged-in__heading {
   color: rgb(183 180 180 / 80%);
   font-size: 1.4rem;
@@ -424,190 +420,4 @@
 .header__notification,
 .header__support {
   margin-right: 4px;
-}
-
-/* 2.HEADER-SEARCH-PART */
-.header__search-part {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 2.2rem;
-  margin-right: 5.4rem;
-}
-
-.header__shopee-logo svg {
-  width: 162px;
-  height: 50px;
-  fill: #fff;
-}
-
-.header__main-search {
-  flex: 1;
-  margin: 0 4.8rem;
-}
-
-.header__search-frame {
-  position: relative;
-}
-
-.header__search-frame__input {
-  width: 100%;
-  padding: 12px 4px 12px 14px;
-  outline: none;
-  border: none;
-  border-radius: 2px;
-  font-size: 1.4rem;
-}
-.header__search-frame__btn {
-  background-color: #f94f2f;
-  padding: 0.867rem 2.3rem;
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  border-radius: 2px;
-}
-.header__search-frame__btn:hover {
-  background-color: #fb6445;
-  cursor: pointer;
-}
-.header__search-frame__btn i {
-  font-size: 1.4rem;
-  color: #fff;
-}
-
-.header__search-history {
-  background-color: #fff;
-  width: 76.7rem;
-  font-size: 1.4rem;
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 26%); /* searching... */
-  border-radius: 2px;
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  display: none;
-}
-
-.header__search-history-heading {
-  margin: 0;
-  padding: 10px 10px;
-  color: rgba(0, 0, 0, 0.26);
-}
-.header__search-history-heading:hover {
-  cursor: default;
-}
-
-.header__search-history-list {
-  margin: 0;
-  padding: 0;
-}
-.header__search-history-item__link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10px;
-  color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-}
-.header__search-history-item__link__dtth31k-img {
-  display: block;
-  width: 12rem;
-  height: 2.4rem;
-}
-.header__search-history-item__link:hover {
-  background-color: rgba(0, 0, 0, 0.06) !important;
-}
-
-.header__search-history-item__link--hover {
-  background-color: rgba(0, 0, 0, 0.06) !important;
-}
-
-.header__search-history-keywords-list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 6px;
-}
-
-.header__search-history-keywords-item {
-  color: #ffdfd6;
-  font-size: 1.2rem;
-}
-
-.header__search-history-keywords-item:hover {
-  opacity: 0.8;
-}
-
-.header__cart {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.header__cart__link {
-  display: block;
-  font-size: 2.2rem;
-  color: #fff;
-  padding: 10px 4px;
-}
-
-.header__cart:hover .header__cart-popup {
-  display: block;
-}
-
-.header__cart-popup {
-  width: 40.2rem;
-  min-height: 26.2rem;
-  background-color: #fff;
-  position: absolute;
-  top: calc(100%);
-  right: -4px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-  transform-origin: calc(100% - 20px) top;
-  -webkit-animation: growth ease-in 0.25s;
-  animation: growth ease-in 0.25s;
-  will-change: opacity, transform;
-  display: none;
-}
-
-.header__cart-popup::before {
-  content: "";
-  width: 100%;
-  height: 10px;
-  position: absolute;
-  top: -10px;
-  left: 0;
-}
-
-.header__cart-popup::after {
-  content: "";
-  border-style: solid;
-  border-width: 11px 13px;
-  border-color: transparent transparent #fff transparent;
-  position: absolute;
-  top: -21px;
-  right: 7px;
-}
-
-.header__cart-popup--no-goods {
-  padding: 60px 0;
-}
-
-.header__cart-popup--no-goods div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header__cart-popup__no-cart-img {
-  height: 100px;
-  width: 100px;
-}
-
-.header__cart-popup__no-cart-text {
-  display: block;
-  text-align: center;
-  font-size: 1.4rem;
-  color: rgba(0, 0, 0, 0.8);
-  margin-top: 20px;
 }

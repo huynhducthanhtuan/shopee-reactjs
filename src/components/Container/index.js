@@ -1,4 +1,3 @@
-import "./Container.css";
 import {
   Slider,
   GiftBanner,

@@ -1,3 +1,4 @@
+import "./FooterText.css";
 import $ from "jquery";
 import { useContext } from "react";
 import { DataSourceContext, DataSourceContextConsumer } from "../../../context";

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import "./HeaderCommonInfo.css";
+import { Link } from "react-router-dom";
 
 function HeaderCommonInfo() {
-
   return (
     <div className="header__common-info">
       <div className="header__links">
@@ -45,25 +45,21 @@ function HeaderCommonInfo() {
               <img
                 src="/assests/img/header/header__links-app-download/qr.png"
                 className="header__app-download__qr-img"
-                alt=""
               />
               <div className="header__links-app-download-popup__box">
                 <div>
                   <img
                     src="/assests/img/header/header__links-app-download/app_store.png"
                     className="header__app-download__app-store-img"
-                    alt=""
                   />
                   <img
                     src="/assests/img/header/header__links-app-download/google_play.png"
                     className="header__app-download__google_play-img"
-                    alt=""
                   />
                 </div>
                 <img
                   src="/assests/img/header/header__links-app-download/app_gallery.png"
                   className="header__app-download__app_gallery-img"
-                  alt=""
                 />
               </div>
             </a>
@@ -116,7 +112,6 @@ function HeaderCommonInfo() {
               <div className="header__notification__popup--when-not-login__main">
                 <img
                   src="/assests/img/header/header__notification/popup-when-not-login__img.png"
-                  alt=""
                   className="header__notification__popup--when-not-login__main__img"
                 />
                 <span className="header__notification__popup--when-not-login__main__text">
@@ -124,12 +119,18 @@ function HeaderCommonInfo() {
                 </span>
               </div>
               <div className="header__notification__popup--when-not-login__buttons">
-                <button className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__register-btn">
-                  Đăng Ký
-                </button>
-                <button className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__login-btn">
-                  Đăng Nhập
-                </button>
+                <Link
+                  to="/register"
+                  className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__register-btn"
+                >
+                  <span>Đăng Ký</span>
+                </Link>
+                <Link
+                  to="/login"
+                  className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__login-btn"
+                >
+                  <span>Đăng Nhập</span>
+                </Link>
               </div>
             </div>
 
@@ -174,15 +175,15 @@ function HeaderCommonInfo() {
         </div>
 
         <div className="header__register">
-          <a className="header__register__btn" href="/register">
+          <Link to="/register" className="header__register__btn">
             <span>Đăng Ký</span>
-          </a>
+          </Link>
         </div>
 
         <div className="header__login">
-          <a className="header__login__btn" href="/login">
+          <Link to="/login" className="header__login__btn">
             <span>Đăng Nhập</span>
-          </a>
+          </Link>
         </div>
 
         <div className="header__user-account">

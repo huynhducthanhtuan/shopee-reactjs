@@ -1,4 +1,3 @@
-import "./MotionPart.css";
 import MotionPartSubBanner from "./MotionPartSubBanner";
 import MotionPartChat from "./MotionPartChat";
 

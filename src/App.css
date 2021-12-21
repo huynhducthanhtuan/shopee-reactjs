@@ -37,13 +37,13 @@ a {
   text-decoration: none;
 }
 
-/* Input placeholder */
+/* INPUT PLACEHOLDER */
 ::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.8);
   opacity: 0.5;
 }
 
-/* Navigation button */
+/* NAVIGATION BUTTON */
 .navigation-btn {
   width: 2.5rem;
   height: 2.5rem;
@@ -73,7 +73,7 @@ a {
   font-size: 1rem;
 }
 
-/* Animation */
+/* ANIMATION */
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -111,10 +111,44 @@ a {
   }
 }
 
-/* APP CSS */
+/* APP */
 #app {
   position: absolute;
   inset: 0px;
+}
+
+/* 1. HEADER */
+#header {
+  width: 100%;
+  background-color: #f94f2f;
+  padding: 0.8rem 3.4rem 1rem 3rem;
+  position: fixed;
+  top: 0;
+  z-index: 15;
+}
+
+/* 2. CONTAINER */
+#container {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding-top: 12rem;
+  background-color: #f5f5f5;
+}
+
+/* 3. FOOTER */
+#footer {
+  border-top: 4px solid #ee4d2d;
+}
+
+/* 4. MOTION-PART */
+#motion-part {
+  width: 10rem;
+  height: 16rem;
+  position: fixed;
+  bottom: 0;
+  right: 0.8rem;
+  z-index: 20;
 }
 
 /* ------ CONFIG CSS: WEBSITE WHEN NOT LOGIN ------ */
