@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import fetchData from "../apis/fetchData";
+import { fetchData } from "../apis";
 
 // Context
 const DataSourceContext = createContext();

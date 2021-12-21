@@ -1,8 +1,5 @@
-import { useState, useEffect, useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../Context/DataSourceContext";
+import { useContext } from "react";
+import { DataSourceContext, DataSourceContextConsumer } from "../../../context";
 
 function FooterPolicyAndTerms() {
   //#region Get data from Context

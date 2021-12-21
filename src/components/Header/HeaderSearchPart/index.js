@@ -1,8 +1,5 @@
 import { useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../Context/DataSourceContext";
+import { DataSourceContext, DataSourceContextConsumer } from "../../../context";
 
 function HeaderSearchPart() {
   //#region Get data from Context

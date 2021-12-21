@@ -3,7 +3,7 @@ import { useContext } from "react";
 import {
   DataSourceContext,
   DataSourceContextConsumer,
-} from "../../../../Context/DataSourceContext";
+} from "../../../../context";
 
 function FlashSale() {
   //#region Get data from Context

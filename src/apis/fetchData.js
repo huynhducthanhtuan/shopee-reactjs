@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API1_URL, API2_URL, API3_URL } from "./apis";
+import { API1_URL, API2_URL, API3_URL } from "./api";
 
 async function fetchData() {
   const { data: responedData1 } = await axios.get(API1_URL);
