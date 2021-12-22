@@ -1,12 +1,13 @@
 import "./Login.css";
 import LoginPage from "./LoginPage";
-import Footer from "../../components/Footer";
+import { FooterLink, FooterPolicyAndTerms } from "../../components/Footer";
 
 function Login() {
   return (
     <>
       <LoginPage />
-      <Footer />
+      <FooterLink />
+      <FooterPolicyAndTerms />
     </>
   );
 }

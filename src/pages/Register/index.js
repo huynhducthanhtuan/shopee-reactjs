@@ -1,12 +1,13 @@
 import "./Register.css";
 import RegisterPage from "./RegisterPage";
-import Footer from "../../components/Footer";
+import { FooterLink, FooterPolicyAndTerms } from "../../components/Footer";
 
 function Register() {
   return (
     <>
       <RegisterPage />
-      <Footer />
+      <FooterLink />
+      <FooterPolicyAndTerms />
     </>
   );
 }

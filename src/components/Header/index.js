@@ -1,9 +1,12 @@
 import HeaderCommonInfo from "./HeaderCommonInfo";
 import HeaderSearchPart from "./HeaderSearchPart";
 
-function Header() {
+function Header({ inNotFoundPage }) {
   return (
-    <header id="header">
+    <header
+      id="header"
+      className={inNotFoundPage ? "header-in-not-found-page" : ""}
+    >
       <HeaderCommonInfo />
       <HeaderSearchPart />
     </header>

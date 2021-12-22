@@ -34,7 +34,7 @@ function HeaderSearchPart() {
     <DataSourceContextConsumer>
       {() => (
         <div className="header__search-part">
-          <a href="" className="header__shopee-logo">
+          <a href="/" className="header__shopee-logo">
             <svg
               viewBox="0 0 192 65"
               className="shopee-svg-icon header-with-search__shopee-logo icon-shopee-logo"
