@@ -1,4 +1,4 @@
-import { Header, Container, Footer } from "../../components";
+import { Header, Container, Footer, MotionPart } from "../../components";
 
 function Home() {
   return (
@@ -6,6 +6,7 @@ function Home() {
       <Header />
       <Container />
       <Footer />
+      <MotionPart />
     </>
   );
 }

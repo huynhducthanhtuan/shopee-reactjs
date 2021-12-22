@@ -1,6 +1,6 @@
 import "./UnderFlashSale.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../context";
+import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function UnderFlashSale() {
   //#region Get data from Context

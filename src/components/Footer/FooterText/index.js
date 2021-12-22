@@ -1,7 +1,10 @@
 import "./FooterText.css";
 import $ from "jquery";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../../context";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../contexts";
 
 function FooterText() {
   //#region Get data from Context

@@ -1,6 +1,6 @@
 import "./Directory.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../context";
+import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function Directory() {
   //#region Get data from Context

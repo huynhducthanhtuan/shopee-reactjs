@@ -1,6 +1,9 @@
 import "./FooterDirectory.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../../context";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../contexts";
 
 function FooterDirectory() {
   //#region Get data from Context

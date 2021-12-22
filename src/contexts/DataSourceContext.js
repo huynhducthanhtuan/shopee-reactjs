@@ -8,7 +8,7 @@ const DataSourceContext = createContext();
 function DataSourceContextProvider({ children }) {
   const [dataSource, setDataSource] = useState();
 
-  // fetchData
+  // Fetch data
   useEffect(async () => {
     // fetching...
     const data = await fetchData();

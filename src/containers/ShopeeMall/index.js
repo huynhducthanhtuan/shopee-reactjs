@@ -1,6 +1,6 @@
 import "./ShopeeMall.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../context";
+import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function ShopeeMall() {
   //#region Get data from Context

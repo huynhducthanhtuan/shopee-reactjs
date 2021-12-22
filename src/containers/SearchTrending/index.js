@@ -1,6 +1,6 @@
 import "./SearchTrending.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../context";
+import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function SearchTrending() {
   //#region Get data from Context

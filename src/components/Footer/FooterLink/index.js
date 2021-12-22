@@ -1,6 +1,9 @@
 import "./FooterLink.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../../context";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../contexts";
 
 function FooterLink() {
   //#region Get data from Context

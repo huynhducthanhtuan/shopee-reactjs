@@ -1,6 +1,9 @@
 import "./FooterPolicyAndTerms.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../../context";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../contexts";
 
 function FooterPolicyAndTerms() {
   //#region Get data from Context
