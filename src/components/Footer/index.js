@@ -1,4 +1,3 @@
-import FooterHeaderInNotFoundPage from "./FooterHeaderInNotFoundPage";
 import FooterText from "./FooterText";
 import FooterDirectory from "./FooterDirectory";
 import FooterLink from "./FooterLink";
@@ -17,7 +16,6 @@ function Footer() {
 
 export {
   Footer,
-  FooterHeaderInNotFoundPage,
   FooterText,
   FooterDirectory,
   FooterLink,
