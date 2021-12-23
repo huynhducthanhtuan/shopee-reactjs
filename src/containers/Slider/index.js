@@ -42,7 +42,6 @@ function Slider() {
                   <img
                     src="/assests/img/container/slider/slider__main/motion_1.png"
                     className="slider__main__motion-part__img slider__main__motion-part__curent-img"
-                    alt=""
                   />
                 </a>
                 <button className="slider__main__motion-part__btn slider__main__motion-part__previous-btn">
@@ -75,7 +74,6 @@ function Slider() {
                     <img
                       src="/assests/img/container/slider/slider__main/no-motion_1.png"
                       className="slider__main__no-motion-part__img"
-                      alt=""
                     />
                   </a>
                 </div>
@@ -87,7 +85,6 @@ function Slider() {
                     <img
                       src="/assests/img/container/slider/slider__main/no-motion_2.png"
                       className="slider__main__no-motion-part__img"
-                      alt=""
                     />
                   </a>
                 </div>
