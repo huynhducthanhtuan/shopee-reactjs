@@ -126,9 +126,6 @@ a {
   top: 0;
   z-index: 15;
 }
-.header-in-not-found-page {
-  position: relative !important;
-}
 
 /* 2. CONTAINER */
 #container {
