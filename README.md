@@ -6,6 +6,4 @@
 
 ### --> Notes
 
-#### + old version-index.js: file code from old project
-
-#### + old version-main.css: file css from old project
+#### + old-version_index.js: file code from old project
