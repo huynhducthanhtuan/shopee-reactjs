@@ -1,7 +1,6 @@
 import "./TodaySuggestion.css";
 import { useContext } from "react";
 import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
-import { data } from "jquery";
 
 function TodaySuggestion() {
   //#region Get data from Context
@@ -236,7 +235,7 @@ function TodaySuggestion() {
           </div>
           <div className="today-suggestion__main">
             <div
-              style={{ display: "none" }}
+              style={{ display: "block", height: "254rem" }}
               className="today-suggestion__main__tab-main"
             >
               {todaySuggestionMainTabMainInfo &&
@@ -245,7 +244,7 @@ function TodaySuggestion() {
                 )}
             </div>
             <div
-              style={{ display: "block" }}
+              style={{ display: "none", height: "318rem" }}
               className="today-suggestion__main__tab-super-sale-8-8"
             >
               {todaySuggestionMainTabSuperSale88Info &&
