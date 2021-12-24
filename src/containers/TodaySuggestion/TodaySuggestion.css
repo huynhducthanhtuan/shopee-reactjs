@@ -75,6 +75,8 @@
 
 /* common of two parts */
 .today-suggestion__main-list {
+  height: 29.8rem;
+  margin-top: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -151,13 +153,14 @@
 }
 .today-suggestion__main-product__sale-off__text {
   display: block;
-  background-color: rgb(246, 145, 19);
+  height: 1.6rem;
+  width: calc(100% - 0.8rem);
+  margin: 0 auto;
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.6rem;
-  width: calc(100% - 0.8rem);
-  margin: 0 auto;
+  background-color: rgb(246, 145, 19);
 }
 .today-suggestion__main-product__sale-off__left-serrated {
   display: block;

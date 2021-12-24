@@ -2822,16 +2822,16 @@ function handleCSSTodaySuggestionMainTabMain() {
         i + 1
       })`
     );
-    var items =
-      $$(`.today-suggestion__main__tab-main .today-suggestion__main-list:nth-child(${
+    var items = $$(
+      `.today-suggestion__main__tab-main .today-suggestion__main-list:nth-child(${
         i + 1
-      }) 
-            .today-suggestion__main-item`);
-    var products =
-      $$(`.today-suggestion__main__tab-main .today-suggestion__main-list:nth-child(${
+      }).today-suggestion__main-item`
+    );
+    var products = $$(
+      `.today-suggestion__main__tab-main .today-suggestion__main-list:nth-child(${
         i + 1
-      }) 
-            .today-suggestion__main-product`);
+      }).today-suggestion__main-product`
+    );
 
     if (check) {
       list.style.height = "29.8rem";

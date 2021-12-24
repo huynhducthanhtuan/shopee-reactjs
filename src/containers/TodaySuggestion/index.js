@@ -1,8 +1,17 @@
 import "./TodaySuggestion.css";
-import { useContext } from "react";
+import { useRef, useContext } from "react";
 import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function TodaySuggestion() {
+  //#region Hooks
+  const todaySuggestionRef = useRef();
+  const todaySuggestionHeadingTabMainRef = useRef();
+  const todaySuggestionHeadingTabSuperSale88Ref = useRef();
+  const todaySuggestionMainTabMainRef = useRef();
+  const todaySuggestionMainTabSuperSale88Ref = useRef();
+  const todaySuggestionMainViewAllBtnRef = useRef();
+  //#endregion
+
   //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const todaySuggestionMainTabMainInfo = dataSourceContextValue
@@ -64,7 +73,6 @@ function TodaySuggestion() {
       </div>
     );
   };
-
   const updateInDOMTodaySuggestionMainTabMain = (
     todaySuggestionMainTabMainInfo
   ) => {
@@ -142,7 +150,6 @@ function TodaySuggestion() {
       </div>
     ));
   };
-
   const updateInDOMTodaySuggestionMainTabSuperSale88 = (
     todaySuggestionMainTabSuperSale88Info
   ) => {
@@ -219,22 +226,87 @@ function TodaySuggestion() {
       </div>
     ));
   };
+  const clickTodaySuggestionHeadingTabMain = () => {
+    if (
+      todaySuggestionHeadingTabSuperSale88Ref.current.classList.contains(
+        "today-suggestion__heading-tab--active"
+      )
+    ) {
+      todaySuggestionHeadingTabSuperSale88Ref.current.classList.remove(
+        "today-suggestion__heading-tab--active"
+      );
+    }
+    if (
+      !todaySuggestionHeadingTabMainRef.current.classList.contains(
+        "today-suggestion__heading-tab--active"
+      )
+    ) {
+      todaySuggestionHeadingTabMainRef.current.classList.add(
+        "today-suggestion__heading-tab--active"
+      );
+    }
+
+    todaySuggestionMainTabSuperSale88Ref.current.style.display = "none";
+    todaySuggestionMainTabMainRef.current.style.display = "block";
+    todaySuggestionRef.current.style.height = "254rem";
+    todaySuggestionMainViewAllBtnRef.current.href =
+      "https://shopee.vn/daily_discover?pageNumber=2";
+
+    window.scrollTo(0, todaySuggestionRef.current.offsetTop);
+  };
+  const clickTodaySuggestionHeadingTabSuperSale88 = () => {
+    if (
+      todaySuggestionHeadingTabMainRef.current.classList.contains(
+        "today-suggestion__heading-tab--active"
+      )
+    ) {
+      todaySuggestionHeadingTabMainRef.current.classList.remove(
+        "today-suggestion__heading-tab--active"
+      );
+    }
+    if (
+      !todaySuggestionHeadingTabSuperSale88Ref.current.classList.contains(
+        "today-suggestion__heading-tab--active"
+      )
+    ) {
+      todaySuggestionHeadingTabSuperSale88Ref.current.classList.add(
+        "today-suggestion__heading-tab--active"
+      );
+    }
+
+    todaySuggestionMainTabMainRef.current.style.display = "none";
+    todaySuggestionMainTabSuperSale88Ref.current.style.display = "block";
+    todaySuggestionRef.current.style.height = "318rem";
+    todaySuggestionMainViewAllBtnRef.current.href =
+      "https://shopee.vn/double_eleven_big_sale/2";
+
+    window.scrollTo(0, todaySuggestionRef.current.offsetTop);
+  };
   //#endregion
 
   return (
     <DataSourceContextConsumer>
       {() => (
-        <div className="today-suggestion">
+        <div ref={todaySuggestionRef} className="today-suggestion">
           <div className="today-suggestion__heading">
-            <a className="today-suggestion__heading-tab-main today-suggestion__heading-tab--active">
+            <a
+              ref={todaySuggestionHeadingTabMainRef}
+              onClick={clickTodaySuggestionHeadingTabMain}
+              className="today-suggestion__heading-tab-main today-suggestion__heading-tab--active"
+            >
               <span>GỢI Ý HÔM NAY</span>
             </a>
-            <a className="today-suggestion__heading-tab-super-sale-8-8">
+            <a
+              ref={todaySuggestionHeadingTabSuperSale88Ref}
+              onClick={clickTodaySuggestionHeadingTabSuperSale88}
+              className="today-suggestion__heading-tab-super-sale-8-8"
+            >
               <img src="/assests/img/container/today-suggestion/heading-label.png" />
             </a>
           </div>
           <div className="today-suggestion__main">
             <div
+              ref={todaySuggestionMainTabMainRef}
               style={{ display: "block", height: "254rem" }}
               className="today-suggestion__main__tab-main"
             >
@@ -244,6 +316,7 @@ function TodaySuggestion() {
                 )}
             </div>
             <div
+              ref={todaySuggestionMainTabSuperSale88Ref}
               style={{ display: "none", height: "318rem" }}
               className="today-suggestion__main__tab-super-sale-8-8"
             >
@@ -253,6 +326,7 @@ function TodaySuggestion() {
                 )}
             </div>
             <a
+              ref={todaySuggestionMainViewAllBtnRef}
               href="https://shopee.vn/daily_discover?pageNumber=2"
               className="today-suggestion__main__view-all-btn"
             >
