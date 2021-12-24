@@ -1,5 +1,5 @@
 .today-suggestion {
-  height: 254rem;
+  height: 263rem;
   width: 120rem;
   margin: 2rem auto 0;
 }
@@ -31,14 +31,14 @@
   font-weight: 500;
   line-height: 1.92rem;
 }
-.today-suggestion__heading-tab-super-sale-8-8 {
+.today-suggestion__heading-tab-super-sale {
   width: 25.2rem;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.today-suggestion__heading-tab-super-sale-8-8 > img {
+.today-suggestion__heading-tab-super-sale > img {
   display: block;
   width: 16rem;
   height: 2rem;
@@ -47,7 +47,7 @@
   border-bottom: 4px solid #ee4d2d;
 }
 .today-suggestion__heading-tab-main:hover,
-.today-suggestion__heading-tab-super-sale-8-8:hover {
+.today-suggestion__heading-tab-super-sale:hover {
   cursor: pointer;
 }
 
@@ -58,6 +58,7 @@
 /* part1 */
 .today-suggestion__main__tab-main {
   display: block;
+  height: 244rem;
   margin-top: 6px;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -65,8 +66,9 @@
 }
 
 /* part2 */
-.today-suggestion__main__tab-super-sale-8-8 {
+.today-suggestion__main__tab-super-sale {
   display: none;
+  height: 305rem;
   margin-top: 6px;
   justify-content: space-between;
   flex-wrap: wrap;

@@ -2697,8 +2697,8 @@ topSearchMainPreviousBtn.addEventListener("click", () => {
 //#endregion
 //#endregion
 
-//#region todaySuggestion (2)
-//#region updateInDOMTodaySuggestionMainTabMain
+//#region todaySuggestion (1)
+//#region updateInDOMTodaySuggestionMainTabMain (-->OK)
 function handleUpdateInDOMTodaySuggestionMainTabMain(
   todaySuggestionMainTabMainInfo
 ) {
@@ -2808,7 +2808,7 @@ function handleUpdateInDOMTodaySuggestionMainTabMain(
 })();
 //#endregion
 
-//#region handleCSSTodaySuggestionMainTabMain
+//#region handleCSSTodaySuggestionMainTabMain (-->OK)
 function handleCSSTodaySuggestionMainTabMain() {
   for (var i = 0; i < 8; i++) {
     var check =
@@ -2875,7 +2875,7 @@ setTimeout(() => {
 }, 2000);
 //#endregion
 
-//#region updateInDOMTodaySuggestionMainTabSuperSale88
+//#region updateInDOMTodaySuggestionMainTabSuperSale88 (-->OK)
 function handleUpdateInDOMTodaySuggestionMainTabSuperSale88(
   todaySuggestionMainTabSuperSale88Info
 ) {
@@ -2989,7 +2989,7 @@ function handleUpdateInDOMTodaySuggestionMainTabSuperSale88(
 })();
 //#endregion
 
-//#region handleCSSTodaySuggestionMainTabSuperSale88
+//#region handleCSSTodaySuggestionMainTabSuperSale88 (-->OK)
 function handleCSSTodaySuggestionMainTabSuperSale88() {
   for (var i = 0; i < 8; i++) {
     var check =
@@ -3056,7 +3056,7 @@ setTimeout(() => {
 }, 2000);
 //#endregion
 
-//#region todaySuggestionHeadings onclick()
+//#region todaySuggestionHeadings onclick() (1)
 todaySuggestionHeadingTabMain.addEventListener("click", () => {
   setTimeout(() => {
     if (

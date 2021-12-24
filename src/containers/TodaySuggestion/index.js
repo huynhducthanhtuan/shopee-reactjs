@@ -1,15 +1,16 @@
 import "./TodaySuggestion.css";
-import { useRef, useContext } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function TodaySuggestion() {
   //#region Hooks
   const todaySuggestionRef = useRef();
   const todaySuggestionHeadingTabMainRef = useRef();
-  const todaySuggestionHeadingTabSuperSale88Ref = useRef();
+  const todaySuggestionHeadingTabSuperSaleRef = useRef();
   const todaySuggestionMainTabMainRef = useRef();
-  const todaySuggestionMainTabSuperSale88Ref = useRef();
+  const todaySuggestionMainTabSuperSaleRef = useRef();
   const todaySuggestionMainViewAllBtnRef = useRef();
+  const [scrollDistance, setScrollDistance] = useState(0);
   //#endregion
 
   //#region Get data from Context
@@ -17,18 +18,18 @@ function TodaySuggestion() {
   const todaySuggestionMainTabMainInfo = dataSourceContextValue
     ? dataSourceContextValue.todaySuggestionMainTabMainInfo
     : null;
-  const todaySuggestionMainTabSuperSale88Info = dataSourceContextValue
-    ? dataSourceContextValue.todaySuggestionMainTabSuperSale88Info
+  const todaySuggestionMainTabSuperSaleInfo = dataSourceContextValue
+    ? dataSourceContextValue.todaySuggestionMainTabSuperSaleInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const renderFavouriteLabel = (dataChild) => {
+  const renderFavouriteLabel = (data) => {
     let favouriteLabelActiveClass = "";
     let favouriteLabelInnerHTML = "";
 
-    if (dataChild.favouriteLabel) {
-      switch (dataChild.favouriteLabel) {
+    if (data.favouriteLabel) {
+      switch (data.favouriteLabel) {
         case "Yêu thích": {
           favouriteLabelActiveClass =
             "today-suggestion__main-product__favourite-label--yeuthich";
@@ -150,10 +151,10 @@ function TodaySuggestion() {
       </div>
     ));
   };
-  const updateInDOMTodaySuggestionMainTabSuperSale88 = (
-    todaySuggestionMainTabSuperSale88Info
+  const updateInDOMTodaySuggestionMainTabSuperSale = (
+    todaySuggestionMainTabSuperSaleInfo
   ) => {
-    return todaySuggestionMainTabSuperSale88Info.map((data, dataIndex) => (
+    return todaySuggestionMainTabSuperSaleInfo.map((data, dataIndex) => (
       <div key={dataIndex} className="today-suggestion__main-list">
         {data.map((dataChild, dataChildIndex) => (
           <div key={dataChildIndex} className="today-suggestion__main-item">
@@ -226,62 +227,62 @@ function TodaySuggestion() {
       </div>
     ));
   };
+  const toggleActiveTodaySuggestionHeadingTab = (activeTab) => {
+    switch (activeTab) {
+      case "main": {
+        todaySuggestionHeadingTabSuperSaleRef.current.classList.remove(
+          "today-suggestion__heading-tab--active"
+        );
+        todaySuggestionHeadingTabMainRef.current.classList.add(
+          "today-suggestion__heading-tab--active"
+        );
+        break;
+      }
+      case "supersale": {
+        todaySuggestionHeadingTabMainRef.current.classList.remove(
+          "today-suggestion__heading-tab--active"
+        );
+        todaySuggestionHeadingTabSuperSaleRef.current.classList.add(
+          "today-suggestion__heading-tab--active"
+        );
+        break;
+      }
+      default: {
+      }
+    }
+  };
   const clickTodaySuggestionHeadingTabMain = () => {
-    if (
-      todaySuggestionHeadingTabSuperSale88Ref.current.classList.contains(
-        "today-suggestion__heading-tab--active"
-      )
-    ) {
-      todaySuggestionHeadingTabSuperSale88Ref.current.classList.remove(
-        "today-suggestion__heading-tab--active"
-      );
-    }
-    if (
-      !todaySuggestionHeadingTabMainRef.current.classList.contains(
-        "today-suggestion__heading-tab--active"
-      )
-    ) {
-      todaySuggestionHeadingTabMainRef.current.classList.add(
-        "today-suggestion__heading-tab--active"
-      );
-    }
+    toggleActiveTodaySuggestionHeadingTab("main");
 
-    todaySuggestionMainTabSuperSale88Ref.current.style.display = "none";
+    // config for this case
+    todaySuggestionRef.current.style.height = "263rem";
+    todaySuggestionMainTabSuperSaleRef.current.style.display = "none";
     todaySuggestionMainTabMainRef.current.style.display = "block";
-    todaySuggestionRef.current.style.height = "254rem";
     todaySuggestionMainViewAllBtnRef.current.href =
       "https://shopee.vn/daily_discover?pageNumber=2";
 
-    window.scrollTo(0, todaySuggestionRef.current.offsetTop);
+    // scroll to this part
+    window.scrollTo(0, scrollDistance);
   };
-  const clickTodaySuggestionHeadingTabSuperSale88 = () => {
-    if (
-      todaySuggestionHeadingTabMainRef.current.classList.contains(
-        "today-suggestion__heading-tab--active"
-      )
-    ) {
-      todaySuggestionHeadingTabMainRef.current.classList.remove(
-        "today-suggestion__heading-tab--active"
-      );
-    }
-    if (
-      !todaySuggestionHeadingTabSuperSale88Ref.current.classList.contains(
-        "today-suggestion__heading-tab--active"
-      )
-    ) {
-      todaySuggestionHeadingTabSuperSale88Ref.current.classList.add(
-        "today-suggestion__heading-tab--active"
-      );
-    }
+  const clickTodaySuggestionHeadingTabSuperSale = () => {
+    toggleActiveTodaySuggestionHeadingTab("supersale");
 
+    // config for this case
+    todaySuggestionRef.current.style.height = "324rem";
     todaySuggestionMainTabMainRef.current.style.display = "none";
-    todaySuggestionMainTabSuperSale88Ref.current.style.display = "block";
-    todaySuggestionRef.current.style.height = "318rem";
+    todaySuggestionMainTabSuperSaleRef.current.style.display = "block";
     todaySuggestionMainViewAllBtnRef.current.href =
       "https://shopee.vn/double_eleven_big_sale/2";
 
-    window.scrollTo(0, todaySuggestionRef.current.offsetTop);
+    // scroll to this part
+    window.scrollTo(0, scrollDistance);
   };
+  //#endregion
+
+  //#region Handle side effects
+  useEffect(() => {
+    setScrollDistance(todaySuggestionRef.current.offsetTop - 120);
+  }, []);
   //#endregion
 
   return (
@@ -297,9 +298,9 @@ function TodaySuggestion() {
               <span>GỢI Ý HÔM NAY</span>
             </a>
             <a
-              ref={todaySuggestionHeadingTabSuperSale88Ref}
-              onClick={clickTodaySuggestionHeadingTabSuperSale88}
-              className="today-suggestion__heading-tab-super-sale-8-8"
+              ref={todaySuggestionHeadingTabSuperSaleRef}
+              onClick={clickTodaySuggestionHeadingTabSuperSale}
+              className="today-suggestion__heading-tab-super-sale"
             >
               <img src="/assests/img/container/today-suggestion/heading-label.png" />
             </a>
@@ -307,7 +308,6 @@ function TodaySuggestion() {
           <div className="today-suggestion__main">
             <div
               ref={todaySuggestionMainTabMainRef}
-              style={{ display: "block", height: "254rem" }}
               className="today-suggestion__main__tab-main"
             >
               {todaySuggestionMainTabMainInfo &&
@@ -316,13 +316,12 @@ function TodaySuggestion() {
                 )}
             </div>
             <div
-              ref={todaySuggestionMainTabSuperSale88Ref}
-              style={{ display: "none", height: "318rem" }}
-              className="today-suggestion__main__tab-super-sale-8-8"
+              ref={todaySuggestionMainTabSuperSaleRef}
+              className="today-suggestion__main__tab-super-sale"
             >
-              {todaySuggestionMainTabSuperSale88Info &&
-                updateInDOMTodaySuggestionMainTabSuperSale88(
-                  todaySuggestionMainTabSuperSale88Info
+              {todaySuggestionMainTabSuperSaleInfo &&
+                updateInDOMTodaySuggestionMainTabSuperSale(
+                  todaySuggestionMainTabSuperSaleInfo
                 )}
             </div>
             <a
