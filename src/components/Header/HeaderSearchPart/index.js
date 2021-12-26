@@ -1,15 +1,24 @@
 import "./HeaderSearchPart.css";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import {
   DataSourceContext,
   DataSourceContextConsumer,
 } from "../../../contexts";
 
 function HeaderSearchPart() {
+  //#region Hooks
+  const headerSearchHistory = useRef();
+  const headerSearchFrameInput = useRef();
+  const headerSearchFrameBtn = useRef();
+  //#endregion
+
   //#region Get data from Context
   const dataSourceContextValue = useContext(DataSourceContext);
   const headerSearchHistoryKeywordsListInfo = dataSourceContextValue
     ? dataSourceContextValue.headerSearchHistoryKeywordsListInfo
+    : null;
+  const headerSearchHistoryListInfo = dataSourceContextValue
+    ? dataSourceContextValue.headerSearchHistoryListInfo
     : null;
   //#endregion
 
@@ -27,6 +36,46 @@ function HeaderSearchPart() {
       );
     });
     return aTags;
+  };
+  const updateInDOMHeaderSearchHistoryList = (datas) => {
+    return (
+      <>
+        <li className="header__search-history-item header__search-history-item--default">
+          <a
+            href="https://shopee.vn/m/khung-gio-san-sale"
+            className="header__search-history-item__link"
+          >
+            VOUCHER HOÀN 999K XU - SĂN NGAY
+            <img
+              src="/assests/img/header/header__search/voucher-hoan-xu.png"
+              className="header__search-history-item__link__vchx-img"
+            />
+          </a>
+        </li>
+        {datas.map((data, index) => (
+          <li key={index} className="header__search-history-item">
+            <a href={data.href} className="header__search-history-item__link">
+              {data.innerHTML}
+            </a>
+          </li>
+        ))}
+      </>
+    );
+  };
+  const clickHeaderSearchFrameInput = () => {
+    headerSearchHistory.current.style.display = "block";
+  };
+  const blurHeaderSearchFrameInput = () => {
+    setTimeout(() => {
+      headerSearchHistory.current.style.display = "none";
+    }, 200);
+  };
+  const clickHeaderSearchFrameBtn = () => {
+    if (headerSearchFrameInput.current.value !== "") {
+      var innerHTML = headerSearchFrameInput.current.value;
+      var href = `https://shopee.vn/search?keyword=${innerHTML}`;
+      headerSearchFrameBtn.current.href = href;
+    }
   };
   //#endregion
 
@@ -47,31 +96,26 @@ function HeaderSearchPart() {
           <div className="header__main-search">
             <div className="header__search-frame" tabIndex="0">
               <input
-                type="text"
+                ref={headerSearchFrameInput}
+                onClick={clickHeaderSearchFrameInput}
+                onBlur={blurHeaderSearchFrameInput}
                 className="header__search-frame__input"
-                placeholder="Deal hot kèm 2 mã freeship"
+                placeholder="VOUCHER HOÀN 999K XU - SĂN NGAY"
               />
               <a
-                href="https://shopee.vn/search?noCorrection=true&searchPrefill=1037"
+                ref={headerSearchFrameBtn}
+                onClick={clickHeaderSearchFrameBtn}
                 className="header__search-frame__btn"
+                href="https://shopee.vn/m/khung-gio-san-sale"
               >
                 <i className="fas fa-search"></i>
               </a>
-              <div className="header__search-history">
+              <div ref={headerSearchHistory} className="header__search-history">
                 <ul className="header__search-history-list">
-                  <li className="header__search-history-item header__search-history-item--default">
-                    <a
-                      href="https://shopee.vn/search?noCorrection=true&searchPrefill=1037"
-                      className="header__search-history-item__link"
-                    >
-                      Deal hot kèm 2 mã freeship
-                      <img
-                        src="/assests/img/header/header__search/Dealquocte.png"
-                        alt=""
-                        className="header__search-history-item__link__dtth31k-img"
-                      />
-                    </a>
-                  </li>
+                  {headerSearchHistoryListInfo &&
+                    updateInDOMHeaderSearchHistoryList(
+                      headerSearchHistoryListInfo
+                    )}
                 </ul>
               </div>
             </div>

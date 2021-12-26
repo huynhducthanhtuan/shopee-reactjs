@@ -1671,7 +1671,7 @@ loginPageContentFormLoginBtn.addEventListener("mouseleave", (e) => {
 //#region HANDLE DATA, UPDATE DATA IN DOM, LISTEN EVENT,...
 
 //#region header (1) (event)
-//#region handle headerSearchFrameInput, headerSearchHistory
+//#region handle headerSearchFrameInput, headerSearchHistory (1) (keydown)
 function removeHeaderSearchHistoryItemLinksHover() {
   headerSearchHistoryItemLinks.forEach((headerSearchHistoryItemLink) => {
     if (
@@ -1686,7 +1686,7 @@ function removeHeaderSearchHistoryItemLinksHover() {
   });
 }
 
-//#region update headerSearchHistoryListInfo -> updateInDOMHeaderSearchHistoryList
+//#region update headerSearchHistoryListInfo (-->OK)
 function updateInDOMHeaderSearchHistoryList() {
   var defaultHeaderSearchHistoryItem = `<li class="header__search-history-item header__search-history-item--default">
         <a href="https://shopee.vn/search?noCorrection=true&searchPrefill=1037" class="header__search-history-item__link">
@@ -1742,7 +1742,7 @@ function addAndUpdateHeaderSearchHistoryListInfo(data) {
 updateInDOMHeaderSearchHistoryList();
 //#endregion
 
-//#region EventListeners
+//#region EventListeners (1) (keydown)
 headerSearchFrameInput.addEventListener("click", () => {
   headerSearchHistory.style.display = "block";
 });
@@ -2697,7 +2697,7 @@ topSearchMainPreviousBtn.addEventListener("click", () => {
 //#endregion
 //#endregion
 
-//#region todaySuggestion (1)
+//#region todaySuggestion (-->OK)
 //#region updateInDOMTodaySuggestionMainTabMain (-->OK)
 function handleUpdateInDOMTodaySuggestionMainTabMain(
   todaySuggestionMainTabMainInfo
@@ -3056,7 +3056,7 @@ setTimeout(() => {
 }, 2000);
 //#endregion
 
-//#region todaySuggestionHeadings onclick() (1)
+//#region todaySuggestionHeadings onclick() (-->OK)
 todaySuggestionHeadingTabMain.addEventListener("click", () => {
   setTimeout(() => {
     if (
