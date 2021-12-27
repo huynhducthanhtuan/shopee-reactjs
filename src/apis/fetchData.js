@@ -1,5 +1,6 @@
 import axios from "axios";
 import { API1_URL, API2_URL, API3_URL } from "./api";
+import { useState } from "react";
 
 async function fetchData() {
   const { data: responedData1 } = await axios.get(API1_URL);
@@ -16,5 +17,8 @@ async function fetchData() {
 
   return wantedData2;
 }
+
+// const fetchedData = await fetchData();
+// export { fetchedData };
 
 export default fetchData;

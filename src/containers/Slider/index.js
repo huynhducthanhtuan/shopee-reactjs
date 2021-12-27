@@ -3,6 +3,10 @@ import { useContext } from "react";
 import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function Slider() {
+  //#region Constants
+  const QUEUE_ITEM_QUANTITY = 11;
+  //#endregion
+
   //#region Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const favouriteSelectionsInfo = dataSourceContext
@@ -53,23 +57,15 @@ function Slider() {
 
                 <div className="slider__main__motion-part__queue">
                   <div className="slider__main__motion-part__queue-item slider__main__motion-part__queue-item--current"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  <div className="slider__main__motion-part__queue-item"></div>
-                  {/* {(() => {
-                    for (let i = 0; i < 10; i++) {
-                      return (
+                  {(() => {
+                    let divTags = [];
+                    for (let i = 0; i < QUEUE_ITEM_QUANTITY - 1; i++) {
+                      divTags.push(
                         <div className="slider__main__motion-part__queue-item"></div>
                       );
                     }
-                  })()} */}
+                    return divTags;
+                  })()}
                 </div>
               </div>
               <div className="slider__main__no-motion-part">
