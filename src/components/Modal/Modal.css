@@ -1,6 +1,5 @@
 /* MODAL */
 #modal {
-  display: none;
   z-index: 20;
   overflow: visible;
   position: fixed;

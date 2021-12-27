@@ -9,7 +9,7 @@ import {
 function HeaderCommonInfo() {
   //#region Hooks
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const notificationQuantity = useRef();
+  const notificationQuantityRef = useRef();
   //#endregion
 
   //#region Get data from Context
@@ -17,7 +17,7 @@ function HeaderCommonInfo() {
   const popupWhenLoggedInListInfo = dataSourceContext
     ? dataSourceContext.headerNotificationPopupWhenLoggedInListInfo
     : null;
-  const notificationQuantityValue =
+  const notificationQuantity =
     popupWhenLoggedInListInfo && popupWhenLoggedInListInfo.length;
   //#endregion
 
@@ -48,8 +48,8 @@ function HeaderCommonInfo() {
     ));
   };
   const handleMouseLeaveNotificationQuantity = () => {
-    if (notificationQuantity.current) {
-      notificationQuantity.current.style.display = "none";
+    if (notificationQuantityRef.current) {
+      notificationQuantityRef.current.style.display = "none";
     }
   };
   //#endregion
@@ -164,11 +164,11 @@ function HeaderCommonInfo() {
                 <span>Thông Báo</span>
                 {isLoggedIn && (
                   <span
-                    ref={notificationQuantity}
+                    ref={notificationQuantityRef}
                     onMouseLeave={handleMouseLeaveNotificationQuantity}
                     className="header__notification__quantity"
                   >
-                    {notificationQuantityValue}
+                    {notificationQuantity}
                   </span>
                 )}
               </a>

@@ -1,32 +1,59 @@
 import "./Modal.css";
+// import { body, modal, app } from "../../constants";
+import { useState, useRef, useContext } from "react";
+import { ModalStatusContext } from "../../contexts";
 
 function Modal() {
+  //#region Hooks
+  const giftBannerPopupRef = useRef();
+  const giftBannerPopupCloseBtnRef = useRef();
+  //#endregion
+
+  //#region Get data from Context
+  const modalStatusContext = useContext(ModalStatusContext);
+  const { showModal, setShowModal } = modalStatusContext;
+  //#endregion
+
+  //#region Function handlers
+  const handleClickModal = () => {
+    setTimeout(() => {
+      // hide modal
+      setShowModal(false);
+
+      // enable scrolling
+      document.querySelector("body").style.overflow = "visible";
+      document.querySelector("#app").style.position = "absolute";
+    }, 100);
+  };
+  const handleClickGiftBannerPopup = (e) => {
+    e.stopPropagation();
+  };
+  const handleClickGiftBannerPopupCloseBtn = (e) => {
+    e.stopPropagation();
+    document.querySelector("#modal").click();
+  };
+  //#endregion
+
   return (
-    <div id="modal">
+    <div id="modal" onClick={handleClickModal}>
       <div className="modal__overlay"></div>
 
       <div className="modal__body">
-        <div className="page-load-banner">
-          <button className="page-load-banner__close-btn">
-            <i className="fas fa-times"></i>
-          </button>
-          <a
-            href="https://shopee.vn/m/rohto-official"
-            className="page-load-banner__link"
-          >
-            <img
-              src="/assests/img/banner.png"
-              className="page-load-banner__img"
-            />
-          </a>
-        </div>
-
-        <div className="gift-banner__popup">
+        <div
+          ref={giftBannerPopupRef}
+          onClick={(e) => handleClickGiftBannerPopup(e)}
+          style={{ display: "block" }}
+          className="gift-banner__popup"
+        >
           <img
             src="/assests/img/not-logged-in/gift-banner__popup/label.png"
             className="gift-banner__popup__label"
           />
-          <button className="gift-banner__popup__close-btn">
+          <button
+            ref={giftBannerPopupCloseBtnRef}
+            onClick={(e) => handleClickGiftBannerPopupCloseBtn(e)}
+            className="gift-banner__popup__close-btn"
+          >
             <i className="fas fa-times"></i>
           </button>
           <div className="gift-banner__popup__main">
@@ -79,6 +106,21 @@ function Modal() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div style={{ display: "none" }} className="page-load-banner">
+          <button className="page-load-banner__close-btn">
+            <i className="fas fa-times"></i>
+          </button>
+          <a
+            href="https://shopee.vn/m/rohto-official"
+            className="page-load-banner__link"
+          >
+            <img
+              src="/assests/img/banner.png"
+              className="page-load-banner__img"
+            />
+          </a>
         </div>
       </div>
     </div>

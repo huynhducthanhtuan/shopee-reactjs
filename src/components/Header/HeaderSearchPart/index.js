@@ -7,9 +7,9 @@ import {
 
 function HeaderSearchPart() {
   //#region Hooks
-  const history = useRef();
-  const frameInput = useRef();
-  const frameBtn = useRef();
+  const historyRef = useRef();
+  const frameInputRef = useRef();
+  const frameBtnRef = useRef();
   //#endregion
 
   //#region Get data from Context
@@ -63,18 +63,18 @@ function HeaderSearchPart() {
     );
   };
   const handleClickFrameInput = () => {
-    history.current.style.display = "block";
+    historyRef.current.style.display = "block";
   };
   const handleBlurFrameInput = () => {
     setTimeout(() => {
-      history.current.style.display = "none";
+      historyRef.current.style.display = "none";
     }, 200);
   };
   const handleClickFrameBtn = () => {
-    if (frameInput.current.value !== "") {
-      var innerHTML = frameInput.current.value;
+    if (frameInputRef.current.value !== "") {
+      var innerHTML = frameInputRef.current.value;
       var href = `https://shopee.vn/search?keyword=${innerHTML}`;
-      frameBtn.current.href = href;
+      frameBtnRef.current.href = href;
     }
   };
   const handleClickLogo = (e) => {
@@ -104,21 +104,21 @@ function HeaderSearchPart() {
           <div className="header__main-search">
             <div className="header__search-frame" tabIndex="0">
               <input
-                ref={frameInput}
+                ref={frameInputRef}
                 onClick={handleClickFrameInput}
                 onBlur={handleBlurFrameInput}
                 className="header__search-frame__input"
                 placeholder="VOUCHER HOÀN 999K XU - SĂN NGAY"
               />
               <a
-                ref={frameBtn}
+                ref={frameBtnRef}
                 onClick={handleClickFrameBtn}
                 className="header__search-frame__btn"
                 href="https://shopee.vn/m/khung-gio-san-sale"
               >
                 <i className="fas fa-search"></i>
               </a>
-              <div ref={history} className="header__search-history">
+              <div ref={historyRef} className="header__search-history">
                 <ul className="header__search-history-list">
                   {historyListInfo && updateDOMHistoryListPart(historyListInfo)}
                 </ul>
