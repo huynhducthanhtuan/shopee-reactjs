@@ -4,14 +4,14 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function UnderFlashSale() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const underFlashSalePartInfo = dataSourceContextValue
-    ? dataSourceContextValue.underFlashSalePartInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const partInfo = dataSourceContext
+    ? dataSourceContext.underFlashSalePartInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMUnderFlashSalePart = (datas) => {
+  const updateDOMPart = (datas) => {
     return datas.map((data) => (
       <a key={data.id} href={data.href} className="under-flash-sale__link">
         <img src={data.image} className="under-flash-sale__img" />
@@ -25,8 +25,7 @@ function UnderFlashSale() {
       {() => (
         <div className="under-flash-sale">
           <div className="under-flash-sale__part">
-            {underFlashSalePartInfo &&
-              updateInDOMUnderFlashSalePart(underFlashSalePartInfo)}
+            {partInfo && updateDOMPart(partInfo)}
           </div>
         </div>
       )}

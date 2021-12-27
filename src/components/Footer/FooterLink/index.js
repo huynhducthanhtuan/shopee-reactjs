@@ -7,23 +7,23 @@ import {
 
 function FooterLink() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const footerLinkAboutTextCSKHInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerLinkAboutTextCSKHInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const aboutTextCSKHInfo = dataSourceContext
+    ? dataSourceContext.footerLinkAboutTextCSKHInfo
     : null;
-  const footerLinkAboutTextVeShopeeInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerLinkAboutTextVeShopeeInfo
+  const aboutTextVeShopeeInfo = dataSourceContext
+    ? dataSourceContext.footerLinkAboutTextVeShopeeInfo
     : null;
-  const footerLinkAboutSocialInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerLinkAboutSocialInfo
+  const aboutSocialInfo = dataSourceContext
+    ? dataSourceContext.footerLinkAboutSocialInfo
     : null;
-  const footerLinkCopyrightCountryAndAreaListInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerLinkCopyrightCountryAndAreaListInfo
+  const copyrightCountryAndAreaListInfo = dataSourceContext
+    ? dataSourceContext.footerLinkCopyrightCountryAndAreaListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMFooterLinkAboutTextCSKH = (datas) => {
+  const updateDOMAboutTextCSKHPart = (datas) => {
     const divTags = datas.map((data) => {
       return (
         <div key={data.id}>
@@ -35,7 +35,7 @@ function FooterLink() {
     });
     return divTags;
   };
-  const updateInDOMFooterLinkAboutTextVeShopee = (datas) => {
+  const updateDOMAboutTextVeShopeePart = (datas) => {
     const divTags = datas.map((data) => {
       return (
         <div key={data.id}>
@@ -50,7 +50,7 @@ function FooterLink() {
     });
     return divTags;
   };
-  const updateInDOMFooterLinkAboutSocial = (datas) => {
+  const updateDOMAboutSocialPart = (datas) => {
     const aTags = datas.map((data) => {
       return (
         <a
@@ -67,7 +67,7 @@ function FooterLink() {
     });
     return aTags;
   };
-  const updateInDOMFooterLinkCopyrightCountryAndAreaList = (datas) => {
+  const updateDOMCopyrightCountryAndAreaListPart = (datas) => {
     const aTags = datas.map((data) => {
       return (
         <a
@@ -94,10 +94,8 @@ function FooterLink() {
                   Chăm sóc khách hàng
                 </span>
                 <div className="footer__link__about-text-CSKH">
-                  {footerLinkAboutTextCSKHInfo &&
-                    updateInDOMFooterLinkAboutTextCSKH(
-                      footerLinkAboutTextCSKHInfo
-                    )}
+                  {aboutTextCSKHInfo &&
+                    updateDOMAboutTextCSKHPart(aboutTextCSKHInfo)}
                 </div>
               </div>
             </div>
@@ -105,10 +103,8 @@ function FooterLink() {
               <div className="footer__link__about__item">
                 <span className="footer__link__about__heading">Về Shopee</span>
                 <div className="footer__link__about-text-VeShopee">
-                  {footerLinkAboutTextVeShopeeInfo &&
-                    updateInDOMFooterLinkAboutTextVeShopee(
-                      footerLinkAboutTextVeShopeeInfo
-                    )}
+                  {aboutTextVeShopeeInfo &&
+                    updateDOMAboutTextVeShopeePart(aboutTextVeShopeeInfo)}
                 </div>
               </div>
             </div>
@@ -140,8 +136,7 @@ function FooterLink() {
                   Theo dõi chúng tôi trên
                 </span>
                 <div className="footer__link__about-social">
-                  {footerLinkAboutSocialInfo &&
-                    updateInDOMFooterLinkAboutSocial(footerLinkAboutSocialInfo)}
+                  {aboutSocialInfo && updateDOMAboutSocialPart(aboutSocialInfo)}
                 </div>
               </div>
             </div>
@@ -181,9 +176,9 @@ function FooterLink() {
                 Quốc gia & Khu vực:
               </span>
               <div className="footer__link__copyright__country-and-area__list">
-                {footerLinkCopyrightCountryAndAreaListInfo &&
-                  updateInDOMFooterLinkCopyrightCountryAndAreaList(
-                    footerLinkCopyrightCountryAndAreaListInfo
+                {copyrightCountryAndAreaListInfo &&
+                  updateDOMCopyrightCountryAndAreaListPart(
+                    copyrightCountryAndAreaListInfo
                   )}
               </div>
             </div>

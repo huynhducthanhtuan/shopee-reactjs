@@ -4,14 +4,14 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function TopSearch() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const topSearchMainListInfo = dataSourceContextValue
-    ? dataSourceContextValue.topSearchMainListInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const listInfo = dataSourceContext
+    ? dataSourceContext.topSearchMainListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const handleUpdateInDOMTopSearchMainList = (datas) => {
+  const updateDOMMainListPart = (datas) => {
     return datas.map((data, index) => (
       <a key={data.id} href={data.href} className="top-search__main__link">
         <div className="top-search__main__product">
@@ -61,8 +61,7 @@ function TopSearch() {
           <div className="top-search__main">
             <div className="top-search__main-part">
               <div className="top-search__main__list">
-                {topSearchMainListInfo &&
-                  handleUpdateInDOMTopSearchMainList(topSearchMainListInfo)}
+                {listInfo && updateDOMMainListPart(listInfo)}
               </div>
             </div>
 

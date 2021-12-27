@@ -4,14 +4,14 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function SearchTrending() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const searchTrendingMainListInfo = dataSourceContextValue
-    ? dataSourceContextValue.searchTrendingMainListInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const listInfo = dataSourceContext
+    ? dataSourceContext.searchTrendingMainListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMSearchTrendingMainList = (datas, listIndex) => {
+  const updateDOMMainListPart = (datas, listIndex) => {
     return datas[listIndex].map((data) => (
       <a key={data.id} href={data.href} className="search-trending__main__item">
         <div className="search-trending__main__text">
@@ -51,11 +51,7 @@ function SearchTrending() {
           </div>
           <div className="search-trending__main">
             <div className="search-trending__main__list">
-              {searchTrendingMainListInfo &&
-                updateInDOMSearchTrendingMainList(
-                  searchTrendingMainListInfo,
-                  0
-                )}
+              {listInfo && updateDOMMainListPart(listInfo, 0)}
             </div>
           </div>
         </div>

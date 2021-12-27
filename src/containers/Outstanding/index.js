@@ -4,35 +4,32 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function Outstanding() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const outstandingHotSellingProductsInfo = dataSourceContextValue
-    ? dataSourceContextValue.outstandingHotSellingProductsInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const hotSellingProductsInfo = dataSourceContext
+    ? dataSourceContext.outstandingHotSellingProductsInfo
     : null;
-  const outstandingHotBrandsInfo = dataSourceContextValue
-    ? dataSourceContextValue.outstandingHotBrandsInfo
+  const hotBrandsInfo = dataSourceContext
+    ? dataSourceContext.outstandingHotBrandsInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMOutstandingHotSellingProducts = ([
-    outstandingHotSellingProductsInfoInfo,
-    outstandingHotSellingProductsListInfo,
-  ]) => {
+  const updateDOMHotSellingProductsPart = ([info, list]) => {
     return (
       <>
         <div className="outstanding__hot-selling-products__info">
           <h4 className="outstanding__hot-selling-products__info__heading">
-            {outstandingHotSellingProductsInfoInfo.heading}
+            {info.heading}
           </h4>
           <a
-            href={outstandingHotSellingProductsInfoInfo.href}
+            href={info.href}
             className="outstanding__hot-selling-products__info__view-more-btn"
           >
             Xem thêm <i className="fas fa-chevron-right"></i>
           </a>
         </div>
         <div className="outstanding__hot-selling-products__list">
-          {outstandingHotSellingProductsListInfo.map((data) => {
+          {list.map((data) => {
             return (
               <a
                 key={data.id}
@@ -61,25 +58,22 @@ function Outstanding() {
       </>
     );
   };
-  const updateInDOMOutstandingHotBrands = ([
-    outstandingHotBrandsInfoInfo,
-    outstandingHotBrandsListInfo,
-  ]) => {
+  const updateDOMHotBrandsPart = ([info, list]) => {
     return (
       <>
         <div className="outstanding__hot-brands__info">
           <h4 className="outstanding__hot-brands__info__heading">
-            {outstandingHotBrandsInfoInfo.heading}
+            {info.heading}
           </h4>
           <a
-            href={outstandingHotBrandsInfoInfo.href}
+            href={info.href}
             className="outstanding__hot-brands__info__view-more-btn"
           >
             Xem thêm <i className="fas fa-chevron-right"></i>
           </a>
         </div>
         <div className="outstanding__hot-brands__list">
-          {outstandingHotBrandsListInfo.map((data) => {
+          {list.map((data) => {
             return (
               <a
                 key={data.id}
@@ -128,17 +122,17 @@ function Outstanding() {
           >
             <div>
               <div className="outstanding__hot-selling-products">
-                {outstandingHotSellingProductsInfo &&
-                  updateInDOMOutstandingHotSellingProducts([
-                    outstandingHotSellingProductsInfo.info,
-                    outstandingHotSellingProductsInfo.list,
+                {hotSellingProductsInfo &&
+                  updateDOMHotSellingProductsPart([
+                    hotSellingProductsInfo.info,
+                    hotSellingProductsInfo.list,
                   ])}
               </div>
               <div className="outstanding__hot-brands">
-                {outstandingHotBrandsInfo &&
-                  updateInDOMOutstandingHotBrands([
-                    outstandingHotBrandsInfo.info,
-                    outstandingHotBrandsInfo.list,
+                {hotBrandsInfo &&
+                  updateDOMHotBrandsPart([
+                    hotBrandsInfo.info,
+                    hotBrandsInfo.list,
                   ])}
               </div>
             </div>

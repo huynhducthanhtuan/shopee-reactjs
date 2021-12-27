@@ -4,17 +4,17 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function ShopeeMall() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const shopeeMallHeadingTextInfo = dataSourceContextValue
-    ? dataSourceContextValue.shopeeMallHeadingTextInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const headingTextInfo = dataSourceContext
+    ? dataSourceContext.shopeeMallHeadingTextInfo
     : null;
-  const shopeeMallMainProductListInfo = dataSourceContextValue
-    ? dataSourceContextValue.shopeeMallMainProductListInfo
+  const productListInfo = dataSourceContext
+    ? dataSourceContext.shopeeMallMainProductListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMShopeeMallHeadingText = (datas) => {
+  const updateDOMHeadingTextPart = (datas) => {
     return datas.map((data) => (
       <div key={data.id}>
         <img src={data.image} className="shopee-mall__heading__text__icon" />
@@ -22,7 +22,7 @@ function ShopeeMall() {
       </div>
     ));
   };
-  const updateInDOMShopeeMallMainProductList = (datas) => {
+  const updateDOMProductListPart = (datas) => {
     const shopeeMallMainProductListLength = datas.length;
     const shopeeMallMainProductListItemsLength =
       shopeeMallMainProductListLength * 2;
@@ -84,8 +84,7 @@ function ShopeeMall() {
               </a>
             </div>
             <div className="shopee-mall__heading__text">
-              {shopeeMallHeadingTextInfo &&
-                updateInDOMShopeeMallHeadingText(shopeeMallHeadingTextInfo)}
+              {headingTextInfo && updateDOMHeadingTextPart(headingTextInfo)}
             </div>
             <a
               href="https://shopee.vn/mall"
@@ -119,10 +118,7 @@ function ShopeeMall() {
             <div className="shopee-mall__main__product">
               <div className="shopee-mall__main__product-part">
                 <ul className="shopee-mall__main__product-list">
-                  {shopeeMallMainProductListInfo &&
-                    updateInDOMShopeeMallMainProductList(
-                      shopeeMallMainProductListInfo
-                    )}
+                  {productListInfo && updateDOMProductListPart(productListInfo)}
                 </ul>
               </div>
 

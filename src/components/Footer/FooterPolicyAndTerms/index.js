@@ -7,20 +7,20 @@ import {
 
 function FooterPolicyAndTerms() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const footerPolicyTermsPartTitleInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerPolicyTermsPartTitleInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const titleInfo = dataSourceContext
+    ? dataSourceContext.footerPolicyTermstitleInfo
     : null;
-  const footerPolicyTermsPartCertificateInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerPolicyTermsPartCertificateInfo
+  const certificateInfo = dataSourceContext
+    ? dataSourceContext.footerPolicyTermsPartCertificateInfo
     : null;
-  const footerPolicyTermsPartCompanyInfoInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerPolicyTermsPartCompanyInfoInfo
+  const companyInfoInfo = dataSourceContext
+    ? dataSourceContext.footerPolicyTermsPartCompanyInfoInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMFooterPolicyTermsPartTitle = (datas) => {
+  const updateInDOMTitlePart = (datas) => {
     const divTags = datas.map((data) => {
       return (
         <div key={data.id} className="footer__policy-terms__part__title__part">
@@ -35,7 +35,7 @@ function FooterPolicyAndTerms() {
     });
     return divTags;
   };
-  const updateInDOMFooterPolicyTermsPartCertificate = (datas) => {
+  const updateInDOMCertificatePart = (datas) => {
     const aTags = datas.map((data) => {
       return (
         <a
@@ -51,7 +51,7 @@ function FooterPolicyAndTerms() {
     });
     return aTags;
   };
-  const updateInDOMFooterPolicyTermsPartCompanyInfo = (datas) => {
+  const updateInDOMCompanyInfoPart = (datas) => {
     const spanTags = datas.map((data, index) => {
       return (
         <span
@@ -72,22 +72,13 @@ function FooterPolicyAndTerms() {
         <div className="footer__policy-terms">
           <div className="footer__policy-terms__part">
             <div className="footer__policy-terms__part__title">
-              {footerPolicyTermsPartTitleInfo &&
-                updateInDOMFooterPolicyTermsPartTitle(
-                  footerPolicyTermsPartTitleInfo
-                )}
+              {titleInfo && updateInDOMTitlePart(titleInfo)}
             </div>
             <div className="footer__policy-terms__part__certificate">
-              {footerPolicyTermsPartCertificateInfo &&
-                updateInDOMFooterPolicyTermsPartCertificate(
-                  footerPolicyTermsPartCertificateInfo
-                )}
+              {certificateInfo && updateInDOMCertificatePart(certificateInfo)}
             </div>
             <div className="footer__policy-terms__part__company-info">
-              {footerPolicyTermsPartCompanyInfoInfo &&
-                updateInDOMFooterPolicyTermsPartCompanyInfo(
-                  footerPolicyTermsPartCompanyInfoInfo
-                )}
+              {companyInfoInfo && updateInDOMCompanyInfoPart(companyInfoInfo)}
             </div>
           </div>
         </div>

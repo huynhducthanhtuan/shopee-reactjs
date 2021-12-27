@@ -4,14 +4,14 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function FlashSale() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const flashSaleMainListInfo = dataSourceContextValue
-    ? dataSourceContextValue.flashSaleMainListInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const listInfo = dataSourceContext
+    ? dataSourceContext.flashSaleMainListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMDirectoryMainList = (datas) => {
+  const updateDOMListPart = (datas) => {
     return datas.map((data) => (
       <a key={data.id} href={data.href} className="flash-sale__main__link">
         <img src={data.bubbleImage} className="flash-sale__main__bubble-img" />
@@ -71,8 +71,7 @@ function FlashSale() {
           <div className="flash-sale__main">
             <div className="flash-sale__main__part">
               <div className="flash-sale__main__list">
-                {flashSaleMainListInfo &&
-                  updateInDOMDirectoryMainList(flashSaleMainListInfo)}
+                {listInfo && updateDOMListPart(listInfo)}
               </div>
             </div>
 

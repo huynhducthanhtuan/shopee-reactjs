@@ -5,21 +5,21 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 function TodaySuggestion() {
   //#region Hooks
   const todaySuggestionRef = useRef();
-  const todaySuggestionHeadingTabMainRef = useRef();
-  const todaySuggestionHeadingTabSuperSaleRef = useRef();
-  const todaySuggestionMainTabMainRef = useRef();
-  const todaySuggestionMainTabSuperSaleRef = useRef();
-  const todaySuggestionMainViewAllBtnRef = useRef();
+  const headingTabMainRef = useRef();
+  const headingTabSuperSaleRef = useRef();
+  const tabMainRef = useRef();
+  const tabSuperSaleRef = useRef();
+  const viewAllBtnRef = useRef();
   const [scrollDistance, setScrollDistance] = useState(0);
   //#endregion
 
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const todaySuggestionMainTabMainInfo = dataSourceContextValue
-    ? dataSourceContextValue.todaySuggestionMainTabMainInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const tabMainInfo = dataSourceContext
+    ? dataSourceContext.todaySuggestionMainTabMainInfo
     : null;
-  const todaySuggestionMainTabSuperSaleInfo = dataSourceContextValue
-    ? dataSourceContextValue.todaySuggestionMainTabSuperSaleInfo
+  const tabSuperSaleInfo = dataSourceContext
+    ? dataSourceContext.todaySuggestionMainTabSuperSaleInfo
     : null;
   //#endregion
 
@@ -74,10 +74,8 @@ function TodaySuggestion() {
       </div>
     );
   };
-  const updateInDOMTodaySuggestionMainTabMain = (
-    todaySuggestionMainTabMainInfo
-  ) => {
-    return todaySuggestionMainTabMainInfo.map((data, dataIndex) => (
+  const updateDOMTabMainPart = (tabMainInfo) => {
+    return tabMainInfo.map((data, dataIndex) => (
       <div key={dataIndex} className="today-suggestion__main-list">
         {data.map((dataChild, dataChildIndex) => (
           <div key={dataChildIndex} className="today-suggestion__main-item">
@@ -151,10 +149,8 @@ function TodaySuggestion() {
       </div>
     ));
   };
-  const updateInDOMTodaySuggestionMainTabSuperSale = (
-    todaySuggestionMainTabSuperSaleInfo
-  ) => {
-    return todaySuggestionMainTabSuperSaleInfo.map((data, dataIndex) => (
+  const updateDOMTabSuperSalePart = (tabSuperSaleInfo) => {
+    return tabSuperSaleInfo.map((data, dataIndex) => (
       <div key={dataIndex} className="today-suggestion__main-list">
         {data.map((dataChild, dataChildIndex) => (
           <div key={dataChildIndex} className="today-suggestion__main-item">
@@ -227,22 +223,22 @@ function TodaySuggestion() {
       </div>
     ));
   };
-  const toggleActiveTodaySuggestionHeadingTab = (activeTab) => {
+  const toggleActiveHeadingTab = (activeTab) => {
     switch (activeTab) {
       case "main": {
-        todaySuggestionHeadingTabSuperSaleRef.current.classList.remove(
+        headingTabSuperSaleRef.current.classList.remove(
           "today-suggestion__heading-tab--active"
         );
-        todaySuggestionHeadingTabMainRef.current.classList.add(
+        headingTabMainRef.current.classList.add(
           "today-suggestion__heading-tab--active"
         );
         break;
       }
       case "supersale": {
-        todaySuggestionHeadingTabMainRef.current.classList.remove(
+        headingTabMainRef.current.classList.remove(
           "today-suggestion__heading-tab--active"
         );
-        todaySuggestionHeadingTabSuperSaleRef.current.classList.add(
+        headingTabSuperSaleRef.current.classList.add(
           "today-suggestion__heading-tab--active"
         );
         break;
@@ -251,28 +247,27 @@ function TodaySuggestion() {
       }
     }
   };
-  const clickTodaySuggestionHeadingTabMain = () => {
-    toggleActiveTodaySuggestionHeadingTab("main");
+  const handleClickHeadingTabMain = () => {
+    toggleActiveHeadingTab("main");
 
     // config for this case
     todaySuggestionRef.current.style.height = "263rem";
-    todaySuggestionMainTabSuperSaleRef.current.style.display = "none";
-    todaySuggestionMainTabMainRef.current.style.display = "block";
-    todaySuggestionMainViewAllBtnRef.current.href =
+    tabSuperSaleRef.current.style.display = "none";
+    tabMainRef.current.style.display = "block";
+    viewAllBtnRef.current.href =
       "https://shopee.vn/daily_discover?pageNumber=2";
 
     // scroll to this part
     window.scrollTo(0, scrollDistance);
   };
-  const clickTodaySuggestionHeadingTabSuperSale = () => {
-    toggleActiveTodaySuggestionHeadingTab("supersale");
+  const handleClickHeadingTabSuperSale = () => {
+    toggleActiveHeadingTab("supersale");
 
     // config for this case
     todaySuggestionRef.current.style.height = "324rem";
-    todaySuggestionMainTabMainRef.current.style.display = "none";
-    todaySuggestionMainTabSuperSaleRef.current.style.display = "block";
-    todaySuggestionMainViewAllBtnRef.current.href =
-      "https://shopee.vn/double_eleven_big_sale/2";
+    tabMainRef.current.style.display = "none";
+    tabSuperSaleRef.current.style.display = "block";
+    viewAllBtnRef.current.href = "https://shopee.vn/double_eleven_big_sale/2";
 
     // scroll to this part
     window.scrollTo(0, scrollDistance);
@@ -291,41 +286,32 @@ function TodaySuggestion() {
         <div ref={todaySuggestionRef} className="today-suggestion">
           <div className="today-suggestion__heading">
             <a
-              ref={todaySuggestionHeadingTabMainRef}
-              onClick={clickTodaySuggestionHeadingTabMain}
+              ref={headingTabMainRef}
+              onClick={handleClickHeadingTabMain}
               className="today-suggestion__heading-tab-main today-suggestion__heading-tab--active"
             >
               <span>GỢI Ý HÔM NAY</span>
             </a>
             <a
-              ref={todaySuggestionHeadingTabSuperSaleRef}
-              onClick={clickTodaySuggestionHeadingTabSuperSale}
+              ref={headingTabSuperSaleRef}
+              onClick={handleClickHeadingTabSuperSale}
               className="today-suggestion__heading-tab-super-sale"
             >
               <img src="/assests/img/container/today-suggestion/heading-label.png" />
             </a>
           </div>
           <div className="today-suggestion__main">
-            <div
-              ref={todaySuggestionMainTabMainRef}
-              className="today-suggestion__main__tab-main"
-            >
-              {todaySuggestionMainTabMainInfo &&
-                updateInDOMTodaySuggestionMainTabMain(
-                  todaySuggestionMainTabMainInfo
-                )}
+            <div ref={tabMainRef} className="today-suggestion__main__tab-main">
+              {tabMainInfo && updateDOMTabMainPart(tabMainInfo)}
             </div>
             <div
-              ref={todaySuggestionMainTabSuperSaleRef}
+              ref={tabSuperSaleRef}
               className="today-suggestion__main__tab-super-sale"
             >
-              {todaySuggestionMainTabSuperSaleInfo &&
-                updateInDOMTodaySuggestionMainTabSuperSale(
-                  todaySuggestionMainTabSuperSaleInfo
-                )}
+              {tabSuperSaleInfo && updateDOMTabSuperSalePart(tabSuperSaleInfo)}
             </div>
             <a
-              ref={todaySuggestionMainViewAllBtnRef}
+              ref={viewAllBtnRef}
               href="https://shopee.vn/daily_discover?pageNumber=2"
               className="today-suggestion__main__view-all-btn"
             >

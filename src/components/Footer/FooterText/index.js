@@ -8,14 +8,14 @@ import {
 
 function FooterText() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const footerTextATagsInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerTextATagsInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const aTagsInfo = dataSourceContext
+    ? dataSourceContext.footerTextaTagsInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMFooterTextATags = (datas) => {
+  const updateDOMATagsPart = (datas) => {
     if (datas) {
       const footerTextATags = $(".footer__text a");
 
@@ -147,7 +147,7 @@ function FooterText() {
               điện thoại ngay hôm nay!
             </span>
           </div>
-          {updateInDOMFooterTextATags(footerTextATagsInfo)}
+          {updateDOMATagsPart(aTagsInfo)}
         </div>
       )}
     </DataSourceContextConsumer>

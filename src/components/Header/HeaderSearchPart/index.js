@@ -1,5 +1,5 @@
 import "./HeaderSearchPart.css";
-import { useContext, useRef } from "react";
+import { useRef, useContext } from "react";
 import {
   DataSourceContext,
   DataSourceContextConsumer,
@@ -7,23 +7,23 @@ import {
 
 function HeaderSearchPart() {
   //#region Hooks
-  const headerSearchHistory = useRef();
-  const headerSearchFrameInput = useRef();
-  const headerSearchFrameBtn = useRef();
+  const history = useRef();
+  const frameInput = useRef();
+  const frameBtn = useRef();
   //#endregion
 
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const headerSearchHistoryKeywordsListInfo = dataSourceContextValue
-    ? dataSourceContextValue.headerSearchHistoryKeywordsListInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const historyListInfo = dataSourceContext
+    ? dataSourceContext.headerSearchHistoryListInfo
     : null;
-  const headerSearchHistoryListInfo = dataSourceContextValue
-    ? dataSourceContextValue.headerSearchHistoryListInfo
+  const historyKeywordsListInfo = dataSourceContext
+    ? dataSourceContext.headerSearchHistoryKeywordsListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMHeaderSearchHistoryKeywordsList = (datas) => {
+  const updateDOMHistoryKeywordsListPart = (datas) => {
     const aTags = datas.map((data) => {
       return (
         <a
@@ -37,7 +37,7 @@ function HeaderSearchPart() {
     });
     return aTags;
   };
-  const updateInDOMHeaderSearchHistoryList = (datas) => {
+  const updateDOMHistoryListPart = (datas) => {
     return (
       <>
         <li className="header__search-history-item header__search-history-item--default">
@@ -62,19 +62,19 @@ function HeaderSearchPart() {
       </>
     );
   };
-  const clickHeaderSearchFrameInput = () => {
-    headerSearchHistory.current.style.display = "block";
+  const handleClickFrameInput = () => {
+    history.current.style.display = "block";
   };
-  const blurHeaderSearchFrameInput = () => {
+  const handleBlurFrameInput = () => {
     setTimeout(() => {
-      headerSearchHistory.current.style.display = "none";
+      history.current.style.display = "none";
     }, 200);
   };
-  const clickHeaderSearchFrameBtn = () => {
-    if (headerSearchFrameInput.current.value !== "") {
-      var innerHTML = headerSearchFrameInput.current.value;
+  const handleClickFrameBtn = () => {
+    if (frameInput.current.value !== "") {
+      var innerHTML = frameInput.current.value;
       var href = `https://shopee.vn/search?keyword=${innerHTML}`;
-      headerSearchFrameBtn.current.href = href;
+      frameBtn.current.href = href;
     }
   };
   //#endregion
@@ -96,34 +96,29 @@ function HeaderSearchPart() {
           <div className="header__main-search">
             <div className="header__search-frame" tabIndex="0">
               <input
-                ref={headerSearchFrameInput}
-                onClick={clickHeaderSearchFrameInput}
-                onBlur={blurHeaderSearchFrameInput}
+                ref={frameInput}
+                onClick={handleClickFrameInput}
+                onBlur={handleBlurFrameInput}
                 className="header__search-frame__input"
                 placeholder="VOUCHER HOÀN 999K XU - SĂN NGAY"
               />
               <a
-                ref={headerSearchFrameBtn}
-                onClick={clickHeaderSearchFrameBtn}
+                ref={frameBtn}
+                onClick={handleClickFrameBtn}
                 className="header__search-frame__btn"
                 href="https://shopee.vn/m/khung-gio-san-sale"
               >
                 <i className="fas fa-search"></i>
               </a>
-              <div ref={headerSearchHistory} className="header__search-history">
+              <div ref={history} className="header__search-history">
                 <ul className="header__search-history-list">
-                  {headerSearchHistoryListInfo &&
-                    updateInDOMHeaderSearchHistoryList(
-                      headerSearchHistoryListInfo
-                    )}
+                  {historyListInfo && updateDOMHistoryListPart(historyListInfo)}
                 </ul>
               </div>
             </div>
             <div className="header__search-history-keywords-list">
-              {headerSearchHistoryKeywordsListInfo &&
-                updateInDOMHeaderSearchHistoryKeywordsList(
-                  headerSearchHistoryKeywordsListInfo
-                )}
+              {historyKeywordsListInfo &&
+                updateDOMHistoryKeywordsListPart(historyKeywordsListInfo)}
             </div>
           </div>
           <div className="header__cart">

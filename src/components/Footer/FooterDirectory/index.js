@@ -7,14 +7,14 @@ import {
 
 function FooterDirectory() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const footerDirectoryListInfo = dataSourceContextValue
-    ? dataSourceContextValue.footerDirectoryListInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const listInfo = dataSourceContext
+    ? dataSourceContext.footerDirectoryListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMFooterDirectoryList = (datas) => {
+  const updateDOMListPart = (datas) => {
     return datas.map((data, index) => (
       <li key={index} className="footer__directory__item">
         {data.map((dataChild, index) => (
@@ -52,8 +52,7 @@ function FooterDirectory() {
         <div className="footer__directory">
           <span className="footer__directory__heading">Danh Mục</span>
           <ul className="footer__directory__list">
-            {footerDirectoryListInfo &&
-              updateInDOMFooterDirectoryList(footerDirectoryListInfo)}
+            {listInfo && updateDOMListPart(listInfo)}
           </ul>
         </div>
       )}

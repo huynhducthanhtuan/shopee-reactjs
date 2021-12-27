@@ -4,14 +4,14 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function Slider() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const sliderFavouriteSelectionsInfo = dataSourceContextValue
-    ? dataSourceContextValue.sliderFavouriteSelectionsInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const favouriteSelectionsInfo = dataSourceContext
+    ? dataSourceContext.sliderFavouriteSelectionsInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMSliderFavouriteSelections = (datas) => {
+  const updateDOMFavouriteSelectionsPart = (datas) => {
     return datas.map((data) => (
       <a
         key={data.id}
@@ -63,6 +63,13 @@ function Slider() {
                   <div className="slider__main__motion-part__queue-item"></div>
                   <div className="slider__main__motion-part__queue-item"></div>
                   <div className="slider__main__motion-part__queue-item"></div>
+                  {/* {(() => {
+                    for (let i = 0; i < 10; i++) {
+                      return (
+                        <div className="slider__main__motion-part__queue-item"></div>
+                      );
+                    }
+                  })()} */}
                 </div>
               </div>
               <div className="slider__main__no-motion-part">
@@ -91,10 +98,8 @@ function Slider() {
               </div>
             </div>
             <div className="slider__favourite-selections">
-              {sliderFavouriteSelectionsInfo &&
-                updateInDOMSliderFavouriteSelections(
-                  sliderFavouriteSelectionsInfo
-                )}
+              {favouriteSelectionsInfo &&
+                updateDOMFavouriteSelectionsPart(favouriteSelectionsInfo)}
             </div>
           </div>
         </div>

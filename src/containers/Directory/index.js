@@ -4,14 +4,14 @@ import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function Directory() {
   //#region Get data from Context
-  const dataSourceContextValue = useContext(DataSourceContext);
-  const directoryMainItemListInfo = dataSourceContextValue
-    ? dataSourceContextValue.directoryMainItemListInfo
+  const dataSourceContext = useContext(DataSourceContext);
+  const itemListInfo = dataSourceContext
+    ? dataSourceContext.directoryMainItemListInfo
     : null;
   //#endregion
 
   //#region Function handlers
-  const updateInDOMDirectoryMainList = (datas) => {
+  const updateDOMListPart = (datas) => {
     return datas.map((data, index) => (
       <li key={index} className="directory__main__item">
         <a href={data[0].href} className="directory__main__item__link">
@@ -40,8 +40,7 @@ function Directory() {
           <div className="directory__main">
             <div className="directory__main__part">
               <ul className="directory__main__list">
-                {directoryMainItemListInfo &&
-                  updateInDOMDirectoryMainList(directoryMainItemListInfo)}
+                {itemListInfo && updateDOMListPart(itemListInfo)}
               </ul>
             </div>
 
