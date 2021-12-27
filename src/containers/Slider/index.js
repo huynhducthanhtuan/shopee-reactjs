@@ -61,7 +61,10 @@ function Slider() {
                     let divTags = [];
                     for (let i = 0; i < QUEUE_ITEM_QUANTITY - 1; i++) {
                       divTags.push(
-                        <div className="slider__main__motion-part__queue-item"></div>
+                        <div
+                          key={i}
+                          className="slider__main__motion-part__queue-item"
+                        ></div>
                       );
                     }
                     return divTags;

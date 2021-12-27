@@ -11,7 +11,7 @@ html {
   line-height: 1.6rem;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -152,8 +152,6 @@ a {
 }
 
 /* ------ CONFIG CSS: WEBSITE WHEN NOT LOGIN ------ */
-.header__notification__quantity,
-.header__notification__popup--when-logged-in,
 .header__user-account,
 .chat-part {
   display: none;

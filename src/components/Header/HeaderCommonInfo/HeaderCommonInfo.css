@@ -171,12 +171,12 @@
   border-width: 12px 15px;
   border-color: transparent transparent #fff transparent;
 }
+.header__notification:hover .header__notification__popup {
+  display: block;
+}
 .header__notification:hover .header__notification__quantity,
 .header__notification__quantity:hover {
   display: none;
-}
-.header__notification:hover .header__notification__popup {
-  display: block;
 }
 
 .header__notification__popup--when-not-login__main {
@@ -247,7 +247,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0.8rem 0 1.6rem 1rem;
-  color: #f5f5f5;
+  /* color: #f5f5f5; */
+  color: #fff2ee;
 }
 .header__notification__popup--when-logged-in__item:hover,
 .header__notification__popup--when-logged-in__view-all-btn:hover {

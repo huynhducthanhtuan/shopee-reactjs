@@ -1670,7 +1670,7 @@ loginPageContentFormLoginBtn.addEventListener("mouseleave", (e) => {
 
 //#region HANDLE DATA, UPDATE DATA IN DOM, LISTEN EVENT,...
 
-//#region header (1) (event)
+//#region header (1) (keydown event)
 //#region handle headerSearchFrameInput, headerSearchHistory (1) (keydown)
 function removeHeaderSearchHistoryItemLinksHover() {
   headerSearchHistoryItemLinks.forEach((headerSearchHistoryItemLink) => {

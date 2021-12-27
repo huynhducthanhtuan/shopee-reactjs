@@ -1,7 +1,59 @@
 import "./HeaderCommonInfo.css";
 import { Link } from "react-router-dom";
+import { useState, useContext, useRef } from "react";
+import {
+  DataSourceContext,
+  DataSourceContextConsumer,
+} from "../../../contexts";
 
 function HeaderCommonInfo() {
+  //#region Hooks
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const notificationQuantity = useRef();
+  //#endregion
+
+  //#region Get data from Context
+  const dataSourceContext = useContext(DataSourceContext);
+  const popupWhenLoggedInListInfo = dataSourceContext
+    ? dataSourceContext.headerNotificationPopupWhenLoggedInListInfo
+    : null;
+  const notificationQuantityValue =
+    popupWhenLoggedInListInfo && popupWhenLoggedInListInfo.length;
+  //#endregion
+
+  //#region Function handlers
+  const updateDOMPopupWhenLoggedInListPart = (datas) => {
+    return datas.map((data, index) => (
+      <li
+        key={index}
+        className="header__notification__popup--when-logged-in__item"
+      >
+        <a
+          href={data.href}
+          className="header__notification__popup--when-logged-in__link"
+        >
+          <div className="header__notification__popup--when-logged-in__item__img">
+            <img src={data.itemImage} />
+          </div>
+          <div className="header__notification__popup--when-logged-in__item__content">
+            <h3 className="header__notification__popup--when-logged-in__item__title">
+              {data.itemTitle}
+            </h3>
+            <p className="header__notification__popup--when-logged-in__item__description">
+              {data.itemDescription}
+            </p>
+          </div>
+        </a>
+      </li>
+    ));
+  };
+  const handleMouseLeaveNotificationQuantity = () => {
+    if (notificationQuantity.current) {
+      notificationQuantity.current.style.display = "none";
+    }
+  };
+  //#endregion
+
   return (
     <div className="header__common-info">
       <div className="header__links">
@@ -90,7 +142,10 @@ function HeaderCommonInfo() {
       </div>
 
       <div className="header__notify-and-account">
-        <div className="header__notification">
+        <div
+          onMouseLeave={handleMouseLeaveNotificationQuantity}
+          className="header__notification"
+        >
           <a
             href="https://shopee.vn/user/notifications/order"
             className="header__notification__link"
@@ -105,47 +160,68 @@ function HeaderCommonInfo() {
               <path d="m10 18c1 0 1.9-.6 2.3-1.4h-4.6c.4.9 1.3 1.4 2.3 1.4z"></path>
             </svg>
             <span>Thông Báo</span>
-            <span className="header__notification__quantity">2</span>
+            {isLoggedIn && (
+              <span
+                ref={notificationQuantity}
+                onMouseLeave={handleMouseLeaveNotificationQuantity}
+                className="header__notification__quantity"
+              >
+                {notificationQuantityValue}
+              </span>
+            )}
           </a>
           <div className="header__notification__popup">
-            <div className="header__notification__popup--when-not-login">
-              <div className="header__notification__popup--when-not-login__main">
-                <img
-                  src="/assests/img/header/header__notification/popup-when-not-login__img.png"
-                  className="header__notification__popup--when-not-login__main__img"
-                />
-                <span className="header__notification__popup--when-not-login__main__text">
-                  Đăng nhập để xem Thông Báo
-                </span>
-              </div>
-              <div className="header__notification__popup--when-not-login__buttons">
-                <Link
-                  to="/register"
-                  className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__register-btn"
-                >
-                  <span>Đăng Ký</span>
-                </Link>
-                <Link
-                  to="/login"
-                  className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__login-btn"
-                >
-                  <span>Đăng Nhập</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="header__notification__popup--when-logged-in">
-              <h4 className="header__notification__popup--when-logged-in__heading">
-                Thông báo mới nhận
-              </h4>
-              <ul className="header__notification__popup--when-logged-in__list"></ul>
-              <a
-                href="https://shopee.vn/user/notifications/order"
-                className="header__notification__popup--when-logged-in__view-all-btn"
+            {isLoggedIn ? (
+              <div
+                style={{ display: "block" }}
+                className="header__notification__popup--when-logged-in"
               >
-                Xem tất cả
-              </a>
-            </div>
+                <h4 className="header__notification__popup--when-logged-in__heading">
+                  Thông báo mới nhận
+                </h4>
+                <ul className="header__notification__popup--when-logged-in__list">
+                  {popupWhenLoggedInListInfo &&
+                    updateDOMPopupWhenLoggedInListPart(
+                      popupWhenLoggedInListInfo
+                    )}
+                </ul>
+                <a
+                  href="https://shopee.vn/user/notifications/order"
+                  className="header__notification__popup--when-logged-in__view-all-btn"
+                >
+                  Xem tất cả
+                </a>
+              </div>
+            ) : (
+              <div
+                style={{ display: "block" }}
+                className="header__notification__popup--when-not-login"
+              >
+                <div className="header__notification__popup--when-not-login__main">
+                  <img
+                    src="/assests/img/header/header__notification/popup-when-not-login__img.png"
+                    className="header__notification__popup--when-not-login__main__img"
+                  />
+                  <span className="header__notification__popup--when-not-login__main__text">
+                    Đăng nhập để xem Thông Báo
+                  </span>
+                </div>
+                <div className="header__notification__popup--when-not-login__buttons">
+                  <Link
+                    to="/register"
+                    className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__register-btn"
+                  >
+                    <span>Đăng Ký</span>
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="header__notification__popup--when-not-login__btn header__notification__popup--when-not-login__login-btn"
+                  >
+                    <span>Đăng Nhập</span>
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
