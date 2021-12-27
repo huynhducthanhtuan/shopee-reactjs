@@ -1,5 +1,6 @@
+import axios from "axios";
+import { API1_URL, API2_URL, API3_URL } from "../apis";
 import { useState, useEffect, createContext } from "react";
-import { fetchData } from "../apis";
 
 // Context
 const DataSourceContext = createContext();
@@ -9,12 +10,25 @@ function DataSourceContextProvider({ children }) {
   const [dataSource, setDataSource] = useState();
 
   // Fetch data
-  useEffect(async () => {
-    // fetching...
-    const data = await fetchData();
+  useEffect(() => {
+    async function fetchData() {
+      const { data: data1 } = await axios.get(API1_URL);
+      const { data: data2 } = await axios.get(API2_URL);
+      const { data: data3 } = await axios.get(API3_URL);
 
-    // setState to pass data source to Consumers (child components)
-    setDataSource(data);
+      // Format data
+      const wantedData1 = [...data1, ...data2, ...data3];
+      const wantedData2 = {
+        ...wantedData1[0],
+        ...wantedData1[1],
+        ...wantedData1[2],
+      };
+
+      // setState to pass dataSource to Consumers
+      setDataSource(wantedData2);
+    }
+
+    fetchData();
   }, []);
 
   return (

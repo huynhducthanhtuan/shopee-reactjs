@@ -1,5 +1,4 @@
 import "./Modal.css";
-// import { body, modal, app } from "../../constants";
 import { useState, useRef, useContext } from "react";
 import { ModalStatusContext } from "../../contexts";
 

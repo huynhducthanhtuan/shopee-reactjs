@@ -1,6 +1,5 @@
 import "./GiftBanner.css";
-// import { body, modal } from "../../constants";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { ModalStatusContext } from "../../contexts";
 
 function GiftBanner() {

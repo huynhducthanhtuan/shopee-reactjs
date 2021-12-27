@@ -15,10 +15,11 @@ function Home() {
   };
   //#endregion
 
-  // Handle side effects
+  //#region Handle side effects
   useEffect(() => {
     updateWebsiteTitle();
   }, []);
+  //#endregion
 
   return (
     <>
