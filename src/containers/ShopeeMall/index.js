@@ -1,5 +1,6 @@
 import "./ShopeeMall.css";
-import { useContext } from "react";
+import $ from "jquery";
+import { useEffect, useContext } from "react";
 import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
 
 function ShopeeMall() {
@@ -10,6 +11,9 @@ function ShopeeMall() {
     : null;
   const productListInfo = dataSourceContext
     ? dataSourceContext.shopeeMallMainProductListInfo
+    : null;
+  const mainMotionLinkInfo = dataSourceContext
+    ? dataSourceContext.shopeeMallMainMotionLinkInfo
     : null;
   //#endregion
 
@@ -65,6 +69,15 @@ function ShopeeMall() {
       </li>
     ));
   };
+  const updateDOMMainMotionPart = (datas) => {
+    return datas.map((data) => (
+      <div key={data.id}>
+        <a href={data.href} className="shopee-mall__main__motion__link">
+          <img src={data.image} className="shopee-mall__main__motion__img" />
+        </a>
+      </div>
+    ));
+  };
   //#endregion
 
   return (
@@ -97,17 +110,18 @@ function ShopeeMall() {
             </a>
           </div>
           <div className="shopee-mall__main">
-            <div className="shopee-mall__main__motion">
+            <div className="shopee-mall__main__motion one-time">
               <a
                 href="https://shopee.vn/m/uu-dai-provence"
                 className="shopee-mall__main__motion__link"
               >
                 <img
                   src="/assests/img/container/shopee-mall/motion-part/1.png"
-                  alt=""
                   className="shopee-mall__main__motion__img"
                 />
               </a>
+              {/* {mainMotionLinkInfo &&
+                updateDOMMainMotionPart(mainMotionLinkInfo)} */}
               <div className="shopee-mall__main__motion__queue">
                 <div className="shopee-mall__main__motion__queue-item shopee-mall__main__motion__queue-item--current"></div>
                 <div className="shopee-mall__main__motion__queue-item"></div>
