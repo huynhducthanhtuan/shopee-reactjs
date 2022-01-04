@@ -2,9 +2,9 @@
 
 ### Refactoring project Shopee
 
-### From HTML, CSS, JS (https://github.com/huynhdthanhtuan/shopee)
+#### From HTML, CSS, JS (https://github.com/huynhdthanhtuan/shopee)
 
-### To ReactJS (https://github.com/huynhdthanhtuan/shopee-reactjs)
+#### To ReactJS (https://github.com/huynhdthanhtuan/shopee-reactjs)
 
 ### Reference website: https://shopee.vn/
 
