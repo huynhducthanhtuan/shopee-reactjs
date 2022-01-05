@@ -1,5 +1,6 @@
 import "./HeaderSearchPart.css";
-import { useRef, useContext } from "react";
+import { headerSearchHistoryListInfoApi } from "../../../apis";
+import { useRef, useContext, useEffect } from "react";
 import {
   DataSourceContext,
   DataSourceContextConsumer,
@@ -12,14 +13,14 @@ function HeaderSearchPart() {
   const frameBtnRef = useRef();
   //#endregion
 
-  //#region Get data from Context
+  //#region Get data from Context & API
   const dataSourceContext = useContext(DataSourceContext);
-  const historyListInfo = dataSourceContext
-    ? dataSourceContext.headerSearchHistoryListInfo
-    : null;
   const historyKeywordsListInfo = dataSourceContext
     ? dataSourceContext.headerSearchHistoryKeywordsListInfo
     : null;
+  const historyListInfo = (async () => {
+    return await headerSearchHistoryListInfoApi.get();
+  })();
   //#endregion
 
   //#region Function handlers
@@ -52,13 +53,16 @@ function HeaderSearchPart() {
             />
           </a>
         </li>
-        {datas.map((data, index) => (
-          <li key={index} className="header__search-history-item">
-            <a href={data.href} className="header__search-history-item__link">
-              {data.innerHTML}
-            </a>
-          </li>
-        ))}
+        {datas
+          .slice(0)
+          .reverse()
+          .map((data, index) => (
+            <li key={index} className="header__search-history-item">
+              <a href={data.href} className="header__search-history-item__link">
+                {data.innerHTML}
+              </a>
+            </li>
+          ))}
       </>
     );
   };
@@ -70,11 +74,18 @@ function HeaderSearchPart() {
       historyRef.current.style.display = "none";
     }, 200);
   };
-  const handleClickFrameBtn = () => {
+  const handleClickFrameBtn = async (e) => {
+    e.preventDefault();
+
     if (frameInputRef.current.value !== "") {
       var innerHTML = frameInputRef.current.value;
       var href = `https://shopee.vn/search?keyword=${innerHTML}`;
-      frameBtnRef.current.href = href;
+
+      // [POST]
+      const postData = { href, innerHTML };
+      headerSearchHistoryListInfoApi.post(postData);
+
+      // frameBtnRef.current.href = href;
     }
   };
   const handleClickLogo = (e) => {
@@ -82,6 +93,14 @@ function HeaderSearchPart() {
     window.scrollTo(0, 0);
   };
   //#endregion
+
+  // useEffect(() => {
+  //   historyListInfo = headerSearchHistoryListInfoApi
+  //     ? headerSearchHistoryListInfoApi.get()
+  //     : null;
+
+  //   console.log(historyListInfo);
+  // }, []);
 
   return (
     <DataSourceContextConsumer>
@@ -112,7 +131,7 @@ function HeaderSearchPart() {
               />
               <a
                 ref={frameBtnRef}
-                onClick={handleClickFrameBtn}
+                onClick={(e) => handleClickFrameBtn(e)}
                 className="header__search-frame__btn"
                 href="https://shopee.vn/m/khung-gio-san-sale"
               >
