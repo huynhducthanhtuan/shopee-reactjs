@@ -22,7 +22,7 @@ function RegisterPage() {
     <div id="register-page">
       <HeaderPart />
       {!showConfirmationPart ? (
-        <ContentPart setShowConfirmationPart />
+        <ContentPart setShowConfirmationPart={setShowConfirmationPart} />
       ) : (
         <ConfirmationPart />
       )}

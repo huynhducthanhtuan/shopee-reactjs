@@ -721,7 +721,7 @@ function unsetRegisterPageConfirmationStepLineActive(nthChild) {
 }
 //#endregion
 
-//#region --OK--getAndUpdateConfirmationCodes
+//#region getAndUpdateConfirmationCodes
 (function getAndUpdateConfirmationCodes() {
   fetch("db.json")
     .then((response) => response.json())
@@ -803,22 +803,6 @@ registerPageContentFormInput.addEventListener("keydown", (e) => {
   }, 0);
 });
 
-registerPageContentFormNextBtn.addEventListener("mouseover", (e) => {
-  if (e.target.style.cursor == "pointer") {
-    e.target.style.opacity = "0.92";
-  } else {
-    e.preventDefault();
-  }
-});
-
-registerPageContentFormNextBtn.addEventListener("mouseleave", (e) => {
-  if (e.target.style.cursor == "pointer") {
-    e.target.style.opacity = "1";
-  } else {
-    e.preventDefault();
-  }
-});
-
 registerPageContentFormNextBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -888,7 +872,23 @@ registerPageContentFormNextBtn.addEventListener("mousedown", (e) => {
   }
 });
 
-// Related actions
+registerPageContentFormNextBtn.addEventListener("mouseover", (e) => {
+  if (e.target.style.cursor == "pointer") {
+    e.target.style.opacity = "0.92";
+  } else {
+    e.preventDefault();
+  }
+});
+
+registerPageContentFormNextBtn.addEventListener("mouseleave", (e) => {
+  if (e.target.style.cursor == "pointer") {
+    e.target.style.opacity = "1";
+  } else {
+    e.preventDefault();
+  }
+});
+
+//#region Not related
 registerPageContentFormAskForLoginBtn.addEventListener("click", (e) => {
   e.preventDefault();
   setTimeout(() => {
@@ -902,26 +902,7 @@ registerPageContentFormAskForLoginBtn.addEventListener("click", (e) => {
     window.scrollTo(0, 0);
   }, 200);
 });
-
-registerPageConfirmationFirstFormContentHelpResendBtn.addEventListener(
-  "click",
-  (e) => {
-    e.preventDefault();
-    registerPageConfirmationFirstFormContentInput.value = "";
-
-    // random confirmation code
-    setTimeout(() => {
-      currentConfirmationCode =
-        confirmationCodes[Math.floor(Math.random() * confirmationCodes.length)];
-      alert(`Mã xác nhận của bạn là "${currentConfirmationCode}"`);
-    }, 1000);
-
-    // set auto focus for this input
-    setTimeout(() => {
-      registerPageConfirmationFirstFormContentInput.focus();
-    }, 500);
-  }
-);
+//#endregion
 //#endregion
 
 //#endregion
@@ -1002,6 +983,26 @@ registerPageConfirmationFirstFormContentConfirmBtn.addEventListener(
     } else {
       e.preventDefault();
     }
+  }
+);
+
+registerPageConfirmationFirstFormContentHelpResendBtn.addEventListener(
+  "click",
+  (e) => {
+    e.preventDefault();
+    registerPageConfirmationFirstFormContentInput.value = "";
+
+    // random confirmation code
+    setTimeout(() => {
+      currentConfirmationCode =
+        confirmationCodes[Math.floor(Math.random() * confirmationCodes.length)];
+      alert(`Mã xác nhận của bạn là "${currentConfirmationCode}"`);
+    }, 1000);
+
+    // set auto focus for this input
+    setTimeout(() => {
+      registerPageConfirmationFirstFormContentInput.focus();
+    }, 500);
   }
 );
 //#endregion

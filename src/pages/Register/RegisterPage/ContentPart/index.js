@@ -1,10 +1,99 @@
 import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
 
-function ContentPart() {
+function ContentPart({ setShowConfirmationPart }) {
   //#region Hooks
+  const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
+  const inputRef = useRef();
+  const nextBtnRef = useRef();
   //#endregion
 
   //#region Function handlers
+  const handlePreventDefault = (e) => {
+    e.preventDefault();
+  };
+  const checkPhoneNumber = (phoneNumber) => {
+    if (phoneNumber.length == 10) {
+      // 1.check phoneNumber[0] = 0 && phoneNumber[1] != 0 ?
+      const checkFirstTwoLetters =
+        phoneNumber[0].charCodeAt() == 48 &&
+        phoneNumber[1].charCodeAt() >= 49 &&
+        phoneNumber[1].charCodeAt() <= 57;
+
+      // 2.check phoneNumber[2->9] all is a integer character in range 0-9 ?
+      const newPhoneNumber = phoneNumber.slice(2).split("");
+      const checkAllLetters = newPhoneNumber.every(
+        (a) => a.match(/[0-9]/g) && a.match(/[0-9]/g).length == 1
+      );
+
+      // 3.return result
+      const result = checkFirstTwoLetters && checkAllLetters;
+      return result;
+    } else {
+      return false;
+    }
+  };
+  const handleKeyDownInput = (e) => {
+    if (e.code == "Enter") {
+      e.preventDefault();
+    }
+    setTimeout(() => {
+      if (e.code != "Enter") {
+        if (checkPhoneNumber(e.target.value)) {
+          setIsValidPhoneNumber(true);
+          //#region hide error
+          // registerPageContentFormInput.classList.remove(
+          //   "register-page__content-form__input--invalid-phone-number"
+          // );
+          // registerPageContentFormInputTextInvalidPhoneNumber.style.display =
+          //   "none";
+          // registerPageContentFormInputIconValidPhoneNumber.style.display =
+          //   "block";
+
+          // // change opacity of button 'Tiếp theo', cursor: pointer
+          // nextBtnRef.current.style.opacity = "1";
+          // nextBtnRef.current.style.cursor = "pointer";
+          //#endregion
+        } else {
+          setIsValidPhoneNumber(false);
+          //#region show error
+          // registerPageContentFormInput.classList.add(
+          //   "register-page__content-form__input--invalid-phone-number"
+          // );
+          // registerPageContentFormInputTextInvalidPhoneNumber.style.display =
+          //   "block";
+          // registerPageContentFormInputIconValidPhoneNumber.style.display =
+          //   "none";
+
+          // // change opacity of button 'Tiếp theo', cursor: not-allowed
+          // nextBtnRef.current.style.opacity = "0.7";
+          // nextBtnRef.current.style.cursor = "not-allowed";
+          //#endregion
+        }
+      } else {
+        if (checkPhoneNumber(e.target.value)) {
+          nextBtnRef.current.click();
+        } else {
+          //#region show error
+          // registerPageContentFormInput.classList.add(
+          //   "register-page__content-form__input--invalid-phone-number"
+          // );
+          // registerPageContentFormInputTextInvalidPhoneNumber.style.display =
+          //   "block";
+          // registerPageContentFormInputIconValidPhoneNumber.style.display =
+          //   "none";
+          //#endregion
+        }
+      }
+    }, 0);
+  };
+  const handleClickNextBtn = (e) => {
+    e.preventDefault();
+
+    if (isValidPhoneNumber) {
+      setShowConfirmationPart(true);
+    }
+  };
   //#endregion
 
   return (
@@ -21,7 +110,8 @@ function ContentPart() {
           <div className="register-page__content-form__heading">Đăng Ký</div>
           <div className="register-page__content-form__part">
             <input
-              type="text"
+              ref={inputRef}
+              onKeyDown={handleKeyDownInput}
               placeholder="Số điện thoại"
               className="register-page__content-form__input"
               autoFocus
@@ -56,7 +146,11 @@ function ContentPart() {
               ></path>
             </svg>
 
-            <button className="register-page__content-form__next-btn">
+            <button
+              ref={nextBtnRef}
+              onClick={(e) => handleClickNextBtn(e)}
+              className="register-page__content-form__next-btn"
+            >
               TIẾP THEO
             </button>
             <div className="register-page__content-form__separate-part">
@@ -67,13 +161,22 @@ function ContentPart() {
               <div></div>
             </div>
             <div className="register-page__content-form__other-ways">
-              <button className="register-page__content-form__other-ways__facebook">
+              <button
+                onClick={(e) => handlePreventDefault(e)}
+                className="register-page__content-form__other-ways__facebook"
+              >
                 <img src="/assests/img/register-page/facebook.png" />
               </button>
-              <button className="register-page__content-form__other-ways__google">
+              <button
+                onClick={(e) => handlePreventDefault(e)}
+                className="register-page__content-form__other-ways__google"
+              >
                 <img src="/assests/img/register-page/google.png" />
               </button>
-              <button className="register-page__content-form__other-ways__apple">
+              <button
+                onClick={(e) => handlePreventDefault(e)}
+                className="register-page__content-form__other-ways__apple"
+              >
                 <img src="/assests/img/register-page/apple.png" />
               </button>
             </div>
