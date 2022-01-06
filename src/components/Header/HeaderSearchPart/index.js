@@ -53,7 +53,7 @@ function HeaderSearchPart() {
             />
           </a>
         </li>
-        {/* Nếu mảng dữ liệu có hơn 10 phần tử thì sẽ render 10 phần tử mới nhất được thêm vào */}
+        {/* Nếu mảng dữ liệu có nhiều hơn 10 phần tử thì sẽ render 10 phần tử được thêm vào mới nhất */}
         {datas &&
           datas
             .slice(0)
@@ -80,7 +80,7 @@ function HeaderSearchPart() {
       historyRef.current.style.display = "none";
     }, 200);
   };
-  const handleClickFrameBtn = (e) => {
+  const handleClickFrameBtn = () => {
     if (frameInputRef.current.value !== "") {
       var innerHTML = frameInputRef.current.value;
       var href = `https://shopee.vn/search?keyword=${innerHTML}`;
@@ -127,7 +127,7 @@ function HeaderSearchPart() {
               />
               <a
                 ref={frameBtnRef}
-                onClick={(e) => handleClickFrameBtn(e)}
+                onClick={handleClickFrameBtn}
                 className="header__search-frame__btn"
                 href="https://shopee.vn/m/khung-gio-san-sale"
               >
