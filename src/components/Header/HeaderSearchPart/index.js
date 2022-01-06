@@ -72,13 +72,9 @@ function HeaderSearchPart() {
       </>
     );
   };
-  const handleClickFrameInput = () => {
-    historyRef.current.style.display = "block";
-  };
-  const handleBlurFrameInput = () => {
-    setTimeout(() => {
-      historyRef.current.style.display = "none";
-    }, 200);
+  const handleClickLogo = (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
   };
   const handleClickFrameBtn = () => {
     if (frameInputRef.current.value !== "") {
@@ -89,12 +85,27 @@ function HeaderSearchPart() {
       const postData = { href, innerHTML };
       historyListInfoApi.post(postData);
 
-      frameBtnRef.current.href = href;
+      // Navigate to search page
+      window.location.href = href;
     }
   };
-  const handleClickLogo = (e) => {
-    e.preventDefault();
-    window.scrollTo(0, 0);
+  const handleClickFrameInput = () => {
+    historyRef.current.style.display = "block";
+  };
+  const handleBlurFrameInput = () => {
+    setTimeout(() => {
+      historyRef.current.style.display = "none";
+    }, 200);
+  };
+  const handleKeyDownFrameInput = (e) => {
+    switch (e.code) {
+      case "Enter": {
+        handleClickFrameBtn();
+        break;
+      }
+      default: {
+      }
+    }
   };
   //#endregion
 
@@ -122,6 +133,7 @@ function HeaderSearchPart() {
                 ref={frameInputRef}
                 onClick={handleClickFrameInput}
                 onBlur={handleBlurFrameInput}
+                onKeyDown={handleKeyDownFrameInput}
                 className="header__search-frame__input"
                 placeholder="VOUCHER HOÀN 999K XU - SĂN NGAY"
               />
