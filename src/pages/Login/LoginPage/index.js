@@ -2,14 +2,15 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function LoginPage() {
-  const updateWebsiteTitle = () => {
-    document.title = "Đăng nhập tài khoản - Mua sắm Online | Shopee Việt Nam";
-  };
-
-  // Handle side effects
+  //#region Handle side effects
   useEffect(() => {
+    const updateWebsiteTitle = () => {
+      document.title = "Đăng nhập tài khoản - Mua sắm Online | Shopee Việt Nam";
+    };
+
     updateWebsiteTitle();
   }, []);
+  //#endregion
 
   return (
     <div id="login-page">

@@ -14,13 +14,4 @@ function ModalStatusContextProvider({ children }) {
   );
 }
 
-// Consumer
-function ModalStatusContextConsumer({ children }) {
-  return <ModalStatusContext.Consumer>{children}</ModalStatusContext.Consumer>;
-}
-
-export {
-  ModalStatusContext,
-  ModalStatusContextProvider,
-  ModalStatusContextConsumer,
-};
+export { ModalStatusContext, ModalStatusContextProvider };

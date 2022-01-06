@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
 
-function HeaderPart() {
+function HeaderPart({ setHeaderPartRef }) {
+  const headerPartRef = useRef();
+
+  useEffect(() => {
+    setHeaderPartRef(headerPartRef);
+  }, []);
+
   return (
-    <div className="register-page__header">
+    <div ref={headerPartRef} className="register-page__header">
       <div className="register-page__header-shopee">
         <Link to="/" className="register-page__header-shopee__link">
           <svg viewBox="0 0 192 65">

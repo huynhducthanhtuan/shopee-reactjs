@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { ModalStatusContext, ModalStatusContextConsumer } from "../../contexts";
+import { ModalStatusContext } from "../../contexts";
 import { Header, Container, Footer, MotionPart, Modal } from "../../components";
 
 function Home() {
@@ -8,15 +8,13 @@ function Home() {
   const { showModal, setShowModal } = modalStatusContext;
   //#endregion
 
-  //#region Function handlers
-  const updateWebsiteTitle = () => {
-    document.title =
-      "Shopee Việt Nam | Mua và Bán Trên Ứng Dụng Di Động Hoặc Website";
-  };
-  //#endregion
-
   //#region Handle side effects
   useEffect(() => {
+    const updateWebsiteTitle = () => {
+      document.title =
+        "Shopee Việt Nam | Mua và Bán Trên Ứng Dụng Di Động Hoặc Website";
+    };
+
     updateWebsiteTitle();
   }, []);
   //#endregion
@@ -27,11 +25,7 @@ function Home() {
       <Container />
       <Footer />
       <MotionPart />
-      {showModal && (
-        <ModalStatusContextConsumer>
-          {() => <Modal />}
-        </ModalStatusContextConsumer>
-      )}
+      {showModal && <Modal />}
     </>
   );
 }

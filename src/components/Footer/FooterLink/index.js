@@ -1,9 +1,6 @@
 import "./FooterLink.css";
 import { useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../contexts";
+import { DataSourceContext } from "../../../contexts";
 
 function FooterLink() {
   //#region Get data from Context
@@ -84,108 +81,104 @@ function FooterLink() {
   //#endregion
 
   return (
-    <DataSourceContextConsumer>
-      {() => (
-        <div className="footer__link">
-          <div className="footer__link__about">
-            <div className="footer__link__about__part">
-              <div className="footer__link__about__item">
-                <span className="footer__link__about__heading">
-                  Chăm sóc khách hàng
-                </span>
-                <div className="footer__link__about-text-CSKH">
-                  {aboutTextCSKHInfo &&
-                    updateDOMAboutTextCSKHPart(aboutTextCSKHInfo)}
-                </div>
-              </div>
-            </div>
-            <div className="footer__link__about__part">
-              <div className="footer__link__about__item">
-                <span className="footer__link__about__heading">Về Shopee</span>
-                <div className="footer__link__about-text-VeShopee">
-                  {aboutTextVeShopeeInfo &&
-                    updateDOMAboutTextVeShopeePart(aboutTextVeShopeeInfo)}
-                </div>
-              </div>
-            </div>
-            <div className="footer__link__about__part">
-              <div className="footer__link__about__item">
-                <span className="footer__link__about__heading">Thanh toán</span>
-                <div className="footer__link__about-payment">
-                  <img
-                    src="/assests/img/footer/link/payment.png"
-                    className="footer__link__about-payment__img"
-                  />
-                </div>
-              </div>
-              <div className="footer__link__about__item">
-                <span className="footer__link__about__heading">
-                  Đơn vị vận chuyển
-                </span>
-                <div className="footer__link__about-transport">
-                  <img
-                    src="/assests/img/footer/link/transport.png"
-                    className="footer__link__about-transport__img"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="footer__link__about__part">
-              <div className="footer__link__about__item">
-                <span className="footer__link__about__heading">
-                  Theo dõi chúng tôi trên
-                </span>
-                <div className="footer__link__about-social">
-                  {aboutSocialInfo && updateDOMAboutSocialPart(aboutSocialInfo)}
-                </div>
-              </div>
-            </div>
-            <div className="footer__link__about__part">
-              <div className="footer__link__about__item">
-                <span className="footer__link__about__heading">
-                  Tải ứng dụng Shopee ngay thôi
-                </span>
-                <div className="footer__link__about-download">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://shopee.vn/web"
-                    className="footer__link__about-download__link"
-                  >
-                    <img
-                      src="/assests/img/header/header__links-app-download/qr.png"
-                      className="footer__link__about-download__qr"
-                    />
-                    <div className="footer__link__about-download__another-apps">
-                      <img src="/assests/img/header/header__links-app-download/app_store.png" />
-                      <img src="/assests/img/header/header__links-app-download/google_play.png" />
-                      <img src="/assests/img/header/header__links-app-download/app_gallery.png" />
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="footer__link__copyright">
-            <div className="footer__link__copyright__text">
-              <i className="far fa-copyright"></i>
-              2021 Shopee. Tất cả các quyền được bảo lưu.
-            </div>
-            <div className="footer__link__copyright__country-and-area">
-              <span className="footer__link__copyright__country-and-area__text">
-                Quốc gia & Khu vực:
-              </span>
-              <div className="footer__link__copyright__country-and-area__list">
-                {copyrightCountryAndAreaListInfo &&
-                  updateDOMCopyrightCountryAndAreaListPart(
-                    copyrightCountryAndAreaListInfo
-                  )}
-              </div>
+    <div className="footer__link">
+      <div className="footer__link__about">
+        <div className="footer__link__about__part">
+          <div className="footer__link__about__item">
+            <span className="footer__link__about__heading">
+              Chăm sóc khách hàng
+            </span>
+            <div className="footer__link__about-text-CSKH">
+              {aboutTextCSKHInfo &&
+                updateDOMAboutTextCSKHPart(aboutTextCSKHInfo)}
             </div>
           </div>
         </div>
-      )}
-    </DataSourceContextConsumer>
+        <div className="footer__link__about__part">
+          <div className="footer__link__about__item">
+            <span className="footer__link__about__heading">Về Shopee</span>
+            <div className="footer__link__about-text-VeShopee">
+              {aboutTextVeShopeeInfo &&
+                updateDOMAboutTextVeShopeePart(aboutTextVeShopeeInfo)}
+            </div>
+          </div>
+        </div>
+        <div className="footer__link__about__part">
+          <div className="footer__link__about__item">
+            <span className="footer__link__about__heading">Thanh toán</span>
+            <div className="footer__link__about-payment">
+              <img
+                src="/assests/img/footer/link/payment.png"
+                className="footer__link__about-payment__img"
+              />
+            </div>
+          </div>
+          <div className="footer__link__about__item">
+            <span className="footer__link__about__heading">
+              Đơn vị vận chuyển
+            </span>
+            <div className="footer__link__about-transport">
+              <img
+                src="/assests/img/footer/link/transport.png"
+                className="footer__link__about-transport__img"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="footer__link__about__part">
+          <div className="footer__link__about__item">
+            <span className="footer__link__about__heading">
+              Theo dõi chúng tôi trên
+            </span>
+            <div className="footer__link__about-social">
+              {aboutSocialInfo && updateDOMAboutSocialPart(aboutSocialInfo)}
+            </div>
+          </div>
+        </div>
+        <div className="footer__link__about__part">
+          <div className="footer__link__about__item">
+            <span className="footer__link__about__heading">
+              Tải ứng dụng Shopee ngay thôi
+            </span>
+            <div className="footer__link__about-download">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://shopee.vn/web"
+                className="footer__link__about-download__link"
+              >
+                <img
+                  src="/assests/img/header/header__links-app-download/qr.png"
+                  className="footer__link__about-download__qr"
+                />
+                <div className="footer__link__about-download__another-apps">
+                  <img src="/assests/img/header/header__links-app-download/app_store.png" />
+                  <img src="/assests/img/header/header__links-app-download/google_play.png" />
+                  <img src="/assests/img/header/header__links-app-download/app_gallery.png" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="footer__link__copyright">
+        <div className="footer__link__copyright__text">
+          <i className="far fa-copyright"></i>
+          2021 Shopee. Tất cả các quyền được bảo lưu.
+        </div>
+        <div className="footer__link__copyright__country-and-area">
+          <span className="footer__link__copyright__country-and-area__text">
+            Quốc gia & Khu vực:
+          </span>
+          <div className="footer__link__copyright__country-and-area__list">
+            {copyrightCountryAndAreaListInfo &&
+              updateDOMCopyrightCountryAndAreaListPart(
+                copyrightCountryAndAreaListInfo
+              )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

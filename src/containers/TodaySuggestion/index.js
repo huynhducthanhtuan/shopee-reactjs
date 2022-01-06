@@ -1,6 +1,6 @@
 import "./TodaySuggestion.css";
 import { useRef, useState, useEffect, useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
+import { DataSourceContext } from "../../contexts";
 
 function TodaySuggestion() {
   //#region Hooks
@@ -281,46 +281,42 @@ function TodaySuggestion() {
   //#endregion
 
   return (
-    <DataSourceContextConsumer>
-      {() => (
-        <div ref={todaySuggestionRef} className="today-suggestion">
-          <div className="today-suggestion__heading">
-            <a
-              ref={headingTabMainRef}
-              onClick={handleClickHeadingTabMain}
-              className="today-suggestion__heading-tab-main today-suggestion__heading-tab--active"
-            >
-              <span>GỢI Ý HÔM NAY</span>
-            </a>
-            <a
-              ref={headingTabSuperSaleRef}
-              onClick={handleClickHeadingTabSuperSale}
-              className="today-suggestion__heading-tab-super-sale"
-            >
-              <img src="/assests/img/container/today-suggestion/heading-label.png" />
-            </a>
-          </div>
-          <div className="today-suggestion__main">
-            <div ref={tabMainRef} className="today-suggestion__main__tab-main">
-              {tabMainInfo && updateDOMTabMainPart(tabMainInfo)}
-            </div>
-            <div
-              ref={tabSuperSaleRef}
-              className="today-suggestion__main__tab-super-sale"
-            >
-              {tabSuperSaleInfo && updateDOMTabSuperSalePart(tabSuperSaleInfo)}
-            </div>
-            <a
-              ref={viewAllBtnRef}
-              href="https://shopee.vn/daily_discover?pageNumber=2"
-              className="today-suggestion__main__view-all-btn"
-            >
-              Xem thêm
-            </a>
-          </div>
+    <div ref={todaySuggestionRef} className="today-suggestion">
+      <div className="today-suggestion__heading">
+        <a
+          ref={headingTabMainRef}
+          onClick={handleClickHeadingTabMain}
+          className="today-suggestion__heading-tab-main today-suggestion__heading-tab--active"
+        >
+          <span>GỢI Ý HÔM NAY</span>
+        </a>
+        <a
+          ref={headingTabSuperSaleRef}
+          onClick={handleClickHeadingTabSuperSale}
+          className="today-suggestion__heading-tab-super-sale"
+        >
+          <img src="/assests/img/container/today-suggestion/heading-label.png" />
+        </a>
+      </div>
+      <div className="today-suggestion__main">
+        <div ref={tabMainRef} className="today-suggestion__main__tab-main">
+          {tabMainInfo && updateDOMTabMainPart(tabMainInfo)}
         </div>
-      )}
-    </DataSourceContextConsumer>
+        <div
+          ref={tabSuperSaleRef}
+          className="today-suggestion__main__tab-super-sale"
+        >
+          {tabSuperSaleInfo && updateDOMTabSuperSalePart(tabSuperSaleInfo)}
+        </div>
+        <a
+          ref={viewAllBtnRef}
+          href="https://shopee.vn/daily_discover?pageNumber=2"
+          className="today-suggestion__main__view-all-btn"
+        >
+          Xem thêm
+        </a>
+      </div>
+    </div>
   );
 }
 

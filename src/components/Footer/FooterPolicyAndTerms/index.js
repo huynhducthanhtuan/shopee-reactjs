@@ -1,9 +1,6 @@
 import "./FooterPolicyAndTerms.css";
 import { useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../contexts";
+import { DataSourceContext } from "../../../contexts";
 
 function FooterPolicyAndTerms() {
   //#region Get data from Context
@@ -67,23 +64,19 @@ function FooterPolicyAndTerms() {
   //#endregion
 
   return (
-    <DataSourceContextConsumer>
-      {() => (
-        <div className="footer__policy-terms">
-          <div className="footer__policy-terms__part">
-            <div className="footer__policy-terms__part__title">
-              {titleInfo && updateInDOMTitlePart(titleInfo)}
-            </div>
-            <div className="footer__policy-terms__part__certificate">
-              {certificateInfo && updateInDOMCertificatePart(certificateInfo)}
-            </div>
-            <div className="footer__policy-terms__part__company-info">
-              {companyInfoInfo && updateInDOMCompanyInfoPart(companyInfoInfo)}
-            </div>
-          </div>
+    <div className="footer__policy-terms">
+      <div className="footer__policy-terms__part">
+        <div className="footer__policy-terms__part__title">
+          {titleInfo && updateInDOMTitlePart(titleInfo)}
         </div>
-      )}
-    </DataSourceContextConsumer>
+        <div className="footer__policy-terms__part__certificate">
+          {certificateInfo && updateInDOMCertificatePart(certificateInfo)}
+        </div>
+        <div className="footer__policy-terms__part__company-info">
+          {companyInfoInfo && updateInDOMCompanyInfoPart(companyInfoInfo)}
+        </div>
+      </div>
+    </div>
   );
 }
 

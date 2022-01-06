@@ -1,6 +1,6 @@
 import "./UnderFlashSale.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
+import { DataSourceContext } from "../../contexts";
 
 function UnderFlashSale() {
   //#region Get data from Context
@@ -21,15 +21,11 @@ function UnderFlashSale() {
   //#endregion
 
   return (
-    <DataSourceContextConsumer>
-      {() => (
-        <div className="under-flash-sale">
-          <div className="under-flash-sale__part">
-            {partInfo && updateDOMPart(partInfo)}
-          </div>
-        </div>
-      )}
-    </DataSourceContextConsumer>
+    <div className="under-flash-sale">
+      <div className="under-flash-sale__part">
+        {partInfo && updateDOMPart(partInfo)}
+      </div>
+    </div>
   );
 }
 

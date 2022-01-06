@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 
-function ContentPart({ setShowConfirmationPart }) {
+function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
   //#region Hooks
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
   const inputRef = useRef();
   const nextBtnRef = useRef();
+  const inputTextInvalidPhoneNumberRef = useRef();
+  const inputIconValidPhoneNumberRef = useRef();
   //#endregion
 
   //#region Function handlers
   const handlePreventDefault = (e) => {
     e.preventDefault();
   };
-  const checkPhoneNumber = (phoneNumber) => {
+  const checkValidPhoneNumber = (phoneNumber) => {
     if (phoneNumber.length == 10) {
       // 1.check phoneNumber[0] = 0 && phoneNumber[1] != 0 ?
       const checkFirstTwoLetters =
@@ -33,56 +35,44 @@ function ContentPart({ setShowConfirmationPart }) {
       return false;
     }
   };
+  const showError = () => {
+    inputRef.current.classList.add(
+      "register-page__content-form__input--invalid-phone-number"
+    );
+    inputTextInvalidPhoneNumberRef.current.style.display = "block";
+    inputIconValidPhoneNumberRef.current.style.display = "none";
+    nextBtnRef.current.style.opacity = "0.7";
+    nextBtnRef.current.style.cursor = "not-allowed";
+  };
+  const hideError = () => {
+    inputRef.current.classList.remove(
+      "register-page__content-form__input--invalid-phone-number"
+    );
+    inputTextInvalidPhoneNumberRef.current.style.display = "none";
+    inputIconValidPhoneNumberRef.current.style.display = "block";
+    nextBtnRef.current.style.opacity = "1";
+    nextBtnRef.current.style.cursor = "pointer";
+  };
   const handleKeyDownInput = (e) => {
     if (e.code == "Enter") {
       e.preventDefault();
     }
     setTimeout(() => {
       if (e.code != "Enter") {
-        if (checkPhoneNumber(e.target.value)) {
+        if (checkValidPhoneNumber(e.target.value)) {
           setIsValidPhoneNumber(true);
-          //#region hide error
-          // registerPageContentFormInput.classList.remove(
-          //   "register-page__content-form__input--invalid-phone-number"
-          // );
-          // registerPageContentFormInputTextInvalidPhoneNumber.style.display =
-          //   "none";
-          // registerPageContentFormInputIconValidPhoneNumber.style.display =
-          //   "block";
-
-          // // change opacity of button 'Tiếp theo', cursor: pointer
-          // nextBtnRef.current.style.opacity = "1";
-          // nextBtnRef.current.style.cursor = "pointer";
-          //#endregion
+          hideError();
         } else {
           setIsValidPhoneNumber(false);
-          //#region show error
-          // registerPageContentFormInput.classList.add(
-          //   "register-page__content-form__input--invalid-phone-number"
-          // );
-          // registerPageContentFormInputTextInvalidPhoneNumber.style.display =
-          //   "block";
-          // registerPageContentFormInputIconValidPhoneNumber.style.display =
-          //   "none";
-
-          // // change opacity of button 'Tiếp theo', cursor: not-allowed
-          // nextBtnRef.current.style.opacity = "0.7";
-          // nextBtnRef.current.style.cursor = "not-allowed";
-          //#endregion
+          showError();
         }
       } else {
-        if (checkPhoneNumber(e.target.value)) {
+        if (checkValidPhoneNumber(e.target.value)) {
+          setIsValidPhoneNumber(true);
           nextBtnRef.current.click();
         } else {
-          //#region show error
-          // registerPageContentFormInput.classList.add(
-          //   "register-page__content-form__input--invalid-phone-number"
-          // );
-          // registerPageContentFormInputTextInvalidPhoneNumber.style.display =
-          //   "block";
-          // registerPageContentFormInputIconValidPhoneNumber.style.display =
-          //   "none";
-          //#endregion
+          setIsValidPhoneNumber(false);
+          showError();
         }
       }
     }, 0);
@@ -91,7 +81,22 @@ function ContentPart({ setShowConfirmationPart }) {
     e.preventDefault();
 
     if (isValidPhoneNumber) {
+      setUserPhoneNumber(inputRef.current.value);
       setShowConfirmationPart(true);
+    }
+  };
+  const handleMouseOverNextBtn = (e) => {
+    if (e.target.style.cursor == "pointer") {
+      e.target.style.opacity = "0.92";
+    } else {
+      e.preventDefault();
+    }
+  };
+  const handleMouseLeaveNextBtn = (e) => {
+    if (e.target.style.cursor == "pointer") {
+      e.target.style.opacity = "1";
+    } else {
+      e.preventDefault();
     }
   };
   //#endregion
@@ -116,12 +121,16 @@ function ContentPart({ setShowConfirmationPart }) {
               className="register-page__content-form__input"
               autoFocus
             />
-            <div className="register-page__content-form__input-text--invalid-phone-number">
+            <div
+              ref={inputTextInvalidPhoneNumberRef}
+              className="register-page__content-form__input-text--invalid-phone-number"
+            >
               Số điện thoại không hợp lệ
             </div>
             <svg
               fill="none"
               viewBox="0 0 16 16"
+              ref={inputIconValidPhoneNumberRef}
               className="register-page__content-form__input-icon--valid-phone-number"
             >
               <path
@@ -149,6 +158,8 @@ function ContentPart({ setShowConfirmationPart }) {
             <button
               ref={nextBtnRef}
               onClick={(e) => handleClickNextBtn(e)}
+              onMouseOver={handleMouseOverNextBtn}
+              onMouseLeave={handleMouseLeaveNextBtn}
               className="register-page__content-form__next-btn"
             >
               TIẾP THEO

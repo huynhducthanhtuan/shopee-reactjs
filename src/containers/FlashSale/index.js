@@ -1,6 +1,6 @@
 import "./FlashSale.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
+import { DataSourceContext } from "../../contexts";
 
 function FlashSale() {
   //#region Get data from Context
@@ -52,39 +52,35 @@ function FlashSale() {
   //#endregion
 
   return (
-    <DataSourceContextConsumer>
-      {() => (
-        <div className="flash-sale">
-          <div className="flash-sale__heading">
-            <img
-              src="/assests/img/container/flash-sale/header-img.png"
-              className="flash-sale__heading__img"
-            />
-            <a
-              href="https://shopee.vn/flash_sale?promotionId=2020501378"
-              className="flash-sale__heading__btn flash-sale__heading__view-all-btn"
-            >
-              Xem tất cả
-              <i className="fas fa-chevron-right"></i>
-            </a>
-          </div>
-          <div className="flash-sale__main">
-            <div className="flash-sale__main__part">
-              <div className="flash-sale__main__list">
-                {listInfo && updateDOMListPart(listInfo)}
-              </div>
-            </div>
-
-            <button className="navigation-btn navigation-btn__previous flash-sale__main__previous-btn">
-              <i className="fas fa-chevron-left navigation-btn__icon"></i>
-            </button>
-            <button className="navigation-btn navigation-btn__next flash-sale__main__next-btn">
-              <i className="fas fa-chevron-right navigation-btn__icon"></i>
-            </button>
+    <div className="flash-sale">
+      <div className="flash-sale__heading">
+        <img
+          src="/assests/img/container/flash-sale/header-img.png"
+          className="flash-sale__heading__img"
+        />
+        <a
+          href="https://shopee.vn/flash_sale?promotionId=2020501378"
+          className="flash-sale__heading__btn flash-sale__heading__view-all-btn"
+        >
+          Xem tất cả
+          <i className="fas fa-chevron-right"></i>
+        </a>
+      </div>
+      <div className="flash-sale__main">
+        <div className="flash-sale__main__part">
+          <div className="flash-sale__main__list">
+            {listInfo && updateDOMListPart(listInfo)}
           </div>
         </div>
-      )}
-    </DataSourceContextConsumer>
+
+        <button className="navigation-btn navigation-btn__previous flash-sale__main__previous-btn">
+          <i className="fas fa-chevron-left navigation-btn__icon"></i>
+        </button>
+        <button className="navigation-btn navigation-btn__next flash-sale__main__next-btn">
+          <i className="fas fa-chevron-right navigation-btn__icon"></i>
+        </button>
+      </div>
+    </div>
   );
 }
 

@@ -1,9 +1,6 @@
 import "./FooterDirectory.css";
 import { useContext } from "react";
-import {
-  DataSourceContext,
-  DataSourceContextConsumer,
-} from "../../../contexts";
+import { DataSourceContext } from "../../../contexts";
 
 function FooterDirectory() {
   //#region Get data from Context
@@ -47,16 +44,12 @@ function FooterDirectory() {
   //#endregion
 
   return (
-    <DataSourceContextConsumer>
-      {() => (
-        <div className="footer__directory">
-          <span className="footer__directory__heading">Danh Mục</span>
-          <ul className="footer__directory__list">
-            {listInfo && updateDOMListPart(listInfo)}
-          </ul>
-        </div>
-      )}
-    </DataSourceContextConsumer>
+    <div className="footer__directory">
+      <span className="footer__directory__heading">Danh Mục</span>
+      <ul className="footer__directory__list">
+        {listInfo && updateDOMListPart(listInfo)}
+      </ul>
+    </div>
   );
 }
 

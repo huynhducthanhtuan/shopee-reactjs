@@ -3,14 +3,15 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function NotFound() {
-  const updateWebsiteTitle = () => {
-    document.title = "Shopee";
-  };
-
-  // Handle side effects
+  //#region Handle side effects
   useEffect(() => {
+    const updateWebsiteTitle = () => {
+      document.title = "Shopee";
+    };
+
     updateWebsiteTitle();
   }, []);
+  //#endregion
 
   return (
     <div id="not-found-page">

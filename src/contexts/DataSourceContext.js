@@ -40,13 +40,4 @@ function DataSourceContextProvider({ children }) {
   );
 }
 
-// Consumer
-function DataSourceContextConsumer({ children }) {
-  return <DataSourceContext.Consumer>{children}</DataSourceContext.Consumer>;
-}
-
-export {
-  DataSourceContext,
-  DataSourceContextProvider,
-  DataSourceContextConsumer,
-};
+export { DataSourceContext, DataSourceContextProvider };

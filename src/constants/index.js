@@ -1,4 +1,5 @@
 const $ = document.querySelector.bind(document);
+export const COUNT_DOWN_SECONDS = 7;
 
 // export const html = $("html");
 // export const body = $("body");

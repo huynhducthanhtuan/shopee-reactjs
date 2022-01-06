@@ -1,6 +1,6 @@
 import "./Outstanding.css";
 import { useContext } from "react";
-import { DataSourceContext, DataSourceContextConsumer } from "../../contexts";
+import { DataSourceContext } from "../../contexts";
 
 function Outstanding() {
   //#region Get data from Context
@@ -103,49 +103,42 @@ function Outstanding() {
   //#endregion
 
   return (
-    <DataSourceContextConsumer>
-      {() => (
-        <div className="outstanding">
-          <div className="outstanding__header">
-            <img
-              src="/assests/img/container/outstanding/picture_header.png"
-              className="outstanding__picture-header"
-            />
-          </div>
-          <div
-            className="outstanding__body"
-            style={{
-              background: `url(
+    <div className="outstanding">
+      <div className="outstanding__header">
+        <img
+          src="/assests/img/container/outstanding/picture_header.png"
+          className="outstanding__picture-header"
+        />
+      </div>
+      <div
+        className="outstanding__body"
+        style={{
+          background: `url(
                 "/assests/img/container/outstanding/picture_body.png"
               ) no-repeat center/ cover`,
-            }}
-          >
-            <div>
-              <div className="outstanding__hot-selling-products">
-                {hotSellingProductsInfo &&
-                  updateDOMHotSellingProductsPart([
-                    hotSellingProductsInfo.info,
-                    hotSellingProductsInfo.list,
-                  ])}
-              </div>
-              <div className="outstanding__hot-brands">
-                {hotBrandsInfo &&
-                  updateDOMHotBrandsPart([
-                    hotBrandsInfo.info,
-                    hotBrandsInfo.list,
-                  ])}
-              </div>
-            </div>
+        }}
+      >
+        <div>
+          <div className="outstanding__hot-selling-products">
+            {hotSellingProductsInfo &&
+              updateDOMHotSellingProductsPart([
+                hotSellingProductsInfo.info,
+                hotSellingProductsInfo.list,
+              ])}
           </div>
-          <div className="outstanding__footer">
-            <img
-              src="/assests/img/container/outstanding/picture_footer.png"
-              className="outstanding__picture-footer"
-            />
+          <div className="outstanding__hot-brands">
+            {hotBrandsInfo &&
+              updateDOMHotBrandsPart([hotBrandsInfo.info, hotBrandsInfo.list])}
           </div>
         </div>
-      )}
-    </DataSourceContextConsumer>
+      </div>
+      <div className="outstanding__footer">
+        <img
+          src="/assests/img/container/outstanding/picture_footer.png"
+          className="outstanding__picture-footer"
+        />
+      </div>
+    </div>
   );
 }
 
