@@ -1,13 +1,14 @@
 import axios from "axios";
+import { API4_URL } from "./api";
 
 const apiClient = axios.create({
-  baseURL: "https://61bc99f0d8542f001782486b.mockapi.io/api/4",
+  baseURL: API4_URL,
   headers: {
     "Content-type": "application/json",
   },
 });
 
-export const headerSearchHistoryListInfoApi = {
+export const historyListInfoApi = {
   // [GET]
   get: async () => {
     const result = await apiClient.get("/");

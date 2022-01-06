@@ -1,6 +1,6 @@
 import "./HeaderSearchPart.css";
-import { headerSearchHistoryListInfoApi } from "../../../apis";
-import { useRef, useContext, useEffect } from "react";
+import { historyListInfoApi } from "../../../apis";
+import { useRef, useContext } from "react";
 import {
   DataSourceContext,
   DataSourceContextConsumer,
@@ -13,14 +13,14 @@ function HeaderSearchPart() {
   const frameBtnRef = useRef();
   //#endregion
 
-  //#region Get data from Context & API
+  //#region Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const historyKeywordsListInfo = dataSourceContext
     ? dataSourceContext.headerSearchHistoryKeywordsListInfo
     : null;
-  const historyListInfo = (async () => {
-    return await headerSearchHistoryListInfoApi.get();
-  })();
+  const historyListInfo = dataSourceContext
+    ? dataSourceContext.headerSearchHistoryListInfo
+    : null;
   //#endregion
 
   //#region Function handlers
@@ -53,16 +53,22 @@ function HeaderSearchPart() {
             />
           </a>
         </li>
-        {datas
-          .slice(0)
-          .reverse()
-          .map((data, index) => (
-            <li key={index} className="header__search-history-item">
-              <a href={data.href} className="header__search-history-item__link">
-                {data.innerHTML}
-              </a>
-            </li>
-          ))}
+        {/* Nếu mảng dữ liệu có hơn 10 phần tử thì sẽ render 10 phần tử mới nhất được thêm vào */}
+        {datas &&
+          datas
+            .slice(0)
+            .reverse()
+            .slice(0, 10)
+            .map((data, index) => (
+              <li key={index} className="header__search-history-item">
+                <a
+                  href={data.href}
+                  className="header__search-history-item__link"
+                >
+                  {data.innerHTML}
+                </a>
+              </li>
+            ))}
       </>
     );
   };
@@ -74,18 +80,16 @@ function HeaderSearchPart() {
       historyRef.current.style.display = "none";
     }, 200);
   };
-  const handleClickFrameBtn = async (e) => {
-    e.preventDefault();
-
+  const handleClickFrameBtn = (e) => {
     if (frameInputRef.current.value !== "") {
       var innerHTML = frameInputRef.current.value;
       var href = `https://shopee.vn/search?keyword=${innerHTML}`;
 
       // [POST]
       const postData = { href, innerHTML };
-      headerSearchHistoryListInfoApi.post(postData);
+      historyListInfoApi.post(postData);
 
-      // frameBtnRef.current.href = href;
+      frameBtnRef.current.href = href;
     }
   };
   const handleClickLogo = (e) => {
@@ -93,14 +97,6 @@ function HeaderSearchPart() {
     window.scrollTo(0, 0);
   };
   //#endregion
-
-  // useEffect(() => {
-  //   historyListInfo = headerSearchHistoryListInfoApi
-  //     ? headerSearchHistoryListInfoApi.get()
-  //     : null;
-
-  //   console.log(historyListInfo);
-  // }, []);
 
   return (
     <DataSourceContextConsumer>
