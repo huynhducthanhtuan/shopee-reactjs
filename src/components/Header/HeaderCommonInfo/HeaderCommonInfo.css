@@ -317,6 +317,7 @@
 }
 
 .header__user-account {
+  display: none;
   position: relative;
   margin-right: -8px;
 }

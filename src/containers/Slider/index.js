@@ -42,7 +42,7 @@ function Slider() {
               className="slider__main__motion-part__link"
             >
               <img
-                src="/assests/img/container/slider/slider__main/motion_1.png"
+                src="/assests/img/container/slider/main/motion/1.png"
                 className="slider__main__motion-part__img slider__main__motion-part__curent-img"
               />
             </a>
@@ -76,7 +76,7 @@ function Slider() {
                 className="slider__main__no-motion-part__link"
               >
                 <img
-                  src="/assests/img/container/slider/slider__main/no-motion_1.png"
+                  src="/assests/img/container/slider/main/no-motion/1.png"
                   className="slider__main__no-motion-part__img"
                 />
               </a>
@@ -87,7 +87,7 @@ function Slider() {
                 className="slider__main__no-motion-part__link"
               >
                 <img
-                  src="/assests/img/container/slider/slider__main/no-motion_2.png"
+                  src="/assests/img/container/slider/main/no-motion/2.png"
                   className="slider__main__no-motion-part__img"
                 />
               </a>

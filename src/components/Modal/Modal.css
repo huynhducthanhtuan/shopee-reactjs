@@ -20,26 +20,7 @@
   transform: translate(-50%, -50%);
 }
 
-/* 1.PAGE-LOAD-BANNER */
-.page-load-banner {
-  display: none;
-}
-.page-load-banner__close-btn > i {
-  color: #fff;
-  font-size: 1.8rem;
-}
-.page-load-banner__link {
-  display: block;
-  width: 34.8rem;
-  height: 43.2rem;
-}
-.page-load-banner__img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* 2.MODAL__BODY--GIFT-BANNER__POPUP */
+/* MODAL__BODY--GIFT-BANNER__POPUP */
 .gift-banner__popup {
   display: none;
   position: relative;

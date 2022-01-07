@@ -1,5 +1,5 @@
 import "./Modal.css";
-import { useState, useRef, useContext } from "react";
+import { useRef, useContext } from "react";
 import { ModalStatusContext } from "../../contexts";
 
 function Modal() {
@@ -45,7 +45,7 @@ function Modal() {
           className="gift-banner__popup"
         >
           <img
-            src="/assests/img/not-logged-in/gift-banner__popup/label.png"
+            src="/assests/img/gift-banner/label.png"
             className="gift-banner__popup__label"
           />
           <button
@@ -71,7 +71,7 @@ function Modal() {
                   className="gift-banner__popup__main-left-part__link"
                 >
                   <img
-                    src="/assests/img/not-logged-in/gift-banner__popup/app-store-banner.png"
+                    src="/assests/img/gift-banner/app-store-banner.png"
                     className="gift-banner__popup__main-left-part__img"
                   />
                 </a>
@@ -82,7 +82,7 @@ function Modal() {
                   className="gift-banner__popup__main-left-part__link"
                 >
                   <img
-                    src="/assests/img/not-logged-in/gift-banner__popup/google-play-banner.png"
+                    src="/assests/img/gift-banner/google-play-banner.png"
                     className="gift-banner__popup__main-left-part__img"
                   />
                 </a>
@@ -105,21 +105,6 @@ function Modal() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div style={{ display: "none" }} className="page-load-banner">
-          <button className="page-load-banner__close-btn">
-            <i className="fas fa-times"></i>
-          </button>
-          <a
-            href="https://shopee.vn/m/rohto-official"
-            className="page-load-banner__link"
-          >
-            <img
-              src="/assests/img/banner.png"
-              className="page-load-banner__img"
-            />
-          </a>
         </div>
       </div>
     </div>

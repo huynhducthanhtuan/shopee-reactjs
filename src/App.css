@@ -6,7 +6,7 @@
 html {
   height: 100%;
   margin: 0;
-  /* default font-size: 16px -> 1rem = 10px */
+  /* default: 16px => 1rem = 10px */
   font-size: 62.5%;
   line-height: 1.6rem;
   font-family: "Roboto", sans-serif;
@@ -149,10 +149,4 @@ a {
   bottom: 0;
   right: 0.8rem;
   z-index: 20;
-}
-
-/* ------ CONFIG CSS: WEBSITE WHEN NOT LOGIN ------ */
-.header__user-account,
-.chat-part {
-  display: none;
 }
