@@ -1,16 +1,10 @@
-## Shopee
+## Shopee Using ReactJS
 
 #### From HTML, CSS, JS (https://github.com/huynhdthanhtuan/shopee)
+
 #### To ReactJS (https://github.com/huynhdthanhtuan/shopee-reactjs)
+
 #### Version 1.0: 14/12/2021
-
-### Cách clone dự án về máy
-
-#### 1. Trên máy, vào thư mục muốn clone về, mở CMD
-
-#### 2. Gõ lệnh "git init" để khởi tạo git
-
-#### 3. Gõ lệnh "git clone https://github.com/huynhdthanhtuan/shopee-reactjs.git" để tiến hành clone dự án về máy
 
 ### Cách chạy dự án
 
