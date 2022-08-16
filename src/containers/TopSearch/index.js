@@ -3,14 +3,13 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../contexts";
 
 function TopSearch() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const listInfo = dataSourceContext
     ? dataSourceContext.topSearchMainListInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMMainListPart = (datas) => {
     return datas.map((data, index) => (
       <a key={data.id} href={data.href} className="top-search__main__link">
@@ -18,10 +17,12 @@ function TopSearch() {
           <img
             src={data.productImage}
             className="top-search__main__product__img"
+            alt=""
           />
           <img
             src="/assests/img/container/top-search/top-label.png"
             className="top-search__main__product__top-label-img"
+            alt=""
           />
           {index !== 0 && (
             <div className="top-search__main__product__statistic">
@@ -39,7 +40,6 @@ function TopSearch() {
       </a>
     ));
   };
-  //#endregion
 
   return (
     <div className="top-search">

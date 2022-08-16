@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { useRef, useEffect } from "react";
 
 function HeaderPart({ setHeaderPartRef }) {
+  // Hooks
   const headerPartRef = useRef();
 
+  // Handle side effects
   useEffect(() => {
     setHeaderPartRef(headerPartRef);
   }, []);

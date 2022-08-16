@@ -7,22 +7,20 @@ function FirstForm({
   setShowFirstForm,
   setShowSecondForm,
 }) {
-  //#region Hooks
+  // Hooks
   const formRef = useRef();
   const formContentInputRef = useRef();
   const formContentNotifyErrorRef = useRef();
   const formContentConfirmBtnRef = useRef();
   const formContentUserPhoneNumberRef = useRef();
-  //#endregion
 
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const confirmationCodes = dataSourceContext
     ? dataSourceContext.confirmationCodes
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const handleClickHeaderBackBtn = () => {
     setShowConfirmationPart(false);
   };
@@ -30,7 +28,6 @@ function FirstForm({
     setShowFirstForm(false);
     setShowSecondForm(true);
   };
-  //#endregion
 
   return (
     <form ref={formRef} className="register-page__confirmation__first-form">

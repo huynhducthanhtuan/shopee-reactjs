@@ -3,7 +3,7 @@ import { useRef, useState, useEffect, useContext } from "react";
 import { DataSourceContext } from "../../contexts";
 
 function TodaySuggestion() {
-  //#region Hooks
+  // Hooks
   const todaySuggestionRef = useRef();
   const headingTabMainRef = useRef();
   const headingTabSuperSaleRef = useRef();
@@ -11,9 +11,8 @@ function TodaySuggestion() {
   const tabSuperSaleRef = useRef();
   const viewAllBtnRef = useRef();
   const [scrollDistance, setScrollDistance] = useState(0);
-  //#endregion
 
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const tabMainInfo = dataSourceContext
     ? dataSourceContext.todaySuggestionMainTabMainInfo
@@ -21,9 +20,8 @@ function TodaySuggestion() {
   const tabSuperSaleInfo = dataSourceContext
     ? dataSourceContext.todaySuggestionMainTabSuperSaleInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const renderFavouriteLabel = (data) => {
     let favouriteLabelActiveClass = "";
     let favouriteLabelInnerHTML = "";
@@ -43,6 +41,7 @@ function TodaySuggestion() {
             <img
               src="/assests/img/container/today-suggestion/yeuthichplus.png"
               className="today-suggestion__main-product__favourite-label--yeuthichplus__img"
+              alt=""
             />
           );
           break;
@@ -54,6 +53,7 @@ function TodaySuggestion() {
             <img
               src="/assests/img/container/today-suggestion/mall.png"
               className="today-suggestion__main-product__favourite-label--mall__img"
+              alt=""
             />
           );
           break;
@@ -88,11 +88,13 @@ function TodaySuggestion() {
                 <img
                   src={dataChild.productImage}
                   className="today-suggestion__main-product__product-img"
+                  alt=""
                 />
                 {dataChild.frameImage && (
                   <img
                     src={dataChild.frameImage}
                     className="today-suggestion__main-product__frame-img"
+                    alt=""
                   />
                 )}
                 <div className="today-suggestion__main-product__part">
@@ -104,6 +106,7 @@ function TodaySuggestion() {
                       <img
                         src="/assests/img/container/today-suggestion/left-serrated.png"
                         className="today-suggestion__main-product__sale-off__left-serrated"
+                        alt=""
                       />
                       <span className="today-suggestion__main-product__sale-off__text">
                         {dataChild.saleOffText}
@@ -111,6 +114,7 @@ function TodaySuggestion() {
                       <img
                         src="/assests/img/container/today-suggestion/right-serrated.png"
                         className="today-suggestion__main-product__sale-off__right-serrated"
+                        alt=""
                       />
                     </div>
                   )}
@@ -162,11 +166,13 @@ function TodaySuggestion() {
                 <img
                   src={dataChild.productImage}
                   className="today-suggestion__main-product__product-img"
+                  alt=""
                 />
                 {dataChild.frameImage && (
                   <img
                     src={dataChild.frameImage}
                     className="today-suggestion__main-product__frame-img"
+                    alt=""
                   />
                 )}
                 <div className="today-suggestion__main-product__part">
@@ -178,6 +184,7 @@ function TodaySuggestion() {
                       <img
                         src="/assests/img/container/today-suggestion/left-serrated.png"
                         className="today-suggestion__main-product__sale-off__left-serrated"
+                        alt=""
                       />
                       <span className="today-suggestion__main-product__sale-off__text">
                         {dataChild.saleOffText}
@@ -185,6 +192,7 @@ function TodaySuggestion() {
                       <img
                         src="/assests/img/container/today-suggestion/right-serrated.png"
                         className="today-suggestion__main-product__sale-off__right-serrated"
+                        alt=""
                       />
                     </div>
                   )}
@@ -295,7 +303,10 @@ function TodaySuggestion() {
           onClick={handleClickHeadingTabSuperSale}
           className="today-suggestion__heading-tab-super-sale"
         >
-          <img src="/assests/img/container/today-suggestion/heading-label.png" />
+          <img
+            src="/assests/img/container/today-suggestion/heading-label.png"
+            alt=""
+          />
         </a>
       </div>
       <div className="today-suggestion__main">

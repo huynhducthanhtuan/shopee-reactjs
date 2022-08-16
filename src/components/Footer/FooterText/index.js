@@ -4,14 +4,13 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../../contexts";
 
 function FooterText() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const aTagsInfo = dataSourceContext
     ? dataSourceContext.footerTextaTagsInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMATagsPart = (datas) => {
     if (datas) {
       const footerTextATags = $(".footer__text a");
@@ -23,7 +22,6 @@ function FooterText() {
       });
     }
   };
-  //#endregion
 
   return (
     <div className="footer__text">

@@ -1,16 +1,15 @@
 import "./HeaderSearchPart.css";
-import { historyListInfoApi } from "../../../apis";
 import { useRef, useContext } from "react";
+import { historyListInfoApi } from "../../../apis";
 import { DataSourceContext } from "../../../contexts";
 
 function HeaderSearchPart() {
-  //#region Hooks
+  // Hooks
   const historyRef = useRef();
   const frameInputRef = useRef();
   const frameBtnRef = useRef();
-  //#endregion
 
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const historyKeywordsListInfo = dataSourceContext
     ? dataSourceContext.headerSearchHistoryKeywordsListInfo
@@ -18,21 +17,23 @@ function HeaderSearchPart() {
   const historyListInfo = dataSourceContext
     ? dataSourceContext.headerSearchHistoryListInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMHistoryKeywordsListPart = (datas) => {
     const aTags = datas.map((data) => {
+      const { id, href, innerHTML } = data;
+
       return (
         <a
-          key={data.id}
+          key={id}
           className="header__search-history-keywords-item"
-          href={data.href}
+          href={href}
         >
-          {data.innerHTML}
+          {innerHTML}
         </a>
       );
     });
+
     return aTags;
   };
   const updateDOMHistoryListPart = (datas) => {
@@ -104,7 +105,6 @@ function HeaderSearchPart() {
       }
     }
   };
-  //#endregion
 
   return (
     <div className="header__search-part">

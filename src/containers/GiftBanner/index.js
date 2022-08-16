@@ -3,22 +3,19 @@ import { useContext } from "react";
 import { ModalStatusContext } from "../../contexts";
 
 function GiftBanner() {
-  //#region Get data from Context
+  // Get data from Context
   const modalStatusContext = useContext(ModalStatusContext);
   const { showModal, setShowModal } = modalStatusContext;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const handleClickGiftBanner = () => {
     setTimeout(() => {
-      // show modal
       setShowModal(true);
 
       // prevent scrolling
       document.querySelector("body").style.overflow = "hidden";
     }, 100);
   };
-  //#endregion
 
   return (
     <div className="gift-banner" onClick={handleClickGiftBanner}>
@@ -26,6 +23,7 @@ function GiftBanner() {
         <img
           src="/assests/img/container/gift-banner/banner.jfif"
           className="gift-banner__part__img"
+          alt=""
         />
       </div>
     </div>

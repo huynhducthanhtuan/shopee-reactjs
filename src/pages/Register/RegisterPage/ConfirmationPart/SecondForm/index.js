@@ -1,12 +1,11 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
 function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
-  //#region Hooks
+  // Hooks
   const headerBackBtnRef = useRef();
   const registerBtnRef = useRef();
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const handleClickHeaderBackBtn = () => {
     setShowSecondForm(false);
     setShowFirstForm(true);
@@ -15,7 +14,6 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
     setShowSecondForm(false);
     setShowThirdForm(true);
   };
-  //#endregion
 
   return (
     <form className="register-page__confirmation__second-form">

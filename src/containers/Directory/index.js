@@ -3,25 +3,32 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../contexts";
 
 function Directory() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const itemListInfo = dataSourceContext
     ? dataSourceContext.directoryMainItemListInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMListPart = (datas) => {
     return datas.map((data, index) => (
       <li key={index} className="directory__main__item">
         <a href={data[0].href} className="directory__main__item__link">
-          <img src={data[0].itemImage} className="directory__main__item__img" />
+          <img
+            src={data[0].itemImage}
+            className="directory__main__item__img"
+            alt=""
+          />
           <span className="directory__main__item__title">
             {data[0].itemTitle}
           </span>
         </a>
         <a href={data[1].href} className="directory__main__item__link">
-          <img src={data[1].itemImage} className="directory__main__item__img" />
+          <img
+            src={data[1].itemImage}
+            className="directory__main__item__img"
+            alt=""
+          />
           <span className="directory__main__item__title">
             {data[1].itemTitle}
           </span>
@@ -29,7 +36,6 @@ function Directory() {
       </li>
     ));
   };
-  //#endregion
 
   return (
     <div className="directory">

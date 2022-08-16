@@ -1,17 +1,14 @@
 import "./NotFound.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { NOTFOUND_PAGE_TITLE } from "../../constants";
+import { updateWebsiteTitle } from "../../helpers";
 
 function NotFound() {
-  //#region Handle side effects
+  // Handle side effects
   useEffect(() => {
-    const updateWebsiteTitle = () => {
-      document.title = "Shopee";
-    };
-
-    updateWebsiteTitle();
+    updateWebsiteTitle(NOTFOUND_PAGE_TITLE);
   }, []);
-  //#endregion
 
   return (
     <div id="not-found-page">
@@ -36,7 +33,10 @@ function NotFound() {
       <div className="not-found-page__container">
         <div className="not-found-page__content">
           <div className="not-found-page__content-error-part">
-            <img src="https://deo.shopeemobile.com/shopee/shopee-mall-live/images/ic_no_404@2x.png" />
+            <img
+              src="https://deo.shopeemobile.com/shopee/shopee-mall-live/images/ic_no_404@2x.png"
+              alt=""
+            />
             <h1>404</h1>
             <p>It looks like something is missing!</p>
           </div>

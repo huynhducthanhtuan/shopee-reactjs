@@ -3,30 +3,32 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../contexts";
 
 function SearchTrending() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const listInfo = dataSourceContext
     ? dataSourceContext.searchTrendingMainListInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMMainListPart = (datas, listIndex) => {
-    return datas[listIndex].map((data) => (
-      <a key={data.id} href={data.href} className="search-trending__main__item">
-        <div className="search-trending__main__text">
-          <span className="search-trending__main__text__name">
-            {data.productName}
-          </span>
-          <span className="search-trending__main__text__description">
-            {data.productDescription}
-          </span>
-        </div>
-        <img src={data.image} className="search-trending__img" />
-      </a>
-    ));
+    return datas[listIndex].map((data) => {
+      const { id, href, productName, productDescription, image } = data;
+
+      return (
+        <a key={id} href={href} className="search-trending__main__item">
+          <div className="search-trending__main__text">
+            <span className="search-trending__main__text__name">
+              {productName}
+            </span>
+            <span className="search-trending__main__text__description">
+              {productDescription}
+            </span>
+          </div>
+          <img src={image} className="search-trending__img" alt="" />
+        </a>
+      );
+    });
   };
-  //#endregion
 
   return (
     <div className="search-trending">

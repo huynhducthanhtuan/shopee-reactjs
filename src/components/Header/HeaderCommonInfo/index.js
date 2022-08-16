@@ -4,21 +4,19 @@ import { useState, useContext, useRef } from "react";
 import { DataSourceContext } from "../../../contexts";
 
 function HeaderCommonInfo() {
-  //#region Hooks
+  // Hooks
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const notificationQuantityRef = useRef();
-  //#endregion
 
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const popupWhenLoggedInListInfo = dataSourceContext
     ? dataSourceContext.headerNotificationPopupWhenLoggedInListInfo
     : null;
   const notificationQuantity =
     popupWhenLoggedInListInfo && popupWhenLoggedInListInfo.length;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMPopupWhenLoggedInListPart = (datas) => {
     return datas.map((data, index) => (
       <li
@@ -30,7 +28,7 @@ function HeaderCommonInfo() {
           className="header__notification__popup--when-logged-in__link"
         >
           <div className="header__notification__popup--when-logged-in__item__img">
-            <img src={data.itemImage} />
+            <img src={data.itemImage} alt="" />
           </div>
           <div className="header__notification__popup--when-logged-in__item__content">
             <h3 className="header__notification__popup--when-logged-in__item__title">
@@ -49,7 +47,6 @@ function HeaderCommonInfo() {
       notificationQuantityRef.current.style.display = "none";
     }
   };
-  //#endregion
 
   return (
     <div className="header__common-info">
@@ -94,21 +91,25 @@ function HeaderCommonInfo() {
               <img
                 src="/assests/img/header/header__links-app-download/qr.png"
                 className="header__app-download__qr-img"
+                alt=""
               />
               <div className="header__links-app-download-popup__box">
                 <div>
                   <img
                     src="/assests/img/header/header__links-app-download/app_store.png"
                     className="header__app-download__app-store-img"
+                    alt=""
                   />
                   <img
                     src="/assests/img/header/header__links-app-download/google_play.png"
                     className="header__app-download__google_play-img"
+                    alt=""
                   />
                 </div>
                 <img
                   src="/assests/img/header/header__links-app-download/app_gallery.png"
                   className="header__app-download__app_gallery-img"
+                  alt=""
                 />
               </div>
             </a>
@@ -198,6 +199,7 @@ function HeaderCommonInfo() {
                   <img
                     src="/assests/img/header/header__notification/popup-when-not-login__img.png"
                     className="header__notification__popup--when-not-login__main__img"
+                    alt=""
                   />
                   <span className="header__notification__popup--when-not-login__main__text">
                     Đăng nhập để xem Thông Báo

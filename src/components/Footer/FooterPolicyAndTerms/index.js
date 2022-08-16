@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../../contexts";
 
 function FooterPolicyAndTerms() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const titleInfo = dataSourceContext
     ? dataSourceContext.footerPolicyTermstitleInfo
@@ -14,9 +14,8 @@ function FooterPolicyAndTerms() {
   const companyInfoInfo = dataSourceContext
     ? dataSourceContext.footerPolicyTermsPartCompanyInfoInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateInDOMTitlePart = (datas) => {
     const divTags = datas.map((data) => {
       return (
@@ -42,7 +41,7 @@ function FooterPolicyAndTerms() {
           href={data.href}
           className="footer__policy-terms__part__certificate__link"
         >
-          <img src={data.image} />
+          <img src={data.image} alt="" />
         </a>
       );
     });
@@ -61,7 +60,6 @@ function FooterPolicyAndTerms() {
     });
     return spanTags;
   };
-  //#endregion
 
   return (
     <div className="footer__policy-terms">

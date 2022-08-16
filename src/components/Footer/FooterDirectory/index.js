@@ -3,14 +3,13 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../../contexts";
 
 function FooterDirectory() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const listInfo = dataSourceContext
     ? dataSourceContext.footerDirectoryListInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMListPart = (datas) => {
     return datas.map((data, index) => (
       <li key={index} className="footer__directory__item">
@@ -41,7 +40,6 @@ function FooterDirectory() {
       </li>
     ));
   };
-  //#endregion
 
   return (
     <div className="footer__directory">

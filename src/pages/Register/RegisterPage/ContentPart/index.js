@@ -2,15 +2,14 @@ import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 
 function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
-  //#region Hooks
+  // Hooks
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
   const inputRef = useRef();
   const nextBtnRef = useRef();
   const inputTextInvalidPhoneNumberRef = useRef();
   const inputIconValidPhoneNumberRef = useRef();
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const handlePreventDefault = (e) => {
     e.preventDefault();
   };
@@ -99,7 +98,6 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
       e.preventDefault();
     }
   };
-  //#endregion
 
   return (
     <div className="register-page__content">
@@ -176,19 +174,19 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
                 onClick={(e) => handlePreventDefault(e)}
                 className="register-page__content-form__other-ways__facebook"
               >
-                <img src="/assests/img/register-page/facebook.png" />
+                <img src="/assests/img/register-page/facebook.png" alt="" />
               </button>
               <button
                 onClick={(e) => handlePreventDefault(e)}
                 className="register-page__content-form__other-ways__google"
               >
-                <img src="/assests/img/register-page/google.png" />
+                <img src="/assests/img/register-page/google.png" alt="" />
               </button>
               <button
                 onClick={(e) => handlePreventDefault(e)}
                 className="register-page__content-form__other-ways__apple"
               >
-                <img src="/assests/img/register-page/apple.png" />
+                <img src="/assests/img/register-page/apple.png" alt="" />
               </button>
             </div>
             <div className="register-page__content-form__terms-and-policy">

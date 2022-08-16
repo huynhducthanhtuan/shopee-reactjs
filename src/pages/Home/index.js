@@ -1,23 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { ModalStatusContext } from "../../contexts";
 import { Header, Container, Footer, MotionPart, Modal } from "../../components";
+import { HOME_PAGE_TITLE } from "../../constants";
+import { updateWebsiteTitle } from "../../helpers";
 
 function Home() {
-  //#region Get data from Context
+  // Get data from Context
   const modalStatusContext = useContext(ModalStatusContext);
-  const { showModal, setShowModal } = modalStatusContext;
-  //#endregion
+  const { showModal } = modalStatusContext;
 
-  //#region Handle side effects
+  // Handle side effects
   useEffect(() => {
-    const updateWebsiteTitle = () => {
-      document.title =
-        "Shopee Việt Nam | Mua và Bán Trên Ứng Dụng Di Động Hoặc Website";
-    };
-
-    updateWebsiteTitle();
+    updateWebsiteTitle(HOME_PAGE_TITLE);
   }, []);
-  //#endregion
 
   return (
     <>

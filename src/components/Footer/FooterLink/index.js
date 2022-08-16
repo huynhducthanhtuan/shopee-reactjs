@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../../contexts";
 
 function FooterLink() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const aboutTextCSKHInfo = dataSourceContext
     ? dataSourceContext.footerLinkAboutTextCSKHInfo
@@ -17,9 +17,8 @@ function FooterLink() {
   const copyrightCountryAndAreaListInfo = dataSourceContext
     ? dataSourceContext.footerLinkCopyrightCountryAndAreaListInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMAboutTextCSKHPart = (datas) => {
     const divTags = datas.map((data) => {
       return (
@@ -48,17 +47,23 @@ function FooterLink() {
     return divTags;
   };
   const updateDOMAboutSocialPart = (datas) => {
-    const aTags = datas.map((data) => {
+    const aTags = datas.map((data, index) => {
+      const { href, image, text } = data;
+
       return (
         <a
-          key={data.id}
+          key={index}
           target="_blank"
           rel="noopener noreferrer"
-          href={data.href}
+          href={href}
           className="footer__link__about-social__link"
         >
-          <img src={data.image} className="footer__link__about-social__icon" />
-          {data.text}
+          <img
+            src={image}
+            className="footer__link__about-social__icon"
+            alt=""
+          />
+          {text}
         </a>
       );
     });
@@ -66,19 +71,21 @@ function FooterLink() {
   };
   const updateDOMCopyrightCountryAndAreaListPart = (datas) => {
     const aTags = datas.map((data) => {
+      const { id, href, innerHTML } = data;
+
       return (
         <a
-          key={data.id}
-          href={data.href}
+          key={id}
+          href={href}
           className="footer__link__copyright__country-and-area__link"
         >
-          {data.innerHTML}
+          {innerHTML}
         </a>
       );
     });
+
     return aTags;
   };
-  //#endregion
 
   return (
     <div className="footer__link">
@@ -110,6 +117,7 @@ function FooterLink() {
               <img
                 src="/assests/img/footer/link/payment.png"
                 className="footer__link__about-payment__img"
+                alt=""
               />
             </div>
           </div>
@@ -121,6 +129,7 @@ function FooterLink() {
               <img
                 src="/assests/img/footer/link/transport.png"
                 className="footer__link__about-transport__img"
+                alt=""
               />
             </div>
           </div>
@@ -150,11 +159,21 @@ function FooterLink() {
                 <img
                   src="/assests/img/header/header__links-app-download/qr.png"
                   className="footer__link__about-download__qr"
+                  alt=""
                 />
                 <div className="footer__link__about-download__another-apps">
-                  <img src="/assests/img/header/header__links-app-download/app_store.png" />
-                  <img src="/assests/img/header/header__links-app-download/google_play.png" />
-                  <img src="/assests/img/header/header__links-app-download/app_gallery.png" />
+                  <img
+                    src="/assests/img/header/header__links-app-download/app_store.png"
+                    alt=""
+                  />
+                  <img
+                    src="/assests/img/header/header__links-app-download/google_play.png"
+                    alt=""
+                  />
+                  <img
+                    src="/assests/img/header/header__links-app-download/app_gallery.png"
+                    alt=""
+                  />
                 </div>
               </a>
             </div>

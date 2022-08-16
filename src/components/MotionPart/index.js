@@ -11,6 +11,7 @@ function MotionPart() {
           <img
             src="/assests/img/motion-part/sub_banner.png"
             className="motion-part__sub-banner__img"
+            alt=""
           />
         </a>
       </div>

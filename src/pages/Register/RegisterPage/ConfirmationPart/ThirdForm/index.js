@@ -1,14 +1,13 @@
-import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
 import { COUNT_DOWN_SECONDS } from "../../../../../constants";
 
 function ThirdForm({ userPhoneNumber }) {
-  //#region Hooks
+  // Hooks
   const countDownSecondsNumberRef = useRef();
   const [countDownSecond, setCountDownSecond] = useState(COUNT_DOWN_SECONDS);
-  //#endregion
 
-  //#region Handle side effects
+  // Handle side effects
   useEffect(() => {
     let timerId;
 
@@ -30,7 +29,6 @@ function ThirdForm({ userPhoneNumber }) {
       clearInterval(timerId);
     };
   }, []);
-  //#endregion
 
   return (
     <form className="register-page__confirmation__third-form">

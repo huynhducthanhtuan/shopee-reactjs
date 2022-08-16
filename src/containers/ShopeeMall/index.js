@@ -1,10 +1,9 @@
 import "./ShopeeMall.css";
-import $ from "jquery";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { DataSourceContext } from "../../contexts";
 
 function ShopeeMall() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const headingTextInfo = dataSourceContext
     ? dataSourceContext.shopeeMallHeadingTextInfo
@@ -15,13 +14,16 @@ function ShopeeMall() {
   const mainMotionLinkInfo = dataSourceContext
     ? dataSourceContext.shopeeMallMainMotionLinkInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMHeadingTextPart = (datas) => {
     return datas.map((data) => (
       <div key={data.id}>
-        <img src={data.image} className="shopee-mall__heading__text__icon" />
+        <img
+          src={data.image}
+          className="shopee-mall__heading__text__icon"
+          alt=""
+        />
         <span className="shopee-mall__heading__text__title">{data.title}</span>
       </div>
     ));
@@ -34,19 +36,22 @@ function ShopeeMall() {
     return datas.map((data, index) => (
       <li key={index} className="shopee-mall__main__product-item">
         {data.map((dataChild, index) => {
+          const { id, href, image, text } = dataChild;
+
           // check for special case: last li tag
-          return dataChild.id !== shopeeMallMainProductListItemsLength ? (
+          return id !== shopeeMallMainProductListItemsLength ? (
             <a
               key={index}
-              href={dataChild.href}
+              href={href}
               className="shopee-mall__main__product-item__link"
             >
               <img
-                src={dataChild.image}
+                src={image}
                 className="shopee-mall__main__product-item__link__img"
+                alt=""
               />
               <span className="shopee-mall__main__product-item__link__text">
-                {dataChild.text}
+                {text}
               </span>
             </a>
           ) : (
@@ -70,15 +75,22 @@ function ShopeeMall() {
     ));
   };
   const updateDOMMainMotionPart = (datas) => {
-    return datas.map((data) => (
-      <div key={data.id}>
-        <a href={data.href} className="shopee-mall__main__motion__link">
-          <img src={data.image} className="shopee-mall__main__motion__img" />
-        </a>
-      </div>
-    ));
+    return datas.map((data) => {
+      const { id, href, image } = data;
+
+      return (
+        <div key={id}>
+          <a href={href} className="shopee-mall__main__motion__link">
+            <img
+              src={image}
+              className="shopee-mall__main__motion__img"
+              alt=""
+            />
+          </a>
+        </div>
+      );
+    });
   };
-  //#endregion
 
   return (
     <div className="shopee-mall">
@@ -91,6 +103,7 @@ function ShopeeMall() {
             <img
               src="/assests/img/container/shopee-mall/heading/icon.png"
               className="shopee-mall__heading__img"
+              alt=""
             />
           </a>
         </div>
@@ -116,6 +129,7 @@ function ShopeeMall() {
             <img
               src="/assests/img/container/shopee-mall/motion-part/1.png"
               className="shopee-mall__main__motion__img"
+              alt=""
             />
           </a>
           {/* {mainMotionLinkInfo &&

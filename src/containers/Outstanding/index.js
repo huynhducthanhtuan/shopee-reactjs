@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../contexts";
 
 function Outstanding() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const hotSellingProductsInfo = dataSourceContext
     ? dataSourceContext.outstandingHotSellingProductsInfo
@@ -11,9 +11,8 @@ function Outstanding() {
   const hotBrandsInfo = dataSourceContext
     ? dataSourceContext.outstandingHotBrandsInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMHotSellingProductsPart = ([info, list]) => {
     return (
       <>
@@ -39,6 +38,7 @@ function Outstanding() {
                 <img
                   src={data.image}
                   className="outstanding__hot-selling-products__img"
+                  alt=""
                 />
                 <span className="outstanding__hot-selling-products__price">
                   {data.price}
@@ -83,11 +83,13 @@ function Outstanding() {
                 <img
                   src={data.image}
                   className="outstanding__hot-brands__img"
+                  alt=""
                 />
                 <div className="">
                   <img
                     src={data.subImage}
                     className="outstanding__hot-brands__sub-img"
+                    alt=""
                   />
                 </div>
                 <span className="outstanding__hot-brands__text">
@@ -100,7 +102,6 @@ function Outstanding() {
       </>
     );
   };
-  //#endregion
 
   return (
     <div className="outstanding">
@@ -108,6 +109,7 @@ function Outstanding() {
         <img
           src="/assests/img/container/outstanding/picture_header.png"
           className="outstanding__picture-header"
+          alt=""
         />
       </div>
       <div
@@ -136,6 +138,7 @@ function Outstanding() {
         <img
           src="/assests/img/container/outstanding/picture_footer.png"
           className="outstanding__picture-footer"
+          alt=""
         />
       </div>
     </div>

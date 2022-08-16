@@ -3,19 +3,26 @@ import { useContext } from "react";
 import { DataSourceContext } from "../../contexts";
 
 function FlashSale() {
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const listInfo = dataSourceContext
     ? dataSourceContext.flashSaleMainListInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMListPart = (datas) => {
     return datas.map((data) => (
       <a key={data.id} href={data.href} className="flash-sale__main__link">
-        <img src={data.bubbleImage} className="flash-sale__main__bubble-img" />
-        <img src={data.frameImage} className="flash-sale__main__frame-img" />
+        <img
+          src={data.bubbleImage}
+          className="flash-sale__main__bubble-img"
+          alt=""
+        />
+        <img
+          src={data.frameImage}
+          className="flash-sale__main__frame-img"
+          alt=""
+        />
         <span className="flash-sale__main__price">{data.price}</span>
         <div className="flash-sale__main__percent-bar">
           <div className="flash-sale__main__percent-bar__text">
@@ -49,7 +56,6 @@ function FlashSale() {
       </a>
     ));
   };
-  //#endregion
 
   return (
     <div className="flash-sale">
@@ -57,6 +63,7 @@ function FlashSale() {
         <img
           src="/assests/img/container/flash-sale/header-img.png"
           className="flash-sale__heading__img"
+          alt=""
         />
         <a
           href="https://shopee.vn/flash_sale?promotionId=2020501378"

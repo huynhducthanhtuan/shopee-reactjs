@@ -1,36 +1,32 @@
 import "./Slider.css";
 import { useContext } from "react";
 import { DataSourceContext } from "../../contexts";
+import { SLIDER_QUEUE_ITEM_QUANTITY } from "../../constants";
 
 function Slider() {
-  //#region Constants
-  const QUEUE_ITEM_QUANTITY = 11;
-  //#endregion
-
-  //#region Get data from Context
+  // Get data from Context
   const dataSourceContext = useContext(DataSourceContext);
   const favouriteSelectionsInfo = dataSourceContext
     ? dataSourceContext.sliderFavouriteSelectionsInfo
     : null;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const updateDOMFavouriteSelectionsPart = (datas) => {
-    return datas.map((data) => (
-      <a
-        key={data.id}
-        className="slider__favourite-selections__link"
-        href={data.href}
-      >
-        <img
-          className="slider__favourite-selections__link-img"
-          src={data.image}
-        />
-        <h4 className="slider__favourite-selections__link-text">{data.text}</h4>
-      </a>
-    ));
+    return datas.map((data) => {
+      const { id, href, image, text } = data;
+
+      return (
+        <a key={id} className="slider__favourite-selections__link" href={href}>
+          <img
+            className="slider__favourite-selections__link-img"
+            src={image}
+            alt=""
+          />
+          <h4 className="slider__favourite-selections__link-text">{text}</h4>
+        </a>
+      );
+    });
   };
-  //#endregion
 
   return (
     <div className="slider">
@@ -44,6 +40,7 @@ function Slider() {
               <img
                 src="/assests/img/container/slider/main/motion/1.png"
                 className="slider__main__motion-part__img slider__main__motion-part__curent-img"
+                alt=""
               />
             </a>
             <button className="slider__main__motion-part__btn slider__main__motion-part__previous-btn">
@@ -57,7 +54,7 @@ function Slider() {
               <div className="slider__main__motion-part__queue-item slider__main__motion-part__queue-item--current"></div>
               {(() => {
                 let divTags = [];
-                for (let i = 0; i < QUEUE_ITEM_QUANTITY - 1; i++) {
+                for (let i = 0; i < SLIDER_QUEUE_ITEM_QUANTITY - 1; i++) {
                   divTags.push(
                     <div
                       key={i}
@@ -78,6 +75,7 @@ function Slider() {
                 <img
                   src="/assests/img/container/slider/main/no-motion/1.png"
                   className="slider__main__no-motion-part__img"
+                  alt=""
                 />
               </a>
             </div>
@@ -89,6 +87,7 @@ function Slider() {
                 <img
                   src="/assests/img/container/slider/main/no-motion/2.png"
                   className="slider__main__no-motion-part__img"
+                  alt=""
                 />
               </a>
             </div>

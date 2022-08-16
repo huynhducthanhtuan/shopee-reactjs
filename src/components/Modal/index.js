@@ -3,17 +3,15 @@ import { useRef, useContext } from "react";
 import { ModalStatusContext } from "../../contexts";
 
 function Modal() {
-  //#region Hooks
+  // Hooks
   const giftBannerPopupRef = useRef();
   const giftBannerPopupCloseBtnRef = useRef();
-  //#endregion
 
-  //#region Get data from Context
+  // Get data from Context
   const modalStatusContext = useContext(ModalStatusContext);
   const { showModal, setShowModal } = modalStatusContext;
-  //#endregion
 
-  //#region Function handlers
+  // Function handlers
   const handleClickModal = () => {
     setTimeout(() => {
       // hide modal
@@ -31,7 +29,6 @@ function Modal() {
     e.stopPropagation();
     document.querySelector("#modal").click();
   };
-  //#endregion
 
   return (
     <div id="modal" onClick={handleClickModal}>
@@ -47,6 +44,7 @@ function Modal() {
           <img
             src="/assests/img/gift-banner/label.png"
             className="gift-banner__popup__label"
+            alt=""
           />
           <button
             ref={giftBannerPopupCloseBtnRef}
@@ -73,6 +71,7 @@ function Modal() {
                   <img
                     src="/assests/img/gift-banner/app-store-banner.png"
                     className="gift-banner__popup__main-left-part__img"
+                    alt=""
                   />
                 </a>
                 <a
@@ -84,6 +83,7 @@ function Modal() {
                   <img
                     src="/assests/img/gift-banner/google-play-banner.png"
                     className="gift-banner__popup__main-left-part__img"
+                    alt=""
                   />
                 </a>
               </div>
@@ -92,15 +92,18 @@ function Modal() {
               <img
                 src="/assests/img/header/header__links-app-download/qr.png"
                 className="gift-banner__popup__main-right-part__qr-img"
+                alt=""
               />
               <div className="gift-banner__popup__main-right-part__others-img">
                 <img
                   src="/assests/img/header/header__links-app-download/google_play.png"
                   className="gift-banner__popup__main-right-part__google-play-img"
+                  alt=""
                 />
                 <img
                   src="/assests/img/header/header__links-app-download/app_store.png"
                   className="gift-banner__popup__main-right-part__app-store-img"
+                  alt=""
                 />
               </div>
             </div>
