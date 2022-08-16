@@ -8,8 +8,10 @@
 
 ### Cách chạy dự án
 
-#### 1. Tại thư mục gốc đã clone về trước đó (shopee-reactjs), mở CMD
+#### 1. Clone dự án về máy: "git clone https://github.com/huynhdthanhtuan/shopee-reactjs"
 
-#### 2. Gõ lệnh "npm install" để cài đặt những thư viện mà dự án đang sử dụng
+#### 2. Tại thư mục gốc đã clone về trước đó (shopee-reactjs), mở CMD
 
-#### 3. Gõ lệnh "npm start" để start web server
+#### 3. Gõ lệnh "npm install" để cài đặt những thư viện mà dự án đang sử dụng
+
+#### 4. Gõ lệnh "npm start" để start web server
