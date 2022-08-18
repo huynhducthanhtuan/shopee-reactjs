@@ -1,49 +1,37 @@
 import "./FooterLink.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../../contexts";
+import { useDataSourceContext } from "../../../hooks";
 
 function FooterLink() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const aboutTextCSKHInfo = dataSourceContext
-    ? dataSourceContext.footerLinkAboutTextCSKHInfo
-    : null;
-  const aboutTextVeShopeeInfo = dataSourceContext
-    ? dataSourceContext.footerLinkAboutTextVeShopeeInfo
-    : null;
-  const aboutSocialInfo = dataSourceContext
-    ? dataSourceContext.footerLinkAboutSocialInfo
-    : null;
-  const copyrightCountryAndAreaListInfo = dataSourceContext
-    ? dataSourceContext.footerLinkCopyrightCountryAndAreaListInfo
-    : null;
+  const aboutTextCSKHInfo = useDataSourceContext("footerLinkAboutTextCSKHInfo");
+  const aboutTextVeShopeeInfo = useDataSourceContext(
+    "footerLinkAboutTextVeShopeeInfo"
+  );
+  const aboutSocialInfo = useDataSourceContext("footerLinkAboutSocialInfo");
+  const copyrightCountryAndAreaListInfo = useDataSourceContext(
+    "footerLinkCopyrightCountryAndAreaListInfo"
+  );
 
-  // Function handlers
   const updateDOMAboutTextCSKHPart = (datas) => {
-    const divTags = datas.map((data) => {
-      return (
-        <div key={data.id}>
-          <a href={data.href} className="footer__link__about-text-CSKH__link">
-            {data.innerHTML}
-          </a>
-        </div>
-      );
-    });
+    const divTags = datas.map((data) => (
+      <div key={data.id}>
+        <a href={data.href} className="footer__link__about-text-CSKH__link">
+          {data.innerHTML}
+        </a>
+      </div>
+    ));
+
     return divTags;
   };
   const updateDOMAboutTextVeShopeePart = (datas) => {
-    const divTags = datas.map((data) => {
-      return (
-        <div key={data.id}>
-          <a
-            href={data.href}
-            className="footer__link__about-text-VeShopee__link"
-          >
-            {data.innerHTML}
-          </a>
-        </div>
-      );
-    });
+    const divTags = datas.map((data) => (
+      <div key={data.id}>
+        <a href={data.href} className="footer__link__about-text-VeShopee__link">
+          {data.innerHTML}
+        </a>
+      </div>
+    ));
+
     return divTags;
   };
   const updateDOMAboutSocialPart = (datas) => {
@@ -67,6 +55,7 @@ function FooterLink() {
         </a>
       );
     });
+
     return aTags;
   };
   const updateDOMCopyrightCountryAndAreaListPart = (datas) => {

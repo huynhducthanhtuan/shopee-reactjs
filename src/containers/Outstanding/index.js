@@ -1,107 +1,92 @@
 import "./Outstanding.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useDataSourceContext } from "../../hooks";
 
 function Outstanding() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const hotSellingProductsInfo = dataSourceContext
-    ? dataSourceContext.outstandingHotSellingProductsInfo
-    : null;
-  const hotBrandsInfo = dataSourceContext
-    ? dataSourceContext.outstandingHotBrandsInfo
-    : null;
+  const hotSellingProductsInfo = useDataSourceContext(
+    "outstandingHotSellingProductsInfo"
+  );
+  const hotBrandsInfo = useDataSourceContext("outstandingHotBrandsInfo");
 
-  // Function handlers
-  const updateDOMHotSellingProductsPart = ([info, list]) => {
-    return (
-      <>
-        <div className="outstanding__hot-selling-products__info">
-          <h4 className="outstanding__hot-selling-products__info__heading">
-            {info.heading}
-          </h4>
+  const updateDOMHotSellingProductsPart = ([info, list]) => (
+    <>
+      <div className="outstanding__hot-selling-products__info">
+        <h4 className="outstanding__hot-selling-products__info__heading">
+          {info.heading}
+        </h4>
+        <a
+          href={info.href}
+          className="outstanding__hot-selling-products__info__view-more-btn"
+        >
+          Xem thêm <i className="fas fa-chevron-right"></i>
+        </a>
+      </div>
+      <div className="outstanding__hot-selling-products__list">
+        {list.map((data) => (
           <a
-            href={info.href}
-            className="outstanding__hot-selling-products__info__view-more-btn"
+            key={data.id}
+            href={data.href}
+            className="outstanding__hot-selling-products__item"
           >
-            Xem thêm <i className="fas fa-chevron-right"></i>
+            <img
+              src={data.image}
+              className="outstanding__hot-selling-products__img"
+              alt=""
+            />
+            <span className="outstanding__hot-selling-products__price">
+              {data.price}
+            </span>
+            <div className="outstanding__hot-selling-products__sale-off-label">
+              <span className="outstanding__hot-selling-products__sale-off-label__percent">
+                {data.percent}
+              </span>
+              <span className="outstanding__hot-selling-products__sale-off-label__text">
+                GIẢM
+              </span>
+            </div>
           </a>
-        </div>
-        <div className="outstanding__hot-selling-products__list">
-          {list.map((data) => {
-            return (
-              <a
-                key={data.id}
-                href={data.href}
-                className="outstanding__hot-selling-products__item"
-              >
-                <img
-                  src={data.image}
-                  className="outstanding__hot-selling-products__img"
-                  alt=""
-                />
-                <span className="outstanding__hot-selling-products__price">
-                  {data.price}
-                </span>
-                <div className="outstanding__hot-selling-products__sale-off-label">
-                  <span className="outstanding__hot-selling-products__sale-off-label__percent">
-                    {data.percent}
-                  </span>
-                  <span className="outstanding__hot-selling-products__sale-off-label__text">
-                    GIẢM
-                  </span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </>
-    );
-  };
-  const updateDOMHotBrandsPart = ([info, list]) => {
-    return (
-      <>
-        <div className="outstanding__hot-brands__info">
-          <h4 className="outstanding__hot-brands__info__heading">
-            {info.heading}
-          </h4>
+        ))}
+      </div>
+    </>
+  );
+  const updateDOMHotBrandsPart = ([info, list]) => (
+    <>
+      <div className="outstanding__hot-brands__info">
+        <h4 className="outstanding__hot-brands__info__heading">
+          {info.heading}
+        </h4>
+        <a
+          href={info.href}
+          className="outstanding__hot-brands__info__view-more-btn"
+        >
+          Xem thêm <i className="fas fa-chevron-right"></i>
+        </a>
+      </div>
+      <div className="outstanding__hot-brands__list">
+        {list.map((data) => (
           <a
-            href={info.href}
-            className="outstanding__hot-brands__info__view-more-btn"
+            key={data.id}
+            href={data.href}
+            className="outstanding__hot-brands__item"
           >
-            Xem thêm <i className="fas fa-chevron-right"></i>
+            <img
+              src={data.image}
+              className="outstanding__hot-brands__img"
+              alt=""
+            />
+            <div className="">
+              <img
+                src={data.subImage}
+                className="outstanding__hot-brands__sub-img"
+                alt=""
+              />
+            </div>
+            <span className="outstanding__hot-brands__text">{data.text}</span>
           </a>
-        </div>
-        <div className="outstanding__hot-brands__list">
-          {list.map((data) => {
-            return (
-              <a
-                key={data.id}
-                href={data.href}
-                className="outstanding__hot-brands__item"
-              >
-                <img
-                  src={data.image}
-                  className="outstanding__hot-brands__img"
-                  alt=""
-                />
-                <div className="">
-                  <img
-                    src={data.subImage}
-                    className="outstanding__hot-brands__sub-img"
-                    alt=""
-                  />
-                </div>
-                <span className="outstanding__hot-brands__text">
-                  {data.text}
-                </span>
-              </a>
-            );
-          })}
-        </div>
-      </>
-    );
-  };
+        ))}
+      </div>
+    </>
+  );
 
   return (
     <div className="outstanding">

@@ -1,17 +1,14 @@
 import "./Modal.css";
-import { useRef, useContext } from "react";
-import { ModalStatusContext } from "../../contexts";
+import { useRef } from "react";
+import { useModalStatusContext } from "../../hooks";
 
 function Modal() {
-  // Hooks
   const giftBannerPopupRef = useRef();
   const giftBannerPopupCloseBtnRef = useRef();
 
   // Get data from Context
-  const modalStatusContext = useContext(ModalStatusContext);
-  const { showModal, setShowModal } = modalStatusContext;
+  const { setShowModal } = useModalStatusContext();
 
-  // Function handlers
   const handleClickModal = () => {
     setTimeout(() => {
       // hide modal

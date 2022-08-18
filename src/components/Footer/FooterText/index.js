@@ -1,16 +1,11 @@
 import "./FooterText.css";
 import $ from "jquery";
-import { useContext } from "react";
-import { DataSourceContext } from "../../../contexts";
+import { useDataSourceContext } from "../../../hooks";
 
 function FooterText() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const aTagsInfo = dataSourceContext
-    ? dataSourceContext.footerTextaTagsInfo
-    : null;
+  const aTagsInfo = useDataSourceContext("footerTextaTagsInfo");
 
-  // Function handlers
   const updateDOMATagsPart = (datas) => {
     if (datas) {
       const footerTextATags = $(".footer__text a");

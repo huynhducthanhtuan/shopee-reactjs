@@ -1,13 +1,10 @@
 import "./GiftBanner.css";
-import { useContext } from "react";
-import { ModalStatusContext } from "../../contexts";
+import { useModalStatusContext } from "../../hooks";
 
 function GiftBanner() {
   // Get data from Context
-  const modalStatusContext = useContext(ModalStatusContext);
-  const { showModal, setShowModal } = modalStatusContext;
+  const { setShowModal } = useModalStatusContext();
 
-  // Function handlers
   const handleClickGiftBanner = () => {
     setTimeout(() => {
       setShowModal(true);

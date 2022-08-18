@@ -1,24 +1,21 @@
 import "./HeaderCommonInfo.css";
 import { Link } from "react-router-dom";
-import { useState, useContext, useRef } from "react";
-import { DataSourceContext } from "../../../contexts";
+import { useState, useRef } from "react";
+import { useDataSourceContext } from "../../../hooks";
 
 function HeaderCommonInfo() {
-  // Hooks
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const notificationQuantityRef = useRef();
 
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const popupWhenLoggedInListInfo = dataSourceContext
-    ? dataSourceContext.headerNotificationPopupWhenLoggedInListInfo
-    : null;
+  const popupWhenLoggedInListInfo = useDataSourceContext(
+    "headerNotificationPopupWhenLoggedInListInfo"
+  );
   const notificationQuantity =
     popupWhenLoggedInListInfo && popupWhenLoggedInListInfo.length;
 
-  // Function handlers
-  const updateDOMPopupWhenLoggedInListPart = (datas) => {
-    return datas.map((data, index) => (
+  const updateDOMPopupWhenLoggedInListPart = (datas) =>
+    datas.map((data, index) => (
       <li
         key={index}
         className="header__notification__popup--when-logged-in__item"
@@ -41,7 +38,6 @@ function HeaderCommonInfo() {
         </a>
       </li>
     ));
-  };
   const handleMouseLeaveNotificationQuantity = () => {
     if (notificationQuantityRef.current) {
       notificationQuantityRef.current.style.display = "none";

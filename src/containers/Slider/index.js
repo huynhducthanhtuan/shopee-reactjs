@@ -1,18 +1,15 @@
 import "./Slider.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useDataSourceContext } from "../../hooks";
 import { SLIDER_QUEUE_ITEM_QUANTITY } from "../../constants";
 
 function Slider() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const favouriteSelectionsInfo = dataSourceContext
-    ? dataSourceContext.sliderFavouriteSelectionsInfo
-    : null;
+  const favouriteSelectionsInfo = useDataSourceContext(
+    "sliderFavouriteSelectionsInfo"
+  );
 
-  // Function handlers
-  const updateDOMFavouriteSelectionsPart = (datas) => {
-    return datas.map((data) => {
+  const updateDOMFavouriteSelectionsPart = (datas) =>
+    datas.map((data) => {
       const { id, href, image, text } = data;
 
       return (
@@ -26,6 +23,15 @@ function Slider() {
         </a>
       );
     });
+  const renderMainMotionPartQueueItem = () => {
+    let divTags = [];
+    for (let i = 0; i < SLIDER_QUEUE_ITEM_QUANTITY - 1; i++) {
+      divTags.push(
+        <div key={i} className="slider__main__motion-part__queue-item"></div>
+      );
+    }
+
+    return divTags;
   };
 
   return (
@@ -52,18 +58,7 @@ function Slider() {
 
             <div className="slider__main__motion-part__queue">
               <div className="slider__main__motion-part__queue-item slider__main__motion-part__queue-item--current"></div>
-              {(() => {
-                let divTags = [];
-                for (let i = 0; i < SLIDER_QUEUE_ITEM_QUANTITY - 1; i++) {
-                  divTags.push(
-                    <div
-                      key={i}
-                      className="slider__main__motion-part__queue-item"
-                    ></div>
-                  );
-                }
-                return divTags;
-              })()}
+              {renderMainMotionPartQueueItem()}
             </div>
           </div>
           <div className="slider__main__no-motion-part">

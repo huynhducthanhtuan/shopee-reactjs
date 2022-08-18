@@ -1,26 +1,21 @@
 import "./HeaderSearchPart.css";
-import { useRef, useContext } from "react";
+import { useRef } from "react";
 import { historyListInfoApi } from "../../../apis";
-import { DataSourceContext } from "../../../contexts";
+import { useDataSourceContext } from "../../../hooks";
 
 function HeaderSearchPart() {
-  // Hooks
   const historyRef = useRef();
   const frameInputRef = useRef();
   const frameBtnRef = useRef();
 
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const historyKeywordsListInfo = dataSourceContext
-    ? dataSourceContext.headerSearchHistoryKeywordsListInfo
-    : null;
-  const historyListInfo = dataSourceContext
-    ? dataSourceContext.headerSearchHistoryListInfo
-    : null;
+  const historyKeywordsListInfo = useDataSourceContext(
+    "headerSearchHistoryKeywordsListInfo"
+  );
+  const historyListInfo = useDataSourceContext("headerSearchHistoryListInfo");
 
-  // Function handlers
-  const updateDOMHistoryKeywordsListPart = (datas) => {
-    const aTags = datas.map((data) => {
+  const updateDOMHistoryKeywordsListPart = (datas) =>
+    datas.map((data) => {
       const { id, href, innerHTML } = data;
 
       return (
@@ -33,43 +28,36 @@ function HeaderSearchPart() {
         </a>
       );
     });
+  const updateDOMHistoryListPart = (datas) => (
+    <>
+      <li className="header__search-history-item header__search-history-item--default">
+        <a
+          href="https://shopee.vn/m/khung-gio-san-sale"
+          className="header__search-history-item__link"
+        >
+          VOUCHER HOÀN 999K XU - SĂN NGAY
+          <img
+            src="/assests/img/header/header__search/voucher-hoan-xu.png"
+            className="header__search-history-item__link__vchx-img"
+          />
+        </a>
+      </li>
+      {/* Nếu mảng dữ liệu có nhiều hơn 10 phần tử thì sẽ render 10 phần tử mới nhất được thêm vào */}
+      {datas &&
+        datas
+          .slice(0)
+          .reverse()
+          .slice(0, 10)
+          .map((data, index) => (
+            <li key={index} className="header__search-history-item">
+              <a href={data.href} className="header__search-history-item__link">
+                {data.innerHTML}
+              </a>
+            </li>
+          ))}
+    </>
+  );
 
-    return aTags;
-  };
-  const updateDOMHistoryListPart = (datas) => {
-    return (
-      <>
-        <li className="header__search-history-item header__search-history-item--default">
-          <a
-            href="https://shopee.vn/m/khung-gio-san-sale"
-            className="header__search-history-item__link"
-          >
-            VOUCHER HOÀN 999K XU - SĂN NGAY
-            <img
-              src="/assests/img/header/header__search/voucher-hoan-xu.png"
-              className="header__search-history-item__link__vchx-img"
-            />
-          </a>
-        </li>
-        {/* Nếu mảng dữ liệu có nhiều hơn 10 phần tử thì sẽ render 10 phần tử được thêm vào mới nhất */}
-        {datas &&
-          datas
-            .slice(0)
-            .reverse()
-            .slice(0, 10)
-            .map((data, index) => (
-              <li key={index} className="header__search-history-item">
-                <a
-                  href={data.href}
-                  className="header__search-history-item__link"
-                >
-                  {data.innerHTML}
-                </a>
-              </li>
-            ))}
-      </>
-    );
-  };
   const handleClickLogo = (e) => {
     e.preventDefault();
     window.scrollTo(0, 0);
@@ -101,8 +89,8 @@ function HeaderSearchPart() {
         handleClickFrameBtn();
         break;
       }
-      default: {
-      }
+      default:
+        break;
     }
   };
 

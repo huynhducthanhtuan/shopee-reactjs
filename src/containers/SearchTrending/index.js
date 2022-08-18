@@ -1,17 +1,12 @@
 import "./SearchTrending.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useDataSourceContext } from "../../hooks";
 
 function SearchTrending() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const listInfo = dataSourceContext
-    ? dataSourceContext.searchTrendingMainListInfo
-    : null;
+  const listInfo = useDataSourceContext("searchTrendingMainListInfo");
 
-  // Function handlers
-  const updateDOMMainListPart = (datas, listIndex) => {
-    return datas[listIndex].map((data) => {
+  const updateDOMMainListPart = (datas, listIndex) =>
+    datas[listIndex].map((data) => {
       const { id, href, productName, productDescription, image } = data;
 
       return (
@@ -28,7 +23,6 @@ function SearchTrending() {
         </a>
       );
     });
-  };
 
   return (
     <div className="search-trending">

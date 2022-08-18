@@ -1,63 +1,52 @@
 import "./FooterPolicyAndTerms.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../../contexts";
+import { useDataSourceContext } from "../../../hooks";
 
 function FooterPolicyAndTerms() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const titleInfo = dataSourceContext
-    ? dataSourceContext.footerPolicyTermstitleInfo
-    : null;
-  const certificateInfo = dataSourceContext
-    ? dataSourceContext.footerPolicyTermsPartCertificateInfo
-    : null;
-  const companyInfoInfo = dataSourceContext
-    ? dataSourceContext.footerPolicyTermsPartCompanyInfoInfo
-    : null;
+  const titleInfo = useDataSourceContext("footerPolicyTermstitleInfo");
+  const certificateInfo = useDataSourceContext(
+    "footerPolicyTermsPartCertificateInfo"
+  );
+  const companyInfoInfo = useDataSourceContext(
+    "footerPolicyTermsPartCompanyInfoInfo"
+  );
 
-  // Function handlers
   const updateInDOMTitlePart = (datas) => {
-    const divTags = datas.map((data) => {
-      return (
-        <div key={data.id} className="footer__policy-terms__part__title__part">
-          <a
-            href={data.href}
-            className="footer__policy-terms__part__title__link"
-          >
-            {data.innerHTML}
-          </a>
-        </div>
-      );
-    });
+    const divTags = datas.map((data) => (
+      <div key={data.id} className="footer__policy-terms__part__title__part">
+        <a href={data.href} className="footer__policy-terms__part__title__link">
+          {data.innerHTML}
+        </a>
+      </div>
+    ));
+
     return divTags;
   };
   const updateInDOMCertificatePart = (datas) => {
-    const aTags = datas.map((data) => {
-      return (
-        <a
-          key={data.id}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={data.href}
-          className="footer__policy-terms__part__certificate__link"
-        >
-          <img src={data.image} alt="" />
-        </a>
-      );
-    });
+    const aTags = datas.map((data) => (
+      <a
+        key={data.id}
+        target="_blank"
+        rel="noopener noreferrer"
+        href={data.href}
+        className="footer__policy-terms__part__certificate__link"
+      >
+        <img src={data.image} alt="" />
+      </a>
+    ));
+
     return aTags;
   };
   const updateInDOMCompanyInfoPart = (datas) => {
-    const spanTags = datas.map((data, index) => {
-      return (
-        <span
-          key={index}
-          className="footer__policy-terms__part__company-info__text"
-        >
-          {data}
-        </span>
-      );
-    });
+    const spanTags = datas.map((data, index) => (
+      <span
+        key={index}
+        className="footer__policy-terms__part__company-info__text"
+      >
+        {data}
+      </span>
+    ));
+    
     return spanTags;
   };
 

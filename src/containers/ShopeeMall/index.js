@@ -1,23 +1,16 @@
 import "./ShopeeMall.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useDataSourceContext } from "../../hooks";
 
 function ShopeeMall() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const headingTextInfo = dataSourceContext
-    ? dataSourceContext.shopeeMallHeadingTextInfo
-    : null;
-  const productListInfo = dataSourceContext
-    ? dataSourceContext.shopeeMallMainProductListInfo
-    : null;
-  const mainMotionLinkInfo = dataSourceContext
-    ? dataSourceContext.shopeeMallMainMotionLinkInfo
-    : null;
+  const headingTextInfo = useDataSourceContext("shopeeMallHeadingTextInfo");
+  const productListInfo = useDataSourceContext("shopeeMallMainProductListInfo");
+  const mainMotionLinkInfo = useDataSourceContext(
+    "shopeeMallMainMotionLinkInfo"
+  );
 
-  // Function handlers
-  const updateDOMHeadingTextPart = (datas) => {
-    return datas.map((data) => (
+  const updateDOMHeadingTextPart = (datas) =>
+    datas.map((data) => (
       <div key={data.id}>
         <img
           src={data.image}
@@ -27,7 +20,6 @@ function ShopeeMall() {
         <span className="shopee-mall__heading__text__title">{data.title}</span>
       </div>
     ));
-  };
   const updateDOMProductListPart = (datas) => {
     const shopeeMallMainProductListLength = datas.length;
     const shopeeMallMainProductListItemsLength =
@@ -74,8 +66,8 @@ function ShopeeMall() {
       </li>
     ));
   };
-  const updateDOMMainMotionPart = (datas) => {
-    return datas.map((data) => {
+  const updateDOMMainMotionPart = (datas) =>
+    datas.map((data) => {
       const { id, href, image } = data;
 
       return (
@@ -90,7 +82,6 @@ function ShopeeMall() {
         </div>
       );
     });
-  };
 
   return (
     <div className="shopee-mall">

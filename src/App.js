@@ -1,7 +1,8 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
-import { DataSourceContext, ModalStatusContextProvider } from "./contexts";
+import { useState, useEffect } from "react";
+import { useDataSourceContext } from "./hooks";
+import { ModalStatusContextProvider } from "./contexts";
 import {
   HomePage,
   RegisterPage,
@@ -11,13 +12,11 @@ import {
 } from "./pages";
 
 function App() {
-  // Hooks
   const [isReady, setIsReady] = useState(false);
 
   // Get data from context
-  const dataSourceContext = useContext(DataSourceContext);
+  const dataSourceContext = useDataSourceContext();
 
-  // Handle side effects
   useEffect(() => {
     dataSourceContext && setIsReady(true);
   }, [dataSourceContext]);

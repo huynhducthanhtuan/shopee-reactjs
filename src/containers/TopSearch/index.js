@@ -1,17 +1,12 @@
 import "./TopSearch.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useDataSourceContext } from "../../hooks";
 
 function TopSearch() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const listInfo = dataSourceContext
-    ? dataSourceContext.topSearchMainListInfo
-    : null;
+  const listInfo = useDataSourceContext("topSearchMainListInfo");
 
-  // Function handlers
-  const updateDOMMainListPart = (datas) => {
-    return datas.map((data, index) => (
+  const updateDOMMainListPart = (datas) =>
+    datas.map((data, index) => (
       <a key={data.id} href={data.href} className="top-search__main__link">
         <div className="top-search__main__product">
           <img
@@ -39,7 +34,6 @@ function TopSearch() {
         </div>
       </a>
     ));
-  };
 
   return (
     <div className="top-search">

@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect, useContext } from "react";
-import { DataSourceContext } from "../../../../../contexts";
+import { useRef } from "react";
+import { useDataSourceContext } from "../../../../../hooks";
 
 function FirstForm({
   userPhoneNumber,
@@ -7,7 +7,6 @@ function FirstForm({
   setShowFirstForm,
   setShowSecondForm,
 }) {
-  // Hooks
   const formRef = useRef();
   const formContentInputRef = useRef();
   const formContentNotifyErrorRef = useRef();
@@ -15,12 +14,8 @@ function FirstForm({
   const formContentUserPhoneNumberRef = useRef();
 
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const confirmationCodes = dataSourceContext
-    ? dataSourceContext.confirmationCodes
-    : null;
+  const confirmationCodes = useDataSourceContext("confirmationCodes");
 
-  // Function handlers
   const handleClickHeaderBackBtn = () => {
     setShowConfirmationPart(false);
   };
@@ -139,4 +134,5 @@ function FirstForm({
     </form>
   );
 }
+
 export default FirstForm;

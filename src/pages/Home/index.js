@@ -1,18 +1,14 @@
-import { useEffect, useContext } from "react";
-import { ModalStatusContext } from "../../contexts";
+import { useEffect } from "react";
+import { useModalStatusContext } from "../../hooks";
 import { Header, Container, Footer, MotionPart, Modal } from "../../components";
 import { HOME_PAGE_TITLE } from "../../constants";
 import { updateWebsiteTitle } from "../../helpers";
 
 function Home() {
   // Get data from Context
-  const modalStatusContext = useContext(ModalStatusContext);
-  const { showModal } = modalStatusContext;
+  const { showModal } = useModalStatusContext();
 
-  // Handle side effects
-  useEffect(() => {
-    updateWebsiteTitle(HOME_PAGE_TITLE);
-  }, []);
+  useEffect(() => updateWebsiteTitle(HOME_PAGE_TITLE), []);
 
   return (
     <>

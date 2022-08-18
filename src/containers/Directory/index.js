@@ -1,17 +1,12 @@
 import "./Directory.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useDataSourceContext } from "../../hooks";
 
 function Directory() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const itemListInfo = dataSourceContext
-    ? dataSourceContext.directoryMainItemListInfo
-    : null;
+  const itemListInfo = useDataSourceContext("directoryMainItemListInfo");
 
-  // Function handlers
-  const updateDOMListPart = (datas) => {
-    return datas.map((data, index) => (
+  const updateDOMListPart = (datas) =>
+    datas.map((data, index) => (
       <li key={index} className="directory__main__item">
         <a href={data[0].href} className="directory__main__item__link">
           <img
@@ -35,7 +30,6 @@ function Directory() {
         </a>
       </li>
     ));
-  };
 
   return (
     <div className="directory">

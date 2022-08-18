@@ -1,9 +1,8 @@
 import "./TodaySuggestion.css";
-import { useRef, useState, useEffect, useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useRef, useState, useEffect } from "react";
+import { useDataSourceContext } from "../../hooks";
 
 function TodaySuggestion() {
-  // Hooks
   const todaySuggestionRef = useRef();
   const headingTabMainRef = useRef();
   const headingTabSuperSaleRef = useRef();
@@ -13,15 +12,11 @@ function TodaySuggestion() {
   const [scrollDistance, setScrollDistance] = useState(0);
 
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const tabMainInfo = dataSourceContext
-    ? dataSourceContext.todaySuggestionMainTabMainInfo
-    : null;
-  const tabSuperSaleInfo = dataSourceContext
-    ? dataSourceContext.todaySuggestionMainTabSuperSaleInfo
-    : null;
+  const tabMainInfo = useDataSourceContext("todaySuggestionMainTabMainInfo");
+  const tabSuperSaleInfo = useDataSourceContext(
+    "todaySuggestionMainTabSuperSaleInfo"
+  );
 
-  // Function handlers
   const renderFavouriteLabel = (data) => {
     let favouriteLabelActiveClass = "";
     let favouriteLabelInnerHTML = "";
@@ -74,8 +69,8 @@ function TodaySuggestion() {
       </div>
     );
   };
-  const updateDOMTabMainPart = (tabMainInfo) => {
-    return tabMainInfo.map((data, dataIndex) => (
+  const updateDOMTabMainPart = (tabMainInfo) =>
+    tabMainInfo.map((data, dataIndex) => (
       <div key={dataIndex} className="today-suggestion__main-list">
         {data.map((dataChild, dataChildIndex) => (
           <div key={dataChildIndex} className="today-suggestion__main-item">
@@ -152,9 +147,8 @@ function TodaySuggestion() {
         ))}
       </div>
     ));
-  };
-  const updateDOMTabSuperSalePart = (tabSuperSaleInfo) => {
-    return tabSuperSaleInfo.map((data, dataIndex) => (
+  const updateDOMTabSuperSalePart = (tabSuperSaleInfo) =>
+    tabSuperSaleInfo.map((data, dataIndex) => (
       <div key={dataIndex} className="today-suggestion__main-list">
         {data.map((dataChild, dataChildIndex) => (
           <div key={dataChildIndex} className="today-suggestion__main-item">
@@ -230,7 +224,6 @@ function TodaySuggestion() {
         ))}
       </div>
     ));
-  };
   const toggleActiveHeadingTab = (activeTab) => {
     switch (activeTab) {
       case "main": {
@@ -251,8 +244,8 @@ function TodaySuggestion() {
         );
         break;
       }
-      default: {
-      }
+      default:
+        break;
     }
   };
   const handleClickHeadingTabMain = () => {
@@ -280,13 +273,10 @@ function TodaySuggestion() {
     // scroll to this part
     window.scrollTo(0, scrollDistance);
   };
-  //#endregion
 
-  //#region Handle side effects
   useEffect(() => {
     setScrollDistance(todaySuggestionRef.current.offsetTop - 120);
   }, []);
-  //#endregion
 
   return (
     <div ref={todaySuggestionRef} className="today-suggestion">

@@ -9,7 +9,6 @@ const DataSourceContext = createContext();
 function DataSourceContextProvider({ children }) {
   const [dataSource, setDataSource] = useState();
 
-  // Fetch data
   useEffect(() => {
     async function fetchData() {
       const { data: data1 } = await axios.get(API1_URL);

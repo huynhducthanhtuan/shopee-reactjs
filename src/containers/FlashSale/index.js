@@ -1,17 +1,12 @@
 import "./FlashSale.css";
-import { useContext } from "react";
-import { DataSourceContext } from "../../contexts";
+import { useDataSourceContext } from "../../hooks";
 
 function FlashSale() {
   // Get data from Context
-  const dataSourceContext = useContext(DataSourceContext);
-  const listInfo = dataSourceContext
-    ? dataSourceContext.flashSaleMainListInfo
-    : null;
+  const listInfo = useDataSourceContext("flashSaleMainListInfo");
 
-  // Function handlers
-  const updateDOMListPart = (datas) => {
-    return datas.map((data) => (
+  const updateDOMListPart = (datas) =>
+    datas.map((data) => (
       <a key={data.id} href={data.href} className="flash-sale__main__link">
         <img
           src={data.bubbleImage}
@@ -55,7 +50,6 @@ function FlashSale() {
         </div>
       </a>
     ));
-  };
 
   return (
     <div className="flash-sale">
