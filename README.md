@@ -6,7 +6,7 @@
 
 #### Version 1.0: 14/12/2021
 
-### Cách chạy dự án
+### Các bước chạy dự án
 
 #### 1. Clone dự án về máy: "git clone https://github.com/huynhdthanhtuan/shopee-reactjs"
 
