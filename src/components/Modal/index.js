@@ -1,12 +1,12 @@
 import "./Modal.css";
 import { useRef } from "react";
-import { useModalStatusContext } from "../../hooks";
+import { useModalStatusContext } from "hooks";
+import { handleStopPropagation } from "helpers";
 
 function Modal() {
   const giftBannerPopupRef = useRef();
   const giftBannerPopupCloseBtnRef = useRef();
 
-  // Get data from Context
   const { setShowModal } = useModalStatusContext();
 
   const handleClickModal = () => {
@@ -19,11 +19,11 @@ function Modal() {
       document.querySelector("#app").style.position = "absolute";
     }, 100);
   };
-  const handleClickGiftBannerPopup = (e) => {
-    e.stopPropagation();
+  const handleClickGiftBannerPopup = (event) => {
+    handleStopPropagation(event);
   };
-  const handleClickGiftBannerPopupCloseBtn = (e) => {
-    e.stopPropagation();
+  const handleClickGiftBannerPopupCloseBtn = (event) => {
+    handleStopPropagation(event);
     document.querySelector("#modal").click();
   };
 
@@ -34,7 +34,7 @@ function Modal() {
       <div className="modal__body">
         <div
           ref={giftBannerPopupRef}
-          onClick={(e) => handleClickGiftBannerPopup(e)}
+          onClick={(event) => handleClickGiftBannerPopup(event)}
           style={{ display: "block" }}
           className="gift-banner__popup"
         >
@@ -45,7 +45,7 @@ function Modal() {
           />
           <button
             ref={giftBannerPopupCloseBtnRef}
-            onClick={(e) => handleClickGiftBannerPopupCloseBtn(e)}
+            onClick={(event) => handleClickGiftBannerPopupCloseBtn(event)}
             className="gift-banner__popup__close-btn"
           >
             <i className="fas fa-times"></i>

@@ -1,8 +1,7 @@
 import "./ShopeeMall.css";
-import { useDataSourceContext } from "../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function ShopeeMall() {
-  // Get data from Context
   const headingTextInfo = useDataSourceContext("shopeeMallHeadingTextInfo");
   const productListInfo = useDataSourceContext("shopeeMallMainProductListInfo");
   const mainMotionLinkInfo = useDataSourceContext(

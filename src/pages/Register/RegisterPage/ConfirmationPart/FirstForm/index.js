@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useDataSourceContext } from "../../../../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function FirstForm({
   userPhoneNumber,
@@ -13,7 +13,6 @@ function FirstForm({
   const formContentConfirmBtnRef = useRef();
   const formContentUserPhoneNumberRef = useRef();
 
-  // Get data from Context
   const confirmationCodes = useDataSourceContext("confirmationCodes");
 
   const handleClickHeaderBackBtn = () => {

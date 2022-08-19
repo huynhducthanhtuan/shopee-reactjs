@@ -1,8 +1,7 @@
 import "./FooterPolicyAndTerms.css";
-import { useDataSourceContext } from "../../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function FooterPolicyAndTerms() {
-  // Get data from Context
   const titleInfo = useDataSourceContext("footerPolicyTermstitleInfo");
   const certificateInfo = useDataSourceContext(
     "footerPolicyTermsPartCertificateInfo"
@@ -46,7 +45,7 @@ function FooterPolicyAndTerms() {
         {data}
       </span>
     ));
-    
+
     return spanTags;
   };
 

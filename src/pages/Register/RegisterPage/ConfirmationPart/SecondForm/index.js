@@ -1,11 +1,9 @@
 import { useRef } from "react";
 
 function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
-  // Hooks
   const headerBackBtnRef = useRef();
   const registerBtnRef = useRef();
 
-  // Function handlers
   const handleClickHeaderBackBtn = () => {
     setShowSecondForm(false);
     setShowFirstForm(true);
@@ -273,4 +271,5 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
     </form>
   );
 }
+
 export default SecondForm;

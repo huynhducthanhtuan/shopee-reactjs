@@ -1,8 +1,7 @@
 import "./TopSearch.css";
-import { useDataSourceContext } from "../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function TopSearch() {
-  // Get data from Context
   const listInfo = useDataSourceContext("topSearchMainListInfo");
 
   const updateDOMMainListPart = (datas) =>

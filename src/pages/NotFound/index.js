@@ -1,14 +1,11 @@
 import "./NotFound.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { NOTFOUND_PAGE_TITLE } from "../../constants";
-import { updateWebsiteTitle } from "../../helpers";
+import { NOTFOUND_PAGE_TITLE } from "constants/index";
+import { updateWebsiteTitle } from "helpers";
 
 function NotFound() {
-  // Handle side effects
-  useEffect(() => {
-    updateWebsiteTitle(NOTFOUND_PAGE_TITLE);
-  }, []);
+  useEffect(() => updateWebsiteTitle(NOTFOUND_PAGE_TITLE), []);
 
   return (
     <div id="not-found-page">

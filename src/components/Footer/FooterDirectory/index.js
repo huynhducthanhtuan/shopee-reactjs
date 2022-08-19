@@ -1,8 +1,7 @@
 import "./FooterDirectory.css";
-import { useDataSourceContext } from "../../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function FooterDirectory() {
-  // Get data from Context
   const listInfo = useDataSourceContext("footerDirectoryListInfo");
 
   const updateDOMListPart = (datas) =>

@@ -1,14 +1,13 @@
 import "./HeaderSearchPart.css";
 import { useRef } from "react";
-import { historyListInfoApi } from "../../../apis";
-import { useDataSourceContext } from "../../../hooks";
+import { historyListInfoApi } from "apis";
+import { useDataSourceContext } from "hooks";
 
 function HeaderSearchPart() {
   const historyRef = useRef();
   const frameInputRef = useRef();
   const frameBtnRef = useRef();
 
-  // Get data from Context
   const historyKeywordsListInfo = useDataSourceContext(
     "headerSearchHistoryKeywordsListInfo"
   );
@@ -58,8 +57,8 @@ function HeaderSearchPart() {
     </>
   );
 
-  const handleClickLogo = (e) => {
-    e.preventDefault();
+  const handleClickLogo = (event) => {
+    event.preventDefault();
     window.scrollTo(0, 0);
   };
   const handleClickFrameBtn = () => {
@@ -83,8 +82,8 @@ function HeaderSearchPart() {
       historyRef.current.style.display = "none";
     }, 200);
   };
-  const handleKeyDownFrameInput = (e) => {
-    switch (e.code) {
+  const handleKeyDownFrameInput = (event) => {
+    switch (event.code) {
       case "Enter": {
         handleClickFrameBtn();
         break;
@@ -98,7 +97,7 @@ function HeaderSearchPart() {
     <div className="header__search-part">
       <a
         href=""
-        onClick={(e) => handleClickLogo(e)}
+        onClick={(event) => handleClickLogo(event)}
         className="header__shopee-logo"
       >
         <svg

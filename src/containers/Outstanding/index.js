@@ -1,8 +1,7 @@
 import "./Outstanding.css";
-import { useDataSourceContext } from "../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function Outstanding() {
-  // Get data from Context
   const hotSellingProductsInfo = useDataSourceContext(
     "outstandingHotSellingProductsInfo"
   );

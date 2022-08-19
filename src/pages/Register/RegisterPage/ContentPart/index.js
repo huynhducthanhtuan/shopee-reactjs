@@ -1,45 +1,22 @@
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
+import { handlePreventDefault, checkValidPhoneNumber } from "helpers";
 
 function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
-  // Hooks
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
   const inputRef = useRef();
   const nextBtnRef = useRef();
   const inputTextInvalidPhoneNumberRef = useRef();
   const inputIconValidPhoneNumberRef = useRef();
 
-  // Function handlers
-  const handlePreventDefault = (e) => {
-    e.preventDefault();
-  };
-  const checkValidPhoneNumber = (phoneNumber) => {
-    if (phoneNumber.length == 10) {
-      // 1.check phoneNumber[0] = 0 && phoneNumber[1] != 0 ?
-      const checkFirstTwoLetters =
-        phoneNumber[0].charCodeAt() == 48 &&
-        phoneNumber[1].charCodeAt() >= 49 &&
-        phoneNumber[1].charCodeAt() <= 57;
-
-      // 2.check phoneNumber[2->9] all is a integer character in range 0-9 ?
-      const newPhoneNumber = phoneNumber.slice(2).split("");
-      const checkAllLetters = newPhoneNumber.every(
-        (a) => a.match(/[0-9]/g) && a.match(/[0-9]/g).length == 1
-      );
-
-      // 3.return result
-      const result = checkFirstTwoLetters && checkAllLetters;
-      return result;
-    } else {
-      return false;
-    }
-  };
   const showError = () => {
     inputRef.current.classList.add(
       "register-page__content-form__input--invalid-phone-number"
     );
+
     inputTextInvalidPhoneNumberRef.current.style.display = "block";
     inputIconValidPhoneNumberRef.current.style.display = "none";
+
     nextBtnRef.current.style.opacity = "0.7";
     nextBtnRef.current.style.cursor = "not-allowed";
   };
@@ -47,18 +24,21 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
     inputRef.current.classList.remove(
       "register-page__content-form__input--invalid-phone-number"
     );
+
     inputTextInvalidPhoneNumberRef.current.style.display = "none";
     inputIconValidPhoneNumberRef.current.style.display = "block";
+
     nextBtnRef.current.style.opacity = "1";
     nextBtnRef.current.style.cursor = "pointer";
   };
-  const handleKeyDownInput = (e) => {
-    if (e.code == "Enter") {
-      e.preventDefault();
+  const handleKeyDownInput = (event) => {
+    if (event.code === "Enter") {
+      handlePreventDefault(event);
     }
+
     setTimeout(() => {
-      if (e.code != "Enter") {
-        if (checkValidPhoneNumber(e.target.value)) {
+      if (event.code !== "Enter") {
+        if (checkValidPhoneNumber(event.target.value)) {
           setIsValidPhoneNumber(true);
           hideError();
         } else {
@@ -66,7 +46,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
           showError();
         }
       } else {
-        if (checkValidPhoneNumber(e.target.value)) {
+        if (checkValidPhoneNumber(event.target.value)) {
           setIsValidPhoneNumber(true);
           nextBtnRef.current.click();
         } else {
@@ -76,26 +56,26 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
       }
     }, 0);
   };
-  const handleClickNextBtn = (e) => {
-    e.preventDefault();
+  const handleClickNextBtn = (event) => {
+    handlePreventDefault(event);
 
     if (isValidPhoneNumber) {
       setUserPhoneNumber(inputRef.current.value);
       setShowConfirmationPart(true);
     }
   };
-  const handleMouseOverNextBtn = (e) => {
-    if (e.target.style.cursor == "pointer") {
-      e.target.style.opacity = "0.92";
+  const handleMouseOverNextBtn = (event) => {
+    if (event.target.style.cursor === "pointer") {
+      event.target.style.opacity = "0.92";
     } else {
-      e.preventDefault();
+      handlePreventDefault(event);
     }
   };
-  const handleMouseLeaveNextBtn = (e) => {
-    if (e.target.style.cursor == "pointer") {
-      e.target.style.opacity = "1";
+  const handleMouseLeaveNextBtn = (event) => {
+    if (event.target.style.cursor === "pointer") {
+      event.target.style.opacity = "1";
     } else {
-      e.preventDefault();
+      handlePreventDefault(event);
     }
   };
 
@@ -155,7 +135,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
 
             <button
               ref={nextBtnRef}
-              onClick={(e) => handleClickNextBtn(e)}
+              onClick={(event) => handleClickNextBtn(event)}
               onMouseOver={handleMouseOverNextBtn}
               onMouseLeave={handleMouseLeaveNextBtn}
               className="register-page__content-form__next-btn"
@@ -171,19 +151,19 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
             </div>
             <div className="register-page__content-form__other-ways">
               <button
-                onClick={(e) => handlePreventDefault(e)}
+                onClick={(event) => handlePreventDefault(event)}
                 className="register-page__content-form__other-ways__facebook"
               >
                 <img src="/assests/img/register-page/facebook.png" alt="" />
               </button>
               <button
-                onClick={(e) => handlePreventDefault(e)}
+                onClick={(event) => handlePreventDefault(event)}
                 className="register-page__content-form__other-ways__google"
               >
                 <img src="/assests/img/register-page/google.png" alt="" />
               </button>
               <button
-                onClick={(e) => handlePreventDefault(e)}
+                onClick={(event) => handlePreventDefault(event)}
                 className="register-page__content-form__other-ways__apple"
               >
                 <img src="/assests/img/register-page/apple.png" alt="" />

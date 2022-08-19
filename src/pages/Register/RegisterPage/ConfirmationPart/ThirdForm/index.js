@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { COUNT_DOWN_SECONDS } from "../../../../../constants";
+import { COUNT_DOWN_SECONDS } from "constants/index";
 
 function ThirdForm({ userPhoneNumber }) {
-  // Hooks
-  const countDownSecondsNumberRef = useRef();
   const [countDownSecond, setCountDownSecond] = useState(COUNT_DOWN_SECONDS);
+  const countDownSecondsNumberRef = useRef();
 
-  // Handle side effects
   useEffect(() => {
     let timerId;
 
@@ -25,9 +23,8 @@ function ThirdForm({ userPhoneNumber }) {
 
     countDown();
 
-    return () => {
-      clearInterval(timerId);
-    };
+    // Cleanup function
+    return () => clearInterval(timerId);
   }, []);
 
   return (
@@ -35,7 +32,6 @@ function ThirdForm({ userPhoneNumber }) {
       <div className="register-page__confirmation__third-form__header">
         Đăng Ký Thành Công
       </div>
-
       <div className="register-page__confirmation__third-form__content">
         <div className="register-page__confirmation__third-form__content-success-icon">
           <svg fill="none" viewBox="0 0 16 16">
@@ -94,4 +90,5 @@ function ThirdForm({ userPhoneNumber }) {
     </form>
   );
 }
+
 export default ThirdForm;

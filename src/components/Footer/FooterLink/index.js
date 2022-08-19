@@ -1,8 +1,7 @@
 import "./FooterLink.css";
-import { useDataSourceContext } from "../../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function FooterLink() {
-  // Get data from Context
   const aboutTextCSKHInfo = useDataSourceContext("footerLinkAboutTextCSKHInfo");
   const aboutTextVeShopeeInfo = useDataSourceContext(
     "footerLinkAboutTextVeShopeeInfo"

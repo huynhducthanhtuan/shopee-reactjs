@@ -1,13 +1,12 @@
 import "./HeaderCommonInfo.css";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
-import { useDataSourceContext } from "../../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function HeaderCommonInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const notificationQuantityRef = useRef();
 
-  // Get data from Context
   const popupWhenLoggedInListInfo = useDataSourceContext(
     "headerNotificationPopupWhenLoggedInListInfo"
   );

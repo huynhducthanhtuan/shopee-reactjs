@@ -1,8 +1,7 @@
 import "./SearchTrending.css";
-import { useDataSourceContext } from "../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function SearchTrending() {
-  // Get data from Context
   const listInfo = useDataSourceContext("searchTrendingMainListInfo");
 
   const updateDOMMainListPart = (datas, listIndex) =>

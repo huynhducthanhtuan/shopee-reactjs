@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import FirstForm from "./FirstForm";
 import SecondForm from "./SecondForm";
 import ThirdForm from "./ThirdForm";
@@ -8,13 +8,10 @@ function ConfirmationPart({
   headerPartRef,
   setShowConfirmationPart,
 }) {
-  //#region Hooks
   const [showFirstForm, setShowFirstForm] = useState(true);
   const [showSecondForm, setShowSecondForm] = useState(false);
   const [showThirdForm, setShowThirdForm] = useState(false);
-  //#endregion
 
-  //#region Handle side effects
   useEffect(() => {
     const updateUI = () => {
       headerPartRef.current.style.boxShadow = "0 6px 6px rgb(0 0 0 / 6%)";
@@ -22,7 +19,6 @@ function ConfirmationPart({
 
     updateUI();
   }, []);
-  //#endregion
 
   return (
     <div className="register-page__confirmation">

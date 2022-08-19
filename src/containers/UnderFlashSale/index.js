@@ -1,8 +1,7 @@
 import "./UnderFlashSale.css";
-import { useDataSourceContext } from "../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function UnderFlashSale() {
-  // Get data from Context
   const partInfo = useDataSourceContext("underFlashSalePartInfo");
 
   const updateDOMPart = (datas) =>

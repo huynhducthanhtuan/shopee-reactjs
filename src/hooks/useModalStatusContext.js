@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ModalStatusContext } from "../contexts";
+import { ModalStatusContext } from "contexts";
 
 function useModalStatusContext() {
   const { showModal, setShowModal } = useContext(ModalStatusContext);

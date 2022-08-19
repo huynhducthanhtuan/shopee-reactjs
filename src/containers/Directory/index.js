@@ -1,8 +1,7 @@
 import "./Directory.css";
-import { useDataSourceContext } from "../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function Directory() {
-  // Get data from Context
   const itemListInfo = useDataSourceContext("directoryMainItemListInfo");
 
   const updateDOMListPart = (datas) =>

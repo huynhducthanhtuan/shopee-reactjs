@@ -1,16 +1,14 @@
 import "./GiftBanner.css";
-import { useModalStatusContext } from "../../hooks";
+import { useModalStatusContext } from "hooks";
+import { handlePreventScrolling } from "helpers";
 
 function GiftBanner() {
-  // Get data from Context
   const { setShowModal } = useModalStatusContext();
 
   const handleClickGiftBanner = () => {
     setTimeout(() => {
       setShowModal(true);
-
-      // prevent scrolling
-      document.querySelector("body").style.overflow = "hidden";
+      handlePreventScrolling();
     }, 100);
   };
 

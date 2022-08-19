@@ -1,13 +1,10 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { LOGIN_PAGE_TITLE } from "../../../constants";
-import { updateWebsiteTitle } from "../../../helpers";
+import { LOGIN_PAGE_TITLE } from "constants/index";
+import { updateWebsiteTitle } from "helpers";
 
 function LoginPage() {
-  // Handle side effects
-  useEffect(() => {
-    updateWebsiteTitle(LOGIN_PAGE_TITLE);
-  }, []);
+  useEffect(() => updateWebsiteTitle(LOGIN_PAGE_TITLE), []);
 
   return (
     <div id="login-page">

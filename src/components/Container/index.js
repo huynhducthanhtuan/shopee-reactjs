@@ -9,7 +9,7 @@ import {
   SearchTrending,
   TopSearch,
   TodaySuggestion,
-} from "../../containers";
+} from "containers";
 
 function Container() {
   return (

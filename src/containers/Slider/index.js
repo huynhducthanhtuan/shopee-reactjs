@@ -1,9 +1,8 @@
 import "./Slider.css";
-import { useDataSourceContext } from "../../hooks";
-import { SLIDER_QUEUE_ITEM_QUANTITY } from "../../constants";
+import { useDataSourceContext } from "hooks";
+import { SLIDER_QUEUE_ITEM_QUANTITY } from "constants/index";
 
 function Slider() {
-  // Get data from Context
   const favouriteSelectionsInfo = useDataSourceContext(
     "sliderFavouriteSelectionsInfo"
   );

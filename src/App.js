@@ -1,15 +1,15 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useDataSourceContext } from "./hooks";
-import { ModalStatusContextProvider } from "./contexts";
+import { useDataSourceContext } from "hooks";
+import { ModalStatusContextProvider } from "contexts";
 import {
   HomePage,
   RegisterPage,
   LoginPage,
   NotFoundPage,
   LoadingPage,
-} from "./pages";
+} from "pages";
 
 function App() {
   const [isReady, setIsReady] = useState(false);

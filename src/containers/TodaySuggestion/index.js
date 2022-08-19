@@ -1,6 +1,6 @@
 import "./TodaySuggestion.css";
 import { useRef, useState, useEffect } from "react";
-import { useDataSourceContext } from "../../hooks";
+import { useDataSourceContext } from "hooks";
 
 function TodaySuggestion() {
   const todaySuggestionRef = useRef();
@@ -11,7 +11,6 @@ function TodaySuggestion() {
   const viewAllBtnRef = useRef();
   const [scrollDistance, setScrollDistance] = useState(0);
 
-  // Get data from Context
   const tabMainInfo = useDataSourceContext("todaySuggestionMainTabMainInfo");
   const tabSuperSaleInfo = useDataSourceContext(
     "todaySuggestionMainTabSuperSaleInfo"
@@ -274,9 +273,10 @@ function TodaySuggestion() {
     window.scrollTo(0, scrollDistance);
   };
 
-  useEffect(() => {
-    setScrollDistance(todaySuggestionRef.current.offsetTop - 120);
-  }, []);
+  useEffect(
+    () => setScrollDistance(todaySuggestionRef.current.offsetTop - 120),
+    []
+  );
 
   return (
     <div ref={todaySuggestionRef} className="today-suggestion">
