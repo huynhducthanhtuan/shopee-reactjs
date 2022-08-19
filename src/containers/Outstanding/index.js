@@ -7,7 +7,7 @@ function Outstanding() {
   );
   const hotBrandsInfo = useDataSourceContext("outstandingHotBrandsInfo");
 
-  const updateDOMHotSellingProductsPart = ([info, list]) => (
+  const renderHotSellingProducts = ([info, list]) => (
     <>
       <div className="outstanding__hot-selling-products__info">
         <h4 className="outstanding__hot-selling-products__info__heading">
@@ -48,7 +48,7 @@ function Outstanding() {
       </div>
     </>
   );
-  const updateDOMHotBrandsPart = ([info, list]) => (
+  const renderHotBrands = ([info, list]) => (
     <>
       <div className="outstanding__hot-brands__info">
         <h4 className="outstanding__hot-brands__info__heading">
@@ -107,14 +107,14 @@ function Outstanding() {
         <div>
           <div className="outstanding__hot-selling-products">
             {hotSellingProductsInfo &&
-              updateDOMHotSellingProductsPart([
+              renderHotSellingProducts([
                 hotSellingProductsInfo.info,
                 hotSellingProductsInfo.list,
               ])}
           </div>
           <div className="outstanding__hot-brands">
             {hotBrandsInfo &&
-              updateDOMHotBrandsPart([hotBrandsInfo.info, hotBrandsInfo.list])}
+              renderHotBrands([hotBrandsInfo.info, hotBrandsInfo.list])}
           </div>
         </div>
       </div>

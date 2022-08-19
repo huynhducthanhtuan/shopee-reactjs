@@ -4,7 +4,7 @@ import { useDataSourceContext } from "hooks";
 function TopSearch() {
   const listInfo = useDataSourceContext("topSearchMainListInfo");
 
-  const updateDOMMainListPart = (datas) =>
+  const renderMainList = (datas) =>
     datas.map((data, index) => (
       <a key={data.id} href={data.href} className="top-search__main__link">
         <div className="top-search__main__product">
@@ -50,7 +50,7 @@ function TopSearch() {
       <div className="top-search__main">
         <div className="top-search__main-part">
           <div className="top-search__main__list">
-            {listInfo && updateDOMMainListPart(listInfo)}
+            {listInfo && renderMainList(listInfo)}
           </div>
         </div>
 

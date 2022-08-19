@@ -4,7 +4,7 @@ import { useDataSourceContext } from "hooks";
 function Directory() {
   const itemListInfo = useDataSourceContext("directoryMainItemListInfo");
 
-  const updateDOMListPart = (datas) =>
+  const renderDirectoryMainList = (datas) =>
     datas.map((data, index) => (
       <li key={index} className="directory__main__item">
         <a href={data[0].href} className="directory__main__item__link">
@@ -37,7 +37,7 @@ function Directory() {
       <div className="directory__main">
         <div className="directory__main__part">
           <ul className="directory__main__list">
-            {itemListInfo && updateDOMListPart(itemListInfo)}
+            {itemListInfo && renderDirectoryMainList(itemListInfo)}
           </ul>
         </div>
 

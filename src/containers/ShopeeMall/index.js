@@ -8,7 +8,7 @@ function ShopeeMall() {
     "shopeeMallMainMotionLinkInfo"
   );
 
-  const updateDOMHeadingTextPart = (datas) =>
+  const renderHeadingText = (datas) =>
     datas.map((data) => (
       <div key={data.id}>
         <img
@@ -19,7 +19,7 @@ function ShopeeMall() {
         <span className="shopee-mall__heading__text__title">{data.title}</span>
       </div>
     ));
-  const updateDOMProductListPart = (datas) => {
+  const renderProductList = (datas) => {
     const shopeeMallMainProductListLength = datas.length;
     const shopeeMallMainProductListItemsLength =
       shopeeMallMainProductListLength * 2;
@@ -65,7 +65,7 @@ function ShopeeMall() {
       </li>
     ));
   };
-  const updateDOMMainMotionPart = (datas) =>
+  const renderMainMotion = (datas) =>
     datas.map((data) => {
       const { id, href, image } = data;
 
@@ -98,7 +98,7 @@ function ShopeeMall() {
           </a>
         </div>
         <div className="shopee-mall__heading__text">
-          {headingTextInfo && updateDOMHeadingTextPart(headingTextInfo)}
+          {headingTextInfo && renderHeadingText(headingTextInfo)}
         </div>
         <a
           href="https://shopee.vn/mall"
@@ -123,7 +123,7 @@ function ShopeeMall() {
             />
           </a>
           {/* {mainMotionLinkInfo &&
-                updateDOMMainMotionPart(mainMotionLinkInfo)} */}
+                renderMainMotion(mainMotionLinkInfo)} */}
           <div className="shopee-mall__main__motion__queue">
             <div className="shopee-mall__main__motion__queue-item shopee-mall__main__motion__queue-item--current"></div>
             <div className="shopee-mall__main__motion__queue-item"></div>
@@ -134,7 +134,7 @@ function ShopeeMall() {
         <div className="shopee-mall__main__product">
           <div className="shopee-mall__main__product-part">
             <ul className="shopee-mall__main__product-list">
-              {productListInfo && updateDOMProductListPart(productListInfo)}
+              {productListInfo && renderProductList(productListInfo)}
             </ul>
           </div>
 

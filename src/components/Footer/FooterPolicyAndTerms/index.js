@@ -10,33 +10,41 @@ function FooterPolicyAndTerms() {
     "footerPolicyTermsPartCompanyInfoInfo"
   );
 
-  const updateInDOMTitlePart = (datas) => {
-    const divTags = datas.map((data) => (
-      <div key={data.id} className="footer__policy-terms__part__title__part">
-        <a href={data.href} className="footer__policy-terms__part__title__link">
-          {data.innerHTML}
-        </a>
-      </div>
-    ));
+  const renderTitlePart = (datas) => {
+    const divTags = datas.map((data) => {
+      const { id, href, innerHTML } = data;
+
+      return (
+        <div key={id} className="footer__policy-terms__part__title__part">
+          <a href={href} className="footer__policy-terms__part__title__link">
+            {innerHTML}
+          </a>
+        </div>
+      );
+    });
 
     return divTags;
   };
-  const updateInDOMCertificatePart = (datas) => {
-    const aTags = datas.map((data) => (
-      <a
-        key={data.id}
-        target="_blank"
-        rel="noopener noreferrer"
-        href={data.href}
-        className="footer__policy-terms__part__certificate__link"
-      >
-        <img src={data.image} alt="" />
-      </a>
-    ));
+  const renderCertificatePart = (datas) => {
+    const aTags = datas.map((data) => {
+      const { id, href, image } = data;
+
+      return (
+        <a
+          key={id}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={href}
+          className="footer__policy-terms__part__certificate__link"
+        >
+          <img src={image} alt="" />
+        </a>
+      );
+    });
 
     return aTags;
   };
-  const updateInDOMCompanyInfoPart = (datas) => {
+  const renderCompanyInfoPart = (datas) => {
     const spanTags = datas.map((data, index) => (
       <span
         key={index}
@@ -53,13 +61,13 @@ function FooterPolicyAndTerms() {
     <div className="footer__policy-terms">
       <div className="footer__policy-terms__part">
         <div className="footer__policy-terms__part__title">
-          {titleInfo && updateInDOMTitlePart(titleInfo)}
+          {titleInfo && renderTitlePart(titleInfo)}
         </div>
         <div className="footer__policy-terms__part__certificate">
-          {certificateInfo && updateInDOMCertificatePart(certificateInfo)}
+          {certificateInfo && renderCertificatePart(certificateInfo)}
         </div>
         <div className="footer__policy-terms__part__company-info">
-          {companyInfoInfo && updateInDOMCompanyInfoPart(companyInfoInfo)}
+          {companyInfoInfo && renderCompanyInfoPart(companyInfoInfo)}
         </div>
       </div>
     </div>

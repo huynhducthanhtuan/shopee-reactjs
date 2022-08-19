@@ -1,4 +1,5 @@
-const $ = document.querySelector.bind(document);
+export const $ = document.querySelector.bind(document);
+export const $$ = document.querySelectorAll.bind(document);
 
 export const COUNT_DOWN_SECONDS = 7;
 export const SLIDER_QUEUE_ITEM_QUANTITY = 11;

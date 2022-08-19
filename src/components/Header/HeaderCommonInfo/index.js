@@ -13,7 +13,7 @@ function HeaderCommonInfo() {
   const notificationQuantity =
     popupWhenLoggedInListInfo && popupWhenLoggedInListInfo.length;
 
-  const updateDOMPopupWhenLoggedInListPart = (datas) =>
+  const renderPopupWhenLoggedInList = (datas) =>
     datas.map((data, index) => (
       <li
         key={index}
@@ -174,9 +174,7 @@ function HeaderCommonInfo() {
                 </h4>
                 <ul className="header__notification__popup--when-logged-in__list">
                   {popupWhenLoggedInListInfo &&
-                    updateDOMPopupWhenLoggedInListPart(
-                      popupWhenLoggedInListInfo
-                    )}
+                    renderPopupWhenLoggedInList(popupWhenLoggedInListInfo)}
                 </ul>
                 <a
                   href="https://shopee.vn/user/notifications/order"

@@ -68,7 +68,7 @@ function TodaySuggestion() {
       </div>
     );
   };
-  const updateDOMTabMainPart = (tabMainInfo) =>
+  const renderTabMain = (tabMainInfo) =>
     tabMainInfo.map((data, dataIndex) => (
       <div key={dataIndex} className="today-suggestion__main-list">
         {data.map((dataChild, dataChildIndex) => (
@@ -146,7 +146,7 @@ function TodaySuggestion() {
         ))}
       </div>
     ));
-  const updateDOMTabSuperSalePart = (tabSuperSaleInfo) =>
+  const renderTabSuperSale = (tabSuperSaleInfo) =>
     tabSuperSaleInfo.map((data, dataIndex) => (
       <div key={dataIndex} className="today-suggestion__main-list">
         {data.map((dataChild, dataChildIndex) => (
@@ -301,13 +301,13 @@ function TodaySuggestion() {
       </div>
       <div className="today-suggestion__main">
         <div ref={tabMainRef} className="today-suggestion__main__tab-main">
-          {tabMainInfo && updateDOMTabMainPart(tabMainInfo)}
+          {tabMainInfo && renderTabMain(tabMainInfo)}
         </div>
         <div
           ref={tabSuperSaleRef}
           className="today-suggestion__main__tab-super-sale"
         >
-          {tabSuperSaleInfo && updateDOMTabSuperSalePart(tabSuperSaleInfo)}
+          {tabSuperSaleInfo && renderTabSuperSale(tabSuperSaleInfo)}
         </div>
         <a
           ref={viewAllBtnRef}

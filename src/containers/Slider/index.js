@@ -7,7 +7,7 @@ function Slider() {
     "sliderFavouriteSelectionsInfo"
   );
 
-  const updateDOMFavouriteSelectionsPart = (datas) =>
+  const renderFavouriteSelections = (datas) =>
     datas.map((data) => {
       const { id, href, image, text } = data;
 
@@ -89,7 +89,7 @@ function Slider() {
         </div>
         <div className="slider__favourite-selections">
           {favouriteSelectionsInfo &&
-            updateDOMFavouriteSelectionsPart(favouriteSelectionsInfo)}
+            renderFavouriteSelections(favouriteSelectionsInfo)}
         </div>
       </div>
     </div>

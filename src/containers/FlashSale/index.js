@@ -4,7 +4,7 @@ import { useDataSourceContext } from "hooks";
 function FlashSale() {
   const listInfo = useDataSourceContext("flashSaleMainListInfo");
 
-  const updateDOMListPart = (datas) =>
+  const renderFlashSaleMainList = (datas) =>
     datas.map((data) => (
       <a key={data.id} href={data.href} className="flash-sale__main__link">
         <img
@@ -69,7 +69,7 @@ function FlashSale() {
       <div className="flash-sale__main">
         <div className="flash-sale__main__part">
           <div className="flash-sale__main__list">
-            {listInfo && updateDOMListPart(listInfo)}
+            {listInfo && renderFlashSaleMainList(listInfo)}
           </div>
         </div>
 

@@ -2,6 +2,7 @@ import "./HeaderSearchPart.css";
 import { useRef } from "react";
 import { historyListInfoApi } from "apis";
 import { useDataSourceContext } from "hooks";
+import { handlePreventDefault, scrollToTop } from "helpers";
 
 function HeaderSearchPart() {
   const historyRef = useRef();
@@ -13,7 +14,7 @@ function HeaderSearchPart() {
   );
   const historyListInfo = useDataSourceContext("headerSearchHistoryListInfo");
 
-  const updateDOMHistoryKeywordsListPart = (datas) =>
+  const renderHistoryKeywordsList = (datas) =>
     datas.map((data) => {
       const { id, href, innerHTML } = data;
 
@@ -27,7 +28,7 @@ function HeaderSearchPart() {
         </a>
       );
     });
-  const updateDOMHistoryListPart = (datas) => (
+  const renderHistoryList = (datas) => (
     <>
       <li className="header__search-history-item header__search-history-item--default">
         <a
@@ -58,8 +59,8 @@ function HeaderSearchPart() {
   );
 
   const handleClickLogo = (event) => {
-    event.preventDefault();
-    window.scrollTo(0, 0);
+    handlePreventDefault(event);
+    scrollToTop();
   };
   const handleClickFrameBtn = () => {
     if (frameInputRef.current.value !== "") {
@@ -129,13 +130,13 @@ function HeaderSearchPart() {
           </a>
           <div ref={historyRef} className="header__search-history">
             <ul className="header__search-history-list">
-              {historyListInfo && updateDOMHistoryListPart(historyListInfo)}
+              {historyListInfo && renderHistoryList(historyListInfo)}
             </ul>
           </div>
         </div>
         <div className="header__search-history-keywords-list">
           {historyKeywordsListInfo &&
-            updateDOMHistoryKeywordsListPart(historyKeywordsListInfo)}
+            renderHistoryKeywordsList(historyKeywordsListInfo)}
         </div>
       </div>
       <div className="header__cart">

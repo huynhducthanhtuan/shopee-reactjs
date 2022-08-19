@@ -4,7 +4,7 @@ import { useDataSourceContext } from "hooks";
 function SearchTrending() {
   const listInfo = useDataSourceContext("searchTrendingMainListInfo");
 
-  const updateDOMMainListPart = (datas, listIndex) =>
+  const renderSearchTrendingMainList = (datas, listIndex) =>
     datas[listIndex].map((data) => {
       const { id, href, productName, productDescription, image } = data;
 
@@ -44,7 +44,7 @@ function SearchTrending() {
       </div>
       <div className="search-trending__main">
         <div className="search-trending__main__list">
-          {listInfo && updateDOMMainListPart(listInfo, 0)}
+          {listInfo && renderSearchTrendingMainList(listInfo, 0)}
         </div>
       </div>
     </div>

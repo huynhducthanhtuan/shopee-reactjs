@@ -11,29 +11,37 @@ function FooterLink() {
     "footerLinkCopyrightCountryAndAreaListInfo"
   );
 
-  const updateDOMAboutTextCSKHPart = (datas) => {
-    const divTags = datas.map((data) => (
-      <div key={data.id}>
-        <a href={data.href} className="footer__link__about-text-CSKH__link">
-          {data.innerHTML}
-        </a>
-      </div>
-    ));
+  const renderAboutTextCSKHPart = (datas) => {
+    const divTags = datas.map((data) => {
+      const { id, href, innerHTML } = data;
+
+      return (
+        <div key={id}>
+          <a href={href} className="footer__link__about-text-CSKH__link">
+            {innerHTML}
+          </a>
+        </div>
+      );
+    });
 
     return divTags;
   };
-  const updateDOMAboutTextVeShopeePart = (datas) => {
-    const divTags = datas.map((data) => (
-      <div key={data.id}>
-        <a href={data.href} className="footer__link__about-text-VeShopee__link">
-          {data.innerHTML}
-        </a>
-      </div>
-    ));
+  const renderAboutTextVeShopeePart = (datas) => {
+    const divTags = datas.map((data) => {
+      const { id, href, innerHTML } = data;
+
+      return (
+        <div key={id}>
+          <a href={href} className="footer__link__about-text-VeShopee__link">
+            {innerHTML}
+          </a>
+        </div>
+      );
+    });
 
     return divTags;
   };
-  const updateDOMAboutSocialPart = (datas) => {
+  const renderAboutSocialPart = (datas) => {
     const aTags = datas.map((data, index) => {
       const { href, image, text } = data;
 
@@ -57,7 +65,7 @@ function FooterLink() {
 
     return aTags;
   };
-  const updateDOMCopyrightCountryAndAreaListPart = (datas) => {
+  const renderCopyrightCountryAndAreaListPart = (datas) => {
     const aTags = datas.map((data) => {
       const { id, href, innerHTML } = data;
 
@@ -84,8 +92,7 @@ function FooterLink() {
               Chăm sóc khách hàng
             </span>
             <div className="footer__link__about-text-CSKH">
-              {aboutTextCSKHInfo &&
-                updateDOMAboutTextCSKHPart(aboutTextCSKHInfo)}
+              {aboutTextCSKHInfo && renderAboutTextCSKHPart(aboutTextCSKHInfo)}
             </div>
           </div>
         </div>
@@ -94,7 +101,7 @@ function FooterLink() {
             <span className="footer__link__about__heading">Về Shopee</span>
             <div className="footer__link__about-text-VeShopee">
               {aboutTextVeShopeeInfo &&
-                updateDOMAboutTextVeShopeePart(aboutTextVeShopeeInfo)}
+                renderAboutTextVeShopeePart(aboutTextVeShopeeInfo)}
             </div>
           </div>
         </div>
@@ -128,7 +135,7 @@ function FooterLink() {
               Theo dõi chúng tôi trên
             </span>
             <div className="footer__link__about-social">
-              {aboutSocialInfo && updateDOMAboutSocialPart(aboutSocialInfo)}
+              {aboutSocialInfo && renderAboutSocialPart(aboutSocialInfo)}
             </div>
           </div>
         </div>
@@ -179,7 +186,7 @@ function FooterLink() {
           </span>
           <div className="footer__link__copyright__country-and-area__list">
             {copyrightCountryAndAreaListInfo &&
-              updateDOMCopyrightCountryAndAreaListPart(
+              renderCopyrightCountryAndAreaListPart(
                 copyrightCountryAndAreaListInfo
               )}
           </div>

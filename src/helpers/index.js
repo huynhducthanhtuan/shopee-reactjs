@@ -2,6 +2,10 @@ export const updateWebsiteTitle = (title) => {
   document.title = title;
 };
 
+export const scrollToTop = () => {
+  window.scrollTo(0, 0);
+};
+
 export const handlePreventDefault = (event) => {
   event.preventDefault();
 };

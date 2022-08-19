@@ -1,21 +1,23 @@
 import "./FooterText.css";
-import $ from "jquery";
+import { $$ } from "constants/index";
+import { useEffect } from "react";
 import { useDataSourceContext } from "hooks";
 
 function FooterText() {
   const aTagsInfo = useDataSourceContext("footerTextATagsInfo");
 
-  const updateDOMATagsPart = (datas) => {
-    if (datas) {
-      const footerTextATags = $(".footer__text a");
+  const updateFooterTextATagsProps = () => {
+    if (aTagsInfo) {
+      const footerTextATags = $$(".footer__text a");
 
-      // Loop array footerTextATags
-      $.each(footerTextATags, (index, footerTextATag) => {
-        footerTextATag.href = datas[index].href;
-        footerTextATag.innerHTML = datas[index].innerHTML;
+      Array.from(footerTextATags).map((footerTextATag, index) => {
+        footerTextATag.href = aTagsInfo[index].href;
+        footerTextATag.innerHTML = aTagsInfo[index].innerHTML;
       });
     }
   };
+
+  useEffect(() => updateFooterTextATagsProps(), []);
 
   return (
     <div className="footer__text">
@@ -131,7 +133,6 @@ function FooterText() {
           dụng Shopee về điện thoại ngay hôm nay!
         </span>
       </div>
-      {updateDOMATagsPart(aTagsInfo)}
     </div>
   );
 }
