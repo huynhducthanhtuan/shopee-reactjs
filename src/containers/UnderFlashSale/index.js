@@ -2,7 +2,7 @@ import "./UnderFlashSale.css";
 import { useDataSourceContext } from "hooks";
 
 function UnderFlashSale() {
-  const partInfo = useDataSourceContext("underFlashSalePartInfo");
+  const { underFlashSalePartInfo } = useDataSourceContext();
 
   const renderUnderFlashSalePart = (datas) =>
     datas.map((data) => {
@@ -18,7 +18,8 @@ function UnderFlashSale() {
   return (
     <div className="under-flash-sale">
       <div className="under-flash-sale__part">
-        {partInfo && renderUnderFlashSalePart(partInfo)}
+        {underFlashSalePartInfo &&
+          renderUnderFlashSalePart(underFlashSalePartInfo)}
       </div>
     </div>
   );

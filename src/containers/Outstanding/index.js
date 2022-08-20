@@ -7,10 +7,8 @@ import {
 import { useDataSourceContext } from "hooks";
 
 function Outstanding() {
-  const hotSellingProductsInfo = useDataSourceContext(
-    "outstandingHotSellingProductsInfo"
-  );
-  const hotBrandsInfo = useDataSourceContext("outstandingHotBrandsInfo");
+  const { outstandingHotSellingProductsInfo, outstandingHotBrandsInfo } =
+    useDataSourceContext();
 
   const renderHotSellingProducts = ([info, list]) => (
     <>
@@ -109,15 +107,18 @@ function Outstanding() {
       >
         <div>
           <div className="outstanding__hot-selling-products">
-            {hotSellingProductsInfo &&
+            {outstandingHotSellingProductsInfo &&
               renderHotSellingProducts([
-                hotSellingProductsInfo.info,
-                hotSellingProductsInfo.list,
+                outstandingHotSellingProductsInfo.info,
+                outstandingHotSellingProductsInfo.list,
               ])}
           </div>
           <div className="outstanding__hot-brands">
-            {hotBrandsInfo &&
-              renderHotBrands([hotBrandsInfo.info, hotBrandsInfo.list])}
+            {outstandingHotBrandsInfo &&
+              renderHotBrands([
+                outstandingHotBrandsInfo.info,
+                outstandingHotBrandsInfo.list,
+              ])}
           </div>
         </div>
       </div>

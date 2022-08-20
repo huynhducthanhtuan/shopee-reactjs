@@ -2,7 +2,7 @@ import "./Directory.css";
 import { useDataSourceContext } from "hooks";
 
 function Directory() {
-  const itemListInfo = useDataSourceContext("directoryMainItemListInfo");
+  const { directoryMainItemListInfo } = useDataSourceContext();
 
   const renderDirectoryMainList = (datas) =>
     datas.map((data, index) => (
@@ -37,7 +37,8 @@ function Directory() {
       <div className="directory__main">
         <div className="directory__main__part">
           <ul className="directory__main__list">
-            {itemListInfo && renderDirectoryMainList(itemListInfo)}
+            {directoryMainItemListInfo &&
+              renderDirectoryMainList(directoryMainItemListInfo)}
           </ul>
         </div>
 

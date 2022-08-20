@@ -4,15 +4,15 @@ import { useEffect } from "react";
 import { useDataSourceContext } from "hooks";
 
 function FooterText() {
-  const aTagsInfo = useDataSourceContext("footerTextATagsInfo");
+  const { footerTextATagsInfo } = useDataSourceContext();
 
   const updateFooterTextATagsProps = () => {
-    if (aTagsInfo) {
+    if (footerTextATagsInfo) {
       const footerTextATags = $$(".footer__text a");
 
       Array.from(footerTextATags).map((footerTextATag, index) => {
-        footerTextATag.href = aTagsInfo[index].href;
-        footerTextATag.innerHTML = aTagsInfo[index].innerHTML;
+        footerTextATag.href = footerTextATagsInfo[index].href;
+        footerTextATag.innerHTML = footerTextATagsInfo[index].innerHTML;
       });
     }
   };

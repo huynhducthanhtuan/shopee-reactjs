@@ -2,7 +2,7 @@ import "./SearchTrending.css";
 import { useDataSourceContext } from "hooks";
 
 function SearchTrending() {
-  const listInfo = useDataSourceContext("searchTrendingMainListInfo");
+  const { searchTrendingMainListInfo } = useDataSourceContext();
 
   const renderSearchTrendingMainList = (datas, listIndex) =>
     datas[listIndex].map((data) => {
@@ -44,7 +44,8 @@ function SearchTrending() {
       </div>
       <div className="search-trending__main">
         <div className="search-trending__main__list">
-          {listInfo && renderSearchTrendingMainList(listInfo, 0)}
+          {searchTrendingMainListInfo &&
+            renderSearchTrendingMainList(searchTrendingMainListInfo, 0)}
         </div>
       </div>
     </div>

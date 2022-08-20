@@ -8,9 +8,7 @@ import { useDataSourceContext } from "hooks";
 import { SLIDER_QUEUE_ITEM_QUANTITY } from "constants/index";
 
 function Slider() {
-  const favouriteSelectionsInfo = useDataSourceContext(
-    "sliderFavouriteSelectionsInfo"
-  );
+  const { sliderFavouriteSelectionsInfo } = useDataSourceContext();
 
   const renderFavouriteSelections = (datas) =>
     datas.map((data) => {
@@ -93,8 +91,8 @@ function Slider() {
           </div>
         </div>
         <div className="slider__favourite-selections">
-          {favouriteSelectionsInfo &&
-            renderFavouriteSelections(favouriteSelectionsInfo)}
+          {sliderFavouriteSelectionsInfo &&
+            renderFavouriteSelections(sliderFavouriteSelectionsInfo)}
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ function FirstForm({
   const formContentConfirmBtnRef = useRef();
   const formContentUserPhoneNumberRef = useRef();
 
-  const confirmationCodes = useDataSourceContext("confirmationCodes");
+  const { confirmationCodes } = useDataSourceContext();
 
   const handleClickHeaderBackBtn = () => {
     setShowConfirmationPart(false);

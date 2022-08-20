@@ -13,10 +13,8 @@ function HeaderSearchPart() {
   const frameInputRef = useRef();
   const frameBtnRef = useRef();
 
-  const historyKeywordsListInfo = useDataSourceContext(
-    "headerSearchHistoryKeywordsListInfo"
-  );
-  const historyListInfo = useDataSourceContext("headerSearchHistoryListInfo");
+  const { headerSearchHistoryKeywordsListInfo, headerSearchHistoryListInfo } =
+    useDataSourceContext();
 
   const renderHistoryKeywordsList = (datas) =>
     datas.map((data) => {
@@ -134,13 +132,14 @@ function HeaderSearchPart() {
           </a>
           <div ref={historyRef} className="header__search-history">
             <ul className="header__search-history-list">
-              {historyListInfo && renderHistoryList(historyListInfo)}
+              {headerSearchHistoryListInfo &&
+                renderHistoryList(headerSearchHistoryListInfo)}
             </ul>
           </div>
         </div>
         <div className="header__search-history-keywords-list">
-          {historyKeywordsListInfo &&
-            renderHistoryKeywordsList(historyKeywordsListInfo)}
+          {headerSearchHistoryKeywordsListInfo &&
+            renderHistoryKeywordsList(headerSearchHistoryKeywordsListInfo)}
         </div>
       </div>
       <div className="header__cart">

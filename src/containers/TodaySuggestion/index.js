@@ -10,18 +10,18 @@ import { useRef, useState, useEffect } from "react";
 import { useDataSourceContext } from "hooks";
 
 function TodaySuggestion() {
+  const [scrollDistance, setScrollDistance] = useState(0);
   const todaySuggestionRef = useRef();
   const headingTabMainRef = useRef();
   const headingTabSuperSaleRef = useRef();
   const tabMainRef = useRef();
   const tabSuperSaleRef = useRef();
   const viewAllBtnRef = useRef();
-  const [scrollDistance, setScrollDistance] = useState(0);
 
-  const tabMainInfo = useDataSourceContext("todaySuggestionMainTabMainInfo");
-  const tabSuperSaleInfo = useDataSourceContext(
-    "todaySuggestionMainTabSuperSaleInfo"
-  );
+  const {
+    todaySuggestionMainTabMainInfo,
+    todaySuggestionMainTabSuperSaleInfo,
+  } = useDataSourceContext();
 
   const renderFavouriteLabel = (data) => {
     let favouriteLabelActiveClass = "";
@@ -280,10 +280,9 @@ function TodaySuggestion() {
     window.scrollTo(0, scrollDistance);
   };
 
-  useEffect(
-    () => setScrollDistance(todaySuggestionRef.current.offsetTop - 120),
-    []
-  );
+  useEffect(() => {
+    setScrollDistance(todaySuggestionRef.current.offsetTop - 120);
+  }, []);
 
   return (
     <div ref={todaySuggestionRef} className="today-suggestion">
@@ -305,13 +304,15 @@ function TodaySuggestion() {
       </div>
       <div className="today-suggestion__main">
         <div ref={tabMainRef} className="today-suggestion__main__tab-main">
-          {tabMainInfo && renderTabMain(tabMainInfo)}
+          {todaySuggestionMainTabMainInfo &&
+            renderTabMain(todaySuggestionMainTabMainInfo)}
         </div>
         <div
           ref={tabSuperSaleRef}
           className="today-suggestion__main__tab-super-sale"
         >
-          {tabSuperSaleInfo && renderTabSuperSale(tabSuperSaleInfo)}
+          {todaySuggestionMainTabSuperSaleInfo &&
+            renderTabSuperSale(todaySuggestionMainTabSuperSaleInfo)}
         </div>
         <a
           ref={viewAllBtnRef}

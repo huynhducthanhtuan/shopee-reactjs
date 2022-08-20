@@ -6,11 +6,11 @@ import {
 import { useDataSourceContext } from "hooks";
 
 function ShopeeMall() {
-  const headingTextInfo = useDataSourceContext("shopeeMallHeadingTextInfo");
-  const productListInfo = useDataSourceContext("shopeeMallMainProductListInfo");
-  const mainMotionLinkInfo = useDataSourceContext(
-    "shopeeMallMainMotionLinkInfo"
-  );
+  const {
+    shopeeMallHeadingTextInfo,
+    shopeeMallMainProductListInfo,
+    shopeeMallMainMotionLinkInfo,
+  } = useDataSourceContext();
 
   const renderHeadingText = (datas) =>
     datas.map((data) => (
@@ -102,7 +102,8 @@ function ShopeeMall() {
           </a>
         </div>
         <div className="shopee-mall__heading__text">
-          {headingTextInfo && renderHeadingText(headingTextInfo)}
+          {shopeeMallHeadingTextInfo &&
+            renderHeadingText(shopeeMallHeadingTextInfo)}
         </div>
         <a
           href="https://shopee.vn/mall"
@@ -126,8 +127,8 @@ function ShopeeMall() {
               alt=""
             />
           </a>
-          {/* {mainMotionLinkInfo &&
-                renderMainMotion(mainMotionLinkInfo)} */}
+          {/* {shopeeMallMainMotionLinkInfo &&
+                renderMainMotion(shopeeMallMainMotionLinkInfo)} */}
           <div className="shopee-mall__main__motion__queue">
             <div className="shopee-mall__main__motion__queue-item shopee-mall__main__motion__queue-item--current"></div>
             <div className="shopee-mall__main__motion__queue-item"></div>
@@ -138,7 +139,8 @@ function ShopeeMall() {
         <div className="shopee-mall__main__product">
           <div className="shopee-mall__main__product-part">
             <ul className="shopee-mall__main__product-list">
-              {productListInfo && renderProductList(productListInfo)}
+              {shopeeMallMainProductListInfo &&
+                renderProductList(shopeeMallMainProductListInfo)}
             </ul>
           </div>
 

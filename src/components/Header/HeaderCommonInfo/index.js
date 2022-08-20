@@ -14,11 +14,11 @@ function HeaderCommonInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const notificationQuantityRef = useRef();
 
-  const popupWhenLoggedInListInfo = useDataSourceContext(
-    "headerNotificationPopupWhenLoggedInListInfo"
-  );
+  const { headerNotificationPopupWhenLoggedInListInfo } =
+    useDataSourceContext();
   const notificationQuantity =
-    popupWhenLoggedInListInfo && popupWhenLoggedInListInfo.length;
+    headerNotificationPopupWhenLoggedInListInfo &&
+    headerNotificationPopupWhenLoggedInListInfo.length;
 
   const renderPopupWhenLoggedInList = (datas) =>
     datas.map((data, index) => {
@@ -184,8 +184,10 @@ function HeaderCommonInfo() {
                   Thông báo mới nhận
                 </h4>
                 <ul className="header__notification__popup--when-logged-in__list">
-                  {popupWhenLoggedInListInfo &&
-                    renderPopupWhenLoggedInList(popupWhenLoggedInListInfo)}
+                  {headerNotificationPopupWhenLoggedInListInfo &&
+                    renderPopupWhenLoggedInList(
+                      headerNotificationPopupWhenLoggedInListInfo
+                    )}
                 </ul>
                 <a
                   href="https://shopee.vn/user/notifications/order"

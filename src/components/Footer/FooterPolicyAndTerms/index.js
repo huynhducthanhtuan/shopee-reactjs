@@ -2,13 +2,11 @@ import "./FooterPolicyAndTerms.css";
 import { useDataSourceContext } from "hooks";
 
 function FooterPolicyAndTerms() {
-  const titleInfo = useDataSourceContext("footerPolicyTermstitleInfo");
-  const certificateInfo = useDataSourceContext(
-    "footerPolicyTermsPartCertificateInfo"
-  );
-  const companyInfoInfo = useDataSourceContext(
-    "footerPolicyTermsPartCompanyInfoInfo"
-  );
+  const {
+    footerPolicyTermsPartTitleInfo,
+    footerPolicyTermsPartCertificateInfo,
+    footerPolicyTermsPartCompanyInfoInfo,
+  } = useDataSourceContext();
 
   const renderTitlePart = (datas) => {
     const divTags = datas.map((data) => {
@@ -61,13 +59,16 @@ function FooterPolicyAndTerms() {
     <div className="footer__policy-terms">
       <div className="footer__policy-terms__part">
         <div className="footer__policy-terms__part__title">
-          {titleInfo && renderTitlePart(titleInfo)}
+          {footerPolicyTermsPartTitleInfo &&
+            renderTitlePart(footerPolicyTermsPartTitleInfo)}
         </div>
         <div className="footer__policy-terms__part__certificate">
-          {certificateInfo && renderCertificatePart(certificateInfo)}
+          {footerPolicyTermsPartCertificateInfo &&
+            renderCertificatePart(footerPolicyTermsPartCertificateInfo)}
         </div>
         <div className="footer__policy-terms__part__company-info">
-          {companyInfoInfo && renderCompanyInfoPart(companyInfoInfo)}
+          {footerPolicyTermsPartCompanyInfoInfo &&
+            renderCompanyInfoPart(footerPolicyTermsPartCompanyInfoInfo)}
         </div>
       </div>
     </div>

@@ -10,14 +10,12 @@ import {
 import { useDataSourceContext } from "hooks";
 
 function FooterLink() {
-  const aboutTextCSKHInfo = useDataSourceContext("footerLinkAboutTextCSKHInfo");
-  const aboutTextVeShopeeInfo = useDataSourceContext(
-    "footerLinkAboutTextVeShopeeInfo"
-  );
-  const aboutSocialInfo = useDataSourceContext("footerLinkAboutSocialInfo");
-  const copyrightCountryAndAreaListInfo = useDataSourceContext(
-    "footerLinkCopyrightCountryAndAreaListInfo"
-  );
+  const {
+    footerLinkAboutTextCSKHInfo,
+    footerLinkAboutTextVeShopeeInfo,
+    footerLinkAboutSocialInfo,
+    footerLinkCopyrightCountryAndAreaListInfo,
+  } = useDataSourceContext();
 
   const renderAboutTextCSKHPart = (datas) => {
     const divTags = datas.map((data) => {
@@ -100,7 +98,8 @@ function FooterLink() {
               Chăm sóc khách hàng
             </span>
             <div className="footer__link__about-text-CSKH">
-              {aboutTextCSKHInfo && renderAboutTextCSKHPart(aboutTextCSKHInfo)}
+              {footerLinkAboutTextCSKHInfo &&
+                renderAboutTextCSKHPart(footerLinkAboutTextCSKHInfo)}
             </div>
           </div>
         </div>
@@ -108,8 +107,8 @@ function FooterLink() {
           <div className="footer__link__about__item">
             <span className="footer__link__about__heading">Về Shopee</span>
             <div className="footer__link__about-text-VeShopee">
-              {aboutTextVeShopeeInfo &&
-                renderAboutTextVeShopeePart(aboutTextVeShopeeInfo)}
+              {footerLinkAboutTextVeShopeeInfo &&
+                renderAboutTextVeShopeePart(footerLinkAboutTextVeShopeeInfo)}
             </div>
           </div>
         </div>
@@ -143,7 +142,8 @@ function FooterLink() {
               Theo dõi chúng tôi trên
             </span>
             <div className="footer__link__about-social">
-              {aboutSocialInfo && renderAboutSocialPart(aboutSocialInfo)}
+              {footerLinkAboutSocialInfo &&
+                renderAboutSocialPart(footerLinkAboutSocialInfo)}
             </div>
           </div>
         </div>
@@ -184,9 +184,9 @@ function FooterLink() {
             Quốc gia & Khu vực:
           </span>
           <div className="footer__link__copyright__country-and-area__list">
-            {copyrightCountryAndAreaListInfo &&
+            {footerLinkCopyrightCountryAndAreaListInfo &&
               renderCopyrightCountryAndAreaListPart(
-                copyrightCountryAndAreaListInfo
+                footerLinkCopyrightCountryAndAreaListInfo
               )}
           </div>
         </div>

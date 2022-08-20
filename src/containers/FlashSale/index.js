@@ -7,7 +7,7 @@ import {
 import { useDataSourceContext } from "hooks";
 
 function FlashSale() {
-  const listInfo = useDataSourceContext("flashSaleMainListInfo");
+  const { flashSaleMainListInfo } = useDataSourceContext();
 
   const renderFlashSaleMainList = (datas) =>
     datas.map((data) => {
@@ -87,7 +87,8 @@ function FlashSale() {
       <div className="flash-sale__main">
         <div className="flash-sale__main__part">
           <div className="flash-sale__main__list">
-            {listInfo && renderFlashSaleMainList(listInfo)}
+            {flashSaleMainListInfo &&
+              renderFlashSaleMainList(flashSaleMainListInfo)}
           </div>
         </div>
 

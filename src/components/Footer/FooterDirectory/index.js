@@ -2,7 +2,7 @@ import "./FooterDirectory.css";
 import { useDataSourceContext } from "hooks";
 
 function FooterDirectory() {
-  const listInfo = useDataSourceContext("footerDirectoryListInfo");
+  const { footerDirectoryListInfo } = useDataSourceContext();
 
   const renderFooterDirectoryItems = (datas) =>
     datas.map((data, index) => (
@@ -38,7 +38,8 @@ function FooterDirectory() {
     <div className="footer__directory">
       <span className="footer__directory__heading">Danh Mục</span>
       <ul className="footer__directory__list">
-        {listInfo && renderFooterDirectoryItems(listInfo)}
+        {footerDirectoryListInfo &&
+          renderFooterDirectoryItems(footerDirectoryListInfo)}
       </ul>
     </div>
   );

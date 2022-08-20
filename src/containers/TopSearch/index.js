@@ -3,7 +3,7 @@ import { TopSearchTopLabelIcon } from "assets/images";
 import { useDataSourceContext } from "hooks";
 
 function TopSearch() {
-  const listInfo = useDataSourceContext("topSearchMainListInfo");
+  const { topSearchMainListInfo } = useDataSourceContext();
 
   const renderMainList = (datas) =>
     datas.map((data, index) => {
@@ -55,7 +55,7 @@ function TopSearch() {
       <div className="top-search__main">
         <div className="top-search__main-part">
           <div className="top-search__main__list">
-            {listInfo && renderMainList(listInfo)}
+            {topSearchMainListInfo && renderMainList(topSearchMainListInfo)}
           </div>
         </div>
 
