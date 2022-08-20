@@ -1,4 +1,8 @@
 import "./HeaderSearchPart.css";
+import {
+  HeaderCartImage,
+  HeaderSearchVoucherHoanXuBanner,
+} from "assets/images";
 import { useRef } from "react";
 import { historyListInfoApi } from "apis";
 import { useDataSourceContext } from "hooks";
@@ -37,7 +41,7 @@ function HeaderSearchPart() {
         >
           VOUCHER HOÀN 999K XU - SĂN NGAY
           <img
-            src="/assests/img/header/header__search/voucher-hoan-xu.png"
+            src={HeaderSearchVoucherHoanXuBanner}
             className="header__search-history-item__link__vchx-img"
           />
         </a>
@@ -146,7 +150,7 @@ function HeaderSearchPart() {
         <div className="header__cart-popup header__cart-popup--no-goods">
           <div>
             <img
-              src="/assests/img/header/header__cart/cart-img.png"
+              src={HeaderCartImage}
               className="header__cart-popup__no-cart-img"
             ></img>
           </div>

@@ -1,4 +1,9 @@
 import "./Outstanding.css";
+import {
+  OutstandingHeaderPicture,
+  OutstandingBodyPicture,
+  OutstandingFooterPicture,
+} from "assets/images";
 import { useDataSourceContext } from "hooks";
 
 function Outstanding() {
@@ -62,27 +67,27 @@ function Outstanding() {
         </a>
       </div>
       <div className="outstanding__hot-brands__list">
-        {list.map((data) => (
-          <a
-            key={data.id}
-            href={data.href}
-            className="outstanding__hot-brands__item"
-          >
-            <img
-              src={data.image}
-              className="outstanding__hot-brands__img"
-              alt=""
-            />
-            <div className="">
+        {list.map((data) => {
+          const { id, href, image, subImage, text } = data;
+
+          return (
+            <a key={id} href={href} className="outstanding__hot-brands__item">
               <img
-                src={data.subImage}
-                className="outstanding__hot-brands__sub-img"
+                src={image}
+                className="outstanding__hot-brands__img"
                 alt=""
               />
-            </div>
-            <span className="outstanding__hot-brands__text">{data.text}</span>
-          </a>
-        ))}
+              <div className="">
+                <img
+                  src={subImage}
+                  className="outstanding__hot-brands__sub-img"
+                  alt=""
+                />
+              </div>
+              <span className="outstanding__hot-brands__text">{text}</span>
+            </a>
+          );
+        })}
       </div>
     </>
   );
@@ -91,7 +96,7 @@ function Outstanding() {
     <div className="outstanding">
       <div className="outstanding__header">
         <img
-          src="/assests/img/container/outstanding/picture_header.png"
+          src={OutstandingHeaderPicture}
           className="outstanding__picture-header"
           alt=""
         />
@@ -99,9 +104,7 @@ function Outstanding() {
       <div
         className="outstanding__body"
         style={{
-          background: `url(
-                "/assests/img/container/outstanding/picture_body.png"
-              ) no-repeat center/ cover`,
+          background: `url(${OutstandingBodyPicture}) no-repeat center/ cover`,
         }}
       >
         <div>
@@ -120,7 +123,7 @@ function Outstanding() {
       </div>
       <div className="outstanding__footer">
         <img
-          src="/assests/img/container/outstanding/picture_footer.png"
+          src={OutstandingFooterPicture}
           className="outstanding__picture-footer"
           alt=""
         />

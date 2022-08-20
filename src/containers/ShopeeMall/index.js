@@ -1,4 +1,8 @@
 import "./ShopeeMall.css";
+import {
+  ShopeeMallHeadingLabelIcon,
+  ShopeeMallMotionBanner1,
+} from "assets/images";
 import { useDataSourceContext } from "hooks";
 
 function ShopeeMall() {
@@ -91,7 +95,7 @@ function ShopeeMall() {
             className="shopee-mall__heading__link"
           >
             <img
-              src="/assests/img/container/shopee-mall/heading/icon.png"
+              src={ShopeeMallHeadingLabelIcon}
               className="shopee-mall__heading__img"
               alt=""
             />
@@ -117,7 +121,7 @@ function ShopeeMall() {
             className="shopee-mall__main__motion__link"
           >
             <img
-              src="/assests/img/container/shopee-mall/motion-part/1.png"
+              src={ShopeeMallMotionBanner1}
               className="shopee-mall__main__motion__img"
               alt=""
             />

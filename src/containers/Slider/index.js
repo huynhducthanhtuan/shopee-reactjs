@@ -1,4 +1,9 @@
 import "./Slider.css";
+import {
+  SliderMotionBanner1,
+  SliderNoMotionBanner1,
+  SliderNoMotionBanner2,
+} from "assets/images";
 import { useDataSourceContext } from "hooks";
 import { SLIDER_QUEUE_ITEM_QUANTITY } from "constants/index";
 
@@ -43,7 +48,7 @@ function Slider() {
               className="slider__main__motion-part__link"
             >
               <img
-                src="/assests/img/container/slider/main/motion/1.png"
+                src={SliderMotionBanner1}
                 className="slider__main__motion-part__img slider__main__motion-part__curent-img"
                 alt=""
               />
@@ -67,7 +72,7 @@ function Slider() {
                 className="slider__main__no-motion-part__link"
               >
                 <img
-                  src="/assests/img/container/slider/main/no-motion/1.png"
+                  src={SliderNoMotionBanner1}
                   className="slider__main__no-motion-part__img"
                   alt=""
                 />
@@ -79,7 +84,7 @@ function Slider() {
                 className="slider__main__no-motion-part__link"
               >
                 <img
-                  src="/assests/img/container/slider/main/no-motion/2.png"
+                  src={SliderNoMotionBanner2}
                   className="slider__main__no-motion-part__img"
                   alt=""
                 />

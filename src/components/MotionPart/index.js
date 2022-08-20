@@ -1,4 +1,5 @@
 import "./MotionPart.css";
+import { MotionPartSubBanner } from "assets/images";
 
 function MotionPart() {
   return (
@@ -9,7 +10,7 @@ function MotionPart() {
           className="motion-part__sub-banner__link"
         >
           <img
-            src="/assests/img/motion-part/sub_banner.png"
+            src={MotionPartSubBanner}
             className="motion-part__sub-banner__img"
             alt=""
           />

@@ -1,4 +1,11 @@
 import "./HeaderCommonInfo.css";
+import {
+  HeaderAppGalleryIcon,
+  HeaderAppStoreIcon,
+  HeaderGooglePlayIcon,
+  HeaderQRCodeImage,
+  HeaderNotificationWhenNotLoginIcon,
+} from "assets/images";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import { useDataSourceContext } from "hooks";
@@ -14,29 +21,33 @@ function HeaderCommonInfo() {
     popupWhenLoggedInListInfo && popupWhenLoggedInListInfo.length;
 
   const renderPopupWhenLoggedInList = (datas) =>
-    datas.map((data, index) => (
-      <li
-        key={index}
-        className="header__notification__popup--when-logged-in__item"
-      >
-        <a
-          href={data.href}
-          className="header__notification__popup--when-logged-in__link"
+    datas.map((data, index) => {
+      const { href, itemImage, itemTitle, itemDescription } = data;
+
+      return (
+        <li
+          key={index}
+          className="header__notification__popup--when-logged-in__item"
         >
-          <div className="header__notification__popup--when-logged-in__item__img">
-            <img src={data.itemImage} alt="" />
-          </div>
-          <div className="header__notification__popup--when-logged-in__item__content">
-            <h3 className="header__notification__popup--when-logged-in__item__title">
-              {data.itemTitle}
-            </h3>
-            <p className="header__notification__popup--when-logged-in__item__description">
-              {data.itemDescription}
-            </p>
-          </div>
-        </a>
-      </li>
-    ));
+          <a
+            href={href}
+            className="header__notification__popup--when-logged-in__link"
+          >
+            <div className="header__notification__popup--when-logged-in__item__img">
+              <img src={itemImage} alt="" />
+            </div>
+            <div className="header__notification__popup--when-logged-in__item__content">
+              <h3 className="header__notification__popup--when-logged-in__item__title">
+                {itemTitle}
+              </h3>
+              <p className="header__notification__popup--when-logged-in__item__description">
+                {itemDescription}
+              </p>
+            </div>
+          </a>
+        </li>
+      );
+    });
   const handleMouseLeaveNotificationQuantity = () => {
     if (notificationQuantityRef.current) {
       notificationQuantityRef.current.style.display = "none";
@@ -84,25 +95,25 @@ function HeaderCommonInfo() {
               href="https://shopee.vn/web"
             >
               <img
-                src="/assests/img/header/header__links-app-download/qr.png"
+                src={HeaderQRCodeImage}
                 className="header__app-download__qr-img"
                 alt=""
               />
               <div className="header__links-app-download-popup__box">
                 <div>
                   <img
-                    src="/assests/img/header/header__links-app-download/app_store.png"
+                    src={HeaderAppStoreIcon}
                     className="header__app-download__app-store-img"
                     alt=""
                   />
                   <img
-                    src="/assests/img/header/header__links-app-download/google_play.png"
+                    src={HeaderGooglePlayIcon}
                     className="header__app-download__google_play-img"
                     alt=""
                   />
                 </div>
                 <img
-                  src="/assests/img/header/header__links-app-download/app_gallery.png"
+                  src={HeaderAppGalleryIcon}
                   className="header__app-download__app_gallery-img"
                   alt=""
                 />
@@ -190,7 +201,7 @@ function HeaderCommonInfo() {
               >
                 <div className="header__notification__popup--when-not-login__main">
                   <img
-                    src="/assests/img/header/header__notification/popup-when-not-login__img.png"
+                    src={HeaderNotificationWhenNotLoginIcon}
                     className="header__notification__popup--when-not-login__main__img"
                     alt=""
                   />

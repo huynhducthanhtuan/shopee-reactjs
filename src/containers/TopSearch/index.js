@@ -1,38 +1,43 @@
 import "./TopSearch.css";
+import { TopSearchTopLabelIcon } from "assets/images";
 import { useDataSourceContext } from "hooks";
 
 function TopSearch() {
   const listInfo = useDataSourceContext("topSearchMainListInfo");
 
   const renderMainList = (datas) =>
-    datas.map((data, index) => (
-      <a key={data.id} href={data.href} className="top-search__main__link">
-        <div className="top-search__main__product">
-          <img
-            src={data.productImage}
-            className="top-search__main__product__img"
-            alt=""
-          />
-          <img
-            src="/assests/img/container/top-search/top-label.png"
-            className="top-search__main__product__top-label-img"
-            alt=""
-          />
-          {index !== 0 && (
-            <div className="top-search__main__product__statistic">
-              Bán{" "}
-              <span className="top-search__main__product__statistic__price">
-                {data.price}
-              </span>
-              k+ / tháng
-            </div>
-          )}
-        </div>
-        <div className="top-search__main__footer">
-          <span className="top-search__main__footer__text">{data.text}</span>
-        </div>
-      </a>
-    ));
+    datas.map((data, index) => {
+      const { id, href, productImage, price, text } = data;
+
+      return (
+        <a key={id} href={href} className="top-search__main__link">
+          <div className="top-search__main__product">
+            <img
+              src={productImage}
+              className="top-search__main__product__img"
+              alt=""
+            />
+            <img
+              src={TopSearchTopLabelIcon}
+              className="top-search__main__product__top-label-img"
+              alt=""
+            />
+            {index !== 0 && (
+              <div className="top-search__main__product__statistic">
+                Bán{" "}
+                <span className="top-search__main__product__statistic__price">
+                  {price}
+                </span>
+                k+ / tháng
+              </div>
+            )}
+          </div>
+          <div className="top-search__main__footer">
+            <span className="top-search__main__footer__text">{text}</span>
+          </div>
+        </a>
+      );
+    });
 
   return (
     <div className="top-search">

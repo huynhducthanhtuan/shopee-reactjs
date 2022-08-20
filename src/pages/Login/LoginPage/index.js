@@ -1,3 +1,4 @@
+import { RegisterBackgroundImage } from "assets/images";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LOGIN_PAGE_TITLE } from "constants/index";
@@ -33,7 +34,7 @@ function LoginPage() {
         <div
           className="login-page__content-part"
           style={{
-            background: `url("/assests/img/register-page/background-content.png") no-repeat center`,
+            background: `url(${RegisterBackgroundImage}) no-repeat center`,
           }}
         >
           <form className="login-page__content-form">

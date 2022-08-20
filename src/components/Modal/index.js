@@ -1,4 +1,12 @@
 import "./Modal.css";
+import {
+  GiftBannerAppStore,
+  GiftBannerGooglePlay,
+  GiftBannerLabel,
+  HeaderAppStoreIcon,
+  HeaderGooglePlayIcon,
+  HeaderQRCodeImage,
+} from "assets/images";
 import { useRef } from "react";
 import { useModalStatusContext } from "hooks";
 import { handleStopPropagation } from "helpers";
@@ -39,7 +47,7 @@ function Modal() {
           className="gift-banner__popup"
         >
           <img
-            src="/assests/img/gift-banner/label.png"
+            src={GiftBannerLabel}
             className="gift-banner__popup__label"
             alt=""
           />
@@ -66,7 +74,7 @@ function Modal() {
                   className="gift-banner__popup__main-left-part__link"
                 >
                   <img
-                    src="/assests/img/gift-banner/app-store-banner.png"
+                    src={GiftBannerAppStore}
                     className="gift-banner__popup__main-left-part__img"
                     alt=""
                   />
@@ -78,7 +86,7 @@ function Modal() {
                   className="gift-banner__popup__main-left-part__link"
                 >
                   <img
-                    src="/assests/img/gift-banner/google-play-banner.png"
+                    src={GiftBannerGooglePlay}
                     className="gift-banner__popup__main-left-part__img"
                     alt=""
                   />
@@ -87,18 +95,18 @@ function Modal() {
             </div>
             <div className="gift-banner__popup__main-right-part">
               <img
-                src="/assests/img/header/header__links-app-download/qr.png"
+                src={HeaderQRCodeImage}
                 className="gift-banner__popup__main-right-part__qr-img"
                 alt=""
               />
               <div className="gift-banner__popup__main-right-part__others-img">
                 <img
-                  src="/assests/img/header/header__links-app-download/google_play.png"
+                  src={HeaderGooglePlayIcon}
                   className="gift-banner__popup__main-right-part__google-play-img"
                   alt=""
                 />
                 <img
-                  src="/assests/img/header/header__links-app-download/app_store.png"
+                  src={HeaderAppStoreIcon}
                   className="gift-banner__popup__main-right-part__app-store-img"
                   alt=""
                 />

@@ -1,4 +1,12 @@
 import "./FooterLink.css";
+import {
+  FooterLinkPaymentImage,
+  FooterLinkTransportImage,
+  HeaderAppGalleryIcon,
+  HeaderAppStoreIcon,
+  HeaderGooglePlayIcon,
+  HeaderQRCodeImage,
+} from "assets/images";
 import { useDataSourceContext } from "hooks";
 
 function FooterLink() {
@@ -110,7 +118,7 @@ function FooterLink() {
             <span className="footer__link__about__heading">Thanh toán</span>
             <div className="footer__link__about-payment">
               <img
-                src="/assests/img/footer/link/payment.png"
+                src={FooterLinkPaymentImage}
                 className="footer__link__about-payment__img"
                 alt=""
               />
@@ -122,7 +130,7 @@ function FooterLink() {
             </span>
             <div className="footer__link__about-transport">
               <img
-                src="/assests/img/footer/link/transport.png"
+                src={FooterLinkTransportImage}
                 className="footer__link__about-transport__img"
                 alt=""
               />
@@ -152,23 +160,14 @@ function FooterLink() {
                 className="footer__link__about-download__link"
               >
                 <img
-                  src="/assests/img/header/header__links-app-download/qr.png"
+                  src={HeaderQRCodeImage}
                   className="footer__link__about-download__qr"
                   alt=""
                 />
                 <div className="footer__link__about-download__another-apps">
-                  <img
-                    src="/assests/img/header/header__links-app-download/app_store.png"
-                    alt=""
-                  />
-                  <img
-                    src="/assests/img/header/header__links-app-download/google_play.png"
-                    alt=""
-                  />
-                  <img
-                    src="/assests/img/header/header__links-app-download/app_gallery.png"
-                    alt=""
-                  />
+                  <img src={HeaderAppStoreIcon} alt="" />
+                  <img src={HeaderGooglePlayIcon} alt="" />
+                  <img src={HeaderAppGalleryIcon} alt="" />
                 </div>
               </a>
             </div>

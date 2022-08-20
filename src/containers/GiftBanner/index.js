@@ -1,4 +1,5 @@
 import "./GiftBanner.css";
+import { GiftBannerImage } from "assets/images";
 import { useModalStatusContext } from "hooks";
 import { handlePreventScrolling } from "helpers";
 
@@ -15,11 +16,7 @@ function GiftBanner() {
   return (
     <div className="gift-banner" onClick={handleClickGiftBanner}>
       <div className="gift-banner__part">
-        <img
-          src="/assests/img/container/gift-banner/banner.jfif"
-          className="gift-banner__part__img"
-          alt=""
-        />
+        <img src={GiftBannerImage} className="gift-banner__part__img" alt="" />
       </div>
     </div>
   );

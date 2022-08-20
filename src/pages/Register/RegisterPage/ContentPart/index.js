@@ -1,3 +1,4 @@
+import { RegisterBackgroundImage } from "assets/images";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import { handlePreventDefault, checkValidPhoneNumber } from "helpers";
@@ -84,9 +85,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
       <div
         className="register-page__content-part"
         style={{
-          background: `url(
-            "/assests/img/register-page/background-content.png"
-          ) no-repeat center`,
+          background: `url(${RegisterBackgroundImage}) no-repeat center`,
         }}
       >
         <form className="register-page__content-form">

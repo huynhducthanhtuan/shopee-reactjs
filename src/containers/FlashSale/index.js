@@ -3,7 +3,7 @@ import {
   FlashSaleHotIcon,
   FlashSaleHeaderImage,
   FlashSaleSelledBarImage,
-} from "assets/image";
+} from "assets/images";
 import { useDataSourceContext } from "hooks";
 
 function FlashSale() {
