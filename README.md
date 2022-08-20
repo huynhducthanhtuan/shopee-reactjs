@@ -1,17 +1,27 @@
-## Shopee Using ReactJS
+## Shopee ReactJS
 
-#### From HTML, CSS, JS (https://github.com/huynhdthanhtuan/shopee)
+#### Refactoring from HTML, CSS, JS (https://github.com/huynhdthanhtuan/shopee)
 
 #### To ReactJS (https://github.com/huynhdthanhtuan/shopee-reactjs)
 
-#### Version 1.0: 14/12/2021
+#### Version 1.0.0: Initial version
 
-### Các bước chạy dự án
+##### Start date: Dec 14, 2022
 
-#### 1. Clone dự án về máy: "git clone https://github.com/huynhdthanhtuan/shopee-reactjs"
+##### End date: Apr 13, 2022
 
-#### 2. Tại thư mục gốc đã clone về trước đó (shopee-reactjs), mở CMD
+#### Version 2.0.0: Refactor and update version
 
-#### 3. Gõ lệnh "npm install" để cài đặt những thư viện mà dự án đang sử dụng
+##### Start date: Aug 16, 2022
 
-#### 4. Gõ lệnh "npm start" để start web server
+### How to run this project?
+
+#### 1. At folder you want save this project, open CMD
+
+#### 2. Enter "git clone https://github.com/huynhdthanhtuan/shopee-reactjs"
+
+#### 3. Enter "cd shopee-reactjs"
+
+#### 4. Enter "npm install"
+
+#### 5. Enter "npm start"
