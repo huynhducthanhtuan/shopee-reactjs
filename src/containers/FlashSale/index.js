@@ -1,60 +1,78 @@
 import "./FlashSale.css";
+import {
+  FlashSaleHotIcon,
+  FlashSaleHeaderImage,
+  FlashSaleSelledBarImage,
+} from "assets/image";
 import { useDataSourceContext } from "hooks";
 
 function FlashSale() {
   const listInfo = useDataSourceContext("flashSaleMainListInfo");
 
   const renderFlashSaleMainList = (datas) =>
-    datas.map((data) => (
-      <a key={data.id} href={data.href} className="flash-sale__main__link">
-        <img
-          src={data.bubbleImage}
-          className="flash-sale__main__bubble-img"
-          alt=""
-        />
-        <img
-          src={data.frameImage}
-          className="flash-sale__main__frame-img"
-          alt=""
-        />
-        <span className="flash-sale__main__price">{data.price}</span>
-        <div className="flash-sale__main__percent-bar">
-          <div className="flash-sale__main__percent-bar__text">
-            <span className="flash-sale__main__percent-bar__selled-status">
-              {data.selledStatus}
-            </span>
-          </div>
-          <div className="flash-sale__main__percent-bar__total-part"></div>
-          <div
-            className="flash-sale__main__percent-bar__selled-part"
-            style={{
-              width: `${data.selledPartWidthPercent}%`,
-              background: `url("/assests/img/container/flash-sale/selled-bar.png") no-repeat center / cover`,
-            }}
-          ></div>
-          {data.selledPartWidthPercent >= 70 && (
+    datas.map((data) => {
+      const {
+        id,
+        href,
+        bubbleImage,
+        frameImage,
+        price,
+        selledStatus,
+        selledPartWidthPercent,
+        saleOffPercent,
+      } = data;
+
+      return (
+        <a key={id} href={href} className="flash-sale__main__link">
+          <img
+            src={bubbleImage}
+            className="flash-sale__main__bubble-img"
+            alt=""
+          />
+          <img
+            src={frameImage}
+            className="flash-sale__main__frame-img"
+            alt=""
+          />
+          <span className="flash-sale__main__price">{price}</span>
+          <div className="flash-sale__main__percent-bar">
+            <div className="flash-sale__main__percent-bar__text">
+              <span className="flash-sale__main__percent-bar__selled-status">
+                {selledStatus}
+              </span>
+            </div>
+            <div className="flash-sale__main__percent-bar__total-part"></div>
             <div
-              className="flash-sale__main__percent-bar--hot"
+              className="flash-sale__main__percent-bar__selled-part"
               style={{
-                background: `url("/assests/img/container/flash-sale/hot.png") no-repeat center / contain`,
+                width: `${selledPartWidthPercent}%`,
+                background: `url(${FlashSaleSelledBarImage}) no-repeat center / cover`,
               }}
             ></div>
-          )}
-        </div>
-        <div className="flash-sale__main__sale-off-label">
-          <span className="flash-sale__main__sale-off-label__percent">
-            {data.saleOffPercent}
-          </span>
-          <span className="flash-sale__main__sale-off-label__text">GIẢM</span>
-        </div>
-      </a>
-    ));
+            {selledPartWidthPercent >= 70 && (
+              <div
+                className="flash-sale__main__percent-bar--hot"
+                style={{
+                  background: `url(${FlashSaleHotIcon}) no-repeat center / contain`,
+                }}
+              ></div>
+            )}
+          </div>
+          <div className="flash-sale__main__sale-off-label">
+            <span className="flash-sale__main__sale-off-label__percent">
+              {saleOffPercent}
+            </span>
+            <span className="flash-sale__main__sale-off-label__text">GIẢM</span>
+          </div>
+        </a>
+      );
+    });
 
   return (
     <div className="flash-sale">
       <div className="flash-sale__heading">
         <img
-          src="/assests/img/container/flash-sale/header-img.png"
+          src={FlashSaleHeaderImage}
           className="flash-sale__heading__img"
           alt=""
         />
