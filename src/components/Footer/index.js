@@ -14,10 +14,5 @@ function Footer() {
   );
 }
 
-export {
-  Footer,
-  FooterText,
-  FooterDirectory,
-  FooterLink,
-  FooterPolicyAndTerms,
-};
+export default Footer;
+export { FooterText, FooterDirectory, FooterLink, FooterPolicyAndTerms };
