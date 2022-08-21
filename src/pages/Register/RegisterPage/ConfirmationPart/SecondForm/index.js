@@ -8,6 +8,7 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
     setShowSecondForm(false);
     setShowFirstForm(true);
   };
+
   const handleClickRegisterBtn = () => {
     setShowSecondForm(false);
     setShowThirdForm(true);
@@ -41,6 +42,7 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
         <div className="register-page__confirmation__second-form__content__notify">
           Bước cuối! Thiết lập mật khẩu để hoàn tất việc đăng ký.
         </div>
+        
         <div className="register-page__confirmation__second-form__content__input-part">
           <input
             className="register-page__confirmation__second-form__content__input"
@@ -80,6 +82,7 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
             </svg>
           </button>
         </div>
+
         <div className="register-page__confirmation__second-form__content__check register-page__confirmation__second-form__content__check--lowercase">
           <span className="register-page__confirmation__second-form__content__check-text">
             Ít nhất một kí tự viết thường.
@@ -140,6 +143,7 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
             ></rect>
           </svg>
         </div>
+
         <div className="register-page__confirmation__second-form__content__check register-page__confirmation__second-form__content__check--uppercase">
           <span className="register-page__confirmation__second-form__content__check-text">
             Ít nhất một kí tự viết hoa.
@@ -200,6 +204,7 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
             ></rect>
           </svg>
         </div>
+
         <div className="register-page__confirmation__second-form__content__check register-page__confirmation__second-form__content__check--length">
           <span className="register-page__confirmation__second-form__content__check-text">
             8-16 kí tự
@@ -260,6 +265,7 @@ function SecondForm({ setShowFirstForm, setShowSecondForm, setShowThirdForm }) {
             ></rect>
           </svg>
         </div>
+
         <button
           ref={registerBtnRef}
           onClick={handleClickRegisterBtn}

@@ -5,11 +5,11 @@ function SearchTrending() {
   const { searchTrendingMainListInfo } = useDataSourceContext();
 
   const renderSearchTrendingMainList = (datas, listIndex) =>
-    datas[listIndex].map((data) => {
-      const { id, href, productName, productDescription, image } = data;
+    datas[listIndex].map((data, index) => {
+      const { href, productName, productDescription, image } = data;
 
       return (
-        <a key={id} href={href} className="search-trending__main__item">
+        <a key={index} href={href} className="search-trending__main__item">
           <div className="search-trending__main__text">
             <span className="search-trending__main__text__name">
               {productName}
@@ -18,6 +18,7 @@ function SearchTrending() {
               {productDescription}
             </span>
           </div>
+          
           <img src={image} className="search-trending__img" alt="" />
         </a>
       );
@@ -42,6 +43,7 @@ function SearchTrending() {
           Xem thêm
         </a>
       </div>
+
       <div className="search-trending__main">
         <div className="search-trending__main__list">
           {searchTrendingMainListInfo &&

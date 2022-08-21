@@ -17,21 +17,21 @@ function HeaderSearchPart() {
     useDataSourceContext();
 
   const renderHistoryKeywordsList = (datas) =>
-    datas.map((data) => {
-      const { id, href, innerHTML } = data;
-
+    datas.map((data, index) => {
+      const { href, innerHTML } = data;
       return (
         <a
-          key={id}
-          className="header__search-history-keywords-item"
+          key={index}
           href={href}
+          className="header__search-history-keywords-item"
         >
           {innerHTML}
         </a>
       );
     });
+
   const renderHistoryList = (datas) => (
-    <>
+    <div>
       <li className="header__search-history-item header__search-history-item--default">
         <a
           href="https://shopee.vn/m/khung-gio-san-sale"
@@ -44,26 +44,31 @@ function HeaderSearchPart() {
           />
         </a>
       </li>
+
       {/* Nếu mảng dữ liệu có nhiều hơn 10 phần tử thì sẽ render 10 phần tử mới nhất được thêm vào */}
       {datas &&
         datas
           .slice(0)
           .reverse()
           .slice(0, 10)
-          .map((data, index) => (
-            <li key={index} className="header__search-history-item">
-              <a href={data.href} className="header__search-history-item__link">
-                {data.innerHTML}
-              </a>
-            </li>
-          ))}
-    </>
+          .map((data, index) => {
+            const { href, innerHTML } = data;
+            return (
+              <li key={index} className="header__search-history-item">
+                <a href={href} className="header__search-history-item__link">
+                  {innerHTML}
+                </a>
+              </li>
+            );
+          })}
+    </div>
   );
 
   const handleClickLogo = (event) => {
     handlePreventDefault(event);
     scrollToTop();
   };
+
   const handleClickFrameBtn = () => {
     if (frameInputRef.current.value !== "") {
       var innerHTML = frameInputRef.current.value;
@@ -77,14 +82,17 @@ function HeaderSearchPart() {
       window.location.href = href;
     }
   };
+
   const handleClickFrameInput = () => {
     historyRef.current.style.display = "block";
   };
+
   const handleBlurFrameInput = () => {
     setTimeout(() => {
       historyRef.current.style.display = "none";
     }, 200);
   };
+
   const handleKeyDownFrameInput = (event) => {
     switch (event.code) {
       case "Enter": {
@@ -112,6 +120,7 @@ function HeaderSearchPart() {
           </g>
         </svg>
       </a>
+
       <div className="header__main-search">
         <div className="header__search-frame" tabIndex="0">
           <input
@@ -142,6 +151,7 @@ function HeaderSearchPart() {
             renderHistoryKeywordsList(headerSearchHistoryKeywordsListInfo)}
         </div>
       </div>
+
       <div className="header__cart">
         <a href="https://shopee.vn/cart" className="header__cart__link">
           <i className="fas fa-shopping-cart"></i>

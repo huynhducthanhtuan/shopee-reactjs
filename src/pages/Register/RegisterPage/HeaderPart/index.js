@@ -18,6 +18,7 @@ function HeaderPart({ setHeaderPartRef }) {
         </Link>
         <div className="register-page__header-shopee__text">Đăng ký</div>
       </div>
+      
       <a
         target="_blank"
         rel="noopener noreferrer"

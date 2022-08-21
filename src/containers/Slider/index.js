@@ -11,11 +11,14 @@ function Slider() {
   const { sliderFavouriteSelectionsInfo } = useDataSourceContext();
 
   const renderFavouriteSelections = (datas) =>
-    datas.map((data) => {
-      const { id, href, image, text } = data;
-
+    datas.map((data, index) => {
+      const { href, image, text } = data;
       return (
-        <a key={id} className="slider__favourite-selections__link" href={href}>
+        <a
+          key={index}
+          className="slider__favourite-selections__link"
+          href={href}
+        >
           <img
             className="slider__favourite-selections__link-img"
             src={image}
@@ -25,8 +28,10 @@ function Slider() {
         </a>
       );
     });
+
   const renderMainMotionPartQueueItem = () => {
     let divTags = [];
+
     for (let i = 0; i < SLIDER_QUEUE_ITEM_QUANTITY - 1; i++) {
       divTags.push(
         <div key={i} className="slider__main__motion-part__queue-item"></div>
@@ -63,6 +68,7 @@ function Slider() {
               {renderMainMotionPartQueueItem()}
             </div>
           </div>
+
           <div className="slider__main__no-motion-part">
             <div>
               <a
@@ -90,6 +96,7 @@ function Slider() {
             </div>
           </div>
         </div>
+
         <div className="slider__favourite-selections">
           {sliderFavouriteSelectionsInfo &&
             renderFavouriteSelections(sliderFavouriteSelectionsInfo)}

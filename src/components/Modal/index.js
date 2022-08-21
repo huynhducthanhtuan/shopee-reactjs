@@ -27,9 +27,11 @@ function Modal() {
       document.querySelector("#app").style.position = "absolute";
     }, 100);
   };
+
   const handleClickGiftBannerPopup = (event) => {
     handleStopPropagation(event);
   };
+
   const handleClickGiftBannerPopupCloseBtn = (event) => {
     handleStopPropagation(event);
     document.querySelector("#modal").click();
@@ -58,6 +60,7 @@ function Modal() {
           >
             <i className="fas fa-times"></i>
           </button>
+
           <div className="gift-banner__popup__main">
             <div className="gift-banner__popup__main-left-part">
               <div className="gift-banner__popup__main-left-part__heading1">
@@ -93,6 +96,7 @@ function Modal() {
                 </a>
               </div>
             </div>
+            
             <div className="gift-banner__popup__main-right-part">
               <img
                 src={HeaderQRCodeImage}

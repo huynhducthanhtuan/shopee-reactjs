@@ -10,9 +10,8 @@ function FlashSale() {
   const { flashSaleMainListInfo } = useDataSourceContext();
 
   const renderFlashSaleMainList = (datas) =>
-    datas.map((data) => {
+    datas.map((data, index) => {
       const {
-        id,
         href,
         bubbleImage,
         frameImage,
@@ -23,7 +22,7 @@ function FlashSale() {
       } = data;
 
       return (
-        <a key={id} href={href} className="flash-sale__main__link">
+        <a key={index} href={href} className="flash-sale__main__link">
           <img
             src={bubbleImage}
             className="flash-sale__main__bubble-img"
@@ -35,6 +34,7 @@ function FlashSale() {
             alt=""
           />
           <span className="flash-sale__main__price">{price}</span>
+
           <div className="flash-sale__main__percent-bar">
             <div className="flash-sale__main__percent-bar__text">
               <span className="flash-sale__main__percent-bar__selled-status">
@@ -58,6 +58,7 @@ function FlashSale() {
               ></div>
             )}
           </div>
+          
           <div className="flash-sale__main__sale-off-label">
             <span className="flash-sale__main__sale-off-label__percent">
               {saleOffPercent}
@@ -84,6 +85,7 @@ function FlashSale() {
           <i className="fas fa-chevron-right"></i>
         </a>
       </div>
+
       <div className="flash-sale__main">
         <div className="flash-sale__main__part">
           <div className="flash-sale__main__list">

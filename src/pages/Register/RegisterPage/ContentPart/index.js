@@ -21,6 +21,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
     nextBtnRef.current.style.opacity = "0.7";
     nextBtnRef.current.style.cursor = "not-allowed";
   };
+
   const hideError = () => {
     inputRef.current.classList.remove(
       "register-page__content-form__input--invalid-phone-number"
@@ -32,6 +33,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
     nextBtnRef.current.style.opacity = "1";
     nextBtnRef.current.style.cursor = "pointer";
   };
+
   const handleKeyDownInput = (event) => {
     if (event.code === "Enter") {
       handlePreventDefault(event);
@@ -57,6 +59,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
       }
     }, 0);
   };
+
   const handleClickNextBtn = (event) => {
     handlePreventDefault(event);
 
@@ -65,6 +68,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
       setShowConfirmationPart(true);
     }
   };
+
   const handleMouseOverNextBtn = (event) => {
     if (event.target.style.cursor === "pointer") {
       event.target.style.opacity = "0.92";
@@ -72,6 +76,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
       handlePreventDefault(event);
     }
   };
+
   const handleMouseLeaveNextBtn = (event) => {
     if (event.target.style.cursor === "pointer") {
       event.target.style.opacity = "1";
@@ -104,6 +109,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
             >
               Số điện thoại không hợp lệ
             </div>
+            
             <svg
               fill="none"
               viewBox="0 0 16 16"
@@ -131,7 +137,6 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
                 clipRule="evenodd"
               ></path>
             </svg>
-
             <button
               ref={nextBtnRef}
               onClick={(event) => handleClickNextBtn(event)}
@@ -141,6 +146,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
             >
               TIẾP THEO
             </button>
+
             <div className="register-page__content-form__separate-part">
               <div></div>
               <div className="register-page__content-form__separate-part__text">

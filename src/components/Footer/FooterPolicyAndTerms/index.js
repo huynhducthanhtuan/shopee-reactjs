@@ -8,12 +8,11 @@ function FooterPolicyAndTerms() {
     footerPolicyTermsPartCompanyInfoInfo,
   } = useDataSourceContext();
 
-  const renderTitlePart = (datas) => {
-    const divTags = datas.map((data) => {
-      const { id, href, innerHTML } = data;
-
+  const renderTitlePart = (datas) =>
+    datas.map((data, index) => {
+      const { href, innerHTML } = data;
       return (
-        <div key={id} className="footer__policy-terms__part__title__part">
+        <div key={index} className="footer__policy-terms__part__title__part">
           <a href={href} className="footer__policy-terms__part__title__link">
             {innerHTML}
           </a>
@@ -21,18 +20,15 @@ function FooterPolicyAndTerms() {
       );
     });
 
-    return divTags;
-  };
-  const renderCertificatePart = (datas) => {
-    const aTags = datas.map((data) => {
-      const { id, href, image } = data;
-
+  const renderCertificatePart = (datas) =>
+    datas.map((data, index) => {
+      const { href, image } = data;
       return (
         <a
-          key={id}
+          key={index}
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
-          href={href}
           className="footer__policy-terms__part__certificate__link"
         >
           <img src={image} alt="" />
@@ -40,10 +36,8 @@ function FooterPolicyAndTerms() {
       );
     });
 
-    return aTags;
-  };
-  const renderCompanyInfoPart = (datas) => {
-    const spanTags = datas.map((data, index) => (
+  const renderCompanyInfoPart = (datas) =>
+    datas.map((data, index) => (
       <span
         key={index}
         className="footer__policy-terms__part__company-info__text"
@@ -52,9 +46,6 @@ function FooterPolicyAndTerms() {
       </span>
     ));
 
-    return spanTags;
-  };
-
   return (
     <div className="footer__policy-terms">
       <div className="footer__policy-terms__part">
@@ -62,10 +53,12 @@ function FooterPolicyAndTerms() {
           {footerPolicyTermsPartTitleInfo &&
             renderTitlePart(footerPolicyTermsPartTitleInfo)}
         </div>
+
         <div className="footer__policy-terms__part__certificate">
           {footerPolicyTermsPartCertificateInfo &&
             renderCertificatePart(footerPolicyTermsPartCertificateInfo)}
         </div>
+
         <div className="footer__policy-terms__part__company-info">
           {footerPolicyTermsPartCompanyInfoInfo &&
             renderCompanyInfoPart(footerPolicyTermsPartCompanyInfoInfo)}

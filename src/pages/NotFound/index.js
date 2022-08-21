@@ -27,6 +27,7 @@ function NotFound() {
           </div>
         </div>
       </div>
+      
       <div className="not-found-page__container">
         <div className="not-found-page__content">
           <div className="not-found-page__content-error-part">

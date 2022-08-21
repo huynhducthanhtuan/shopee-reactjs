@@ -48,6 +48,7 @@ function HeaderCommonInfo() {
         </li>
       );
     });
+    
   const handleMouseLeaveNotificationQuantity = () => {
     if (notificationQuantityRef.current) {
       notificationQuantityRef.current.style.display = "none";

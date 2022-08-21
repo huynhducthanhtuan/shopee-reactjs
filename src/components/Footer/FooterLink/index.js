@@ -17,12 +17,11 @@ function FooterLink() {
     footerLinkCopyrightCountryAndAreaListInfo,
   } = useDataSourceContext();
 
-  const renderAboutTextCSKHPart = (datas) => {
-    const divTags = datas.map((data) => {
-      const { id, href, innerHTML } = data;
-
+  const renderAboutTextCSKHPart = (datas) =>
+    datas.map((data, index) => {
+      const { href, innerHTML } = data;
       return (
-        <div key={id}>
+        <div key={index}>
           <a href={href} className="footer__link__about-text-CSKH__link">
             {innerHTML}
           </a>
@@ -30,14 +29,11 @@ function FooterLink() {
       );
     });
 
-    return divTags;
-  };
-  const renderAboutTextVeShopeePart = (datas) => {
-    const divTags = datas.map((data) => {
-      const { id, href, innerHTML } = data;
-
+  const renderAboutTextVeShopeePart = (datas) =>
+    datas.map((data, index) => {
+      const { href, innerHTML } = data;
       return (
-        <div key={id}>
+        <div key={index}>
           <a href={href} className="footer__link__about-text-VeShopee__link">
             {innerHTML}
           </a>
@@ -45,18 +41,15 @@ function FooterLink() {
       );
     });
 
-    return divTags;
-  };
-  const renderAboutSocialPart = (datas) => {
-    const aTags = datas.map((data, index) => {
+  const renderAboutSocialPart = (datas) =>
+    datas.map((data, index) => {
       const { href, image, text } = data;
-
       return (
         <a
           key={index}
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
-          href={href}
           className="footer__link__about-social__link"
         >
           <img
@@ -69,15 +62,12 @@ function FooterLink() {
       );
     });
 
-    return aTags;
-  };
-  const renderCopyrightCountryAndAreaListPart = (datas) => {
-    const aTags = datas.map((data) => {
-      const { id, href, innerHTML } = data;
-
+  const renderCopyrightCountryAndAreaListPart = (datas) =>
+    datas.map((data, index) => {
+      const { href, innerHTML } = data;
       return (
         <a
-          key={id}
+          key={index}
           href={href}
           className="footer__link__copyright__country-and-area__link"
         >
@@ -85,9 +75,6 @@ function FooterLink() {
         </a>
       );
     });
-
-    return aTags;
-  };
 
   return (
     <div className="footer__link">
@@ -103,6 +90,7 @@ function FooterLink() {
             </div>
           </div>
         </div>
+
         <div className="footer__link__about__part">
           <div className="footer__link__about__item">
             <span className="footer__link__about__heading">Về Shopee</span>
@@ -174,6 +162,7 @@ function FooterLink() {
           </div>
         </div>
       </div>
+
       <div className="footer__link__copyright">
         <div className="footer__link__copyright__text">
           <i className="far fa-copyright"></i>

@@ -26,9 +26,10 @@ function TodaySuggestion() {
   const renderFavouriteLabel = (data) => {
     let favouriteLabelActiveClass = "";
     let favouriteLabelInnerHTML = "";
+    const { favouriteLabel } = data;
 
-    if (data.favouriteLabel) {
-      switch (data.favouriteLabel) {
+    if (favouriteLabel) {
+      switch (favouriteLabel) {
         case "Yêu thích": {
           favouriteLabelActiveClass =
             "today-suggestion__main-product__favourite-label--yeuthich";
@@ -59,8 +60,8 @@ function TodaySuggestion() {
           );
           break;
         }
-        default: {
-        }
+        default:
+          break;
       }
     }
 
@@ -75,161 +76,193 @@ function TodaySuggestion() {
       </div>
     );
   };
+
   const renderTabMain = (tabMainInfo) =>
-    tabMainInfo.map((data, dataIndex) => (
-      <div key={dataIndex} className="today-suggestion__main-list">
-        {data.map((dataChild, dataChildIndex) => (
-          <div key={dataChildIndex} className="today-suggestion__main-item">
-            <a
-              key={dataChildIndex}
-              href={dataChild.productLink}
-              className="today-suggestion__main-product"
-            >
-              <div>
-                <img
-                  src={dataChild.productImage}
-                  className="today-suggestion__main-product__product-img"
-                  alt=""
-                />
-                {dataChild.frameImage && (
+    tabMainInfo.map((data1, index1) => (
+      <div key={index1} className="today-suggestion__main-list">
+        {data1.map((data2, index2) => {
+          const {
+            productLink,
+            productImage,
+            frameImage,
+            name,
+            saleOffText,
+            price,
+            selledQuantity,
+            saleOffLabelPercent,
+            sponsorLabel,
+          } = data2;
+
+          return (
+            <div key={index2} className="today-suggestion__main-item">
+              <a
+                key={index2}
+                href={productLink}
+                className="today-suggestion__main-product"
+              >
+                <div>
                   <img
-                    src={dataChild.frameImage}
-                    className="today-suggestion__main-product__frame-img"
+                    src={productImage}
+                    className="today-suggestion__main-product__product-img"
                     alt=""
                   />
-                )}
-                <div className="today-suggestion__main-product__part">
-                  <span className="today-suggestion__main-product__name">
-                    {dataChild.name}
-                  </span>
-                  {dataChild.saleOffText && (
-                    <div className="today-suggestion__main-product__sale-off">
-                      <img
-                        src={TodaySuggestionLeftSerratedIcon}
-                        className="today-suggestion__main-product__sale-off__left-serrated"
-                        alt=""
-                      />
-                      <span className="today-suggestion__main-product__sale-off__text">
-                        {dataChild.saleOffText}
+                  {frameImage && (
+                    <img
+                      src={frameImage}
+                      className="today-suggestion__main-product__frame-img"
+                      alt=""
+                    />
+                  )}
+
+                  <div className="today-suggestion__main-product__part">
+                    <span className="today-suggestion__main-product__name">
+                      {name}
+                    </span>
+                    {saleOffText && (
+                      <div className="today-suggestion__main-product__sale-off">
+                        <img
+                          src={TodaySuggestionLeftSerratedIcon}
+                          className="today-suggestion__main-product__sale-off__left-serrated"
+                          alt=""
+                        />
+                        <span className="today-suggestion__main-product__sale-off__text">
+                          {saleOffText}
+                        </span>
+                        <img
+                          src={TodaySuggestionRightSerratedIcon}
+                          className="today-suggestion__main-product__sale-off__right-serrated"
+                          alt=""
+                        />
+                      </div>
+                    )}
+                    <div className="today-suggestion__main-product__price-and-selled-quantity">
+                      <span className="today-suggestion__main-product__price">
+                        {price}
                       </span>
-                      <img
-                        src={TodaySuggestionRightSerratedIcon}
-                        className="today-suggestion__main-product__sale-off__right-serrated"
-                        alt=""
-                      />
+                      <span className="today-suggestion__main-product__selled-quantity">
+                        {selledQuantity}
+                      </span>
+                    </div>
+                  </div>
+
+                  {renderFavouriteLabel(data2)}
+                  {saleOffLabelPercent && (
+                    <div className="today-suggestion__main-product__sale-off-label">
+                      <span className="today-suggestion__main-product__sale-off-label__percent">
+                        {saleOffLabelPercent}
+                      </span>
+                      <span className="today-suggestion__main-product__sale-off-label__text">
+                        giảm
+                      </span>
                     </div>
                   )}
-                  <div className="today-suggestion__main-product__price-and-selled-quantity">
-                    <span className="today-suggestion__main-product__price">
-                      {dataChild.price}
-                    </span>
-                    <span className="today-suggestion__main-product__selled-quantity">
-                      {dataChild.selledQuantity}
-                    </span>
+                  {sponsorLabel && (
+                    <div className="today-suggestion__main-product__sponsor-label">
+                      Tài Trợ
+                    </div>
+                  )}
+                  <div className="today-suggestion__main-product__hover-label">
+                    Tìm sản phẩm tương tự
                   </div>
                 </div>
-                {renderFavouriteLabel(dataChild)}
-                {dataChild.saleOffLabelPercent && (
-                  <div className="today-suggestion__main-product__sale-off-label">
-                    <span className="today-suggestion__main-product__sale-off-label__percent">
-                      {dataChild.saleOffLabelPercent}
-                    </span>
-                    <span className="today-suggestion__main-product__sale-off-label__text">
-                      giảm
-                    </span>
-                  </div>
-                )}
-                {dataChild.sponsorLabel && (
-                  <div className="today-suggestion__main-product__sponsor-label">
-                    Tài Trợ
-                  </div>
-                )}
-                <div className="today-suggestion__main-product__hover-label">
-                  Tìm sản phẩm tương tự
-                </div>
-              </div>
-            </a>
-          </div>
-        ))}
+              </a>
+            </div>
+          );
+        })}
       </div>
     ));
+
   const renderTabSuperSale = (tabSuperSaleInfo) =>
-    tabSuperSaleInfo.map((data, dataIndex) => (
-      <div key={dataIndex} className="today-suggestion__main-list">
-        {data.map((dataChild, dataChildIndex) => (
-          <div key={dataChildIndex} className="today-suggestion__main-item">
-            <a
-              href={dataChild.productLink}
-              className="today-suggestion__main-product"
-            >
-              <div>
-                <img
-                  src={dataChild.productImage}
-                  className="today-suggestion__main-product__product-img"
-                  alt=""
-                />
-                {dataChild.frameImage && (
+    tabSuperSaleInfo.map((data1, index1) => (
+      <div key={index1} className="today-suggestion__main-list">
+        {data1.map((data2, index2) => {
+          const {
+            productLink,
+            productImage,
+            frameImage,
+            name,
+            saleOffText,
+            price,
+            selledQuantity,
+            saleOffLabelPercent,
+            sponsorLabel,
+          } = data2;
+
+          return (
+            <div key={index2} className="today-suggestion__main-item">
+              <a href={productLink} className="today-suggestion__main-product">
+                <div>
                   <img
-                    src={dataChild.frameImage}
-                    className="today-suggestion__main-product__frame-img"
+                    src={productImage}
+                    className="today-suggestion__main-product__product-img"
                     alt=""
                   />
-                )}
-                <div className="today-suggestion__main-product__part">
-                  <span className="today-suggestion__main-product__name">
-                    {dataChild.name}
-                  </span>
-                  {dataChild.saleOffText && (
-                    <div className="today-suggestion__main-product__sale-off">
-                      <img
-                        src={TodaySuggestionLeftSerratedIcon}
-                        className="today-suggestion__main-product__sale-off__left-serrated"
-                        alt=""
-                      />
-                      <span className="today-suggestion__main-product__sale-off__text">
-                        {dataChild.saleOffText}
+                  {frameImage && (
+                    <img
+                      src={frameImage}
+                      className="today-suggestion__main-product__frame-img"
+                      alt=""
+                    />
+                  )}
+
+                  <div className="today-suggestion__main-product__part">
+                    <span className="today-suggestion__main-product__name">
+                      {name}
+                    </span>
+                    {saleOffText && (
+                      <div className="today-suggestion__main-product__sale-off">
+                        <img
+                          src={TodaySuggestionLeftSerratedIcon}
+                          className="today-suggestion__main-product__sale-off__left-serrated"
+                          alt=""
+                        />
+                        <span className="today-suggestion__main-product__sale-off__text">
+                          {saleOffText}
+                        </span>
+                        <img
+                          src={TodaySuggestionRightSerratedIcon}
+                          className="today-suggestion__main-product__sale-off__right-serrated"
+                          alt=""
+                        />
+                      </div>
+                    )}
+                    <div className="today-suggestion__main-product__price-and-selled-quantity">
+                      <span className="today-suggestion__main-product__price">
+                        {price}
                       </span>
-                      <img
-                        src={TodaySuggestionRightSerratedIcon}
-                        className="today-suggestion__main-product__sale-off__right-serrated"
-                        alt=""
-                      />
+                      <span className="today-suggestion__main-product__selled-quantity">
+                        {selledQuantity}
+                      </span>
+                    </div>
+                  </div>
+
+                  {renderFavouriteLabel(data2)}
+                  {saleOffLabelPercent && (
+                    <div className="today-suggestion__main-product__sale-off-label">
+                      <span className="today-suggestion__main-product__sale-off-label__percent">
+                        {saleOffLabelPercent}
+                      </span>
+                      <span className="today-suggestion__main-product__sale-off-label__text">
+                        giảm
+                      </span>
                     </div>
                   )}
-                  <div className="today-suggestion__main-product__price-and-selled-quantity">
-                    <span className="today-suggestion__main-product__price">
-                      {dataChild.price}
-                    </span>
-                    <span className="today-suggestion__main-product__selled-quantity">
-                      {dataChild.selledQuantity}
-                    </span>
+                  {sponsorLabel && (
+                    <div className="today-suggestion__main-product__sponsor-label">
+                      Tài Trợ
+                    </div>
+                  )}
+                  <div className="today-suggestion__main-product__hover-label">
+                    Tìm sản phẩm tương tự
                   </div>
                 </div>
-                {renderFavouriteLabel(dataChild)}
-                {dataChild.saleOffLabelPercent && (
-                  <div className="today-suggestion__main-product__sale-off-label">
-                    <span className="today-suggestion__main-product__sale-off-label__percent">
-                      {dataChild.saleOffLabelPercent}
-                    </span>
-                    <span className="today-suggestion__main-product__sale-off-label__text">
-                      giảm
-                    </span>
-                  </div>
-                )}
-                {dataChild.sponsorLabel && (
-                  <div className="today-suggestion__main-product__sponsor-label">
-                    Tài Trợ
-                  </div>
-                )}
-                <div className="today-suggestion__main-product__hover-label">
-                  Tìm sản phẩm tương tự
-                </div>
-              </div>
-            </a>
-          </div>
-        ))}
+              </a>
+            </div>
+          );
+        })}
       </div>
     ));
+
   const toggleActiveHeadingTab = (activeTab) => {
     switch (activeTab) {
       case "main": {
@@ -254,6 +287,7 @@ function TodaySuggestion() {
         break;
     }
   };
+
   const handleClickHeadingTabMain = () => {
     toggleActiveHeadingTab("main");
 
@@ -267,6 +301,7 @@ function TodaySuggestion() {
     // scroll to this part
     window.scrollTo(0, scrollDistance);
   };
+
   const handleClickHeadingTabSuperSale = () => {
     toggleActiveHeadingTab("supersale");
 
@@ -302,6 +337,7 @@ function TodaySuggestion() {
           <img src={TodaySuggestionHeadingLabelImage} alt="" />
         </a>
       </div>
+
       <div className="today-suggestion__main">
         <div ref={tabMainRef} className="today-suggestion__main__tab-main">
           {todaySuggestionMainTabMainInfo &&

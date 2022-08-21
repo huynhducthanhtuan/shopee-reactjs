@@ -23,7 +23,7 @@ function ThirdForm({ userPhoneNumber }) {
 
     countDown();
 
-    // Cleanup function
+    // Clear interval in cleanup function
     return () => clearInterval(timerId);
   }, []);
 
@@ -32,6 +32,7 @@ function ThirdForm({ userPhoneNumber }) {
       <div className="register-page__confirmation__third-form__header">
         Đăng Ký Thành Công
       </div>
+      
       <div className="register-page__confirmation__third-form__content">
         <div className="register-page__confirmation__third-form__content-success-icon">
           <svg fill="none" viewBox="0 0 16 16">

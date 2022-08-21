@@ -5,30 +5,24 @@ function Directory() {
   const { directoryMainItemListInfo } = useDataSourceContext();
 
   const renderDirectoryMainList = (datas) =>
-    datas.map((data, index) => (
-      <li key={index} className="directory__main__item">
-        <a href={data[0].href} className="directory__main__item__link">
-          <img
-            src={data[0].itemImage}
-            className="directory__main__item__img"
-            alt=""
-          />
-          <span className="directory__main__item__title">
-            {data[0].itemTitle}
-          </span>
-        </a>
-        <a href={data[1].href} className="directory__main__item__link">
-          <img
-            src={data[1].itemImage}
-            className="directory__main__item__img"
-            alt=""
-          />
-          <span className="directory__main__item__title">
-            {data[1].itemTitle}
-          </span>
-        </a>
-      </li>
-    ));
+    datas.map((data, index) => {
+      const { href: href1, itemImage: image1, itemTitle: title1 } = data[0];
+      const { href: href2, itemImage: image2, itemTitle: title2 } = data[1];
+
+      return (
+        <li key={index} className="directory__main__item">
+          <a href={href1} className="directory__main__item__link">
+            <img src={image1} className="directory__main__item__img" alt="" />
+            <span className="directory__main__item__title">{title1}</span>
+          </a>
+          
+          <a href={href2} className="directory__main__item__link">
+            <img src={image2} className="directory__main__item__img" alt="" />
+            <span className="directory__main__item__title">{title2}</span>
+          </a>
+        </li>
+      );
+    });
 
   return (
     <div className="directory">

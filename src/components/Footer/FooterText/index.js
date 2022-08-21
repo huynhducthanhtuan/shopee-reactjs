@@ -11,8 +11,9 @@ function FooterText() {
       const footerTextATags = $$(".footer__text a");
 
       Array.from(footerTextATags).map((footerTextATag, index) => {
-        footerTextATag.href = footerTextATagsInfo[index].href;
-        footerTextATag.innerHTML = footerTextATagsInfo[index].innerHTML;
+        const { href, innerHTML } = footerTextATagsInfo[index];
+        footerTextATag.href = href;
+        footerTextATag.innerHTML = innerHTML;
       });
     }
   };
@@ -33,6 +34,7 @@ function FooterText() {
           và nhanh chóng hơn bao giờ hết!
         </span>
       </div>
+
       <div className="footer__text__item">
         <h1 className="footer__text__item__title">
           MUA SẮM VÀ BÁN HÀNG ONLINE ĐƠN GIẢN, NHANH CHÓNG VÀ AN TOÀN
@@ -61,6 +63,7 @@ function FooterText() {
           của shop.
         </span>
       </div>
+
       <div className="footer__text__item">
         <h1 className="footer__text__item__title">
           TẢI ỨNG DỤNG SHOPEE NGAY ĐỂ MUA BÁN ONLINE MỌI LÚC, MỌI NƠI
@@ -82,6 +85,7 @@ function FooterText() {
           mặt hàng ưa thích với mức giá giảm kỉ lục.
         </span>
       </div>
+
       <div className="footer__text__item">
         <h1 className="footer__text__item__title">
           MUA HÀNG HIỆU CAO CẤP GIÁ TỐT TẠI SHOPEE
@@ -98,6 +102,7 @@ function FooterText() {
           <a></a>, <a></a>, <a></a>, <a></a>...
         </span>
       </div>
+      
       <div className="footer__text__item">
         <h1 className="footer__text__item__title">
           MUA HÀNG CHÍNH HÃNG TỪ CÁC THƯƠNG HIỆU LỚN VỚI SHOPEE

@@ -13,16 +13,20 @@ function ShopeeMall() {
   } = useDataSourceContext();
 
   const renderHeadingText = (datas) =>
-    datas.map((data) => (
-      <div key={data.id}>
-        <img
-          src={data.image}
-          className="shopee-mall__heading__text__icon"
-          alt=""
-        />
-        <span className="shopee-mall__heading__text__title">{data.title}</span>
-      </div>
-    ));
+    datas.map((data, index) => {
+      const { image, title } = data;
+      return (
+        <div key={index}>
+          <img
+            src={image}
+            className="shopee-mall__heading__text__icon"
+            alt=""
+          />
+          <span className="shopee-mall__heading__text__title">{title}</span>
+        </div>
+      );
+    });
+
   const renderProductList = (datas) => {
     const shopeeMallMainProductListLength = datas.length;
     const shopeeMallMainProductListItemsLength =
@@ -33,7 +37,7 @@ function ShopeeMall() {
         {data.map((dataChild, index) => {
           const { id, href, image, text } = dataChild;
 
-          // check for special case: last li tag
+          // check special case: last li tag
           return id !== shopeeMallMainProductListItemsLength ? (
             <a
               key={index}
@@ -69,12 +73,13 @@ function ShopeeMall() {
       </li>
     ));
   };
+
   const renderMainMotion = (datas) =>
-    datas.map((data) => {
-      const { id, href, image } = data;
+    datas.map((data, index) => {
+      const { href, image } = data;
 
       return (
-        <div key={id}>
+        <div key={index}>
           <a href={href} className="shopee-mall__main__motion__link">
             <img
               src={image}
@@ -101,10 +106,12 @@ function ShopeeMall() {
             />
           </a>
         </div>
+
         <div className="shopee-mall__heading__text">
           {shopeeMallHeadingTextInfo &&
             renderHeadingText(shopeeMallHeadingTextInfo)}
         </div>
+
         <a
           href="https://shopee.vn/mall"
           className="shopee-mall__heading__view-all-btn"
@@ -115,6 +122,7 @@ function ShopeeMall() {
           </div>
         </a>
       </div>
+
       <div className="shopee-mall__main">
         <div className="shopee-mall__main__motion one-time">
           <a
@@ -136,6 +144,7 @@ function ShopeeMall() {
             <div className="shopee-mall__main__motion__queue-item"></div>
           </div>
         </div>
+
         <div className="shopee-mall__main__product">
           <div className="shopee-mall__main__product-part">
             <ul className="shopee-mall__main__product-list">

@@ -5,11 +5,10 @@ function UnderFlashSale() {
   const { underFlashSalePartInfo } = useDataSourceContext();
 
   const renderUnderFlashSalePart = (datas) =>
-    datas.map((data) => {
-      const { id, href, image } = data;
-
+    datas.map((data, index) => {
+      const { href, image } = data;
       return (
-        <a key={id} href={href} className="under-flash-sale__link">
+        <a key={index} href={href} className="under-flash-sale__link">
           <img src={image} className="under-flash-sale__img" alt="" />
         </a>
       );

@@ -18,6 +18,7 @@ function FirstForm({
   const handleClickHeaderBackBtn = () => {
     setShowConfirmationPart(false);
   };
+  
   const handleClickConfirmBtn = () => {
     setShowFirstForm(false);
     setShowSecondForm(true);

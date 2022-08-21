@@ -5,12 +5,12 @@ import { useDataSourceContext } from "hooks";
 function TopSearch() {
   const { topSearchMainListInfo } = useDataSourceContext();
 
-  const renderMainList = (datas) =>
+  const renderTopSearchMainList = (datas) =>
     datas.map((data, index) => {
-      const { id, href, productImage, price, text } = data;
+      const { href, productImage, price, text } = data;
 
       return (
-        <a key={id} href={href} className="top-search__main__link">
+        <a key={index} href={href} className="top-search__main__link">
           <div className="top-search__main__product">
             <img
               src={productImage}
@@ -22,6 +22,7 @@ function TopSearch() {
               className="top-search__main__product__top-label-img"
               alt=""
             />
+
             {index !== 0 && (
               <div className="top-search__main__product__statistic">
                 Bán{" "}
@@ -55,7 +56,8 @@ function TopSearch() {
       <div className="top-search__main">
         <div className="top-search__main-part">
           <div className="top-search__main__list">
-            {topSearchMainListInfo && renderMainList(topSearchMainListInfo)}
+            {topSearchMainListInfo &&
+              renderTopSearchMainList(topSearchMainListInfo)}
           </div>
         </div>
 

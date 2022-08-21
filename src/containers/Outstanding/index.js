@@ -11,7 +11,7 @@ function Outstanding() {
     useDataSourceContext();
 
   const renderHotSellingProducts = ([info, list]) => (
-    <>
+    <div>
       <div className="outstanding__hot-selling-products__info">
         <h4 className="outstanding__hot-selling-products__info__heading">
           {info.heading}
@@ -23,6 +23,7 @@ function Outstanding() {
           Xem thêm <i className="fas fa-chevron-right"></i>
         </a>
       </div>
+
       <div className="outstanding__hot-selling-products__list">
         {list.map((data) => (
           <a
@@ -49,10 +50,11 @@ function Outstanding() {
           </a>
         ))}
       </div>
-    </>
+    </div>
   );
+  
   const renderHotBrands = ([info, list]) => (
-    <>
+    <div>
       <div className="outstanding__hot-brands__info">
         <h4 className="outstanding__hot-brands__info__heading">
           {info.heading}
@@ -64,6 +66,7 @@ function Outstanding() {
           Xem thêm <i className="fas fa-chevron-right"></i>
         </a>
       </div>
+
       <div className="outstanding__hot-brands__list">
         {list.map((data) => {
           const { id, href, image, subImage, text } = data;
@@ -87,7 +90,7 @@ function Outstanding() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 
   return (
@@ -99,6 +102,7 @@ function Outstanding() {
           alt=""
         />
       </div>
+
       <div
         className="outstanding__body"
         style={{
@@ -122,6 +126,7 @@ function Outstanding() {
           </div>
         </div>
       </div>
+
       <div className="outstanding__footer">
         <img
           src={OutstandingFooterPicture}

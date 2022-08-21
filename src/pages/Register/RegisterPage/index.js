@@ -15,6 +15,7 @@ function RegisterPage() {
   return (
     <div id="register-page">
       <HeaderPart setHeaderPartRef={setHeaderPartRef} />
+      
       {showConfirmationPart ? (
         <ConfirmationPart
           headerPartRef={headerPartRef}
