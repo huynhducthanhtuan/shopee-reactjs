@@ -4,11 +4,27 @@ import {
   SliderNoMotionBanner1,
   SliderNoMotionBanner2,
 } from "assets/images";
+import { useEffect, useRef } from "react";
 import { useDataSourceContext } from "hooks";
-import { SLIDER_QUEUE_ITEM_QUANTITY } from "constants/index";
+import { $$ } from "constants/index";
 
 function Slider() {
-  const { sliderFavouriteSelectionsInfo } = useDataSourceContext();
+  const motionPartLinkRef = useRef();
+  const motionPartImageRef = useRef();
+  const previousButtonRef = useRef();
+  const nextButtonRef = useRef();
+
+  const {
+    sliderFavouriteSelectionsInfo,
+    sliderMainMotionPartLinkInfo: motionPartLinkInfo,
+  } = useDataSourceContext();
+
+  let queueItems = [];
+  let queueItemCurrentIndex = 0;
+  const len = motionPartLinkInfo.length;
+  const QUEUE_ITEM_CLASS = "slider__main__motion-part__queue-item";
+  const QUEUE_ITEM_CURRENT_CLASS =
+    "slider__main__motion-part__queue-item--current";
 
   const renderFavouriteSelections = (datas) =>
     datas.map((data, index) => {
@@ -16,8 +32,8 @@ function Slider() {
       return (
         <a
           key={index}
-          className="slider__favourite-selections__link"
           href={href}
+          className="slider__favourite-selections__link"
         >
           <img
             className="slider__favourite-selections__link-img"
@@ -32,14 +48,131 @@ function Slider() {
   const renderMainMotionPartQueueItem = () => {
     let divTags = [];
 
-    for (let i = 0; i < SLIDER_QUEUE_ITEM_QUANTITY - 1; i++) {
+    for (let index = 0; index < len - 1; index++) {
       divTags.push(
-        <div key={i} className="slider__main__motion-part__queue-item"></div>
+        <div
+          key={index}
+          className="slider__main__motion-part__queue-item"
+        ></div>
       );
     }
 
     return divTags;
   };
+
+  const updateMotionPartImageLinkProps = (index) => {
+    const { image, href } = motionPartLinkInfo[index];
+    motionPartImageRef.current.src = image;
+    motionPartLinkRef.current.href = href;
+  };
+
+  const handleClickPreviousButton = () => {
+    if (queueItemCurrentIndex === 0) {
+      queueItems[0].classList.remove(QUEUE_ITEM_CURRENT_CLASS);
+      queueItems[len - 1].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+      queueItemCurrentIndex = len - 1;
+    } else {
+      queueItems[queueItemCurrentIndex].classList.remove(
+        QUEUE_ITEM_CURRENT_CLASS
+      );
+      queueItems[queueItemCurrentIndex - 1].classList.add(
+        QUEUE_ITEM_CURRENT_CLASS
+      );
+      queueItemCurrentIndex--;
+    }
+
+    updateMotionPartImageLinkProps(queueItemCurrentIndex);
+  };
+
+  const handleClickNextButton = () => {
+    if (queueItemCurrentIndex === len - 1) {
+      queueItems[len - 1].classList.remove(QUEUE_ITEM_CURRENT_CLASS);
+      queueItems[0].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+      queueItemCurrentIndex = 0;
+    } else {
+      queueItems[queueItemCurrentIndex].classList.remove(
+        QUEUE_ITEM_CURRENT_CLASS
+      );
+      queueItems[queueItemCurrentIndex + 1].classList.add(
+        QUEUE_ITEM_CURRENT_CLASS
+      );
+      queueItemCurrentIndex++;
+    }
+
+    updateMotionPartImageLinkProps(queueItemCurrentIndex);
+  };
+
+  const handleSlidingImage = () => {
+    if (queueItemCurrentIndex < len - 1) {
+      queueItemCurrentIndex++;
+      queueItems[queueItemCurrentIndex - 1].classList.remove(
+        QUEUE_ITEM_CURRENT_CLASS
+      );
+      queueItems[queueItemCurrentIndex].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+    } else {
+      queueItemCurrentIndex = 0;
+      queueItems[len - 1].classList.remove(QUEUE_ITEM_CURRENT_CLASS);
+      queueItems[0].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+    }
+
+    updateMotionPartImageLinkProps(queueItemCurrentIndex);
+  };
+
+  function handleClickQueueItem() {
+    // get parent's queue
+    const parent = this.parentNode;
+
+    // get this's index in parent's queue
+    const index = Array.prototype.indexOf.call(parent.children, this);
+
+    queueItems[queueItemCurrentIndex].classList.remove(
+      QUEUE_ITEM_CURRENT_CLASS
+    );
+    queueItems[index].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+
+    // update src, href property
+    const { image, href } = motionPartLinkInfo[index];
+    motionPartImageRef.current.src = image;
+    motionPartLinkRef.current.href = href;
+
+    queueItemCurrentIndex = index;
+  }
+
+  // Get queueItems NodeList & convert to array
+  useEffect(() => (queueItems = Array.from($$(QUEUE_ITEM_CLASS))), []);
+
+  // EventListener
+  useEffect(() => {
+    previousButtonRef.current.addEventListener(
+      "click",
+      handleClickPreviousButton
+    );
+
+    nextButtonRef.current.addEventListener("click", handleClickNextButton);
+
+    queueItems.map((queueItem) =>
+      queueItem.addEventListener("click", handleClickQueueItem)
+    );
+
+    return () => {
+      previousButtonRef.current.removeEventListener(
+        "click",
+        handleClickPreviousButton
+      );
+
+      nextButtonRef.current.removeEventListener("click", handleClickNextButton);
+
+      queueItems.map((queueItem) =>
+        queueItem.removeEventListener("click", handleClickQueueItem)
+      );
+    };
+  }, []);
+
+  // Auto change slider image & queue item index
+  useEffect(() => {
+    const timerId = setInterval(handleSlidingImage, 5000);
+    return () => clearInterval(timerId);
+  }, []);
 
   return (
     <div className="slider">
@@ -48,18 +181,26 @@ function Slider() {
           <div className="slider__main__motion-part">
             <a
               href="https://shopee.vn/m/freeship-xtra"
+              ref={motionPartLinkRef}
               className="slider__main__motion-part__link"
             >
               <img
                 src={SliderMotionBanner1}
+                ref={motionPartImageRef}
                 className="slider__main__motion-part__img slider__main__motion-part__curent-img"
                 alt=""
               />
             </a>
-            <button className="slider__main__motion-part__btn slider__main__motion-part__previous-btn">
+            <button
+              ref={previousButtonRef}
+              className="slider__main__motion-part__btn slider__main__motion-part__previous-btn"
+            >
               <i className="fas fa-chevron-left"></i>
             </button>
-            <button className="slider__main__motion-part__btn slider__main__motion-part__next-btn">
+            <button
+              ref={nextButtonRef}
+              className="slider__main__motion-part__btn slider__main__motion-part__next-btn"
+            >
               <i className="fas fa-chevron-right"></i>
             </button>
 
