@@ -4,9 +4,15 @@ import {
   FlashSaleHeaderImage,
   FlashSaleSelledBarImage,
 } from "assets/images";
+import { useEffect, useRef } from "react";
 import { useDataSourceContext } from "hooks";
 
 function FlashSale() {
+  const mainListRef = useRef();
+  const nextButtonRef = useRef();
+  const previousButtonRef = useRef();
+  let listCurrentIndex = 1;
+
   const { flashSaleMainListInfo } = useDataSourceContext();
 
   const renderFlashSaleMainList = (datas) =>
@@ -58,7 +64,7 @@ function FlashSale() {
               ></div>
             )}
           </div>
-          
+
           <div className="flash-sale__main__sale-off-label">
             <span className="flash-sale__main__sale-off-label__percent">
               {saleOffPercent}
@@ -68,6 +74,73 @@ function FlashSale() {
         </a>
       );
     });
+
+  const handleClickNextButton = () => {
+    // If first list
+    if (listCurrentIndex == 1) {
+      listCurrentIndex = 2;
+      previousButtonRef.current.style.display = "block";
+      nextButtonRef.current.style.display = "block";
+
+      // Animation
+      mainListRef.current.style.transform = "translate(-100rem, 0)";
+      mainListRef.current.style.transition = "all 500ms ease 0s";
+    } else {
+      // If second list
+      if (listCurrentIndex == 2) {
+        listCurrentIndex = 3;
+        previousButtonRef.current.style.display = "block";
+        nextButtonRef.current.style.display = "none";
+
+        // Animation
+        mainListRef.current.style.transform = "translate(-200rem, 0)";
+        mainListRef.current.style.transition = "all 500ms ease 0s";
+      }
+    }
+  };
+
+  const handleClickPreviousButton = () => {
+    // If second list
+    if (listCurrentIndex == 2) {
+      listCurrentIndex = 1;
+      previousButtonRef.current.style.display = "none";
+      nextButtonRef.current.style.display = "block";
+
+      // Animation
+      mainListRef.current.style.transform = "translate(0, 0)";
+      mainListRef.current.style.transition = "all 500ms ease 0s";
+    } else {
+      // If third list
+      if (listCurrentIndex == 3) {
+        listCurrentIndex = 2;
+        previousButtonRef.current.style.display = "block";
+        nextButtonRef.current.style.display = "block";
+
+        // Animation
+        mainListRef.current.style.transform = "translate(-100rem, 0)";
+        mainListRef.current.style.transition = "all 500ms ease 0s";
+      }
+    }
+  };
+
+  // EventListener
+  useEffect(() => {
+    nextButtonRef.current.addEventListener("click", handleClickNextButton);
+
+    previousButtonRef.current.addEventListener(
+      "click",
+      handleClickPreviousButton
+    );
+
+    return () => {
+      nextButtonRef.current.removeEventListener("click", handleClickNextButton);
+
+      previousButtonRef.current.removeEventListener(
+        "click",
+        handleClickPreviousButton
+      );
+    };
+  }, []);
 
   return (
     <div className="flash-sale">
@@ -88,16 +161,22 @@ function FlashSale() {
 
       <div className="flash-sale__main">
         <div className="flash-sale__main__part">
-          <div className="flash-sale__main__list">
+          <div ref={mainListRef} className="flash-sale__main__list">
             {flashSaleMainListInfo &&
               renderFlashSaleMainList(flashSaleMainListInfo)}
           </div>
         </div>
 
-        <button className="navigation-btn navigation-btn__previous flash-sale__main__previous-btn">
+        <button
+          ref={previousButtonRef}
+          className="navigation-btn navigation-btn__previous flash-sale__main__previous-btn"
+        >
           <i className="fas fa-chevron-left navigation-btn__icon"></i>
         </button>
-        <button className="navigation-btn navigation-btn__next flash-sale__main__next-btn">
+        <button
+          ref={nextButtonRef}
+          className="navigation-btn navigation-btn__next flash-sale__main__next-btn"
+        >
           <i className="fas fa-chevron-right navigation-btn__icon"></i>
         </button>
       </div>

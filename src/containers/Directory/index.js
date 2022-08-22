@@ -3,9 +3,9 @@ import { useEffect, useRef } from "react";
 import { useDataSourceContext } from "hooks";
 
 function Directory() {
+  const mainListRef = useRef();
   const nextButtonRef = useRef();
   const previousButtonRef = useRef();
-  const mainListRef = useRef();
 
   const { directoryMainItemListInfo } = useDataSourceContext();
 
