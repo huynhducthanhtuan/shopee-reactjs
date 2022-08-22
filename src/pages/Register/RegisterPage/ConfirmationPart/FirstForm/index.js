@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useDataSourceContext } from "hooks";
 
 function FirstForm({
-  userPhoneNumber,
+  phoneNumber,
   setShowConfirmationPart,
   setShowFirstForm,
   setShowSecondForm,
@@ -18,7 +18,7 @@ function FirstForm({
   const handleClickHeaderBackBtn = () => {
     setShowConfirmationPart(false);
   };
-  
+
   const handleClickConfirmBtn = () => {
     setShowFirstForm(false);
     setShowSecondForm(true);
@@ -91,7 +91,7 @@ function FirstForm({
           ref={formContentUserPhoneNumberRef}
           className="register-page__confirmation__first-form__content__user-phone-number"
         >
-          {userPhoneNumber}
+          {phoneNumber}
         </div>
         <input
           autoFocus

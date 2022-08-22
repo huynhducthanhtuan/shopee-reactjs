@@ -14,6 +14,7 @@ function DataSourceContextProvider({ children }) {
       const { data: data1 } = await axios.get(API1_URL);
       const { data: data2 } = await axios.get(API2_URL);
       const { data: data3 } = await axios.get(API3_URL);
+      
       const historyListInfo = await historyListInfoApi.get();
 
       // Format data

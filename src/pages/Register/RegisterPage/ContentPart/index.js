@@ -1,4 +1,9 @@
-import { RegisterBackgroundImage } from "assets/images";
+import {
+  RegisterAppleIcon,
+  RegisterFacebookIcon,
+  RegisterGoogleIcon,
+  RegisterBackgroundImage,
+} from "assets/images";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import { handlePreventDefault, checkValidPhoneNumber } from "helpers";
@@ -109,7 +114,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
             >
               Số điện thoại không hợp lệ
             </div>
-            
+
             <svg
               fill="none"
               viewBox="0 0 16 16"
@@ -159,19 +164,19 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
                 onClick={(event) => handlePreventDefault(event)}
                 className="register-page__content-form__other-ways__facebook"
               >
-                <img src="/assests/img/register-page/facebook.png" alt="" />
+                <img src={RegisterFacebookIcon} alt="" />
               </button>
               <button
                 onClick={(event) => handlePreventDefault(event)}
                 className="register-page__content-form__other-ways__google"
               >
-                <img src="/assests/img/register-page/google.png" alt="" />
+                <img src={RegisterGoogleIcon} alt="" />
               </button>
               <button
                 onClick={(event) => handlePreventDefault(event)}
                 className="register-page__content-form__other-ways__apple"
               >
-                <img src="/assests/img/register-page/apple.png" alt="" />
+                <img src={RegisterAppleIcon} alt="" />
               </button>
             </div>
             <div className="register-page__content-form__terms-and-policy">

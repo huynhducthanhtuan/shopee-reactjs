@@ -1,9 +1,9 @@
-import HeaderPart from "./HeaderPart";
-import ContentPart from "./ContentPart";
-import ConfirmationPart from "./ConfirmationPart";
 import { useState, useEffect } from "react";
 import { REGISTER_PAGE_TITLE } from "constants/index";
 import { updateWebsiteTitle } from "helpers";
+import HeaderPart from "./HeaderPart";
+import ContentPart from "./ContentPart";
+import ConfirmationPart from "./ConfirmationPart";
 
 function RegisterPage() {
   const [headerPartRef, setHeaderPartRef] = useState(false);

@@ -4,7 +4,7 @@ import SecondForm from "./SecondForm";
 import ThirdForm from "./ThirdForm";
 
 function ConfirmationPart({
-  userPhoneNumber,
+  phoneNumber,
   headerPartRef,
   setShowConfirmationPart,
 }) {
@@ -13,11 +13,8 @@ function ConfirmationPart({
   const [showThirdForm, setShowThirdForm] = useState(false);
 
   useEffect(() => {
-    const updateUI = () => {
-      headerPartRef.current.style.boxShadow = "0 6px 6px rgb(0 0 0 / 6%)";
-    };
-
-    updateUI();
+    // Update header boxShadow
+    headerPartRef.current.style.boxShadow = "0 6px 6px rgb(0 0 0 / 6%)";
   }, []);
 
   return (
@@ -71,9 +68,10 @@ function ConfirmationPart({
             </span>
           </div>
         </div>
+
         {showFirstForm && (
           <FirstForm
-            userPhoneNumber={userPhoneNumber}
+            phoneNumber={phoneNumber}
             setShowConfirmationPart={setShowConfirmationPart}
             setShowFirstForm={setShowFirstForm}
             setShowSecondForm={setShowSecondForm}
@@ -86,7 +84,7 @@ function ConfirmationPart({
             setShowThirdForm={setShowThirdForm}
           />
         )}
-        {showThirdForm && <ThirdForm userPhoneNumber={userPhoneNumber} />}
+        {showThirdForm && <ThirdForm phoneNumber={phoneNumber} />}
       </div>
     </div>
   );

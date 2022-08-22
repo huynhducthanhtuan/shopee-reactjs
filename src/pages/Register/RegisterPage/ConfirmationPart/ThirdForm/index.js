@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { COUNT_DOWN_SECONDS } from "constants/index";
 
-function ThirdForm({ userPhoneNumber }) {
+function ThirdForm({ phoneNumber }) {
   const [countDownSecond, setCountDownSecond] = useState(COUNT_DOWN_SECONDS);
   const countDownSecondsNumberRef = useRef();
 
@@ -32,7 +32,7 @@ function ThirdForm({ userPhoneNumber }) {
       <div className="register-page__confirmation__third-form__header">
         Đăng Ký Thành Công
       </div>
-      
+
       <div className="register-page__confirmation__third-form__content">
         <div className="register-page__confirmation__third-form__content-success-icon">
           <svg fill="none" viewBox="0 0 16 16">
@@ -61,7 +61,7 @@ function ThirdForm({ userPhoneNumber }) {
 
         <div className="register-page__confirmation__third-form__content-first-notify">
           <div className="register-page__confirmation__third-form__content-first-notify__text">
-            Bạn đã tạo thành công tài khoản Shopee với số {userPhoneNumber}
+            Bạn đã tạo thành công tài khoản Shopee với số {phoneNumber}
           </div>
           <div className="register-page__confirmation__third-form__content-first-notify__user-phone-number"></div>
         </div>

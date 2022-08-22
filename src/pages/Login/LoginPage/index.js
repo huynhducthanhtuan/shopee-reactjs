@@ -1,4 +1,9 @@
-import { RegisterBackgroundImage } from "assets/images";
+import {
+  RegisterAppleIcon,
+  RegisterFacebookIcon,
+  RegisterGoogleIcon,
+  RegisterBackgroundImage,
+} from "assets/images";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LOGIN_PAGE_TITLE } from "constants/index";
@@ -156,13 +161,13 @@ function LoginPage() {
               </div>
               <div className="login-page__content-form__other-ways">
                 <button className="login-page__content-form__other-ways__facebook">
-                  <img src="/assests/img/register-page/facebook.png" alt="" />
+                  <img src={RegisterFacebookIcon} alt="" />
                 </button>
                 <button className="login-page__content-form__other-ways__google">
-                  <img src="/assests/img/register-page/google.png" alt="" />
+                  <img src={RegisterGoogleIcon} alt="" />
                 </button>
                 <button className="login-page__content-form__other-ways__apple">
-                  <img src="/assests/img/register-page/apple.png" alt="" />
+                  <img src={RegisterAppleIcon} alt="" />
                 </button>
               </div>
               <div className="login-page__content-form__ask-for-register">
