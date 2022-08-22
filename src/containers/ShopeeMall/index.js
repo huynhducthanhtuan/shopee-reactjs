@@ -148,7 +148,6 @@ function ShopeeMall() {
   // EventListener
   useEffect(() => {
     nextButtonRef.current.addEventListener("click", handleClickNextButton);
-
     previousButtonRef.current.addEventListener(
       "click",
       handleClickPreviousButton
@@ -156,7 +155,6 @@ function ShopeeMall() {
 
     return () => {
       nextButtonRef.current.removeEventListener("click", handleClickNextButton);
-
       previousButtonRef.current.removeEventListener(
         "click",
         handleClickPreviousButton
