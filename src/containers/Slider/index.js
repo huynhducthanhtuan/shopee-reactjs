@@ -139,7 +139,9 @@ function Slider() {
   }
 
   // Get queueItems NodeList & convert to array
-  useEffect(() => (queueItems = Array.from($$(QUEUE_ITEM_CLASS))), []);
+  useEffect(() => {
+    queueItems = Array.from($$(QUEUE_ITEM_CLASS));
+  }, []);
 
   // EventListener
   useEffect(() => {
