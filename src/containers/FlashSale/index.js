@@ -11,7 +11,7 @@ function FlashSale() {
   const mainListRef = useRef();
   const nextButtonRef = useRef();
   const previousButtonRef = useRef();
-  let listCurrentIndex = 1;
+  let currentListIndex = 1;
 
   const { flashSaleMainListInfo } = useDataSourceContext();
 
@@ -77,8 +77,8 @@ function FlashSale() {
 
   const handleClickNextButton = () => {
     // If first list
-    if (listCurrentIndex == 1) {
-      listCurrentIndex = 2;
+    if (currentListIndex == 1) {
+      currentListIndex = 2;
       previousButtonRef.current.style.display = "block";
       nextButtonRef.current.style.display = "block";
 
@@ -87,8 +87,8 @@ function FlashSale() {
       mainListRef.current.style.transition = "all 500ms ease 0s";
     } else {
       // If second list
-      if (listCurrentIndex == 2) {
-        listCurrentIndex = 3;
+      if (currentListIndex == 2) {
+        currentListIndex = 3;
         previousButtonRef.current.style.display = "block";
         nextButtonRef.current.style.display = "none";
 
@@ -101,8 +101,8 @@ function FlashSale() {
 
   const handleClickPreviousButton = () => {
     // If second list
-    if (listCurrentIndex == 2) {
-      listCurrentIndex = 1;
+    if (currentListIndex == 2) {
+      currentListIndex = 1;
       previousButtonRef.current.style.display = "none";
       nextButtonRef.current.style.display = "block";
 
@@ -111,8 +111,8 @@ function FlashSale() {
       mainListRef.current.style.transition = "all 500ms ease 0s";
     } else {
       // If third list
-      if (listCurrentIndex == 3) {
-        listCurrentIndex = 2;
+      if (currentListIndex == 3) {
+        currentListIndex = 2;
         previousButtonRef.current.style.display = "block";
         nextButtonRef.current.style.display = "block";
 

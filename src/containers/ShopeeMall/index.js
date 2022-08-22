@@ -3,9 +3,15 @@ import {
   ShopeeMallHeadingLabelIcon,
   ShopeeMallMotionBanner1,
 } from "assets/images";
+import { useEffect, useRef } from "react";
 import { useDataSourceContext } from "hooks";
 
 function ShopeeMall() {
+  const mainProductListRef = useRef();
+  const nextButtonRef = useRef();
+  const previousButtonRef = useRef();
+  let currentListIndex = 1;
+
   const {
     shopeeMallHeadingTextInfo,
     shopeeMallMainProductListInfo,
@@ -91,6 +97,73 @@ function ShopeeMall() {
       );
     });
 
+  const handleClickNextButton = () => {
+    // If first list
+    if (currentListIndex == 1) {
+      currentListIndex = 2;
+      previousButtonRef.current.style.display = "block";
+      nextButtonRef.current.style.display = "block";
+
+      // Animation
+      mainProductListRef.current.style.transform = "translate(-80rem, 0)";
+      mainProductListRef.current.style.transition = "all 500ms ease 0s";
+    } else {
+      // If second list
+      if (currentListIndex == 2) {
+        currentListIndex = 3;
+        previousButtonRef.current.style.display = "block";
+        nextButtonRef.current.style.display = "none";
+
+        // Animation
+        mainProductListRef.current.style.transform = "translate(-160rem, 0)";
+        mainProductListRef.current.style.transition = "all 500ms ease 0s";
+      }
+    }
+  };
+
+  const handleClickPreviousButton = () => {
+    // If second list
+    if (currentListIndex == 2) {
+      currentListIndex = 1;
+      previousButtonRef.current.style.display = "none";
+      nextButtonRef.current.style.display = "block";
+
+      // Animation
+      mainProductListRef.current.style.transform = "translate(0, 0)";
+      mainProductListRef.current.style.transition = "all 500ms ease 0s";
+    } else {
+      // If third list
+      if (currentListIndex == 3) {
+        currentListIndex = 2;
+        previousButtonRef.current.style.display = "block";
+        nextButtonRef.current.style.display = "block";
+
+        // Animation
+        mainProductListRef.current.style.transform = "translate(-80rem, 0)";
+        mainProductListRef.current.style.transition = "all 500ms ease 0s";
+      }
+    }
+  };
+
+  // EventListener
+  useEffect(() => {
+    nextButtonRef.current.addEventListener("click", handleClickNextButton);
+
+    previousButtonRef.current.addEventListener(
+      "click",
+      handleClickPreviousButton
+    );
+
+    return () => {
+      nextButtonRef.current.removeEventListener("click", handleClickNextButton);
+
+      previousButtonRef.current.removeEventListener(
+        "click",
+        handleClickPreviousButton
+      );
+    };
+  }, []);
+
   return (
     <div className="shopee-mall">
       <div className="shopee-mall__heading">
@@ -147,16 +220,25 @@ function ShopeeMall() {
 
         <div className="shopee-mall__main__product">
           <div className="shopee-mall__main__product-part">
-            <ul className="shopee-mall__main__product-list">
+            <ul
+              ref={mainProductListRef}
+              className="shopee-mall__main__product-list"
+            >
               {shopeeMallMainProductListInfo &&
                 renderProductList(shopeeMallMainProductListInfo)}
             </ul>
           </div>
 
-          <button className="navigation-btn navigation-btn__previous shopee-mall__main__product__previous-btn">
+          <button
+            ref={previousButtonRef}
+            className="navigation-btn navigation-btn__previous shopee-mall__main__product__previous-btn"
+          >
             <i className="fas fa-chevron-left navigation-btn__icon"></i>
           </button>
-          <button className="navigation-btn navigation-btn__next shopee-mall__main__product__next-btn">
+          <button
+            ref={nextButtonRef}
+            className="navigation-btn navigation-btn__next shopee-mall__main__product__next-btn"
+          >
             <i className="fas fa-chevron-right navigation-btn__icon"></i>
           </button>
         </div>
