@@ -1,10 +1,16 @@
 import "./SearchTrending.css";
+import { useState, useEffect, useRef } from "react";
 import { useDataSourceContext } from "hooks";
+import { handlePreventDefault } from "helpers/index";
 
 function SearchTrending() {
-  const { searchTrendingMainListInfo } = useDataSourceContext();
+  const [currentListIndex, setCurrentListIndex] = useState(0);
+  const mainListRef = useRef();
+  const viewMoreButtonRef = useRef();
 
-  const renderSearchTrendingMainList = (datas, listIndex) =>
+  const { searchTrendingMainListInfo: mainListInfo } = useDataSourceContext();
+
+  const renderMainListChildren = (datas, listIndex) =>
     datas[listIndex].map((data, index) => {
       const { href, productName, productDescription, image } = data;
 
@@ -18,11 +24,35 @@ function SearchTrending() {
               {productDescription}
             </span>
           </div>
-          
           <img src={image} className="search-trending__img" alt="" />
         </a>
       );
     });
+
+  const handleClickViewMoreButton = (event) => {
+    handlePreventDefault(event);
+
+    if (currentListIndex === mainListInfo.length - 1) {
+      setCurrentListIndex(0);
+    } else {
+      setCurrentListIndex(currentListIndex + 1);
+    }
+  };
+
+  // EventListener
+  useEffect(() => {
+    viewMoreButtonRef.current.addEventListener(
+      "click",
+      handleClickViewMoreButton
+    );
+
+    return () => {
+      viewMoreButtonRef.current.removeEventListener(
+        "click",
+        handleClickViewMoreButton
+      );
+    };
+  }, [currentListIndex]);
 
   return (
     <div className="search-trending">
@@ -30,7 +60,10 @@ function SearchTrending() {
         <span className="search-trending__heading__title">
           XU HƯỚNG TÌM KIẾM
         </span>
-        <a className="search-trending__heading__view-more-btn">
+        <a
+          ref={viewMoreButtonRef}
+          className="search-trending__heading__view-more-btn"
+        >
           <svg
             viewBox="0 0 12 15"
             className="shopee-svg-icon icon-refresh search-trending__heading__view-more-btn__svg"
@@ -45,9 +78,9 @@ function SearchTrending() {
       </div>
 
       <div className="search-trending__main">
-        <div className="search-trending__main__list">
-          {searchTrendingMainListInfo &&
-            renderSearchTrendingMainList(searchTrendingMainListInfo, 0)}
+        <div ref={mainListRef} className="search-trending__main__list">
+          {mainListInfo &&
+            renderMainListChildren(mainListInfo, currentListIndex)}
         </div>
       </div>
     </div>
