@@ -5,18 +5,28 @@ import {
 } from "assets/images";
 import { useEffect, useRef } from "react";
 import { useDataSourceContext } from "hooks";
+import { $$ } from "constants/index";
 
 function ShopeeMall() {
   const mainProductListRef = useRef();
   const nextButtonRef = useRef();
   const previousButtonRef = useRef();
-  let currentListIndex = 1;
+  const motionImageRef = useRef();
+  const motionLinkRef = useRef();
 
   const {
     shopeeMallHeadingTextInfo,
     shopeeMallMainProductListInfo,
-    shopeeMallMainMotionLinkInfo,
+    shopeeMallMainMotionLinkInfo: motionLinkInfo,
   } = useDataSourceContext();
+
+  let queueItems = [];
+  let queueItemCurrentIndex = 0;
+  let currentListIndex = 1;
+  const len = motionLinkInfo.length;
+  const QUEUE_ITEM_CLASS = "shopee-mall__main__motion__queue-item";
+  const QUEUE_ITEM_CURRENT_CLASS =
+    "shopee-mall__main__motion__queue-item--current";
 
   const renderHeadingText = (datas) =>
     datas.map((data, index) => {
@@ -80,22 +90,23 @@ function ShopeeMall() {
     ));
   };
 
-  const renderMainMotion = (datas) =>
+  const renderMainMotionQueueItems = (datas) =>
     datas.map((data, index) => {
-      const { href, image } = data;
-
       return (
-        <div key={index}>
-          <a href={href} className="shopee-mall__main__motion__link">
-            <img
-              src={image}
-              className="shopee-mall__main__motion__img"
-              alt=""
-            />
-          </a>
-        </div>
+        <div
+          key={index}
+          className={`shopee-mall__main__motion__queue-item ${
+            index === 0 ? "shopee-mall__main__motion__queue-item--current" : ""
+          }`}
+        ></div>
       );
     });
+
+  const updateMotionImageLinkProps = (index) => {
+    const { image, href } = motionLinkInfo[index];
+    motionImageRef.current.src = image;
+    motionLinkRef.current.href = href;
+  };
 
   const handleClickNextButton = () => {
     // If first list
@@ -145,12 +156,53 @@ function ShopeeMall() {
     }
   };
 
+  const handleSlidingImage = () => {
+    if (queueItemCurrentIndex < len - 1) {
+      queueItemCurrentIndex++;
+      queueItems[queueItemCurrentIndex - 1].classList.remove(
+        QUEUE_ITEM_CURRENT_CLASS
+      );
+      queueItems[queueItemCurrentIndex].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+    } else {
+      queueItemCurrentIndex = 0;
+      queueItems[len - 1].classList.remove(QUEUE_ITEM_CURRENT_CLASS);
+      queueItems[0].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+    }
+
+    updateMotionImageLinkProps(queueItemCurrentIndex);
+  };
+
+  function handleClickQueueItem() {
+    // get parent's queue
+    const parent = this.parentNode;
+
+    // get this's index in parent's queue
+    const index = Array.prototype.indexOf.call(parent.children, this);
+
+    queueItems[queueItemCurrentIndex].classList.remove(
+      QUEUE_ITEM_CURRENT_CLASS
+    );
+    queueItems[index].classList.add(QUEUE_ITEM_CURRENT_CLASS);
+
+    updateMotionImageLinkProps(index);
+
+    queueItemCurrentIndex = index;
+  }
+
+  // Get queueItems NodeList & convert to array
+  useEffect(() => {
+    queueItems = Array.from($$(`.${QUEUE_ITEM_CLASS}`));
+  }, []);
+
   // EventListener
   useEffect(() => {
     nextButtonRef.current.addEventListener("click", handleClickNextButton);
     previousButtonRef.current.addEventListener(
       "click",
       handleClickPreviousButton
+    );
+    queueItems.map((queueItem) =>
+      queueItem.addEventListener("click", handleClickQueueItem)
     );
 
     return () => {
@@ -159,7 +211,16 @@ function ShopeeMall() {
         "click",
         handleClickPreviousButton
       );
+      queueItems.map((queueItem) =>
+        queueItem.removeEventListener("click", handleClickQueueItem)
+      );
     };
+  }, []);
+
+  // Auto change slider image & queue item index
+  useEffect(() => {
+    const timerId = setInterval(handleSlidingImage, 5000);
+    return () => clearInterval(timerId);
   }, []);
 
   return (
@@ -198,21 +259,18 @@ function ShopeeMall() {
         <div className="shopee-mall__main__motion one-time">
           <a
             href="https://shopee.vn/m/uu-dai-provence"
+            ref={motionLinkRef}
             className="shopee-mall__main__motion__link"
           >
             <img
               src={ShopeeMallMotionBanner1}
+              ref={motionImageRef}
               className="shopee-mall__main__motion__img"
               alt=""
             />
           </a>
-          {/* {shopeeMallMainMotionLinkInfo &&
-                renderMainMotion(shopeeMallMainMotionLinkInfo)} */}
           <div className="shopee-mall__main__motion__queue">
-            <div className="shopee-mall__main__motion__queue-item shopee-mall__main__motion__queue-item--current"></div>
-            <div className="shopee-mall__main__motion__queue-item"></div>
-            <div className="shopee-mall__main__motion__queue-item"></div>
-            <div className="shopee-mall__main__motion__queue-item"></div>
+            {motionLinkInfo && renderMainMotionQueueItems(motionLinkInfo)}
           </div>
         </div>
 
