@@ -3,11 +3,12 @@ import {
   ShopeeMallHeadingLabelIcon,
   ShopeeMallMotionBanner1,
 } from "assets/images";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDataSourceContext } from "hooks";
 import { $$ } from "constants/index";
 
 function ShopeeMall() {
+  const [queueItems, setQueueItems] = useState([]);
   const mainProductListRef = useRef();
   const nextButtonRef = useRef();
   const previousButtonRef = useRef();
@@ -15,14 +16,13 @@ function ShopeeMall() {
   const motionLinkRef = useRef();
 
   const {
-    shopeeMallHeadingTextInfo,
-    shopeeMallMainProductListInfo,
+    shopeeMallHeadingTextInfo: headingTextInfo,
+    shopeeMallMainProductListInfo: productListInfo,
     shopeeMallMainMotionLinkInfo: motionLinkInfo,
   } = useDataSourceContext();
 
-  let queueItems = [];
-  let queueItemCurrentIndex = 0;
   let currentListIndex = 1;
+  let queueItemCurrentIndex = 0;
   const len = motionLinkInfo.length;
   const QUEUE_ITEM_CLASS = "shopee-mall__main__motion__queue-item";
   const QUEUE_ITEM_CURRENT_CLASS =
@@ -90,13 +90,14 @@ function ShopeeMall() {
     ));
   };
 
-  const renderMainMotionQueueItems = (datas) =>
+  const renderQueueItems = (datas) =>
     datas.map((data, index) => {
       return (
         <div
           key={index}
-          className={`shopee-mall__main__motion__queue-item ${
-            index === 0 ? "shopee-mall__main__motion__queue-item--current" : ""
+          onClick={(event) => handleClickQueueItem(event)}
+          className={`${QUEUE_ITEM_CLASS} ${
+            index === 0 ? QUEUE_ITEM_CURRENT_CLASS : ""
           }`}
         ></div>
       );
@@ -172,12 +173,14 @@ function ShopeeMall() {
     updateMotionImageLinkProps(queueItemCurrentIndex);
   };
 
-  function handleClickQueueItem() {
-    // get parent's queue
-    const parent = this.parentNode;
+  const handleClickQueueItem = (event) => {
+    const parent = event.target.parentElement;
 
-    // get this's index in parent's queue
-    const index = Array.prototype.indexOf.call(parent.children, this);
+    // Get index of this element in parent element
+    const index = Array.prototype.indexOf.call(
+      Array.from(parent.childNodes),
+      event.target
+    );
 
     queueItems[queueItemCurrentIndex].classList.remove(
       QUEUE_ITEM_CURRENT_CLASS
@@ -187,41 +190,19 @@ function ShopeeMall() {
     updateMotionImageLinkProps(index);
 
     queueItemCurrentIndex = index;
-  }
+  };
 
-  // Get queueItems NodeList & convert to array
+  // Get queueItems NodeList, convert to array and update state
   useEffect(() => {
-    queueItems = Array.from($$(`.${QUEUE_ITEM_CLASS}`));
-  }, []);
-
-  // EventListener
-  useEffect(() => {
-    nextButtonRef.current.addEventListener("click", handleClickNextButton);
-    previousButtonRef.current.addEventListener(
-      "click",
-      handleClickPreviousButton
-    );
-    queueItems.map((queueItem) =>
-      queueItem.addEventListener("click", handleClickQueueItem)
-    );
-
-    return () => {
-      nextButtonRef.current.removeEventListener("click", handleClickNextButton);
-      previousButtonRef.current.removeEventListener(
-        "click",
-        handleClickPreviousButton
-      );
-      queueItems.map((queueItem) =>
-        queueItem.removeEventListener("click", handleClickQueueItem)
-      );
-    };
+    const queueItemsArray = Array.from($$(`.${QUEUE_ITEM_CLASS}`));
+    setQueueItems(queueItemsArray);
   }, []);
 
   // Auto change slider image & queue item index
   useEffect(() => {
     const timerId = setInterval(handleSlidingImage, 5000);
     return () => clearInterval(timerId);
-  }, []);
+  }, [queueItems]);
 
   return (
     <div className="shopee-mall">
@@ -240,8 +221,7 @@ function ShopeeMall() {
         </div>
 
         <div className="shopee-mall__heading__text">
-          {shopeeMallHeadingTextInfo &&
-            renderHeadingText(shopeeMallHeadingTextInfo)}
+          {headingTextInfo && renderHeadingText(headingTextInfo)}
         </div>
 
         <a
@@ -270,7 +250,7 @@ function ShopeeMall() {
             />
           </a>
           <div className="shopee-mall__main__motion__queue">
-            {motionLinkInfo && renderMainMotionQueueItems(motionLinkInfo)}
+            {motionLinkInfo && renderQueueItems(motionLinkInfo)}
           </div>
         </div>
 
@@ -280,19 +260,20 @@ function ShopeeMall() {
               ref={mainProductListRef}
               className="shopee-mall__main__product-list"
             >
-              {shopeeMallMainProductListInfo &&
-                renderProductList(shopeeMallMainProductListInfo)}
+              {productListInfo && renderProductList(productListInfo)}
             </ul>
           </div>
 
           <button
             ref={previousButtonRef}
+            onClick={handleClickPreviousButton}
             className="navigation-btn navigation-btn__previous shopee-mall__main__product__previous-btn"
           >
             <i className="fas fa-chevron-left navigation-btn__icon"></i>
           </button>
           <button
             ref={nextButtonRef}
+            onClick={handleClickNextButton}
             className="navigation-btn navigation-btn__next shopee-mall__main__product__next-btn"
           >
             <i className="fas fa-chevron-right navigation-btn__icon"></i>

@@ -4,7 +4,7 @@ import {
   FlashSaleHeaderImage,
   FlashSaleSelledBarImage,
 } from "assets/images";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useDataSourceContext } from "hooks";
 
 function FlashSale() {
@@ -123,23 +123,6 @@ function FlashSale() {
     }
   };
 
-  // EventListener
-  useEffect(() => {
-    nextButtonRef.current.addEventListener("click", handleClickNextButton);
-    previousButtonRef.current.addEventListener(
-      "click",
-      handleClickPreviousButton
-    );
-
-    return () => {
-      nextButtonRef.current.removeEventListener("click", handleClickNextButton);
-      previousButtonRef.current.removeEventListener(
-        "click",
-        handleClickPreviousButton
-      );
-    };
-  }, []);
-
   return (
     <div className="flash-sale">
       <div className="flash-sale__heading">
@@ -167,12 +150,14 @@ function FlashSale() {
 
         <button
           ref={previousButtonRef}
+          onClick={handleClickPreviousButton}
           className="navigation-btn navigation-btn__previous flash-sale__main__previous-btn"
         >
           <i className="fas fa-chevron-left navigation-btn__icon"></i>
         </button>
         <button
           ref={nextButtonRef}
+          onClick={handleClickNextButton}
           className="navigation-btn navigation-btn__next flash-sale__main__next-btn"
         >
           <i className="fas fa-chevron-right navigation-btn__icon"></i>

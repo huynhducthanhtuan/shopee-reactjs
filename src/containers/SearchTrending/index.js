@@ -1,5 +1,5 @@
 import "./SearchTrending.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useDataSourceContext } from "hooks";
 import { handlePreventDefault } from "helpers/index";
 
@@ -39,21 +39,6 @@ function SearchTrending() {
     }
   };
 
-  // EventListener
-  useEffect(() => {
-    viewMoreButtonRef.current.addEventListener(
-      "click",
-      handleClickViewMoreButton
-    );
-
-    return () => {
-      viewMoreButtonRef.current.removeEventListener(
-        "click",
-        handleClickViewMoreButton
-      );
-    };
-  }, [currentListIndex]);
-
   return (
     <div className="search-trending">
       <div className="search-trending__heading">
@@ -62,6 +47,7 @@ function SearchTrending() {
         </span>
         <a
           ref={viewMoreButtonRef}
+          onClick={(event) => handleClickViewMoreButton(event)}
           className="search-trending__heading__view-more-btn"
         >
           <svg

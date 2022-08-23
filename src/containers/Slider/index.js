@@ -4,22 +4,22 @@ import {
   SliderNoMotionBanner1,
   SliderNoMotionBanner2,
 } from "assets/images";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDataSourceContext } from "hooks";
 import { $$ } from "constants/index";
 
 function Slider() {
+  const [queueItems, setQueueItems] = useState([]);
   const motionPartLinkRef = useRef();
   const motionPartImageRef = useRef();
   const previousButtonRef = useRef();
   const nextButtonRef = useRef();
 
   const {
-    sliderFavouriteSelectionsInfo,
+    sliderFavouriteSelectionsInfo: favouriteSelectionsInfo,
     sliderMainMotionPartLinkInfo: motionPartLinkInfo,
   } = useDataSourceContext();
 
-  let queueItems = [];
   let queueItemCurrentIndex = 0;
   const len = motionPartLinkInfo.length;
   const QUEUE_ITEM_CLASS = "slider__main__motion-part__queue-item";
@@ -45,20 +45,18 @@ function Slider() {
       );
     });
 
-  const renderMainMotionPartQueueItem = () => {
-    let divTags = [];
-
-    for (let index = 0; index < len - 1; index++) {
-      divTags.push(
+  const renderQueueItems = (datas) =>
+    datas.map((data, index) => {
+      return (
         <div
           key={index}
-          className="slider__main__motion-part__queue-item"
+          onClick={(event) => handleClickQueueItem(event)}
+          className={`${QUEUE_ITEM_CLASS} ${
+            index === 0 ? QUEUE_ITEM_CURRENT_CLASS : ""
+          }`}
         ></div>
       );
-    }
-
-    return divTags;
-  };
+    });
 
   const updateMotionPartImageLinkProps = (index) => {
     const { image, href } = motionPartLinkInfo[index];
@@ -118,12 +116,14 @@ function Slider() {
     updateMotionPartImageLinkProps(queueItemCurrentIndex);
   };
 
-  function handleClickQueueItem() {
-    // get parent's queue
-    const parent = this.parentNode;
+  const handleClickQueueItem = (event) => {
+    const parent = event.target.parentElement;
 
-    // get this's index in parent's queue
-    const index = Array.prototype.indexOf.call(parent.children, this);
+    // Get index of this element in parent element
+    const index = Array.prototype.indexOf.call(
+      Array.from(parent.childNodes),
+      event.target
+    );
 
     queueItems[queueItemCurrentIndex].classList.remove(
       QUEUE_ITEM_CURRENT_CLASS
@@ -133,41 +133,19 @@ function Slider() {
     updateMotionPartImageLinkProps(index);
 
     queueItemCurrentIndex = index;
-  }
+  };
 
-  // Get queueItems NodeList & convert to array
+  // Get queueItems NodeList, convert to array and update state
   useEffect(() => {
-    queueItems = Array.from($$(`.${QUEUE_ITEM_CLASS}`));
-  }, []);
-
-  // EventListener
-  useEffect(() => {
-    previousButtonRef.current.addEventListener(
-      "click",
-      handleClickPreviousButton
-    );
-    nextButtonRef.current.addEventListener("click", handleClickNextButton);
-    queueItems.map((queueItem) =>
-      queueItem.addEventListener("click", handleClickQueueItem)
-    );
-
-    return () => {
-      previousButtonRef.current.removeEventListener(
-        "click",
-        handleClickPreviousButton
-      );
-      nextButtonRef.current.removeEventListener("click", handleClickNextButton);
-      queueItems.map((queueItem) =>
-        queueItem.removeEventListener("click", handleClickQueueItem)
-      );
-    };
+    const queueItemsArray = Array.from($$(`.${QUEUE_ITEM_CLASS}`));
+    setQueueItems(queueItemsArray);
   }, []);
 
   // Auto change slider image & queue item index
   useEffect(() => {
     const timerId = setInterval(handleSlidingImage, 5000);
     return () => clearInterval(timerId);
-  }, []);
+  }, [queueItems]);
 
   return (
     <div className="slider">
@@ -188,20 +166,21 @@ function Slider() {
             </a>
             <button
               ref={previousButtonRef}
+              onClick={handleClickPreviousButton}
               className="slider__main__motion-part__btn slider__main__motion-part__previous-btn"
             >
               <i className="fas fa-chevron-left"></i>
             </button>
             <button
               ref={nextButtonRef}
+              onClick={handleClickNextButton}
               className="slider__main__motion-part__btn slider__main__motion-part__next-btn"
             >
               <i className="fas fa-chevron-right"></i>
             </button>
 
             <div className="slider__main__motion-part__queue">
-              <div className="slider__main__motion-part__queue-item slider__main__motion-part__queue-item--current"></div>
-              {renderMainMotionPartQueueItem()}
+              {motionPartLinkInfo && renderQueueItems(motionPartLinkInfo)}
             </div>
           </div>
 
@@ -234,8 +213,8 @@ function Slider() {
         </div>
 
         <div className="slider__favourite-selections">
-          {sliderFavouriteSelectionsInfo &&
-            renderFavouriteSelections(sliderFavouriteSelectionsInfo)}
+          {favouriteSelectionsInfo &&
+            renderFavouriteSelections(favouriteSelectionsInfo)}
         </div>
       </div>
     </div>

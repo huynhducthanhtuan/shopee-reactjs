@@ -109,23 +109,6 @@ function TopSearch() {
     }
   };
 
-  // EventListener
-  useEffect(() => {
-    nextButtonRef.current.addEventListener("click", handleClickNextButton);
-    previousButtonRef.current.addEventListener(
-      "click",
-      handleClickPreviousButton
-    );
-
-    return () => {
-      nextButtonRef.current.removeEventListener("click", handleClickNextButton);
-      previousButtonRef.current.removeEventListener(
-        "click",
-        handleClickPreviousButton
-      );
-    };
-  }, []);
-
   return (
     <div className="top-search">
       <div className="top-search__heading">
@@ -148,12 +131,14 @@ function TopSearch() {
 
         <button
           ref={previousButtonRef}
+          onClick={handleClickPreviousButton}
           className="navigation-btn navigation-btn__previous top-search__main__previous-btn"
         >
           <i className="fas fa-chevron-left navigation-btn__icon"></i>
         </button>
         <button
           ref={nextButtonRef}
+          onClick={handleClickNextButton}
           className="navigation-btn navigation-btn__next top-search__main__next-btn"
         >
           <i className="fas fa-chevron-right navigation-btn__icon"></i>
