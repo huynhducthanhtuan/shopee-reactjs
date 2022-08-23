@@ -10,88 +10,96 @@ function Outstanding() {
   const { outstandingHotSellingProductsInfo, outstandingHotBrandsInfo } =
     useDataSourceContext();
 
-  const renderHotSellingProducts = ([info, list]) => (
-    <div>
-      <div className="outstanding__hot-selling-products__info">
-        <h4 className="outstanding__hot-selling-products__info__heading">
-          {info.heading}
-        </h4>
-        <a
-          href={info.href}
-          className="outstanding__hot-selling-products__info__view-more-btn"
-        >
-          Xem thêm <i className="fas fa-chevron-right"></i>
-        </a>
-      </div>
+  const renderHotSellingProducts = (datas) => {
+    const { info, list } = datas;
 
-      <div className="outstanding__hot-selling-products__list">
-        {list.map((data) => (
+    return (
+      <div>
+        <div className="outstanding__hot-selling-products__info">
+          <h4 className="outstanding__hot-selling-products__info__heading">
+            {info.heading}
+          </h4>
           <a
-            key={data.id}
-            href={data.href}
-            className="outstanding__hot-selling-products__item"
+            href={info.href}
+            className="outstanding__hot-selling-products__info__view-more-btn"
           >
-            <img
-              src={data.image}
-              className="outstanding__hot-selling-products__img"
-              alt=""
-            />
-            <span className="outstanding__hot-selling-products__price">
-              {data.price}
-            </span>
-            <div className="outstanding__hot-selling-products__sale-off-label">
-              <span className="outstanding__hot-selling-products__sale-off-label__percent">
-                {data.percent}
-              </span>
-              <span className="outstanding__hot-selling-products__sale-off-label__text">
-                GIẢM
-              </span>
-            </div>
+            Xem thêm <i className="fas fa-chevron-right"></i>
           </a>
-        ))}
-      </div>
-    </div>
-  );
-  
-  const renderHotBrands = ([info, list]) => (
-    <div>
-      <div className="outstanding__hot-brands__info">
-        <h4 className="outstanding__hot-brands__info__heading">
-          {info.heading}
-        </h4>
-        <a
-          href={info.href}
-          className="outstanding__hot-brands__info__view-more-btn"
-        >
-          Xem thêm <i className="fas fa-chevron-right"></i>
-        </a>
-      </div>
+        </div>
 
-      <div className="outstanding__hot-brands__list">
-        {list.map((data) => {
-          const { id, href, image, subImage, text } = data;
-
-          return (
-            <a key={id} href={href} className="outstanding__hot-brands__item">
+        <div className="outstanding__hot-selling-products__list">
+          {list.map((data) => (
+            <a
+              key={data.id}
+              href={data.href}
+              className="outstanding__hot-selling-products__item"
+            >
               <img
-                src={image}
-                className="outstanding__hot-brands__img"
+                src={data.image}
+                className="outstanding__hot-selling-products__img"
                 alt=""
               />
-              <div className="">
+              <span className="outstanding__hot-selling-products__price">
+                {data.price}
+              </span>
+              <div className="outstanding__hot-selling-products__sale-off-label">
+                <span className="outstanding__hot-selling-products__sale-off-label__percent">
+                  {data.percent}
+                </span>
+                <span className="outstanding__hot-selling-products__sale-off-label__text">
+                  GIẢM
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const renderHotBrands = (datas) => {
+    const { info, list } = datas;
+
+    return (
+      <div>
+        <div className="outstanding__hot-brands__info">
+          <h4 className="outstanding__hot-brands__info__heading">
+            {info.heading}
+          </h4>
+          <a
+            href={info.href}
+            className="outstanding__hot-brands__info__view-more-btn"
+          >
+            Xem thêm <i className="fas fa-chevron-right"></i>
+          </a>
+        </div>
+
+        <div className="outstanding__hot-brands__list">
+          {list.map((data) => {
+            const { id, href, image, subImage, text } = data;
+
+            return (
+              <a key={id} href={href} className="outstanding__hot-brands__item">
                 <img
-                  src={subImage}
-                  className="outstanding__hot-brands__sub-img"
+                  src={image}
+                  className="outstanding__hot-brands__img"
                   alt=""
                 />
-              </div>
-              <span className="outstanding__hot-brands__text">{text}</span>
-            </a>
-          );
-        })}
+                <div className="">
+                  <img
+                    src={subImage}
+                    className="outstanding__hot-brands__sub-img"
+                    alt=""
+                  />
+                </div>
+                <span className="outstanding__hot-brands__text">{text}</span>
+              </a>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="outstanding">
@@ -112,17 +120,11 @@ function Outstanding() {
         <div>
           <div className="outstanding__hot-selling-products">
             {outstandingHotSellingProductsInfo &&
-              renderHotSellingProducts([
-                outstandingHotSellingProductsInfo.info,
-                outstandingHotSellingProductsInfo.list,
-              ])}
+              renderHotSellingProducts(outstandingHotSellingProductsInfo)}
           </div>
           <div className="outstanding__hot-brands">
             {outstandingHotBrandsInfo &&
-              renderHotBrands([
-                outstandingHotBrandsInfo.info,
-                outstandingHotBrandsInfo.list,
-              ])}
+              renderHotBrands(outstandingHotBrandsInfo)}
           </div>
         </div>
       </div>

@@ -130,17 +130,14 @@ function Slider() {
     );
     queueItems[index].classList.add(QUEUE_ITEM_CURRENT_CLASS);
 
-    // update src, href property
-    const { image, href } = motionPartLinkInfo[index];
-    motionPartImageRef.current.src = image;
-    motionPartLinkRef.current.href = href;
+    updateMotionPartImageLinkProps(index);
 
     queueItemCurrentIndex = index;
   }
 
   // Get queueItems NodeList & convert to array
   useEffect(() => {
-    queueItems = Array.from($$(QUEUE_ITEM_CLASS));
+    queueItems = Array.from($$(`.${QUEUE_ITEM_CLASS}`));
   }, []);
 
   // EventListener
@@ -149,9 +146,7 @@ function Slider() {
       "click",
       handleClickPreviousButton
     );
-
     nextButtonRef.current.addEventListener("click", handleClickNextButton);
-
     queueItems.map((queueItem) =>
       queueItem.addEventListener("click", handleClickQueueItem)
     );
@@ -161,9 +156,7 @@ function Slider() {
         "click",
         handleClickPreviousButton
       );
-
       nextButtonRef.current.removeEventListener("click", handleClickNextButton);
-
       queueItems.map((queueItem) =>
         queueItem.removeEventListener("click", handleClickQueueItem)
       );
