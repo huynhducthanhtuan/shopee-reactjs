@@ -5,19 +5,19 @@ import { updateWebsiteTitle } from "helpers";
 import { Header, Container, Footer, MotionPart, Modal } from "components";
 
 function Home() {
-  const { showModal } = useModalStatusContext();
+    const { showModal } = useModalStatusContext();
 
-  useEffect(() => updateWebsiteTitle(HOME_PAGE_TITLE), []);
+    useEffect(() => updateWebsiteTitle(HOME_PAGE_TITLE), []);
 
-  return (
-    <>
-      <Header />
-      <Container />
-      <Footer />
-      <MotionPart />
-      {showModal && <Modal />}
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <Container />
+            <Footer />
+            <MotionPart />
+            {showModal && <Modal />}
+        </>
+    );
 }
 
 export default Home;

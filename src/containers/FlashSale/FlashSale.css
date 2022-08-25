@@ -1,212 +1,212 @@
 .flash-sale {
-  height: 30.1rem;
-  width: 120rem;
-  margin: 2rem auto 0;
+    height: 30.1rem;
+    width: 120rem;
+    margin: 2rem auto 0;
 }
 .flash-sale__heading {
-  height: 6rem;
-  padding: 0 2rem;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1px;
+    height: 6rem;
+    padding: 0 2rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1px;
 }
 
 .flash-sale__heading__img {
-  display: block;
-  width: 13rem;
-  height: 2.4rem;
+    display: block;
+    width: 13rem;
+    height: 2.4rem;
 }
 
 .flash-sale__heading__btn {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #ee4d2d;
-  padding: 0.4rem;
-  cursor: pointer;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ee4d2d;
+    padding: 0.4rem;
+    cursor: pointer;
 }
 .flash-sale__heading__btn:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 .flash-sale__main {
-  width: 100%;
-  margin-left: -0.2rem;
-  margin-right: -0.3rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 100%;
+    margin-left: -0.2rem;
+    margin-right: -0.3rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .flash-sale__main__part {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  touch-action: pan-y;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: pan-y;
 }
 .flash-sale__main__list {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  will-change: transition;
-  position: relative;
-  width: 100%;
-  transform: translate(0px, 0px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    will-change: transition;
+    position: relative;
+    width: 100%;
+    transform: translate(0px, 0px);
 }
 .flash-sale__main__link {
-  display: block;
-  height: 24rem;
-  padding: 0.5rem 1.35rem 1.5rem;
-  background-color: #fff;
-  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
-  position: relative;
-  width: 20rem;
+    display: block;
+    height: 24rem;
+    padding: 0.5rem 1.35rem 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    position: relative;
+    width: 20rem;
 }
 .flash-sale__main__link:not(:nth-child(6), :nth-child(12), :nth-child(18)) {
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
 .flash-sale__main__link:hover {
-  transform: translateY(-1px);
-  border-color: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 0.8125rem 0 rgb(0 0 0 / 5%);
+    transform: translateY(-1px);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 0.8125rem 0 rgb(0 0 0 / 5%);
 }
 
 .flash-sale__main__bubble-img {
-  display: block;
-  width: 17.3rem;
-  height: 17.3rem;
+    display: block;
+    width: 17.3rem;
+    height: 17.3rem;
 }
 
 .flash-sale__main__frame-img {
-  display: block;
-  width: 17.3rem;
-  height: 17.3rem;
-  position: absolute;
-  top: 0.5rem;
+    display: block;
+    width: 17.3rem;
+    height: 17.3rem;
+    position: absolute;
+    top: 0.5rem;
 }
 
 .flash-sale__main__price {
-  display: block;
-  text-align: center;
-  font-size: 2.1rem;
-  max-width: 13rem;
-  line-height: 2.4rem;
-  margin: 0.6rem auto 0 auto;
-  color: #ee4d2d;
-  font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    display: block;
+    text-align: center;
+    font-size: 2.1rem;
+    max-width: 13rem;
+    line-height: 2.4rem;
+    margin: 0.6rem auto 0 auto;
+    color: #ee4d2d;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .flash-sale__main__percent-bar {
-  height: 1.6rem;
-  margin: 0.4rem 0.8rem 0;
-  position: relative;
+    height: 1.6rem;
+    margin: 0.4rem 0.8rem 0;
+    position: relative;
 }
 
 .flash-sale__main__percent-bar__total-part {
-  width: 100%;
-  height: 100%;
-  background-color: #ffbda6;
-  border-radius: 0.8rem;
+    width: 100%;
+    height: 100%;
+    background-color: #ffbda6;
+    border-radius: 0.8rem;
 }
 
 .flash-sale__main__percent-bar__selled-part {
-  height: 100%;
-  /* background: url(/assests/img/container/flash-sale/selled-bar.png) no-repeat
+    height: 100%;
+    /* background: url(/assests/img/container/flash-sale/selled-bar.png) no-repeat
     center / cover; */
-  text-align: center;
-  border-top-left-radius: 0.8rem;
-  border-bottom-left-radius: 0.8rem;
-  position: absolute;
-  top: 0;
-  left: 0;
+    text-align: center;
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .flash-sale__main__percent-bar--hot {
-  width: 1.8rem;
-  height: 2.1rem;
-  position: absolute;
-  top: -0.6rem;
-  left: 0.3rem;
+    width: 1.8rem;
+    height: 2.1rem;
+    position: absolute;
+    top: -0.6rem;
+    left: 0.3rem;
 }
 
 .flash-sale__main__percent-bar__text {
-  color: #fff;
-  font-size: 1.2rem;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(calc(-50%));
-  z-index: 1;
+    color: #fff;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(calc(-50%));
+    z-index: 1;
 }
 
 .flash-sale__main__sale-off-label {
-  width: 5rem;
-  height: 4.4rem;
-  padding: 0.4rem 0 0.3rem 0;
-  background-color: rgba(255, 212, 36, 0.9);
-  position: absolute;
-  right: 0.1rem;
-  top: 0.1rem;
+    width: 5rem;
+    height: 4.4rem;
+    padding: 0.4rem 0 0.3rem 0;
+    background-color: rgba(255, 212, 36, 0.9);
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
 }
 
 .flash-sale__main__sale-off-label::after {
-  content: "";
-  border-width: 0 2.5rem 0.66rem;
-  border-style: solid;
-  border-color: transparent rgba(255, 212, 36, 0.9) transparent
-    rgba(255, 212, 36, 0.9);
-  position: absolute;
-  left: 0;
-  top: 100%;
+    content: "";
+    border-width: 0 2.5rem 0.66rem;
+    border-style: solid;
+    border-color: transparent rgba(255, 212, 36, 0.9) transparent
+        rgba(255, 212, 36, 0.9);
+    position: absolute;
+    left: 0;
+    top: 100%;
 }
 
 .flash-sale__main__sale-off-label__percent {
-  display: block;
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: #ee4d2d;
-  margin-bottom: 0.4rem;
+    display: block;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #ee4d2d;
+    margin-bottom: 0.4rem;
 }
 
 .flash-sale__main__sale-off-label__text {
-  display: block;
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: #fff;
+    display: block;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #fff;
 }
 
 .flash-sale__main__previous-btn {
-  display: none;
+    display: none;
 }
 
 .flash-sale__main__next-btn {
-  display: block;
+    display: block;
 }
 
 .flash-sale__main:hover .navigation-btn__previous,
 .flash-sale__main__previous-btn:hover {
-  width: 5rem;
-  height: 5rem;
-  margin-left: calc(-2.5rem);
+    width: 5rem;
+    height: 5rem;
+    margin-left: calc(-2.5rem);
 }
 
 .flash-sale__main:hover .navigation-btn__next,
 .flash-sale__main__next-btn:hover {
-  width: 5rem;
-  height: 5rem;
-  margin-right: calc(-2.5rem);
+    width: 5rem;
+    height: 5rem;
+    margin-right: calc(-2.5rem);
 }
 
 .flash-sale__main:hover .navigation-btn__icon,
 .flash-sale__main__previous-btn:hover .navigation-btn__icon,
 .flash-sale__main__next-btn:hover .navigation-btn__icon {
-  font-size: 2rem;
-  font-weight: 600;
+    font-size: 2rem;
+    font-weight: 600;
 }

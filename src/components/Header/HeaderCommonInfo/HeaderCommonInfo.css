@@ -1,307 +1,307 @@
 /* 1.HEADER-COMMON-INFO */
 .header__common-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header__links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .header__notify-and-account {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header__links > div > a,
 .header__notify-and-account > div > a {
-  color: #fff;
-  font-size: 1.3rem;
+    color: #fff;
+    font-size: 1.3rem;
 }
 
 .header__links span {
-  color: #fff;
-  font-size: 1.3rem;
-  margin: 0 7px;
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0 7px;
 }
 
 .header__links-seller-channel,
 .header__links-become-a-shopee-seller,
 .header__links-app-download,
 .header__register {
-  border-right: 2px solid #f86b5b;
+    border-right: 2px solid #f86b5b;
 }
 
 .header__links-seller-channel > a,
 .header__links-become-a-shopee-seller > a,
 .header__links-app-download > a {
-  padding: 0 8px;
+    padding: 0 8px;
 }
 
 .header__links-seller-channel:hover > a,
 .header__links-become-a-shopee-seller:hover > a,
 .header__links-app-download:hover > a,
 .header__notify-and-account > div:hover > a {
-  color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .header__links-app-download {
-  position: relative;
+    position: relative;
 }
 
 .header__links-app-download:hover .header__links-app-download-popup {
-  display: block;
+    display: block;
 }
 
 .header__links-app-download-popup {
-  position: absolute;
-  top: calc(100% + 0.625rem);
-  left: 0.8rem;
-  z-index: 1;
-  background-color: #fff;
-  border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-  -webkit-animation: fadeIn ease-in-out 0.2s;
-  animation: fadeIn ease-in-out 0.2s;
-  will-change: opacity;
-  display: none;
+    position: absolute;
+    top: calc(100% + 0.625rem);
+    left: 0.8rem;
+    z-index: 1;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    -webkit-animation: fadeIn ease-in-out 0.2s;
+    animation: fadeIn ease-in-out 0.2s;
+    will-change: opacity;
+    display: none;
 }
 
 .header__links-app-download-popup > a {
-  display: block;
-  padding: 0 1px 2px 1px;
+    display: block;
+    padding: 0 1px 2px 1px;
 }
 
 .header__links-app-download-popup::before {
-  content: "";
-  width: calc(100% + 6px);
-  height: 10px;
-  position: absolute;
-  left: -6px;
-  transform: translateY(calc(-100% - 2px));
+    content: "";
+    width: calc(100% + 6px);
+    height: 10px;
+    position: absolute;
+    left: -6px;
+    transform: translateY(calc(-100% - 2px));
 }
 
 .header__app-download__qr-img {
-  width: 18rem;
-  height: 18rem;
+    width: 18rem;
+    height: 18rem;
 }
 
 .header__app-download__app-store-img {
-  width: 7rem;
-  height: 1.6rem;
-  margin-right: 6px;
+    width: 7rem;
+    height: 1.6rem;
+    margin-right: 6px;
 }
 
 .header__app-download__google_play-img {
-  width: 7rem;
-  height: 1.6rem;
+    width: 7rem;
+    height: 1.6rem;
 }
 
 .header__app-download__app_gallery-img {
-  width: 7rem;
-  height: 1.6rem;
-  margin-top: 6px;
+    width: 7rem;
+    height: 1.6rem;
+    margin-top: 6px;
 }
 
 .header__links-app-download-popup__box {
-  padding: 0 0.5rem 0.5rem 1rem;
-  margin-top: 6px;
+    padding: 0 0.5rem 0.5rem 1rem;
+    margin-top: 6px;
 }
 
 .header__links-app-download-popup__box div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header__notification {
-  position: relative;
+    position: relative;
 }
 .header__notification__link-icon {
-  display: block;
-  width: 1.4rem;
-  height: 1.8rem;
-  fill: #fff;
-  margin-right: 0.5rem;
+    display: block;
+    width: 1.4rem;
+    height: 1.8rem;
+    fill: #fff;
+    margin-right: 0.5rem;
 }
 .header__notification__quantity {
-  border-radius: 44%;
-  background-color: #fff;
-  color: #f94f2f;
-  padding: 0px 6px;
-  position: absolute;
-  top: -4px;
-  left: 12px;
-  font-size: 1.2rem;
+    border-radius: 44%;
+    background-color: #fff;
+    color: #f94f2f;
+    padding: 0px 6px;
+    position: absolute;
+    top: -4px;
+    left: 12px;
+    font-size: 1.2rem;
 }
 
 .header__notification__popup {
-  max-height: 51.5rem;
-  width: 40.2rem;
-  background-color: #fff;
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  border-radius: 2px 2px 1px 1px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-  z-index: 1;
-  transform-origin: calc(100% - 32px) top;
-  -webkit-animation: growth ease 0.2s;
-  animation: growth ease 0.2s;
-  will-change: opacity, transform;
-  display: none;
+    max-height: 51.5rem;
+    width: 40.2rem;
+    background-color: #fff;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    border-radius: 2px 2px 1px 1px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    z-index: 1;
+    transform-origin: calc(100% - 32px) top;
+    -webkit-animation: growth ease 0.2s;
+    animation: growth ease 0.2s;
+    will-change: opacity, transform;
+    display: none;
 }
 .header__notification__popup::before {
-  content: "";
-  width: 100%;
-  height: 10px;
-  position: absolute;
-  transform: translateY(calc(-100%));
+    content: "";
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    transform: translateY(calc(-100%));
 }
 .header__notification__popup::after {
-  content: "";
-  position: absolute;
-  top: -22px;
-  right: 23px;
-  border-style: solid;
-  border-width: 12px 15px;
-  border-color: transparent transparent #fff transparent;
+    content: "";
+    position: absolute;
+    top: -22px;
+    right: 23px;
+    border-style: solid;
+    border-width: 12px 15px;
+    border-color: transparent transparent #fff transparent;
 }
 .header__notification:hover .header__notification__popup {
-  display: block;
+    display: block;
 }
 .header__notification:hover .header__notification__quantity,
 .header__notification__quantity:hover {
-  display: none;
+    display: none;
 }
 
 .header__notification__popup--when-not-login__main {
-  width: 100%;
-  margin: 8.67rem auto;
+    width: 100%;
+    margin: 8.67rem auto;
 }
 .header__notification__popup--when-not-login__main__img {
-  display: block;
-  width: 10rem;
-  height: 10rem;
-  margin: 0 auto;
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto;
 }
 .header__notification__popup--when-not-login__main__text {
-  display: block;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  margin-top: 2rem;
+    display: block;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    margin-top: 2rem;
 }
 
 .header__notification__popup--when-not-login__buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
 }
 .header__notification__popup--when-not-login__btn {
-  border: none;
-  background-color: #f5f5f5;
-  width: 50%;
-  height: 100%;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
+    border: none;
+    background-color: #f5f5f5;
+    width: 50%;
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
 }
 .header__notification__popup--when-not-login__btn:hover {
-  color: #ee4d2d;
-  background-color: #e8e8e8;
+    color: #ee4d2d;
+    background-color: #e8e8e8;
 }
 
 .header__notification__popup--when-not-login__btn > span {
-  text-align: center;
-  display: block;
-  transform: translateY(10px);
+    text-align: center;
+    display: block;
+    transform: translateY(10px);
 }
 
 .header__notification__popup--when-logged-in__heading {
-  color: rgb(183 180 180 / 80%);
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin: 0;
-  padding: 12px;
+    color: rgb(183 180 180 / 80%);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 12px;
 }
 
 .header__notification__popup--when-logged-in__heading:hover {
-  cursor: default;
+    cursor: default;
 }
 .header__notification__popup--when-logged-in__list {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 .header__notification__popup--when-logged-in__link {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.8rem 0 1.6rem 1rem;
-  /* color: #f5f5f5; */
-  color: #fff2ee;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0 1.6rem 1rem;
+    /* color: #f5f5f5; */
+    color: #fff2ee;
 }
 .header__notification__popup--when-logged-in__item:hover,
 .header__notification__popup--when-logged-in__view-all-btn:hover {
-  background-color: #f8f8f8;
-  cursor: pointer;
+    background-color: #f8f8f8;
+    cursor: pointer;
 }
 .header__notification__popup--when-logged-in__item--unread {
-  background-color: #fff2ee;
+    background-color: #fff2ee;
 }
 .header__notification__popup--when-logged-in__item__img {
-  width: 40px;
-  height: 40px;
+    width: 40px;
+    height: 40px;
 }
 .header__notification__popup--when-logged-in__item__img > img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 .header__notification__popup--when-logged-in__item__content {
-  padding: 0 0.8rem;
-  width: 35.2rem;
+    padding: 0 0.8rem;
+    width: 35.2rem;
 }
 .header__notification__popup--when-logged-in__item__title {
-  color: #5a5654;
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin: 0 0 4px;
+    color: #5a5654;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0 0 4px;
 }
 .header__notification__popup--when-logged-in__item__description {
-  color: #8b8b8b;
-  font-size: 1.2rem;
-  margin: 0;
+    color: #8b8b8b;
+    font-size: 1.2rem;
+    margin: 0;
 }
 .header__notification__popup--when-logged-in__view-all-btn {
-  display: block;
-  width: 100%;
-  padding: 13px;
-  font-size: 1.4rem;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-  background-color: #fff;
+    display: block;
+    width: 100%;
+    padding: 13px;
+    font-size: 1.4rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: #fff;
 }
 
 .header__support__link-icon {
-  display: block;
-  width: 1.8rem;
-  height: 1.8rem;
-  margin-right: 0.5rem;
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 0.5rem;
 }
 
 .header__login__btn,
 .header__register__btn {
-  font-weight: 500;
-  font-size: 1.4rem !important;
+    font-weight: 500;
+    font-size: 1.4rem !important;
 }
 
 .header__notification__link,
@@ -309,117 +309,117 @@
 .header__register__btn,
 .header__login__btn,
 .header__user-account__link {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 8px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 8px;
+    cursor: pointer;
 }
 
 .header__user-account {
-  display: none;
-  position: relative;
-  margin-right: -8px;
+    display: none;
+    position: relative;
+    margin-right: -8px;
 }
 .header__user-account__link__icon {
-  height: 2rem;
-  width: 2rem;
-  background-color: #f5f5f5;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-  position: relative;
+    height: 2rem;
+    width: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    position: relative;
 }
 .header__user-account__link__icon > svg {
-  height: 1.5rem;
-  width: 1.5rem;
-  font-size: 1.5rem;
-  stroke: #c6c6c6;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: 1.5rem;
+    stroke: #c6c6c6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .header__user-account__username {
-  font-size: 1.4rem;
+    font-size: 1.4rem;
 }
 
 .header__user-account__popup {
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.8);
-  width: 15rem;
-  position: absolute;
-  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-  z-index: 1;
-  top: calc(100% + 10px);
-  left: 10px;
-  transform-origin: 50% top;
-  -webkit-animation: growth ease 0.3s;
-  animation: growth ease 0.3s;
-  will-change: opacity, transform;
-  display: none;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    width: 15rem;
+    position: absolute;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    z-index: 1;
+    top: calc(100% + 10px);
+    left: 10px;
+    transform-origin: 50% top;
+    -webkit-animation: growth ease 0.3s;
+    animation: growth ease 0.3s;
+    will-change: opacity, transform;
+    display: none;
 }
 .header__user-account:hover .header__user-account__popup {
-  display: block;
+    display: block;
 }
 .header__user-account__popup::before {
-  content: "";
-  width: 100%;
-  height: 10px;
-  position: absolute;
-  transform: translateY(calc(-100%));
+    content: "";
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    transform: translateY(calc(-100%));
 }
 .header__user-account__popup::after {
-  content: "";
-  position: absolute;
-  top: -20px;
-  right: 64px;
-  border-style: solid;
-  border-width: 10px 12px;
-  border-color: transparent transparent #fff transparent;
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 64px;
+    border-style: solid;
+    border-width: 10px 12px;
+    border-color: transparent transparent #fff transparent;
 }
 .header__user-account__popup-list {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 .header__user-account__popup-item > a {
-  display: block;
-  padding: 12px 15px;
-  font-size: 1.4rem;
-  color: rgba(0, 0, 0, 0.8);
+    display: block;
+    padding: 12px 15px;
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, 0.8);
 }
 .header__user-account__popup-item:hover > a {
-  cursor: pointer;
-  color: #26aa99;
-  background-color: #fcf8f8;
+    cursor: pointer;
+    color: #26aa99;
+    background-color: #fcf8f8;
 }
 
 .header__links-socials {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .header__links-socials i {
-  font-size: 1.6rem;
+    font-size: 1.6rem;
 }
 
 .header__notify-and-account i {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 .header__notify-and-account i {
-  padding-right: 8px;
+    padding-right: 8px;
 }
 
 .header__links-socials__facebook {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .header__links-socials__facebook:hover,
 .header__links-socials__instagram:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 .header__notification,
 .header__support {
-  margin-right: 4px;
+    margin-right: 4px;
 }

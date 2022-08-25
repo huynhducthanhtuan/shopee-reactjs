@@ -1,668 +1,665 @@
-#register-page {
-  /* display: none; */
-}
 .register-page__header {
-  width: 100%;
-  height: 8.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 4rem;
-  background-color: rgb(255, 255, 255);
-  position: relative;
+    width: 100%;
+    height: 8.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 4rem;
+    background-color: rgb(255, 255, 255);
+    position: relative;
 }
 .register-page__header-shopee {
-  height: 3.4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 0.8rem;
+    height: 3.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.8rem;
 }
 .register-page__header-shopee__link {
-  display: flex;
-  width: 17.2rem;
+    display: flex;
+    width: 17.2rem;
 }
 .register-page__header-shopee__link > svg {
-  fill: #ee4d2d;
-  width: 19rem;
-  height: 4.2rem;
+    fill: #ee4d2d;
+    width: 19rem;
+    height: 4.2rem;
 }
 .register-page__header-shopee__text {
-  color: #222;
-  font-size: 2.4rem;
-  font-weight: 400;
-  line-height: 2.8rem;
-  margin-left: -1rem;
+    color: #222;
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 2.8rem;
+    margin-left: -1rem;
 }
 .register-page__header-need-help-btn {
-  color: #ee4d2d;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  margin-right: 0.8rem;
-  cursor: pointer;
+    color: #ee4d2d;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    margin-right: 0.8rem;
+    cursor: pointer;
 }
 
 .register-page__content {
-  width: 100%;
-  height: 60rem;
-  background-color: rgb(238, 77, 45);
-  padding: 0px 11rem;
+    width: 100%;
+    height: 60rem;
+    background-color: rgb(238, 77, 45);
+    padding: 0px 11rem;
 }
 .register-page__content-part {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .register-page__content-form {
-  width: 39.8rem;
-  height: 42.8rem;
-  background-color: #fff;
-  border-radius: 3px;
+    width: 39.8rem;
+    height: 42.8rem;
+    background-color: #fff;
+    border-radius: 3px;
 }
 .register-page__content-form__heading {
-  margin: 0.6rem 0;
-  height: 6.8rem;
-  padding: 0 3rem;
-  color: #222;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-  display: flex;
-  align-items: center;
+    margin: 0.6rem 0;
+    height: 6.8rem;
+    padding: 0 3rem;
+    color: #222;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    display: flex;
+    align-items: center;
 }
 .register-page__content-form__part {
-  width: 100%;
-  height: 34.8rem;
-  padding: 0 3rem 3rem 3rem;
-  position: relative;
+    width: 100%;
+    height: 34.8rem;
+    padding: 0 3rem 3rem 3rem;
+    position: relative;
 }
 .register-page__content-form__input {
-  width: 100%;
-  height: 4rem;
-  padding: 1.2rem;
-  border: 0.2px solid rgba(0, 0, 0, 0.14);
-  border-radius: 2px;
-  box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: normal;
-  color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 4rem;
+    padding: 1.2rem;
+    border: 0.2px solid rgba(0, 0, 0, 0.14);
+    border-radius: 2px;
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(0, 0, 0, 0.8);
 }
 .register-page__content-form__input--invalid-phone-number {
-  outline: #ff424f;
-  border-color: #ff424f;
-  background-color: #fff6f7;
+    outline: #ff424f;
+    border-color: #ff424f;
+    background-color: #fff6f7;
 }
 .register-page__content-form__input-text--invalid-phone-number {
-  display: none;
-  position: absolute;
-  top: 4.4rem;
-  left: 3rem;
-  color: #ff424f;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.44rem;
+    display: none;
+    position: absolute;
+    top: 4.4rem;
+    left: 3rem;
+    color: #ff424f;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.44rem;
 }
 .register-page__content-form__input-icon--valid-phone-number {
-  display: none;
-  height: 1.6rem;
-  width: 1.6rem;
-  position: absolute;
-  top: 1.2rem;
-  right: 4.7rem;
+    display: none;
+    height: 1.6rem;
+    width: 1.6rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 4.7rem;
 }
 .register-page__content-form__next-btn {
-  margin: 3rem 0;
-  width: 100%;
-  height: 4rem;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
-  background-color: #ee4d2d;
-  opacity: 0.7;
-  cursor: not-allowed;
+    margin: 3rem 0;
+    width: 100%;
+    height: 4rem;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
+    background-color: #ee4d2d;
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 .register-page__content-form__separate-part {
-  height: 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  margin-bottom: 1.5rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-bottom: 1.5rem;
 }
 .register-page__content-form__separate-part > div:nth-child(1),
 .register-page__content-form__separate-part > div:nth-child(3) {
-  width: 13.5rem;
-  height: 0.5px;
-  background-color: #dbdbdb;
+    width: 13.5rem;
+    height: 0.5px;
+    background-color: #dbdbdb;
 }
 .register-page__content-form__separate-part__text {
-  color: #ccc;
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.44rem;
+    color: #ccc;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.44rem;
 }
 
 .register-page__content-form__other-ways {
-  height: 5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 .register-page__content-form__other-ways > button {
-  cursor: pointer;
-  padding: 0;
-  border: 0;
+    cursor: pointer;
+    padding: 0;
+    border: 0;
 }
 .register-page__content-form__other-ways > button:hover {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 .register-page__content-form__other-ways__facebook {
-  width: 11rem;
+    width: 11rem;
 }
 .register-page__content-form__other-ways__google,
 .register-page__content-form__other-ways__apple {
-  width: 10.4rem;
+    width: 10.4rem;
 }
 .register-page__content-form__other-ways > button > img {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .register-page__content-form__terms-and-policy {
-  margin: 2.2rem 0 3rem 0;
-  width: 100%;
-  height: 2.8rem;
-  padding: 0 3rem 0 2.5rem;
-  text-align: center;
-  font-size: 1.2rem;
-  color: rgba(0, 0, 0, 0.87);
+    margin: 2.2rem 0 3rem 0;
+    width: 100%;
+    height: 2.8rem;
+    padding: 0 3rem 0 2.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.87);
 }
 .register-page__content-form__terms-and-policy > span {
-  display: block;
-  text-align: center;
+    display: block;
+    text-align: center;
 }
 .register-page__content-form__terms-and-policy > a {
-  color: #ee4d2d;
-  font-weight: 500;
+    color: #ee4d2d;
+    font-weight: 500;
 }
 
 .register-page__content-form__ask-for-login {
-  width: 100%;
-  height: 1.66rem;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 1.66rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .register-page__content-form__ask-for-login__text {
-  color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.2);
 }
 .register-page__content-form__ask-for-login__login-btn {
-  margin-left: 3px;
-  color: #ee4d2d;
-  font-weight: 500;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+    margin-left: 3px;
+    color: #ee4d2d;
+    font-weight: 500;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 .register-page__content-form__terms-and-policy > a:hover,
 .register-page__content-form__ask-for-login__login-btn:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 /* REGISTER PAGE CONFIRMATION */
 .register-page__confirmation {
-  height: 87rem;
-  width: 100%;
-  /* padding-top: 8.4rem; */
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 87rem;
+    width: 100%;
+    /* padding-top: 8.4rem; */
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .register-page__confirmation-part {
-  width: 51rem;
-  height: calc(100% - 10rem);
+    width: 51rem;
+    height: calc(100% - 10rem);
 }
 .register-page__confirmation__step-list {
-  width: 100%;
-  height: 7.3rem;
-  margin-bottom: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    height: 7.3rem;
+    margin-bottom: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .register-page__confirmation__step-item {
-  height: 100%;
-  padding: 1rem 0.5rem;
-  text-align: center;
+    height: 100%;
+    padding: 1rem 0.5rem;
+    text-align: center;
 }
 .register-page__confirmation__step-item:nth-child(1) {
-  width: 14rem;
+    width: 14rem;
 }
 .register-page__confirmation__step-item:nth-child(3) {
-  width: 10rem;
+    width: 10rem;
 }
 .register-page__confirmation__step-item:nth-child(5) {
-  width: 10rem;
+    width: 10rem;
 }
 .register-page__confirmation__step-item:nth-child(5) > div > svg {
-  display: block;
-  width: 1.4rem;
-  height: 1.4rem;
-  fill: rgba(0, 0, 0, 0.26);
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: rgba(0, 0, 0, 0.26);
 }
 .register-page__confirmation__step-item-number {
-  width: 3.4rem;
-  height: 3.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.26);
-  border-radius: 50%;
-  color: rgba(0, 0, 0, 0.26);
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+    width: 3.4rem;
+    height: 3.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0.26);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 .register-page__confirmation__step-item-name {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.44rem;
-  color: rgba(0, 0, 0, 0.26);
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.44rem;
+    color: rgba(0, 0, 0, 0.26);
 }
 .register-page__confirmation__step-line {
-  width: 8.5rem;
-  height: 1px;
-  position: relative;
+    width: 8.5rem;
+    height: 1px;
+    position: relative;
 }
 .register-page__confirmation__step-line__line {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.26);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.26);
 }
 .register-page__confirmation__step-line__icon {
-  position: absolute;
-  right: -3px;
-  transform: translateY(calc(-50%));
-  color: rgba(0, 0, 0, 0.26);
+    position: absolute;
+    right: -3px;
+    transform: translateY(calc(-50%));
+    color: rgba(0, 0, 0, 0.26);
 }
 
 /* 1. FIRST FORM */
 .register-page__confirmation__first-form {
-  width: 50rem;
-  height: 49.4rem;
-  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
-  border-radius: 2px;
-  margin: 0 auto;
+    width: 50rem;
+    height: 49.4rem;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
+    border-radius: 2px;
+    margin: 0 auto;
 }
 .register-page__confirmation__first-form__header {
-  width: 100%;
-  height: 8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 .register-page__confirmation__first-form__header__back-btn {
-  position: absolute;
-  left: 2rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
+    position: absolute;
+    left: 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 .register-page__confirmation__first-form__header__back-btn > svg {
-  display: block;
-  width: 2.4rem;
-  height: 2.8rem;
-  fill: #ee4d2d;
+    display: block;
+    width: 2.4rem;
+    height: 2.8rem;
+    fill: #ee4d2d;
 }
 .register-page__confirmation__first-form__header__text {
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-  color: rgb(34, 34, 34);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: rgb(34, 34, 34);
 }
 .register-page__confirmation__first-form__content {
-  padding: 0 8rem 0 8rem;
+    padding: 0 8rem 0 8rem;
 }
 .register-page__confirmation__first-form__content__notify-error {
-  height: 4.26rem;
-  padding: 0 1.5rem;
-  background-color: #fff9fa;
-  border: 1px solid rgba(255, 66, 79, 0.2);
-  border-radius: 2px;
-  display: none;
-  /* display: flex;  -> it's true display*/
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 3rem;
+    height: 4.26rem;
+    padding: 0 1.5rem;
+    background-color: #fff9fa;
+    border: 1px solid rgba(255, 66, 79, 0.2);
+    border-radius: 2px;
+    display: none;
+    /* display: flex;  -> it's true display*/
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 3rem;
 }
 .register-page__confirmation__first-form__content__notify-error__icon {
-  display: flex;
-  align-items: center;
-  margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
 }
 .register-page__confirmation__first-form__content__notify-error__icon > svg {
-  color: #ff424f;
-  width: 1.6rem;
-  height: 1.6rem;
+    color: #ff424f;
+    width: 1.6rem;
+    height: 1.6rem;
 }
 .register-page__confirmation__first-form__content__notify-error__text {
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.8px;
-  color: rgb(34, 34, 34);
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    color: rgb(34, 34, 34);
 }
 .register-page__confirmation__first-form__content__notify {
-  margin: 1.4rem 0 1rem 0;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
+    margin: 1.4rem 0 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
 }
 .register-page__confirmation__first-form__content__user-phone-number {
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1.92rem;
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.92rem;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
 }
 .register-page__confirmation__first-form__content__input {
-  display: flex;
-  width: 100%;
-  height: 3.5rem;
-  margin: 5rem auto 0;
-  border: none;
-  outline: none;
-  letter-spacing: 4rem;
-  font-size: 2.8rem;
-  font-weight: 500;
-  color: rgb(0, 0, 0);
+    display: flex;
+    width: 100%;
+    height: 3.5rem;
+    margin: 5rem auto 0;
+    border: none;
+    outline: none;
+    letter-spacing: 4rem;
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
 }
 .register-page__confirmation__first-form__content__input-signal {
-  width: 100%;
-  height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-left: -1.8rem;
+    width: 100%;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: -1.8rem;
 }
 .register-page__confirmation__first-form__content__input-signal > div {
-  width: 3.6rem;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.26);
+    width: 3.6rem;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.26);
 }
 .register-page__confirmation__first-form__content__help {
-  margin: 8rem 0 4.4rem 0;
-  height: 4rem;
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  color: rgba(0, 0, 0, 0.87);
+    margin: 8rem 0 4.4rem 0;
+    height: 4rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    color: rgba(0, 0, 0, 0.87);
 }
 .register-page__confirmation__first-form__content__help-question {
-  display: block;
+    display: block;
 }
 .register-page__confirmation__first-form__content__help-btns {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .register-page__confirmation__first-form__content__help-btns > button {
-  color: #ee4d2d;
-  font-weight: 500;
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
+    color: #ee4d2d;
+    font-weight: 500;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
 }
 .register-page__confirmation__first-form__content__help-btns > span {
-  display: block;
-  margin: 0 3px;
+    display: block;
+    margin: 0 3px;
 }
 .register-page__confirmation__first-form__content__confirm-btn {
-  width: 100%;
-  height: 4rem;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
-  background-color: #ee4d2d;
-  opacity: 0.7;
-  cursor: not-allowed;
+    width: 100%;
+    height: 4rem;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
+    background-color: #ee4d2d;
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 /* 2. SECOND FORM */
 .register-page__confirmation__second-form {
-  width: 50rem;
-  height: 42.8rem;
-  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
-  border-radius: 2px;
-  margin: 0 auto;
+    width: 50rem;
+    height: 42.8rem;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
+    border-radius: 2px;
+    margin: 0 auto;
 }
 .register-page__confirmation__second-form__header {
-  width: 100%;
-  height: 8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 .register-page__confirmation__second-form__header__back-btn {
-  position: absolute;
-  left: 2rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
+    position: absolute;
+    left: 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 .register-page__confirmation__second-form__header__back-btn > svg {
-  display: block;
-  width: 2.4rem;
-  height: 2.8rem;
-  fill: #ee4d2d;
+    display: block;
+    width: 2.4rem;
+    height: 2.8rem;
+    fill: #ee4d2d;
 }
 .register-page__confirmation__second-form__header__text {
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-  color: rgb(34, 34, 34);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: rgb(34, 34, 34);
 }
 .register-page__confirmation__second-form__content {
-  padding: 0 8rem 6.4rem 8rem;
+    padding: 0 8rem 6.4rem 8rem;
 }
 .register-page__confirmation__second-form__content__notify {
-  height: 4rem;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19.2px;
-  color: rgba(0, 0, 0, 0.8);
-  margin: 1rem 0 3rem 0;
+    height: 4rem;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 1rem 0 3rem 0;
 }
 .register-page__confirmation__second-form__content__input-part {
-  height: 4rem;
-  width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.14);
-  border-radius: 2px;
-  box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  position: relative;
+    height: 4rem;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    border-radius: 2px;
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    position: relative;
 }
 .register-page__confirmation__second-form__content__input-part--wrong-value {
-  border-color: #ff424f;
+    border-color: #ff424f;
 }
 .register-page__confirmation__second-form__content__input {
-  display: block;
-  height: 100%;
-  width: 100%;
-  padding: 1.2rem;
-  border: none;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: normal;
-  color: rgba(0, 0, 0, 0.8);
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 1.2rem;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(0, 0, 0, 0.8);
 }
 .register-page__confirmation__second-form__content__input--invalid {
-  outline: #ff424f;
-  background-color: #fff6f7;
+    outline: #ff424f;
+    background-color: #fff6f7;
 }
 .register-page__confirmation__second-form__content__input-status-btn {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 2px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 1.5rem;
-  transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
 }
 .register-page__confirmation__second-form__content__input-status-btn__showing {
-  width: 2rem;
-  height: 1.2rem;
+    width: 2rem;
+    height: 1.2rem;
 }
 .register-page__confirmation__second-form__content__input-status-btn__hiding {
-  display: none;
-  width: 2rem;
-  height: 1.6rem;
-  padding-top: 5px;
+    display: none;
+    width: 2rem;
+    height: 1.6rem;
+    padding-top: 5px;
 }
 .register-page__confirmation__second-form__content__check {
-  height: 1.8rem;
-  width: 100%;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+    height: 1.8rem;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 .register-page__confirmation__second-form__content__check-text {
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.8px;
-  color: #6c0;
-  margin-right: 4px;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    color: #6c0;
+    margin-right: 4px;
 }
 .register-page__confirmation__second-form__content__check > svg {
-  width: 1.4rem;
-  height: 1.4rem;
+    width: 1.4rem;
+    height: 1.4rem;
 }
 .register-page__confirmation__second-form__content__check-correct-icon {
-  display: block;
+    display: block;
 }
 .register-page__confirmation__second-form__content__check-wrong-icon {
-  display: none;
+    display: none;
 }
 .register-page__confirmation__second-form__content__register-btn {
-  margin-top: 3rem;
-  width: 100%;
-  height: 4rem;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
-  background-color: #ee4d2d;
-  opacity: 1;
-  cursor: pointer;
+    margin-top: 3rem;
+    width: 100%;
+    height: 4rem;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
+    background-color: #ee4d2d;
+    opacity: 1;
+    cursor: pointer;
 }
 
 /* 3. THIRD FORM */
 .register-page__confirmation__third-form {
-  width: 50rem;
-  height: 40rem;
-  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
-  border-radius: 2px;
-  margin: 0 auto;
+    width: 50rem;
+    height: 40rem;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
+    border-radius: 2px;
+    margin: 0 auto;
 }
 .register-page__confirmation__third-form__header {
-  width: 100%;
-  height: 8rem;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-  color: rgb(34, 34, 34);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 8rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: rgb(34, 34, 34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .register-page__confirmation__third-form__content {
-  padding: 0 8rem 0 8rem;
+    padding: 0 8rem 0 8rem;
 }
 .register-page__confirmation__third-form__content-success-icon {
-  width: 6rem;
-  height: 6rem;
-  margin: 0 auto;
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto;
 }
 .register-page__confirmation__third-form__content-first-notify {
-  margin-top: 2.2rem;
+    margin-top: 2.2rem;
 }
 .register-page__confirmation__third-form__content-first-notify__text {
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
 }
 .register-page__confirmation__third-form__content-first-notify__user-phone-number {
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1.92rem;
-  color: #ee4d2d;
-  text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.92rem;
+    color: #ee4d2d;
+    text-align: center;
 }
 .register-page__confirmation__third-form__content-second-notify {
-  margin-top: 2rem;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
 }
 .register-page__confirmation__third-form__content-back-to-shopee-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 4rem;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.68rem;
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
-  background-color: #ee4d2d;
-  cursor: pointer;
-  margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4rem;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.68rem;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 9%);
+    background-color: #ee4d2d;
+    cursor: pointer;
+    margin-top: 5rem;
 }
 .register-page__confirmation__third-form__content-back-to-shopee-btn:hover {
-  opacity: 0.92;
+    opacity: 0.92;
 }

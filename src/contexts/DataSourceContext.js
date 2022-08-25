@@ -7,37 +7,37 @@ const DataSourceContext = createContext();
 
 // Provider
 function DataSourceContextProvider({ children }) {
-  const [dataSource, setDataSource] = useState();
+    const [dataSource, setDataSource] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data: data1 } = await axios.get(API1_URL);
-      const { data: data2 } = await axios.get(API2_URL);
-      const { data: data3 } = await axios.get(API3_URL);
-      
-      const historyListInfo = await historyListInfoApi.get();
+    useEffect(() => {
+        const fetchData = async () => {
+            const { data: data1 } = await axios.get(API1_URL);
+            const { data: data2 } = await axios.get(API2_URL);
+            const { data: data3 } = await axios.get(API3_URL);
 
-      // Format data
-      const resultData1 = [...data1, ...data2, ...data3];
-      const resultData2 = {
-        ...resultData1[0],
-        ...resultData1[1],
-        ...resultData1[2],
-        headerSearchHistoryListInfo: historyListInfo,
-      };
+            const historyListInfo = await historyListInfoApi.get();
 
-      // Pass dataSource to Consumers
-      setDataSource(resultData2);
-    };
+            // Format data
+            const resultData1 = [...data1, ...data2, ...data3];
+            const resultData2 = {
+                ...resultData1[0],
+                ...resultData1[1],
+                ...resultData1[2],
+                headerSearchHistoryListInfo: historyListInfo,
+            };
 
-    fetchData();
-  }, []);
+            // Pass dataSource to Consumers
+            setDataSource(resultData2);
+        };
 
-  return (
-    <DataSourceContext.Provider value={dataSource}>
-      {children}
-    </DataSourceContext.Provider>
-  );
+        fetchData();
+    }, []);
+
+    return (
+        <DataSourceContext.Provider value={dataSource}>
+            {children}
+        </DataSourceContext.Provider>
+    );
 }
 
 export { DataSourceContext, DataSourceContextProvider };

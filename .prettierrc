@@ -1,0 +1,8 @@
+{
+    "arrowParens": "always",
+    "trailingComma": "all",
+    "tabWidth": 4,
+    "printWidth": 80,
+    "doubleQuote": true,
+    "bracketSpacing": true
+}
