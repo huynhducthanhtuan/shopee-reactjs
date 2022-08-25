@@ -7,9 +7,10 @@ function Directory() {
     const nextButtonRef = useRef();
     const previousButtonRef = useRef();
 
-    const { directoryMainItemListInfo } = useDataSourceContext();
+    const { directoryMainItemListInfo: mainItemListInfo } =
+        useDataSourceContext();
 
-    const renderDirectoryMainList = (datas) =>
+    const renderMainList = (datas) =>
         datas.map((data, index) => {
             const {
                 href: href1,
@@ -50,21 +51,17 @@ function Directory() {
         });
 
     const handleClickNextButton = () => {
-        // Hide next, show previous
         nextButtonRef.current.style.display = "none";
         previousButtonRef.current.style.display = "block";
 
-        // Animation
         mainListRef.current.style.transform = "translate(-36rem, 0)";
         mainListRef.current.style.transition = "all 500ms ease 0s";
     };
 
     const handleClickPreviousButton = () => {
-        // Hide previous, show next
         previousButtonRef.current.style.display = "none";
         nextButtonRef.current.style.display = "block";
 
-        // Animation
         mainListRef.current.style.transform = "translate(0, 0)";
         mainListRef.current.style.transition = "all 500ms ease 0s";
     };
@@ -76,8 +73,7 @@ function Directory() {
             <div className="directory__main">
                 <div className="directory__main__part">
                     <ul ref={mainListRef} className="directory__main__list">
-                        {directoryMainItemListInfo &&
-                            renderDirectoryMainList(directoryMainItemListInfo)}
+                        {mainItemListInfo && renderMainList(mainItemListInfo)}
                     </ul>
                 </div>
 

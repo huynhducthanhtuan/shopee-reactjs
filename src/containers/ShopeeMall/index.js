@@ -113,22 +113,20 @@ function ShopeeMall() {
 
     const handleClickNextButton = () => {
         // If first list
-        if (currentListIndex == 1) {
+        if (currentListIndex === 1) {
             currentListIndex = 2;
             previousButtonRef.current.style.display = "block";
             nextButtonRef.current.style.display = "block";
 
-            // Animation
             mainProductListRef.current.style.transform = "translate(-80rem, 0)";
             mainProductListRef.current.style.transition = "all 500ms ease 0s";
         } else {
             // If second list
-            if (currentListIndex == 2) {
+            if (currentListIndex === 2) {
                 currentListIndex = 3;
                 previousButtonRef.current.style.display = "block";
                 nextButtonRef.current.style.display = "none";
 
-                // Animation
                 mainProductListRef.current.style.transform =
                     "translate(-160rem, 0)";
                 mainProductListRef.current.style.transition =
@@ -139,22 +137,20 @@ function ShopeeMall() {
 
     const handleClickPreviousButton = () => {
         // If second list
-        if (currentListIndex == 2) {
+        if (currentListIndex === 2) {
             currentListIndex = 1;
             previousButtonRef.current.style.display = "none";
             nextButtonRef.current.style.display = "block";
-
-            // Animation
+            
             mainProductListRef.current.style.transform = "translate(0, 0)";
             mainProductListRef.current.style.transition = "all 500ms ease 0s";
         } else {
             // If third list
-            if (currentListIndex == 3) {
+            if (currentListIndex === 3) {
                 currentListIndex = 2;
                 previousButtonRef.current.style.display = "block";
                 nextButtonRef.current.style.display = "block";
 
-                // Animation
                 mainProductListRef.current.style.transform =
                     "translate(-80rem, 0)";
                 mainProductListRef.current.style.transition =

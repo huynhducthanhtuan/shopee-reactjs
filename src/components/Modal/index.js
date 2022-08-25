@@ -10,6 +10,7 @@ import {
 import { useRef, useEffect } from "react";
 import { useModalStatusContext } from "hooks";
 import { handleStopPropagation } from "helpers";
+import { $ } from "constants/index";
 
 function Modal() {
     const giftBannerPopupRef = useRef();
@@ -28,8 +29,8 @@ function Modal() {
             setShowModal(false);
 
             // enable scrolling
-            document.querySelector("body").style.overflow = "visible";
-            document.querySelector("#app").style.position = "absolute";
+            $("body").style.overflow = "visible";
+            $("#app").style.position = "absolute";
         }, 100);
     };
 
@@ -39,7 +40,9 @@ function Modal() {
 
     const handleClickGiftBannerPopupCloseBtn = (event) => {
         handleStopPropagation(event);
-        document.querySelector("#modal").click();
+
+        // Trigger event click
+        $("#modal").click();
     };
 
     useEffect(() => {

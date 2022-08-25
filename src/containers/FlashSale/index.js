@@ -11,11 +11,11 @@ function FlashSale() {
     const mainListRef = useRef();
     const nextButtonRef = useRef();
     const previousButtonRef = useRef();
+
     let currentListIndex = 1;
+    const { flashSaleMainListInfo: mainListInfo } = useDataSourceContext();
 
-    const { flashSaleMainListInfo } = useDataSourceContext();
-
-    const renderFlashSaleMainList = (datas) =>
+    const renderMainList = (datas) =>
         datas.map((data, index) => {
             const {
                 href,
@@ -79,18 +79,20 @@ function FlashSale() {
 
     const handleClickNextButton = () => {
         // If first list
-        if (currentListIndex == 1) {
+        if (currentListIndex === 1) {
             currentListIndex = 2;
             previousButtonRef.current.style.display = "block";
             nextButtonRef.current.style.display = "block";
+
             mainListRef.current.style.transform = "translate(-100rem, 0)";
             mainListRef.current.style.transition = "all 500ms ease 0s";
         } else {
             // If second list
-            if (currentListIndex == 2) {
+            if (currentListIndex === 2) {
                 currentListIndex = 3;
                 previousButtonRef.current.style.display = "block";
                 nextButtonRef.current.style.display = "none";
+
                 mainListRef.current.style.transform = "translate(-200rem, 0)";
                 mainListRef.current.style.transition = "all 500ms ease 0s";
             }
@@ -99,18 +101,20 @@ function FlashSale() {
 
     const handleClickPreviousButton = () => {
         // If second list
-        if (currentListIndex == 2) {
+        if (currentListIndex === 2) {
             currentListIndex = 1;
             previousButtonRef.current.style.display = "none";
             nextButtonRef.current.style.display = "block";
+
             mainListRef.current.style.transform = "translate(0, 0)";
             mainListRef.current.style.transition = "all 500ms ease 0s";
         } else {
             // If third list
-            if (currentListIndex == 3) {
+            if (currentListIndex === 3) {
                 currentListIndex = 2;
                 previousButtonRef.current.style.display = "block";
                 nextButtonRef.current.style.display = "block";
+
                 mainListRef.current.style.transform = "translate(-100rem, 0)";
                 mainListRef.current.style.transition = "all 500ms ease 0s";
             }
@@ -137,8 +141,7 @@ function FlashSale() {
             <div className="flash-sale__main">
                 <div className="flash-sale__main__part">
                     <div ref={mainListRef} className="flash-sale__main__list">
-                        {flashSaleMainListInfo &&
-                            renderFlashSaleMainList(flashSaleMainListInfo)}
+                        {mainListInfo && renderMainList(mainListInfo)}
                     </div>
                 </div>
 

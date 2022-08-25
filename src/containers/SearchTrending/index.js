@@ -10,7 +10,7 @@ function SearchTrending() {
 
     const { searchTrendingMainListInfo: mainListInfo } = useDataSourceContext();
 
-    const renderMainListChildren = (datas, listIndex) =>
+    const renderMainList = (datas, listIndex) =>
         datas[listIndex].map((data, index) => {
             const { href, productName, productDescription, image } = data;
             return (
@@ -69,7 +69,7 @@ function SearchTrending() {
             <div className="search-trending__main">
                 <div ref={mainListRef} className="search-trending__main__list">
                     {mainListInfo &&
-                        renderMainListChildren(mainListInfo, currentListIndex)}
+                        renderMainList(mainListInfo, currentListIndex)}
                 </div>
             </div>
         </div>

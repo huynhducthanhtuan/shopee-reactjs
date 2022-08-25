@@ -23,7 +23,6 @@ function HeaderCommonInfo() {
     const renderPopupWhenLoggedInList = (datas) =>
         datas.map((data, index) => {
             const { href, itemImage, itemTitle, itemDescription } = data;
-
             return (
                 <li
                     key={index}

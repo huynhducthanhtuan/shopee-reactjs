@@ -1,6 +1,6 @@
 import "./TopSearch.css";
 import { TopSearchTopLabelIcon } from "assets/images";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useDataSourceContext } from "hooks";
 
 function TopSearch() {
@@ -48,30 +48,27 @@ function TopSearch() {
         });
 
     const handleClickNextButton = () => {
-        if (listIndexCurrent == 1) {
+        if (listIndexCurrent === 1) {
             listIndexCurrent = 2;
             nextButtonRef.current.style.display = "block";
             previousButtonRef.current.style.display = "block";
 
-            // Animation
             mainListRef.current.style.transform = "translate(-120rem, 0)";
             mainListRef.current.style.transition = "all 500ms ease 0s";
         } else {
-            if (listIndexCurrent == 2) {
+            if (listIndexCurrent === 2) {
                 listIndexCurrent = 3;
                 nextButtonRef.current.style.display = "block";
                 previousButtonRef.current.style.display = "block";
 
-                // Animation
                 mainListRef.current.style.transform = "translate(-240rem, 0)";
                 mainListRef.current.style.transition = "all 500ms ease 0s";
             } else {
-                if (listIndexCurrent == 3) {
+                if (listIndexCurrent === 3) {
                     listIndexCurrent = 4;
                     nextButtonRef.current.style.display = "none";
                     previousButtonRef.current.style.display = "block";
 
-                    // Animation
                     mainListRef.current.style.transform =
                         "translate(-360rem, 0)";
                     mainListRef.current.style.transition = "all 500ms ease 0s";
@@ -81,30 +78,27 @@ function TopSearch() {
     };
 
     const handleClickPreviousButton = () => {
-        if (listIndexCurrent == 2) {
+        if (listIndexCurrent === 2) {
             listIndexCurrent = 1;
             previousButtonRef.current.style.display = "none";
             nextButtonRef.current.style.display = "block";
 
-            // Animation
             mainListRef.current.style.transform = "translate(0, 0)";
             mainListRef.current.style.transition = "all 500ms ease 0s";
         } else {
-            if (listIndexCurrent == 3) {
+            if (listIndexCurrent === 3) {
                 listIndexCurrent = 2;
                 previousButtonRef.current.style.display = "block";
                 nextButtonRef.current.style.display = "block";
 
-                // Animation
                 mainListRef.current.style.transform = "translate(-120rem, 0)";
                 mainListRef.current.style.transition = "all 500ms ease 0s";
             } else {
-                if (listIndexCurrent == 4) {
+                if (listIndexCurrent === 4) {
                     listIndexCurrent = 3;
                     previousButtonRef.current.style.display = "block";
                     nextButtonRef.current.style.display = "block";
 
-                    // Animation
                     mainListRef.current.style.transform =
                         "translate(-240rem, 0)";
                     mainListRef.current.style.transition = "all 500ms ease 0s";
