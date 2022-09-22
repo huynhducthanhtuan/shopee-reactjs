@@ -16,7 +16,7 @@
 $ git clone https://github.com/huynhdthanhtuan/shopee-reactjs.git
 ```
 
-### 2. Change directory to folder backend-node
+### 2. Change directory to folder shopee-reactjs
 
 ```bash
 $ cd shopee-reactjs
