@@ -4,24 +4,32 @@
 
 #### To ReactJS (https://github.com/huynhdthanhtuan/shopee-reactjs)
 
-#### Version 1.0.0: Initial version
+#### V1.0.0: Initial version (Dec 14, 2021 - Apr 13, 2022)
 
-##### Start date: Dec 14, 2021
-
-##### End date: Apr 13, 2022
-
-#### Version 2.0.0: Refactor and update version
-
-##### Start date: Aug 16, 2022
+#### V2.0.0: Refactor and update version (Aug 16, 2022 - )
 
 ### How to run this project?
 
-#### 1. At folder you want save this project, open CMD
+### 1. Clone project
 
-#### 2. Enter "git clone https://github.com/huynhdthanhtuan/shopee-reactjs"
+```bash
+$ git clone https://github.com/huynhdthanhtuan/shopee-reactjs.git
+```
 
-#### 3. Enter "cd shopee-reactjs"
+### 2. Change directory to folder backend-node
 
-#### 4. Enter "npm install"
+```bash
+$ cd shopee-reactjs
+```
 
-#### 5. Enter "npm start"
+### 3. Install dependencies
+
+```bash
+$ npm install
+```
+
+### 4. Run in developement mode
+
+```bash
+$ npm start
+```
