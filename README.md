@@ -6,7 +6,7 @@
 
 #### V1.0.0: Initial version (Dec 14, 2021 - Apr 13, 2022)
 
-#### V2.0.0: Refactor and update version (Aug 16, 2022 - )
+#### V2.0.0: Refactor and update version (Aug 16, 2022 - Now)
 
 ### How to run this project?
 
