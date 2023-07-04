@@ -1,10 +1,7 @@
 {
     "name": "shopee-reactjs",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "private": true,
-    "engines": {
-        "node": "v16.17.0"
-    },
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.3.0",
@@ -39,5 +36,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@types/file-loader": "^5.0.1",
+        "typescript": "^5.1.6"
     }
 }

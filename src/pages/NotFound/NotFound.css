@@ -1,62 +1,62 @@
 #not-found-page {
-    background: #f6f6f6;
-    height: 100vh;
+  background: #f6f6f6;
+  height: 100vh;
 }
 .not-found-page__header {
-    height: 4.4rem;
-    width: 100%;
-    background: #f6f6f6;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  height: 4.4rem;
+  width: 100%;
+  background: #f6f6f6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 .not-found-page__header-inner {
-    width: 60rem;
-    height: 4.4rem;
-    margin-right: auto;
-    margin-left: auto;
-    background: #f6f6f6;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  width: 60rem;
+  height: 4.4rem;
+  margin-right: auto;
+  margin-left: auto;
+  background: #f6f6f6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 .not-found-page__header-inner-part {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .not-found-page__header-inner-part-link {
-    width: 2.8rem;
-    height: 2.8rem;
-    margin-left: 0.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-left: 0.8rem;
 }
 .not-found-page__header-inner-part-link > svg {
-    display: block;
-    width: 2.4rem;
-    height: 2.8rem;
-    fill: #ee4d2d;
+  display: block;
+  width: 2.4rem;
+  height: 2.8rem;
+  fill: #ee4d2d;
 }
 .not-found-page__container {
-    height: calc(100% - 4.4rem - 3.2rem);
-    background-color: #f6f6f6;
+  height: calc(100% - 4.4rem - 3.2rem);
+  background-color: #f6f6f6;
 }
 .not-found-page__content {
-    width: 72rem;
-    height: 28.8rem;
-    background-color: #ffffff;
-    box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
-    border: 0;
-    margin: 3.2rem auto;
-    padding: 4.8rem 2.4rem;
-    text-align: center;
+  width: 72rem;
+  height: 28.8rem;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 1px 0px rgb(0 0 0 / 20%);
+  border: 0;
+  margin: 3.2rem auto;
+  padding: 4.8rem 2.4rem;
+  text-align: center;
 }
 .not-found-page__content-error-part > img {
-    width: 8rem;
+  width: 8rem;
 }
 .not-found-page__content-error-part > h1 {
-    font-size: 4rem;
-    color: #566278;
-    margin-top: 16px;
-    line-height: 5.7rem;
+  font-size: 4rem;
+  color: #566278;
+  margin-top: 16px;
+  line-height: 5.7rem;
 }
 .not-found-page__content-error-part > p {
-    color: #999999;
-    line-height: 1.5rem;
-    font-size: 1.4rem;
+  color: #999999;
+  line-height: 1.5rem;
+  font-size: 1.4rem;
 }
