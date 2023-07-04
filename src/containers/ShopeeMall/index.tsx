@@ -9,17 +9,11 @@ import {
 
 function ShopeeMall() {
   const [queueItems, setQueueItems] = useState([]);
-  const mainProductListRef = useRef();
-  const nextButtonRef = useRef();
-  const previousButtonRef = useRef();
-  const motionImageRef = useRef();
-  const motionLinkRef = useRef();
-  const mainProductListRefElement = mainProductListRef.current as HTMLDivElement;
-  const nextButtonRefElement = nextButtonRef.current as HTMLDivElement;
-  const previousButtonRefElement = previousButtonRef.current as HTMLDivElement;
-  const motionImageRefElement = motionImageRef.current as HTMLDivElement;
-  const motionLinkRefElement = motionLinkRef.current as HTMLDivElement;
-  //ul image a button
+  const mainProductListRef = useRef<HTMLUListElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const previousButtonRef = useRef<HTMLButtonElement>(null);
+  const motionImageRef = useRef<HTMLImageElement>(null);
+  const motionLinkRef = useRef<HTMLAnchorElement>(null);
 
   const {
     shopeeMallHeadingTextInfo: headingTextInfo,

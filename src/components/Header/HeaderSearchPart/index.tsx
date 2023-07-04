@@ -9,11 +9,9 @@ import {
 } from 'assets/images';
 
 function HeaderSearchPart() {
-  const historyRef = useRef();
-  const frameInputRef = useRef();
-  const frameBtnRef = useRef();
-  const historyRefElement = historyRef.current as HTMLDivElement;
-  const frameInputRefElement = frameInputRef.current as HTMLInputElement;
+  const historyRef = useRef<HTMLDivElement>(null);
+  const frameInputRef = useRef<HTMLInputElement>(null);
+  const frameBtnRef = useRef<HTMLAnchorElement>(null);
 
   const { headerSearchHistoryKeywordsListInfo, headerSearchHistoryListInfo } =
     useDataSourceContext();
@@ -72,8 +70,8 @@ function HeaderSearchPart() {
   };
 
   const handleClickFrameBtn = () => {
-    if (frameInputRefElement.value !== '') {
-      var innerHTML = frameInputRefElement.value;
+    if (frameInputRef.current.value !== '') {
+      var innerHTML = frameInputRef.current.value;
       var href = `https://shopee.vn/search?keyword=${innerHTML}`;
 
       // [POST]
@@ -86,12 +84,12 @@ function HeaderSearchPart() {
   };
 
   const handleClickFrameInput = () => {
-    historyRefElement.style.display = 'block';
+    historyRef.current.style.display = 'block';
   };
 
   const handleBlurFrameInput = () => {
     setTimeout(() => {
-      historyRefElement.style.display = 'none';
+      historyRef.current.style.display = 'none';
     }, 200);
   };
 

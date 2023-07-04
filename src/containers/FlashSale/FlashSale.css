@@ -116,8 +116,6 @@
 
 .flash-sale__main__percent-bar__selled-part {
   height: 100%;
-  /* background: url(/assests/img/container/flash-sale/selled-bar.png) no-repeat
-    center / cover; */
   text-align: center;
   border-top-left-radius: 0.8rem;
   border-bottom-left-radius: 0.8rem;

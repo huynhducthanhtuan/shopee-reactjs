@@ -8,13 +8,9 @@ import React, { useRef } from 'react';
 import { useDataSourceContext } from 'hooks';
 
 function FlashSale() {
-  const mainListRef = useRef();
-  const nextButtonRef = useRef();
-  const previousButtonRef = useRef();
-  const mainListRefElement = mainListRef.current as HTMLDivElement;
-  const nextButtonRefElement = nextButtonRef.current as HTMLButtonElement;
-  const previousButtonRefElement =
-    previousButtonRef.current as HTMLButtonElement;
+  const mainListRef = useRef<HTMLDivElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const previousButtonRef = useRef<HTMLButtonElement>(null);
 
   let currentListIndex = 1;
   const { flashSaleMainListInfo: mainListInfo } = useDataSourceContext();
@@ -83,20 +79,20 @@ function FlashSale() {
     // If first list
     if (currentListIndex === 1) {
       currentListIndex = 2;
-      previousButtonRefElement.style.display = 'block';
-      nextButtonRefElement.style.display = 'block';
+      previousButtonRef.current.style.display = 'block';
+      nextButtonRef.current.style.display = 'block';
 
-      mainListRefElement.style.transform = 'translate(-100rem, 0)';
-      mainListRefElement.style.transition = 'all 500ms ease 0s';
+      mainListRef.current.style.transform = 'translate(-100rem, 0)';
+      mainListRef.current.style.transition = 'all 500ms ease 0s';
     } else {
       // If second list
       if (currentListIndex === 2) {
         currentListIndex = 3;
-        previousButtonRefElement.style.display = 'block';
-        nextButtonRefElement.style.display = 'none';
+        previousButtonRef.current.style.display = 'block';
+        nextButtonRef.current.style.display = 'none';
 
-        mainListRefElement.style.transform = 'translate(-200rem, 0)';
-        mainListRefElement.style.transition = 'all 500ms ease 0s';
+        mainListRef.current.style.transform = 'translate(-200rem, 0)';
+        mainListRef.current.style.transition = 'all 500ms ease 0s';
       }
     }
   };
@@ -105,20 +101,20 @@ function FlashSale() {
     // If second list
     if (currentListIndex === 2) {
       currentListIndex = 1;
-      previousButtonRefElement.style.display = 'none';
-      nextButtonRefElement.style.display = 'block';
+      previousButtonRef.current.style.display = 'none';
+      nextButtonRef.current.style.display = 'block';
 
-      mainListRefElement.style.transform = 'translate(0, 0)';
-      mainListRefElement.style.transition = 'all 500ms ease 0s';
+      mainListRef.current.style.transform = 'translate(0, 0)';
+      mainListRef.current.style.transition = 'all 500ms ease 0s';
     } else {
       // If third list
       if (currentListIndex === 3) {
         currentListIndex = 2;
-        previousButtonRefElement.style.display = 'block';
-        nextButtonRefElement.style.display = 'block';
+        previousButtonRef.current.style.display = 'block';
+        nextButtonRef.current.style.display = 'block';
 
-        mainListRefElement.style.transform = 'translate(-100rem, 0)';
-        mainListRefElement.style.transition = 'all 500ms ease 0s';
+        mainListRef.current.style.transform = 'translate(-100rem, 0)';
+        mainListRef.current.style.transition = 'all 500ms ease 0s';
       }
     }
   };

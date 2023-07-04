@@ -4,13 +4,9 @@ import { useRef } from 'react';
 import { useDataSourceContext } from 'hooks';
 
 function Directory() {
-  const mainListRef = useRef();
-  const nextButtonRef = useRef();
-  const previousButtonRef = useRef();
-  const mainListRefElement = mainListRef.current as HTMLDivElement;
-  const nextButtonRefElement = nextButtonRef.current as HTMLButtonElement;
-  const previousButtonRefElement =
-    previousButtonRef.current as HTMLButtonElement;
+  const mainListRef = useRef<HTMLUListElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const previousButtonRef = useRef<HTMLButtonElement>(null);
 
   const { directoryMainItemListInfo: mainItemListInfo } =
     useDataSourceContext();
@@ -36,19 +32,19 @@ function Directory() {
     });
 
   const handleClickNextButton = () => {
-    nextButtonRefElement.style.display = 'none';
-    previousButtonRefElement.style.display = 'block';
+    nextButtonRef.current.style.display = 'none';
+    previousButtonRef.current.style.display = 'block';
 
-    mainListRefElement.style.transform = 'translate(-36rem, 0)';
-    mainListRefElement.style.transition = 'all 500ms ease 0s';
+    mainListRef.current.style.transform = 'translate(-36rem, 0)';
+    mainListRef.current.style.transition = 'all 500ms ease 0s';
   };
 
   const handleClickPreviousButton = () => {
-    previousButtonRefElement.style.display = 'none';
-    nextButtonRefElement.style.display = 'block';
+    previousButtonRef.current.style.display = 'none';
+    nextButtonRef.current.style.display = 'block';
 
-    mainListRefElement.style.transform = 'translate(0, 0)';
-    mainListRefElement.style.transition = 'all 500ms ease 0s';
+    mainListRef.current.style.transform = 'translate(0, 0)';
+    mainListRef.current.style.transition = 'all 500ms ease 0s';
   };
 
   return (

@@ -10,39 +10,33 @@ import { handlePreventDefault, checkValidPhoneNumber } from 'helpers';
 
 function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
   const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(false);
-  const inputRef = useRef();
-  const nextBtnRef = useRef();
-  const inputTextInvalidPhoneNumberRef = useRef();
-  const inputIconValidPhoneNumberRef = useRef();
-  const inputRefElement = inputRef.current as HTMLInputElement;
-  const nextBtnRefElement = nextBtnRef.current as HTMLButtonElement;
-  const inputTextInvalidPhoneNumberRefElement =
-    inputTextInvalidPhoneNumberRef.current as HTMLInputElement;
-  const inputIconValidPhoneNumberRefElement =
-    inputIconValidPhoneNumberRef.current as HTMLInputElement;
+  const inputRef = useRef<HTMLInputElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const inputTextInvalidPhoneNumberRef = useRef<HTMLInputElement>(null);
+  const inputIconValidPhoneNumberRef = useRef<HTMLDivElement>(null);
 
   const showError = () => {
-    inputRefElement.classList.add(
+    inputRef.current.classList.add(
       'register-page__content-form__input--invalid-phone-number'
     );
 
-    inputTextInvalidPhoneNumberRefElement.style.display = 'block';
-    inputIconValidPhoneNumberRefElement.style.display = 'none';
+    inputTextInvalidPhoneNumberRef.current.style.display = 'block';
+    inputIconValidPhoneNumberRef.current.style.display = 'none';
 
-    nextBtnRefElement.style.opacity = '0.7';
-    nextBtnRefElement.style.cursor = 'not-allowed';
+    nextBtnRef.current.style.opacity = '0.7';
+    nextBtnRef.current.style.cursor = 'not-allowed';
   };
 
   const hideError = () => {
-    inputRefElement.classList.remove(
+    inputRef.current.classList.remove(
       'register-page__content-form__input--invalid-phone-number'
     );
 
-    inputTextInvalidPhoneNumberRefElement.style.display = 'none';
-    inputIconValidPhoneNumberRefElement.style.display = 'block';
+    inputTextInvalidPhoneNumberRef.current.style.display = 'none';
+    inputIconValidPhoneNumberRef.current.style.display = 'block';
 
-    nextBtnRefElement.style.opacity = '1';
-    nextBtnRefElement.style.cursor = 'pointer';
+    nextBtnRef.current.style.opacity = '1';
+    nextBtnRef.current.style.cursor = 'pointer';
   };
 
   const handleKeyDownInput = (event) => {
@@ -62,7 +56,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
       } else {
         if (checkValidPhoneNumber(event.target.value)) {
           setIsValidPhoneNumber(true);
-          nextBtnRefElement.click();
+          nextBtnRef.current.click();
         } else {
           setIsValidPhoneNumber(false);
           showError();
@@ -75,7 +69,7 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
     handlePreventDefault(event);
 
     if (isValidPhoneNumber) {
-      setUserPhoneNumber(inputRefElement.value);
+      setUserPhoneNumber(inputRef.current.value);
       setShowConfirmationPart(true);
     }
   };
@@ -121,33 +115,34 @@ function ContentPart({ setShowConfirmationPart, setUserPhoneNumber }) {
               Số điện thoại không hợp lệ
             </div>
 
-            <svg
-              fill="none"
-              viewBox="0 0 16 16"
-              ref={inputIconValidPhoneNumberRef}
-              className="register-page__content-form__input-icon--valid-phone-number"
-            >
-              <path
+            <div ref={inputIconValidPhoneNumberRef}>
+              <svg
                 fill="none"
-                stroke="#6C0"
-                d="M8 15A7 7 0 108 1a7 7 0 000 14z"
-                clipRule="evenodd"
-              ></path>
-              <path
-                stroke="none"
-                fill="#6C0"
-                fillRule="evenodd"
-                d="M11.621 6.406l-3.98 4.059c-.266.266-.719.244-1.012-.049-.293-.293-.314-.746-.048-1.012l3.98-4.059c.266-.266.719-.245 1.012.048.293.293.314.747.048 1.013z"
-                clipRule="evenodd"
-              ></path>
-              <path
-                stroke="none"
-                fill="#6C0"
-                fillRule="evenodd"
-                d="M3.803 7.997l2.81 2.532c.267.267.72.245 1.013-.048.293-.293.315-.746.048-1.012l-2.81-2.532c-.267-.267-.72-.245-1.013.048-.293.293-.314.746-.048 1.012z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
+                viewBox="0 0 16 16"
+                className="register-page__content-form__input-icon--valid-phone-number"
+              >
+                <path
+                  fill="none"
+                  stroke="#6C0"
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14z"
+                  clipRule="evenodd"
+                ></path>
+                <path
+                  stroke="none"
+                  fill="#6C0"
+                  fillRule="evenodd"
+                  d="M11.621 6.406l-3.98 4.059c-.266.266-.719.244-1.012-.049-.293-.293-.314-.746-.048-1.012l3.98-4.059c.266-.266.719-.245 1.012.048.293.293.314.747.048 1.013z"
+                  clipRule="evenodd"
+                ></path>
+                <path
+                  stroke="none"
+                  fill="#6C0"
+                  fillRule="evenodd"
+                  d="M3.803 7.997l2.81 2.532c.267.267.72.245 1.013-.048.293-.293.315-.746.048-1.012l-2.81-2.532c-.267-.267-.72-.245-1.013.048-.293.293-.314.746-.048 1.012z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </div>
             <button
               ref={nextBtnRef}
               onClick={(event) => handleClickNextBtn(event)}

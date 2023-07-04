@@ -12,9 +12,7 @@ import React, { useState, useRef } from 'react';
 
 function HeaderCommonInfo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const notificationQuantityRef = useRef();
-  const notificationQuantityRefElement =
-    notificationQuantityRef.current as HTMLInputElement;
+  const notificationQuantityRef = useRef<HTMLInputElement>(null);
 
   const { headerNotificationPopupWhenLoggedInListInfo } =
     useDataSourceContext();
@@ -51,8 +49,8 @@ function HeaderCommonInfo() {
     });
 
   const handleMouseLeaveNotificationQuantity = () => {
-    if (notificationQuantityRefElement) {
-      notificationQuantityRefElement.style.display = 'none';
+    if (notificationQuantityRef.current) {
+      notificationQuantityRef.current.style.display = 'none';
     }
   };
 

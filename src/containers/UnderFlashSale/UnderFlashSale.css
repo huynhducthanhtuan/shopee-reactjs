@@ -1,20 +1,20 @@
 .under-flash-sale {
-    height: 11rem;
-    width: 1200px;
-    margin: 2rem auto 0;
+  height: 11rem;
+  width: 1200px;
+  margin: 2rem auto 0;
 }
 .under-flash-sale__part {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .under-flash-sale__link {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 }
 .under-flash-sale__img {
-    display: block;
-    height: 100%;
-    width: 100%;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
