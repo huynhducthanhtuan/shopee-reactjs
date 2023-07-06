@@ -1,4 +1,5 @@
 import axiosClient from './config';
+import { HistoryItemData } from 'types';
 
 // API endpoints
 const API1_URL = process.env.REACT_APP_API1_URL;
@@ -12,7 +13,7 @@ const historyListInfoApi = {
     return result.data;
   },
 
-  post: (postData) => {
+  post: (postData: HistoryItemData) => {
     axiosClient.post('/', postData, {
       headers: {
         'x-access-token': 'token-value'
