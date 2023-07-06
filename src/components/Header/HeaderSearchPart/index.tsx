@@ -1,5 +1,6 @@
 import './HeaderSearchPart.css';
 import React, { useRef } from 'react';
+import { HistoryItemData } from 'types';
 import { historyListInfoApi } from 'apis';
 import { useDataSourceContext } from 'hooks';
 import { handlePreventDefault, scrollToTop } from 'helpers';
@@ -74,8 +75,8 @@ function HeaderSearchPart() {
       var innerHTML = frameInputRef.current.value;
       var href = `https://shopee.vn/search?keyword=${innerHTML}`;
 
-      // [POST]
-      const postData = { href, innerHTML };
+      // Post data
+      const postData: HistoryItemData = { href, innerHTML };
       historyListInfoApi.post(postData);
 
       // Navigate to search page

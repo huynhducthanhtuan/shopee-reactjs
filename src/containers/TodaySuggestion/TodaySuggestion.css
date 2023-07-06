@@ -92,8 +92,8 @@
   z-index: 1;
 }
 .today-suggestion__main-item:hover {
-  transform: translateY(-2px);
   -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
   z-index: 2;
 }
 .today-suggestion__main-product {
@@ -220,8 +220,8 @@
 .today-suggestion__main-item:hover
   .today-suggestion__main-product__hover-label {
   display: block;
-  transform: translateY(-2px);
   -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .today-suggestion__main-product__favourite-label {
