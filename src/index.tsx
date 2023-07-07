@@ -12,7 +12,7 @@ root.render(
     <BrowserRouter>
       <GlobalStyles>
         <DataSourceContextProvider>
-          <App></App>
+          <App />
         </DataSourceContextProvider>
       </GlobalStyles>
     </BrowserRouter>

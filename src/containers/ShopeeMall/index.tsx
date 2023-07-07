@@ -1,11 +1,16 @@
 import './ShopeeMall.css';
+import {
+  ShopeeMallMotionBanner1,
+  ShopeeMallHeadingLabelIcon
+} from 'assets/images';
+import {
+  ShopeeMallMainProduct,
+  ShopeeMallHeadingText,
+  ShopeeMallMainMotionLink
+} from 'types';
 import { $$ } from 'constants/index';
 import { useDataSourceContext } from 'hooks';
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  ShopeeMallHeadingLabelIcon,
-  ShopeeMallMotionBanner1
-} from 'assets/images';
 
 function ShopeeMall() {
   const [queueItems, setQueueItems] = useState([]);
@@ -28,8 +33,8 @@ function ShopeeMall() {
   const QUEUE_ITEM_CURRENT_CLASS =
     'shopee-mall__main__motion__queue-item--current';
 
-  const renderHeadingText = (datas) =>
-    datas.map((data, index) => {
+  const renderHeadingText = (datas: ShopeeMallHeadingText[]) =>
+    datas.map((data: ShopeeMallHeadingText, index: number) => {
       const { image, title } = data;
       return (
         <div key={index}>
@@ -43,14 +48,14 @@ function ShopeeMall() {
       );
     });
 
-  const renderProductList = (datas) => {
+  const renderProductList = (datas: ShopeeMallMainProduct[][]) => {
     const shopeeMallMainProductListLength = datas.length;
     const shopeeMallMainProductListItemsLength =
       shopeeMallMainProductListLength * 2;
 
-    return datas.map((data, index) => (
+    return datas.map((data: ShopeeMallMainProduct[], index) => (
       <li key={index} className="shopee-mall__main__product-item">
-        {data.map((dataChild, index) => {
+        {data.map((dataChild: ShopeeMallMainProduct, index) => {
           const { id, href, image, text } = dataChild;
 
           // check special case: last li tag
@@ -90,8 +95,8 @@ function ShopeeMall() {
     ));
   };
 
-  const renderQueueItems = (datas) =>
-    datas.map((data, index) => {
+  const renderQueueItems = (datas: ShopeeMallMainMotionLink[]) =>
+    datas.map((data: ShopeeMallMainMotionLink, index: number) => {
       return (
         <div
           key={index}
@@ -103,7 +108,7 @@ function ShopeeMall() {
       );
     });
 
-  const updateMotionImageLinkProps = (index) => {
+  const updateMotionImageLinkProps = (index: number) => {
     const { image, href } = motionLinkInfo[index];
     motionImageRef.current.src = image;
     motionLinkRef.current.href = href;

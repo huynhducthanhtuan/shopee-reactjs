@@ -7,6 +7,7 @@ import {
 import { $$ } from 'constants/index';
 import { useDataSourceContext } from 'hooks';
 import React, { useEffect, useRef, useState } from 'react';
+import { SliderFavouriteSelection, SliderMainMotionPartLink } from 'types';
 
 function Slider() {
   const [queueItems, setQueueItems] = useState([]);
@@ -26,8 +27,8 @@ function Slider() {
   const QUEUE_ITEM_CURRENT_CLASS =
     'slider__main__motion-part__queue-item--current';
 
-  const renderFavouriteSelections = (datas) =>
-    datas.map((data, index) => {
+  const renderFavouriteSelections = (datas: SliderFavouriteSelection[]) =>
+    datas.map((data: SliderFavouriteSelection, index: number) => {
       const { href, image, text } = data;
       return (
         <a
@@ -45,8 +46,8 @@ function Slider() {
       );
     });
 
-  const renderQueueItems = (datas) =>
-    datas.map((data, index) => {
+  const renderQueueItems = (datas: SliderMainMotionPartLink[]) =>
+    datas.map((data: SliderMainMotionPartLink, index: number) => {
       return (
         <div
           key={index}
@@ -58,7 +59,7 @@ function Slider() {
       );
     });
 
-  const updateMotionPartImageLinkProps = (index) => {
+  const updateMotionPartImageLinkProps = (index: number) => {
     const { image, href } = motionPartLinkInfo[index];
     motionPartImageRef.current.src = image;
     motionPartLinkRef.current.href = href;

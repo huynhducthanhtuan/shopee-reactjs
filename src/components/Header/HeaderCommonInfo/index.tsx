@@ -7,6 +7,7 @@ import {
   HeaderNotificationWhenNotLoginIcon
 } from 'assets/images';
 import { Link } from 'react-router-dom';
+import { HeaderNotification } from 'types';
 import { useDataSourceContext } from 'hooks';
 import React, { useState, useRef } from 'react';
 
@@ -20,8 +21,8 @@ function HeaderCommonInfo() {
     headerNotificationPopupWhenLoggedInListInfo &&
     headerNotificationPopupWhenLoggedInListInfo.length;
 
-  const renderPopupWhenLoggedInList = (datas) =>
-    datas.map((data, index) => {
+  const renderPopupWhenLoggedInList = (datas: HeaderNotification[]) =>
+    datas.map((data: HeaderNotification, index: number) => {
       const { href, itemImage, itemTitle, itemDescription } = data;
       return (
         <li

@@ -1,14 +1,15 @@
 import './FooterDirectory.css';
 import React from 'react';
+import { FooterDirectoryInfo } from 'types';
 import { useDataSourceContext } from 'hooks';
 
 function FooterDirectory() {
   const { footerDirectoryListInfo } = useDataSourceContext();
 
-  const renderFooterDirectoryList = (datas) =>
-    datas.map((data1, index1) => (
+  const renderFooterDirectoryList = (datas: FooterDirectoryInfo[][]) =>
+    datas.map((data1: FooterDirectoryInfo[], index1: number) => (
       <li key={index1} className="footer__directory__item">
-        {data1.map((data2, index2) => {
+        {data1.map((data2: FooterDirectoryInfo, index2: number) => {
           const { heading, footerDirectoryItemPartListInfo } = data2;
           const { href: href2, innerHTML: innerHTML2 } = heading;
 

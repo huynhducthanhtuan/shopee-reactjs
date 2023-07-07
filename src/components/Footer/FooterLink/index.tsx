@@ -1,6 +1,4 @@
 import './FooterLink.css';
-import React from 'react';
-import { useDataSourceContext } from 'hooks';
 import {
   FooterLinkPaymentImage,
   FooterLinkTransportImage,
@@ -9,6 +7,14 @@ import {
   HeaderGooglePlayIcon,
   HeaderQRCodeImage
 } from 'assets/images';
+import {
+  FooterLinkAboutSocial,
+  FooterLinkAboutTextCSKH,
+  FooterLinkAboutTextVeShopee,
+  FooterLinkCopyrightCountryArea
+} from 'types';
+import React from 'react';
+import { useDataSourceContext } from 'hooks';
 
 function FooterLink() {
   const {
@@ -18,8 +24,8 @@ function FooterLink() {
     footerLinkCopyrightCountryAndAreaListInfo
   } = useDataSourceContext();
 
-  const renderAboutTextCSKHPart = (datas) =>
-    datas.map((data, index) => {
+  const renderAboutTextCSKHPart = (datas: FooterLinkAboutTextCSKH[]) =>
+    datas.map((data: FooterLinkAboutTextCSKH, index: number) => {
       const { href, innerHTML } = data;
       return (
         <div key={index}>
@@ -30,8 +36,8 @@ function FooterLink() {
       );
     });
 
-  const renderAboutTextVeShopeePart = (datas) =>
-    datas.map((data, index) => {
+  const renderAboutTextVeShopeePart = (datas: FooterLinkAboutTextVeShopee[]) =>
+    datas.map((data: FooterLinkAboutTextVeShopee, index: number) => {
       const { href, innerHTML } = data;
       return (
         <div key={index}>
@@ -42,8 +48,8 @@ function FooterLink() {
       );
     });
 
-  const renderAboutSocialPart = (datas) =>
-    datas.map((data, index) => {
+  const renderAboutSocialPart = (datas: FooterLinkAboutSocial[]) =>
+    datas.map((data: FooterLinkAboutSocial, index: number) => {
       const { href, image, text } = data;
       return (
         <a
@@ -63,8 +69,10 @@ function FooterLink() {
       );
     });
 
-  const renderCopyrightCountryAndAreaListPart = (datas) =>
-    datas.map((data, index) => {
+  const renderCopyrightCountryAndAreaListPart = (
+    datas: FooterLinkCopyrightCountryArea[]
+  ) =>
+    datas.map((data: FooterLinkCopyrightCountryArea, index: number) => {
       const { href, innerHTML } = data;
       return (
         <a

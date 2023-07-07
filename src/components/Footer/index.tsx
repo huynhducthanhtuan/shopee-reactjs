@@ -1,8 +1,8 @@
 import React from 'react';
-import FooterText from './FooterText/index';
-import FooterDirectory from './FooterDirectory/index';
-import FooterLink from './FooterLink/index';
-import FooterPolicyAndTerms from './FooterPolicyAndTerms/index';
+import FooterText from './FooterText';
+import FooterDirectory from './FooterDirectory';
+import FooterLink from './FooterLink';
+import FooterPolicyAndTerms from './FooterPolicyAndTerms';
 
 function Footer() {
   return (

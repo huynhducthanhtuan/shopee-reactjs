@@ -1,6 +1,7 @@
 import './SearchTrending.css';
 import React from 'react';
 import { useState, useRef } from 'react';
+import { SearchTrendingMain } from 'types';
 import { useDataSourceContext } from 'hooks';
 import { handlePreventDefault } from 'helpers';
 
@@ -11,8 +12,8 @@ function SearchTrending() {
 
   const { searchTrendingMainListInfo: mainListInfo } = useDataSourceContext();
 
-  const renderMainList = (datas, listIndex) =>
-    datas[listIndex].map((data, index) => {
+  const renderMainList = (datas: SearchTrendingMain[][], listIndex: number) =>
+    datas[listIndex].map((data: SearchTrendingMain, index: number) => {
       const { href, productName, productDescription, image } = data;
       return (
         <a key={index} href={href} className="search-trending__main__item">

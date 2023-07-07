@@ -1,4 +1,9 @@
 import './FooterPolicyAndTerms.css';
+import {
+  FooterPolicyTermsCertificate,
+  FooterPolicyTermsCompany,
+  FooterPolicyTermsTitle
+} from 'types';
 import React from 'react';
 import { useDataSourceContext } from 'hooks';
 
@@ -9,8 +14,8 @@ function FooterPolicyAndTerms() {
     footerPolicyTermsPartCompanyInfoInfo
   } = useDataSourceContext();
 
-  const renderTitlePart = (datas) =>
-    datas.map((data, index) => {
+  const renderTitlePart = (datas: FooterPolicyTermsTitle[]) =>
+    datas.map((data: FooterPolicyTermsTitle, index: number) => {
       const { href, innerHTML } = data;
       return (
         <div key={index} className="footer__policy-terms__part__title__part">
@@ -21,8 +26,8 @@ function FooterPolicyAndTerms() {
       );
     });
 
-  const renderCertificatePart = (datas) =>
-    datas.map((data, index) => {
+  const renderCertificatePart = (datas: FooterPolicyTermsCertificate[]) =>
+    datas.map((data: FooterPolicyTermsCertificate, index: number) => {
       const { href, image } = data;
       return (
         <a
@@ -37,8 +42,8 @@ function FooterPolicyAndTerms() {
       );
     });
 
-  const renderCompanyInfoPart = (datas) =>
-    datas.map((data, index) => (
+  const renderCompanyInfoPart = (datas: FooterPolicyTermsCompany) =>
+    datas.map((data: string, index: number) => (
       <span
         key={index}
         className="footer__policy-terms__part__company-info__text"

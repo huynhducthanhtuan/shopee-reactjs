@@ -1,5 +1,6 @@
 import './TopSearch.css';
 import React, { useRef } from 'react';
+import { TopSearchInfo } from 'types';
 import { useDataSourceContext } from 'hooks';
 import { TopSearchTopLabelIcon } from 'assets/images';
 
@@ -8,12 +9,12 @@ function TopSearch() {
   const nextButtonRef = useRef<HTMLButtonElement>(null);
   const previousButtonRef = useRef<HTMLButtonElement>(null);
 
-  let listIndexCurrent = 1;
+  let listIndexCurrent: number = 1;
 
   const { topSearchMainListInfo: mainListInfo } = useDataSourceContext();
 
-  const renderTopSearchMainList = (datas) =>
-    datas.map((data, index) => {
+  const renderTopSearchMainList = (datas: TopSearchInfo[]) =>
+    datas.map((data: TopSearchInfo, index: number) => {
       const { href, productImage, price, text } = data;
 
       return (

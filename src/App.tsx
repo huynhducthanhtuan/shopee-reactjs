@@ -1,7 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { useDataSourceContext } from 'hooks/index';
-import { ModalStatusContextProvider } from 'contexts/index';
 import {
   HomePage,
   RegisterPage,
@@ -9,6 +5,10 @@ import {
   NotFoundPage,
   LoadingPage
 } from 'pages/index';
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useDataSourceContext } from 'hooks/index';
+import { ModalStatusContextProvider } from 'contexts/index';
 
 function App() {
   const [isReady, setIsReady] = useState(false);

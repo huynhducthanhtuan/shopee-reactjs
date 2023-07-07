@@ -5,6 +5,7 @@ import {
   FlashSaleSelledBarImage
 } from 'assets/images';
 import React, { useRef } from 'react';
+import { FlashSaleMain } from 'types';
 import { useDataSourceContext } from 'hooks';
 
 function FlashSale() {
@@ -15,8 +16,8 @@ function FlashSale() {
   let currentListIndex = 1;
   const { flashSaleMainListInfo: mainListInfo } = useDataSourceContext();
 
-  const renderMainList = (datas) =>
-    datas.map((data, index) => {
+  const renderMainList = (datas: FlashSaleMain[]) =>
+    datas.map((data: FlashSaleMain, index: number) => {
       const {
         href,
         bubbleImage,

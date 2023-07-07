@@ -1,6 +1,7 @@
 import './FooterText.css';
-import React, { useEffect } from 'react';
 import { $$ } from 'constants/index';
+import { FooterTextATag } from 'types';
+import React, { useEffect } from 'react';
 import { useDataSourceContext } from 'hooks';
 
 function FooterText() {
@@ -10,11 +11,13 @@ function FooterText() {
     if (footerTextATagsInfo) {
       const footerTextATags = $$('.footer__text a');
 
-      Array.from(footerTextATags).map((footerTextATag, index) => {
-        const { href, innerHTML } = footerTextATagsInfo[index];
-        // footerTextATag.href = href;
-        // footerTextATag.innerHTML = innerHTML;
-      });
+      Array.from(footerTextATags).map(
+        (footerTextATag: FooterTextATag, index: number) => {
+          const { href, innerHTML } = footerTextATagsInfo[index];
+          footerTextATag.href = href;
+          footerTextATag.innerHTML = innerHTML;
+        }
+      );
     }
   };
 

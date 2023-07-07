@@ -1,11 +1,12 @@
 import './Outstanding.css';
-import React from 'react';
-import { useDataSourceContext } from 'hooks';
 import {
   OutstandingHeaderPicture,
   OutstandingBodyPicture,
   OutstandingFooterPicture
 } from 'assets/images';
+import React from 'react';
+import { useDataSourceContext } from 'hooks';
+import { OutstandingHotBrand, OutstandingHotSellingProduct } from 'types';
 
 function Outstanding() {
   const {
@@ -13,7 +14,7 @@ function Outstanding() {
     outstandingHotBrandsInfo: hotBrandsInfo
   } = useDataSourceContext();
 
-  const renderHotSellingProducts = (datas) => {
+  const renderHotSellingProducts = (datas: OutstandingHotSellingProduct) => {
     const { info, list } = datas;
     return (
       <div>
@@ -62,7 +63,7 @@ function Outstanding() {
     );
   };
 
-  const renderHotBrands = (datas) => {
+  const renderHotBrands = (datas: OutstandingHotBrand) => {
     const { info, list } = datas;
     return (
       <div>

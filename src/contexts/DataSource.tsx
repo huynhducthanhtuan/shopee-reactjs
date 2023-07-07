@@ -24,7 +24,7 @@ function DataSourceContextProvider({ children }) {
         headerSearchHistoryListInfo: historyListInfo
       };
 
-      // Pass dataSource to Consumers
+      // Pass dataSource to consumer
       setDataSource(resultData2);
     };
 

@@ -6,13 +6,18 @@ export type HeaderSearchHistory = {
   href: string;
 };
 
+export type HistoryItemData = {
+  href: string;
+  innerHTML: string;
+};
+
 export type HeaderSearchHistoryKeyword = {
   id: number;
   innerHTML: string;
   href: string;
 };
 
-export type HeaderNotificationPopupWhenLoggedIn = {
+export type HeaderNotification = {
   id: number;
   href: string;
   itemImage: string;
@@ -26,28 +31,38 @@ export type SliderMainMotionPartLink = {
 };
 
 export type SliderFavouriteSelection = {
+  id: number;
   href: string;
   image: string;
+  text: string;
 };
 
-export type OutstandingHotSellingProductsInfo = {
+export type OutstandingHotSellingProduct = {
   info: {
     href: string;
-    image: string;
+    heading: string;
   };
-  list: [
-    { id: number; href: string; image: string; price: string; percent: string }
-  ];
+  list: {
+    id: number;
+    href: string;
+    image: string;
+    price: string;
+    percent: string;
+  }[];
 };
 
-export type OutstandingHotBrandsInfo = {
+export type OutstandingHotBrand = {
   info: {
     heading: string;
     href: string;
   };
-  list: [
-    { id: number; href: string; image: string; subImage: string; text: string }
-  ];
+  list: {
+    id: number;
+    href: string;
+    image: string;
+    subImage: string;
+    text: string;
+  }[];
 };
 
 export type DirectoryMain = {
@@ -68,7 +83,7 @@ export type FlashSaleMain = {
   selledPartWidthPercent: number;
 };
 
-export type UnderFlashSale = {
+export type UnderFlashSaleInfo = {
   id: number;
   href: string;
   image: string;
@@ -82,8 +97,9 @@ export type ShopeeMallHeadingText = {
 
 export type ShopeeMallMainProduct = {
   id: number;
-  title: string;
+  href: string;
   image: string;
+  text: string;
 };
 
 export type ShopeeMallMainMotionLink = {
@@ -100,12 +116,17 @@ export type SearchTrendingMain = {
   image: string;
 };
 
-export type TopSearchMain = {
+export type TopSearchInfo = {
   id: number;
   productImage: string;
   text: string;
   href: string;
+  price?: number;
 };
+
+export type TodaySuggestionFavouriteLabel = 'Mall' | 'Yêu thích' | 'Yêu thích+';
+
+export type TodaySuggestionActiveTab = 'main' | 'supersale';
 
 export type TodaySuggestionMainTabMain = {
   productLink: string;
@@ -116,7 +137,7 @@ export type TodaySuggestionMainTabMain = {
   frameImage?: string;
   saleOffText?: string;
   saleOffLabelPercent?: string;
-  favouriteLabel: 'Mall' | 'Yêu thích' | 'Yêu thích+';
+  favouriteLabel: TodaySuggestionFavouriteLabel;
   sponsorLabel: boolean;
 };
 
@@ -129,7 +150,7 @@ export type TodaySuggestionMainTabSuperSale = {
   frameImage?: string;
   saleOffText?: string;
   saleOffLabelPercent?: string;
-  favouriteLabel: 'Mall' | 'Yêu thích' | 'Yêu thích+';
+  favouriteLabel: TodaySuggestionFavouriteLabel;
   sponsorLabel: boolean;
 };
 
@@ -139,7 +160,7 @@ export type FooterTextATag = {
   innerHTML: string;
 };
 
-export type FooterDirectory = {
+export type FooterDirectoryInfo = {
   id: number;
   heading: {
     href: string;
@@ -176,7 +197,7 @@ export type FooterLinkAboutSocial = {
   text: string;
 };
 
-export type FooterLinkCopyrightCountryAndArea = {
+export type FooterLinkCopyrightCountryArea = {
   id: number;
   href: string;
   innerHTML: string;
@@ -194,9 +215,4 @@ export type FooterPolicyTermsCertificate = {
   image: string;
 };
 
-export type FooterPolicyTermsCompanys = string[];
-
-export type HistoryItemData = {
-  href: string;
-  innerHTML: string;
-};
+export type FooterPolicyTermsCompany = string[];

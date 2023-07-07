@@ -1,13 +1,17 @@
 import './HeaderSearchPart.css';
-import React, { useRef } from 'react';
-import { HistoryItemData } from 'types';
-import { historyListInfoApi } from 'apis';
-import { useDataSourceContext } from 'hooks';
-import { handlePreventDefault, scrollToTop } from 'helpers';
 import {
   HeaderCartImage,
   HeaderSearchVoucherHoanXuBanner
 } from 'assets/images';
+import {
+  HistoryItemData,
+  HeaderSearchHistory,
+  HeaderSearchHistoryKeyword
+} from 'types';
+import React, { useRef } from 'react';
+import { historyListInfoApi } from 'apis';
+import { useDataSourceContext } from 'hooks';
+import { handlePreventDefault, scrollToTop } from 'helpers';
 
 function HeaderSearchPart() {
   const historyRef = useRef<HTMLDivElement>(null);
@@ -17,8 +21,8 @@ function HeaderSearchPart() {
   const { headerSearchHistoryKeywordsListInfo, headerSearchHistoryListInfo } =
     useDataSourceContext();
 
-  const renderHistoryKeywordsList = (datas) =>
-    datas.map((data, index) => {
+  const renderHistoryKeywordsList = (datas: HeaderSearchHistoryKeyword[]) =>
+    datas.map((data: HeaderSearchHistoryKeyword, index: number) => {
       const { href, innerHTML } = data;
       return (
         <a
@@ -31,7 +35,7 @@ function HeaderSearchPart() {
       );
     });
 
-  const renderHistoryList = (datas) => (
+  const renderHistoryList = (datas: HeaderSearchHistory[]) => (
     <div>
       <li className="header__search-history-item header__search-history-item--default">
         <a
@@ -52,7 +56,7 @@ function HeaderSearchPart() {
           .slice(0)
           .reverse()
           .slice(0, 10)
-          .map((data, index) => {
+          .map((data: HeaderSearchHistory, index: number) => {
             const { href, innerHTML } = data;
             return (
               <li key={index} className="header__search-history-item">

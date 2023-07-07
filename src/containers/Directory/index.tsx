@@ -1,6 +1,7 @@
 import './Directory.css';
 import React from 'react';
 import { useRef } from 'react';
+import { DirectoryMain } from 'types';
 import { useDataSourceContext } from 'hooks';
 
 function Directory() {
@@ -11,8 +12,8 @@ function Directory() {
   const { directoryMainItemListInfo: mainItemListInfo } =
     useDataSourceContext();
 
-  const renderMainList = (datas) =>
-    datas.map((data, index) => {
+  const renderMainList = (datas: DirectoryMain[]) =>
+    datas.map((data: DirectoryMain, index: number) => {
       const { href: href1, itemImage: image1, itemTitle: title1 } = data[0];
       const { href: href2, itemImage: image2, itemTitle: title2 } = data[1];
 

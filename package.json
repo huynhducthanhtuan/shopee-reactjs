@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@types/file-loader": "^5.0.1",
+    "@types/react": "^18.2.14",
     "typescript": "^5.1.6"
   }
 }
