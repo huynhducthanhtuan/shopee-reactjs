@@ -1,8 +1,8 @@
 ## Shopee ReactJS
 
-#### From HTML, CSS, JS (https://github.com/huynhdthanhtuan/shopee)
+#### From [HTML, CSS, JS](https://github.com/huynhdthanhtuan/shopee)
 
-#### To ReactJS (https://github.com/huynhdthanhtuan/shopee-reactjs)
+#### Refactor To [ReactJS](https://github.com/huynhdthanhtuan/shopee-reactjs)
 
 ### How to run this project?
 
