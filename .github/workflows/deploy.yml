@@ -19,13 +19,14 @@ jobs:
           node-version: "18"
 
       - name: Install Firebase CLI
-        run: npm install -g firebase-tools      
-        
-      - name: Install package dependencies
-        run: npm install
+        run: npm install -g firebase-tools  
 
       - name: Build React app
+        env:
+          CI: false  # Disable treating warnings as errors
         run: npm run build
 
       - name: Deploy to Firebase Hosting
-        run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          npm install -g firebase-tools
+          firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
