@@ -8,4 +8,4 @@ export const REGISTER_PAGE_TITLE = "Đăng ký ngay | Shopee Việt Nam";
 export const LOGIN_PAGE_TITLE =
     "Đăng nhập tài khoản - Mua sắm Online | Shopee Việt Nam";
 export const HOME_PAGE_TITLE =
-    "Test";
+    "Shopee Việt Nam | Mua và Bán Trên Ứng Dụng Di Động Hoặc Website";
