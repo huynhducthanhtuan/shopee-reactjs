@@ -12,6 +12,9 @@ db.json
 # testing
 /coverage
 
+# env
+.env
+
 # misc
 .DS_Store
 .env.local

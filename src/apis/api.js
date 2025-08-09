@@ -1,10 +1,10 @@
 import axiosClient from "./config";
 
 // API endpoints
-const API1_URL = "https://61bc99f0d8542f001782486b.mockapi.io/api/1";
-const API2_URL = "https://61bc99f0d8542f001782486b.mockapi.io/api/2";
-const API3_URL = "https://61bc99f0d8542f001782486b.mockapi.io/api/3";
-const API4_URL = "https://61bc99f0d8542f001782486b.mockapi.io/api/4";
+const API1_URL = process.env.REACT_APP_API1_URL;
+const API2_URL = process.env.REACT_APP_API2_URL;
+const API3_URL = process.env.REACT_APP_API3_URL;
+const API4_URL = process.env.REACT_APP_API4_URL;
 
 const historyListInfoApi = {
     // [GET]
