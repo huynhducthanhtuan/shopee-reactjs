@@ -20,7 +20,11 @@ jobs:
         
       - name: Install package dependencies
         run: npm install
-
+        env:
+          REACT_APP_API1_URL: ${{ secrets.REACT_APP_API1_URL }}
+          REACT_APP_API2_URL: ${{ secrets.REACT_APP_API2_URL }}
+          REACT_APP_API3_URL: ${{ secrets.REACT_APP_API3_URL }}
+          REACT_APP_API4_URL: ${{ secrets.REACT_APP_API4_URL }}
       - name: Build React app
         env:
           CI: false  # Disable treating warnings as errors
