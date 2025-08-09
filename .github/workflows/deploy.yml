@@ -1,36 +1,36 @@
 name: Deploy web app to Firebase Hosting
 
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18" 
-        
-      - name: Install package dependencies
-        run: npm install
-        env:
-          REACT_APP_API1_URL: ${{ secrets.REACT_APP_API1_URL }}
-          REACT_APP_API2_URL: ${{ secrets.REACT_APP_API2_URL }}
-          REACT_APP_API3_URL: ${{ secrets.REACT_APP_API3_URL }}
-          REACT_APP_API4_URL: ${{ secrets.REACT_APP_API4_URL }}
-      - name: Build React app
-        env:
-          CI: false  # Disable treating warnings as errors
-        run: npm run build
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
 
-      - name: Deploy to Firebase Hosting
-        run: |
-          npm install -g firebase-tools
-          firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+            - name: Install package dependencies
+              run: npm install
+
+            - name: Build React app
+              env:
+                  CI: false # Disable treating warnings as errors
+                  REACT_APP_API1_URL: ${{ secrets.REACT_APP_API1_URL }}
+                  REACT_APP_API2_URL: ${{ secrets.REACT_APP_API2_URL }}
+                  REACT_APP_API3_URL: ${{ secrets.REACT_APP_API3_URL }}
+                  REACT_APP_API4_URL: ${{ secrets.REACT_APP_API4_URL }}
+              run: npm run build
+
+            - name: Deploy to Firebase Hosting
+              run: |
+                  npm install -g firebase-tools
+                  firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
