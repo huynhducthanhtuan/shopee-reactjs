@@ -1,5 +1,6 @@
 {
     "hosting": {
+        "site": "shopee-reactjs-hdttuan",
         "public": "build",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
         "rewrites": [

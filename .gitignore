@@ -8,9 +8,13 @@
 db.json
 /.firebase
 .firebase
+gcloud-key.json
 
 # testing
 /coverage
+
+# build
+/build
 
 # env
 .env
